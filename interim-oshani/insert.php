@@ -15,8 +15,13 @@
 		$last_name = $_REQUEST['last_name'];
 		$email = $_REQUEST['email'];
 		$contactNo = $_REQUEST['contactNo'];
+<<<<<<< HEAD
 		$password = md5($_POST['password']);
 		$cpassword = md5($_POST['cpassword']);
+=======
+		$passward = md5($_POST['passward']);
+		$conpassward = md5($_POST['conpassward']);
+>>>>>>> 7657f56c31f2944b3fd3baeb2b146bbaff588ccf
 		//$passward = $_REQUEST['passward'];
 		//$conpassward = $_REQUEST['conpassward'];
 		$role = $_REQUEST['role'];
