@@ -22,8 +22,6 @@
 		$passward = md5($_POST['passward']);
 		$conpassward = md5($_POST['conpassward']);
 >>>>>>> 7657f56c31f2944b3fd3baeb2b146bbaff588ccf
-		//$passward = $_REQUEST['passward'];
-		//$conpassward = $_REQUEST['conpassward'];
 		$role = $_REQUEST['role'];
 		
 		
