@@ -5,8 +5,8 @@
     // 
     
     $username = $_POST['user'];  
-    $password = $_POST['pass'];  
-    $passward = md5($passward);
+    //$password = $_POST['pass'];  
+    $password = md5($_POST['pass']);
 
     echo ($username);
     echo ($password);
