@@ -20,8 +20,14 @@ if (isset($_POST['submit'])) {
     $lname =$_POST['lname'];
     $usertype = $_POST['usertype'];
 
+	$check_registered_email = mysqli_num_rows(mysqli_query($conn, "SELECT uname FROM loginguser WHERE uname='$uname' ")); 
 
-	if ($passw == $cpassw) {
+      
+        
+	if($check_registered_email> 0){
+            echo "<script>alert('already registered');</script>";
+
+	}elseif ($passw == $cpassw) {
 		$sql = "SELECT * FROM loginuser WHERE uname='$uname'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
