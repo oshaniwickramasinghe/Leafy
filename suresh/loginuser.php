@@ -28,13 +28,15 @@ if(isset($_POST['uname']) && isset($_POST['passw'])){
             header("Location:createpost.php");
             exit();
          }else{
-            header("Location: loginuser.php?error=Incorrect username or password");
+            header("Location: login.php?error=Incorrect username or password");
+           
+
             exit();
          }
        }
        
 }else{
-    header("Location:loginuser.php");
+    header("Location:login.php");
     exit();
 }
 
