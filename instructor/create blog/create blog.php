@@ -1,5 +1,5 @@
 <?php
- include'connect.php';
+ include 'connect.php';
  if(isset($_POST['submit']))
  {
    /* $blog_ID=mysqli_real_escape_string($conn,$_POST['blog_ID']); */
@@ -16,7 +16,7 @@
     if($result1){
        echo"<script>alert('Details added');window.location.href='blog.php';</script>";
     }else{
-        echo"Error: " . $sql2 . "<br>" . mysqli_error($conn);
+        echo"Error: " . $sql1 . "<br>" . mysqli_error($conn);
     }
 
 
@@ -43,7 +43,7 @@
     <h1>Create a Blog Page</h1>
     <div class="create_form_wrapper">
     
-        <form action="blog.php" method="post">
+        <form action="" method="post">
           <div class="field">
             <div>
                 <label for="title">Title</label>
