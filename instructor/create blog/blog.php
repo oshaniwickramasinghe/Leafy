@@ -1,5 +1,5 @@
 <?php
-include'connect.php';
+include 'connect.php';
 $sql2="SELECT * FROM blog";
 
 // make query & get result2
