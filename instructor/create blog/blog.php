@@ -1,5 +1,5 @@
 <?php
-include'connect.php';
+include 'connect.php';
 $sql2="SELECT * FROM blog";
 
 // make query & get result2
@@ -7,7 +7,7 @@ $result2= mysqli_query($conn,$sql2);
 
 if($result2)
     {
-        //echo mysqli_num_rows($result2);
+        echo mysqli_num_rows($result2);
         $list='<ul>';
         while($record=mysqli_fetch_assoc($result2)){
             $list.='<li>';

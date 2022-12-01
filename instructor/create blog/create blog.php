@@ -1,5 +1,6 @@
 <?php
- include'connect.php';
+
+ include 'connect.php';
  if(isset($_POST['submit']))
  {
    /* $blog_ID=mysqli_real_escape_string($conn,$_POST['blog_ID']); */
