@@ -46,13 +46,13 @@ if($result2)
         <div class="content">
             <h2>Blog</h2>
             <div class="container">
-            <div class="container_right">
+            <div class="container_left">
                 <p>Your blog list</p>
                 <div class="card">
                    <?php echo $list;?>
                 </div>
             </div>
-            <div class="container_left"></div>
+            <div class="container_right"></div>
            </div>
             <button onclick="location.href='create blog.php'" type="button" id="create">create</button>
             

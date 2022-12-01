@@ -67,21 +67,21 @@
 }
 
 .instructor_wrapper .content .container{
-    display:flex;
+    
     height:75%;
     margin:20px;
 
 }
 
-.instructor_wrapper .content .container .container_left{
-    flex: 7;
+.instructor_wrapper .content .container .container_right{
+    
     
     
 
 }
 
-.instructor_wrapper .content .container .container_right{
-    flex: 3;
+.instructor_wrapper .content .container .container_left{
+    
     display:block;
     background: #809D5B;
     overflow-y: scroll;
@@ -90,21 +90,21 @@
     
 }
 
-.instructor_wrapper .content .container .container_right p{
+.instructor_wrapper .content .container .container_left p{
     color: #FCFEF9;
     font-size: 17px;
     margin:10px 0 5px 20px;
 
 }
 
-.instructor_wrapper .content .container .container_right .card ul{
+.instructor_wrapper .content .container .container_left .card ul{
     list-style: none;
     margin: 10px;
     padding: 0px;
 
 }
 
-.instructor_wrapper .content .container .container_right .card ul li a{
+.instructor_wrapper .content .container .container_left .card ul li a{
     text-decoration: none;
     padding: 11px;
     margin: 10px;
@@ -114,7 +114,7 @@
     border-radius:25px;
 }
 
-.instructor_wrapper .content .container .container_right .card ul li a:hover{
+.instructor_wrapper .content .container .container_left .card ul li a:hover{
     background: rgba(255, 255, 255, 0.39);
 }
 
