@@ -21,6 +21,8 @@ include 'connect.php'
     <div class="row">
 
       <?php
+
+      
       $query = "SELECT * FROM postcreate ORDER BY itemID ASC";
       //execute mysql query and store data in result
       $result = mysqli_query($conn, $query);
@@ -34,9 +36,13 @@ include 'connect.php'
               <div class="cards">
                 <div class="card_body">
 
-                  <form method="post" action="postview.php?id=<?php echo $row['id'] ?>">
-                    <img src="images/2.jpg" width="100" height="100">
+                
 
+                  <form method="post" action="postview.php?id=<?php echo $row['id'] ?>">
+
+                  
+                    <img src="images/<?php echo $row['img']; ?>" width="100" height="100">
+                            
                     <h5 class="text_info">Name:<?php echo $row['fname']; ?></h5>
                     <h5>Location:<?= $row['flocation']; ?></h5>
                     <h5>Quantity : <?php echo $row['quantity'] ?>kg </h5>
@@ -45,6 +51,8 @@ include 'connect.php'
                     <input type="text" name="quantity" class="form-control" value="1" />
                     <input type="hidden" name="hidden_name" value="<?php echo $row["fname"]; ?>" />
                     <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
+
+                                
 
                     <input type="submit" name="add_to_cart" class="btn" value="Eddit" data-inline="true" />
                     <input type="submit" name="add_to_wishlist" class="btn" value="Delete" data-inline="true" />
