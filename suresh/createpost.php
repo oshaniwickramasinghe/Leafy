@@ -13,67 +13,55 @@
 
 <body>
     
-     <div class="container">
-     <div class="heading">Create post </div>
+<h2>Create Post</h2>
+   
      <form action="user.php" method="get">
-        <div class="postd">
-            <div class=" card-box">
-            <span class="details">Category</span>
-            <select name="category"  class = "select">
+        
+
+           <!-- <h1>Create Post</h1> -->
+
+            <span class="details">Category</span><br>
+            <select class="select" name="category"  class = "select">
                         <option value="Vegetable">Vegetable</option>
                         <option value="Fruit">Fruit</option>
                         <option value="seeds">Seeds</option>
-           </select>
-            </div>
-            <span class="details">Name</span>
-            <div class=" card-box">
-            <input  type="text" placeholder="Enter name" name="fname" required>
-            </div>
+           </select><br>
+           
+
+           <label for = "uname">Name</label><br>
+             <input type = "text" placeholder = "Enter item name" id = "fname"   name = "fname" required><br>
         
+            <label for = "uname">Location</label><br>
+             <input type = "text" placeholder = "Enter Your location" id = "flocation"   name = "flocation" required><br>
 
-            <div class=" card-box">
-            <span class="details">Location</span>
-            <input type="text" placeholder="Enter Your location" name="flocation" required>
+            <label for = "uname">Quantity</label><br>
+             <input type = "text" placeholder = "Quantity" id = "quantity"   name = "quantity" required><br>
+
             
-            </div>
-            
-            <div class=" card-box">
-            <span class="details">Quantity</span>
-            <input type="text" placeholder="" name="quantity" required>
-            </div>
+            <label for = "uname">Minimum Quantity</label><br>
+             <input type = "text" placeholder = "Enter Minimum Quantity" id = "miniquantity"   name = "miniquantity" required><br>
 
-            <div class=" card-box">
-            <span class="details">Minimum Quantity</span>
-            <input type="text" placeholder="" name="miniquantity" required>
-            </div>
+         
+            <label for = "uname">Expiary Date</label><br>
+             <input class="select" type = "date" placeholder = "Enter Expiary Date" id = "exdate"   name = "exdate" required><br>
 
-        <div class=" card-box">
-            <span class="details">Expiary Date</span>
-            <input type="date" placeholder="" name="exdate" required>
 
-        </div>
-        <div class=" card-box">
-            <span class="details">Price</span>
-            <input type="text" placeholder="" name="price" required >
+        <label for = "uname">Price</label><br>
+             <input type = "text" placeholder = "price" id = "price"   name = "price" required><br>
 
-        </div>
+     
+        <label for = "uname">Images</label><br>
+             <input type = "file" placeholder = "upload images" id = "img"   name = "pic1" required><br>
 
-        <div class=" card-box">
-            <span class="details">Images</span>
-            <input type="img" placeholder="upload images" name="img" >
-            
-        </div>
-        <div >
-            <input class="button" type="submit" value="Uplaod files">
+      
+            <!-- <input class="button" type="submit" value="Uplaod files"><br><br> -->
 
-        </div>
-
-        <div >
-            <input class="button" type="submit" value="Submit">
-        </div>
+       
+            <input type = "submit" class = "btn btn-primary w-100 " value = "Submit" name = ""></input>
+       
      </form>
 
-     </div>
+    
 
    
 </body>

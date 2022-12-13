@@ -27,7 +27,7 @@
              <label>
                 <input type ="checkbox" checked = "checked" name = "remember"> Remember me 
              </label>
-             <input type = "submit" class = "btn btn-primary w-100 " value = "Login" name = ""></input>
+             <input type = "submit" class = "btn btn-primary w-100 " value = "Login" name = "log"></input>
           </div>
           <href href = "#">  Forget password?</href>
 

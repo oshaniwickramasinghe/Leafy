@@ -2,13 +2,13 @@
 
 include "connect.php";
 
-$conn = mysqli_connect("localhost","root","","createpost");
+// $conn = mysqli_connect("localhost","root","","createpost");
 
-error_reporting(0);
+// error_reporting(0);
 
 session_start();
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['userid'])) {
     header("Location: login.php");
 }
 
