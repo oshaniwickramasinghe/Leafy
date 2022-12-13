@@ -18,6 +18,7 @@
 		$password = md5($_POST['password']);
 		$cpassword = md5($_POST['cpassword']);
 		$role = $_REQUEST['role'];
+		//$role= mysqli_real_escape_string($conn,$_POST['role']);
 		
 		
 

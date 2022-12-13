@@ -43,10 +43,15 @@
 			<input type="password" name="conpassward" id="conpassward" placeholder="xxxxxxxxxx" required="required">
 			</p>
 
-			<p>
-			<label for="role">Role:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-			<input type="text" name="role" id="role" placeholder="Select role" required="required">
-			</p>
+			<select name="role" class="box">
+            <option value="">Select the user role</option>
+            <option value="admin">Admin</option>
+            <option value="customer">customer</option>
+            <option value="agriculturalist">Agriculruralist</option>
+            <option value="delivery_person">Delivery Person</option>
+            <option value="instructor">Instructor</option>
+            <br>
+            </select>
 
 			
 			
