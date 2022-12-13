@@ -5,7 +5,7 @@ include('connection.php');
 // SQL query to select data from database
 $sql = " SELECT * FROM item ORDER BY item_id DESC ";
 //$result = $mysqli->query($con, $sql);
-$result = mysqli_query($con, $sql); 
+$data = mysqli_query($con, $sql); 
 //$mysqli->close();
 ?>
 <!-- HTML code to display data in tabular format -->
@@ -36,7 +36,7 @@ $result = mysqli_query($con, $sql);
 			<!-- PHP CODE TO FETCH DATA FROM ROWS -->
 			<?php
 				// LOOP TILL END OF DATA
-				while($rows=$result->fetch_assoc())
+				while($rows=$data->fetch_assoc())
 				{
 			?>
 			<tr>
@@ -45,7 +45,8 @@ $result = mysqli_query($con, $sql);
 				<td><?php echo $rows['item_id'];?></td>
 				<td><?php echo $rows['item_name'];?></td>
 				<td><?php echo $rows['item_scientific_name'];?></td>
-				<td><?php echo $rows['item_image'];?></td>
+				<td><?php echo $rows['image'];?></td>
+				<td> <img src="./uploads/<?php echo $rows["image"];?>"></td>				
 				
 			</tr>
 			<?php

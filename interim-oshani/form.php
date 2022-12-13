@@ -29,7 +29,7 @@
 
 			<p>
 			<label for="contactNo">Contact Number:</label>
-			<input type="text" name="contactNo" id="contactNo" placeholder="Contact Number" required="required">
+			<input type="text" name="contactNo" id="contactNo" placeholder="Contact Number" pattern="[0-9]{10}" required="required">
 			</p>
 
 			

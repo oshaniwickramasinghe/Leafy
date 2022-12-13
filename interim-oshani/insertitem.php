@@ -10,10 +10,11 @@
 		<?php
         include('connection.php');  
 
-		$itemname = $_REQUEST['item_name'];
+		$item_name = $_REQUEST['item_name'];
+		$item_scientific_name = $_REQUEST['item_scientific_name'];
 
 		//check already existing users
-		$query="SELECT * FROM item where item_name='$itemname'";
+		$query="SELECT * FROM item where item_name='$item_name'";
 
 		$row=mysqli_query($con, $query);
 
@@ -24,16 +25,20 @@
 		}
 		else
 		{
-			// Taking all 5 values from the form data(input)
-			$item_name = $_REQUEST['item_name'];
-			$item_scientific_name = $_REQUEST['item_scientific_name'];
-			$item_image = $_REQUEST['item_image'];
-			
-			
+
+			$file_tmp1=$_FILES['image']['tmp_name'];
+			$file_name1= "A"."$item_name".rand(1,1000).$_FILES['image']['name'];
+			$target_file1="uploads/".$file_name1;
+			if($file_tmp1!="")
+			{
+				move_uploaded_file($file_tmp1,$target_file1);
+			}
+			else{
+				$file_name1="";
+			}
+
 			// Performing insert query execution
-			// here our table name is college
-			$sql = "INSERT INTO item (item_name, item_scientific_name, item_image)
-			VALUES ('$item_name', '$item_scientific_name', '$item_image')";
+			$sql = "INSERT INTO item (item_name, item_scientific_name,image) VALUES ('$item_name', '$item_scientific_name','$file_name1')";
 			
 			if(mysqli_query($con, $sql)){
 					

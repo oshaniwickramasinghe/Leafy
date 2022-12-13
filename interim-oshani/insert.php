@@ -33,7 +33,7 @@
 		}
 		elseif($passward!=$conpassward)
 		{
-			echo "Password do not match"; 
+			echo "Password does not match"; 
 			exit;
 		}
 		else

@@ -18,16 +18,18 @@ session_start();
             <a href="form.php">
                 <button id="button">form</button>
             </a>
+
+            <p>Click here to add an item</p>
+            <a href="item.html">
+                <button id="button">Item</button>
+            </a>
         
             <p>Click here view users</p>
             <a href="view.php">
                 <button id="button">view</button>
             </a>
 
-            <p>Click here to add an item</p>
-            <a href="item.html">
-                <button id="button">Item</button>
-            </a>
+            
         </div>  
 
     <div class="footer">
