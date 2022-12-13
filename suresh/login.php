@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>veiw posst</title>
+    <title>login</title>
 </head>
 <body>
 <h1>Login</h1>
@@ -27,7 +27,7 @@
              <label>
                 <input type ="checkbox" checked = "checked" name = "remember"> Remember me 
              </label>
-             <input type = "submit" class = "btn btn-primary w-100 " value = "Login" name = ""></input>
+             <input type = "submit" class = "btn btn-primary w-100 " value = "Login" name = "log"></input>
           </div>
           <href href = "#">  Forget password?</href>
 
