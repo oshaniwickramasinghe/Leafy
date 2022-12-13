@@ -9,19 +9,9 @@
 </head>
 <body>
 
-    <?php
-    include 'connect.php';
-
-    $query1 = "SELECT * FROM users WHERE user_id=$id";
-//variables are different
-    $result= mysqli_query($conn,$query1);
-
-    ?>
-
     <!-- The overlay -->
     <div id="myNav" class="overlay">
 
-        <!-- Button to close the overlay navigation -->
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
         <!-- Overlay content -->
@@ -30,12 +20,8 @@
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>
-            <a href='#'> <?php $record['email'] ?></a>
 
         </div>
-
-        
-
             
         <br><br>
 
@@ -55,4 +41,6 @@
     </script>
 </body>
 </html>
+
+
 

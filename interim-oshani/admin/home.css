@@ -266,7 +266,7 @@ body{
 
 }
 
-.instructor_wrapper .content .container .container_right .card ul li a{
+.instructor_wrapper .content .container .container_right .card ul li button{
     text-decoration: none;
     padding: 11px;
     margin: 10px;
@@ -276,7 +276,7 @@ body{
     border-radius:25px;
 }
 
-.instructor_wrapper .content .container .container_right .card ul li a:hover{
+.instructor_wrapper .content .container .container_right .card ul li button:hover{
     background: rgba(255, 255, 255, 0.39);
 }
 

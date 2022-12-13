@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+
 $sql2="SELECT * FROM users";
 
 // make query & get result2
@@ -18,7 +19,6 @@ if($result2)
 
      
     }
-
 
 
 ?> 
