@@ -3,9 +3,7 @@ body{
     
 }  
 
-div{
-    padding: 100px;
-}
+
 
 .header {
     padding: 60px;
@@ -24,8 +22,8 @@ div{
 }
 
 #form{  
-    width:25%; 
-    height:50%;  
+    width:35%; 
+    height:40%;  
     border-radius: 10px;  
     margin: 120px auto;  
     background: rgb(199, 199, 199);  
@@ -38,6 +36,7 @@ div{
     padding: 7px;  
     border: solid #70993d ;  
     border-radius: 10px;
+    float :center;
 }
 
 #logout{  
@@ -72,20 +71,16 @@ table {
     border: 1px  black;
 }
 
-td {
-    background-color: #E4F5D4;
-    border: 1px solid black;
-}
 
-th,
-td {
+
+table,th,td {
     color: rgb(70, 70, 70);
     font-weight: bold;
-    border: 1px solid black;
     padding: 10px;
-    text-align: center;
+    text-align: left;
     font-family: 'Gill Sans', 'Gill Sans MT', ' Calibri', 'Trebuchet MS', 'sans-serif';
-
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 td {
@@ -95,4 +90,19 @@ td {
 img {
     width: 20%;
     height: 20%;
+  }
+
+  
+  .row {
+    display: flex;
+    
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+    flex: 50%;
+    padding: 10px;
+    text-align: left;
+    flex-wrap: wrap;
+    align-content: space-between;
   }

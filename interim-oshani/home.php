@@ -29,6 +29,11 @@ session_start();
                 <button id="button">view</button>
             </a>
 
+            <p>Click here view items</p>
+            <a href="ItemInsertSuccessful.php">
+                <button id="button">view</button>
+            </a>
+
             
         </div>  
 

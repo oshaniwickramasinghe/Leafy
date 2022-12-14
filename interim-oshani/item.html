@@ -10,22 +10,20 @@
     </div>
 
 		<form action="insertitem.php" method="post" id="form" enctype="multipart/form-data">
-			
-			<p>
-			<label for="item_name">Item Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-			<input type="text" name="item_name" id="item_name" placeholder="Item names" required="required">
-			</p>
 
-			
-			<p>
-			<label for="item_scientific_name">Item Scientific Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-			<input type="text" name="item_scientific_name" id="item_scientific_name">
-			</p>
-
-			<p>
-			<label for="item_image">Item Image:&nbsp&nbsp&nbsp</label>
-			<input type="file" name="image" id="image" placeholder="Item Image" required="required">
-			</p>
+			<div class="row">
+				<div class="column" >
+					<p><label for="item_name">Item Name:</label></p>
+					<p><label for="item_scientific_name">Item Scientific Name:</label></p>
+					<p><label for="item_image">Item Image:</label></p>
+				</div>
+				<div class="column" >
+					
+				<p><input type="text" name="item_name" id="item_name" placeholder="Item names" required="required"></p>
+				<p><input type="text" name="item_scientific_name" id="item_scientific_name"></p>
+				<p><input type="file" name="image" id="image" placeholder="Item Image" required="required"></p>
+				</div>
+				</div>
 
 			<input id="button" type="submit" value="Submit">
 

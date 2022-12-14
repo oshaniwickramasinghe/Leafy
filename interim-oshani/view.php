@@ -26,7 +26,7 @@ $result = mysqli_query($con, $sql);
 	<section>
 		<h1>Users of Leafy</h1>
 		<!-- TABLE CONSTRUCTION -->
-		<table>
+		<table class="table">
 			<tr>
 				<th>User ID</th>
 				<th>First Name</th>
