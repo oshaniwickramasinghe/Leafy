@@ -1,0 +1,97 @@
+body{
+    background-color: rgb(205, 238, 205);
+}
+
+form{
+    background-color: rgb(32, 123, 32) ;
+
+    margin-left: 30%;
+    margin-right: 35%;
+    padding-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    color: aliceblue;
+    margin-top: 2%;
+   
+}
+
+
+
+input[type= text] , input[type= password]{
+    width: 80%;
+    display:inline-block;
+    padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;opacity: 0.8;;
+  box-sizing: border-box;
+
+}
+
+input[type= email] , input[type= password]{
+    width: 80%;
+    display:inline-block;
+    padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;opacity: 0.8;;
+  box-sizing: border-box;
+
+}
+input[type= password] , input[type= password]{
+    width: 80%;
+    display:inline-block;
+    padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;opacity: 0.8;;
+  box-sizing: border-box;
+
+}
+
+
+
+input[type=submit] {
+    background-color: #33ca93;
+    color: white;
+    padding: 10px 14px;
+    margin-left: 50%;
+    
+    border: none;
+    cursor: pointer;
+    width: 30%;
+  }
+
+
+
+
+.btn{
+  background-color: #33ca93;
+  color: white;
+  padding: 10px 14px;
+  margin-left: 50%;
+  
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+h1{
+  align-items: center;
+  padding-left: 45%;
+  padding-top: 2%;
+}
+
+.select{
+  padding: 8px 15px;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+.head{
+  margin-left: -6%;
+  margin-top: 8%;
+}
+
