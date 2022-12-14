@@ -8,6 +8,7 @@
 <link rel = "stylesheet" href = "login.css">
     <form action = "config.php" method="post">
    
+    
 
           <div class = "body">
           <?php if (isset($_GET['error'])) { ?>
@@ -19,13 +20,14 @@
              <input type = "password" placeholder = "Enter Password" id = "pass"    name = "password" required><br><br>
               
             
-             <label>
-                <input type ="checkbox" checked = "check" name = "remember"> Remember me 
-             </label>
+             
+                <a href = "forgetPassword.php">  Forget password?</a>
+
+            
              <input type = "submit" class = "btn btn-primary w-100 " value = "Login" name = ""></input>
           </div>
-          <a href = "#">  Forget password?</a>
-          <p class="login-register-text">Do not Have an account? <a href="signup.php">Register Here.</a></p>
+          <!--<a href = "#">  Forget password?</a>--> 
+          <p class="login-register-text">Do not Have an account? <a href="signup.php">  Register Here.</a></p>
 
     </form>
 </body>

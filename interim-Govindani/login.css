@@ -54,7 +54,7 @@ h1{
 
 }
 
-a:link{
-
+a{
+  color: rgb(156, 209, 255);
   text-decoration:none;
 }

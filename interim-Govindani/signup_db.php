@@ -3,7 +3,7 @@
   use PHPMailer\PHPMailer\Exception;
  require 'phpmailer/src/Exception.php';
  require 'phpmailer/src/PHPMailer.php';
-require 'phpmailer/src/SMTP.php';
+ require 'phpmailer/src/SMTP.php';
 //  use PHPMailer\PHPMailer\PHPMailer;
 //  use PHPMailer\PHPMailer\Exception;
 //   use PHPMailer\PHPMailer\SMTP;
@@ -48,26 +48,28 @@ if (isset($_POST['submit'])) {
 
 	  
 	
-	
+	  
 	   $mail = new PHPMailer(true);
 	   $mail->isSMTP();
 	   $mail->Host = 'smtp.gmail.com';
 	   $mail->SMTPAuth = true;
-	   $mail->Username = 'leafycompany22@gmail.com'; // Your gmail
-	   $mail->Password = 'nsavzfrcezpvtvkj'; // Your gmail app password
+	   $mail->Username = 'Leafycompany2022@gmail.com'; // Your gmail
+	   $mail->Password = 'qgzilgqvjzfljtel'; // Your gmail app password
 	   $mail->SMTPSecure ='ssl';
 	   $mail->Port = 465;
-	   $mail->setFrom('leafycompany22@gmail.com');
+	   
+	   $mail->setFrom('Leafycompany2022@gmail.com');
 	   $mail->addAddress($email);
 	   $mail->isHTML(true);
 	   $mail->Subject = "Email verification";
 	   $mail->Body    = 'Please click the below link to verify you email<b><br>
-	   <a href = "http://localhost/interim/interim-Govindani/verify.php/?code = ' .$verification_code .'">http://localhost/interim/interim-Govindani/verify.php/?code = '.$verification_code .'</a></b>';
-	   $mail->send();
-	   
+	   <a href = "http://localhost/copy/interim-Govindani/verify.php?code='.urldecode($verification_code) .'">http://localhost/copy/interim-Govindani/verify.php?code = '.$verification_code .'</a></b>';
+	    
+		$mail->send();
+
 	   echo"
 	   <script>
-	   alert('Sent Successfully');
+	   alert('Email Sent Successfully please check your email');
 	   document.location.href ='signup.php';
 	   </script>
 	   ";
@@ -76,19 +78,21 @@ if (isset($_POST['submit'])) {
 	  
 	
 
+}else{
+	echo "<script>alert('Email Already Exists.')</script>";
 }
-			} else {
-				echo "<script>alert('Something Wrong Went.')</script>";
-			}
-		} else {
-			echo "<script>alert('Email Already Exists.')</script>";
-		}
+
+}else{
+	echo "<script>alert('No data in database.')</script>";
+}
+		
+		
 
 	} else {
 		echo "<script>alert('Password Not Matched.')</script>";
 	}
 
-
+     }
 }
 
 ?>

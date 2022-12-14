@@ -28,16 +28,18 @@ include "signup_db.php";
 				<input type="email" placeholder="Email" name="email"  required>
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Password" name="password"  required>
+				<input type="password" placeholder="Password" name="password" 
+				 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
             </div>
             <div class="input-group">
-				<input type="password" placeholder="Confirm Password" name="cpassword" required>
+				<input type="password" placeholder="Confirm Password" name="cpassword"
+				 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 			</div>
             <p>Select your Role : <select name="user_type"  class = "select">
-                        <option value="user">customer</option>
-                        <option value="admin">Agriculturalist</option>
-                        <option value="admin">Instructor</option>
-                        <option value="admin">Delivery Agent</option>
+                        <option value="customer">customer</option>
+                        <option value="Agriculturalist">Agriculturalist</option>
+                        <option value="Instructor">Instructor</option>
+                        <option value="Delivery Agent">Delivery Agent</option>
            </select>
  
 

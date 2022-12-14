@@ -1,4 +1,5 @@
 <?php
+include "hf.php";
 session_start();
 
 $con = mysqli_connect("localhost" , "root" , "" , "customer_db");
@@ -61,9 +62,9 @@ if(isset($_POST["add_to_cart"])){
 <!DOCTYPE html>
 <html>
 <head>
-<header>
-<button class = "btn_1"><a href = "logout.php">Logout</a></button>
-</header>
+<!-- <header>
+
+</header> -->
 <title>Home</title>
 </head>
 
@@ -77,7 +78,7 @@ if(isset($_POST["add_to_cart"])){
      <div class = "row">    
         
         <?php
-          $query = "SELECT * FROM item ORDER BY id ASC";
+          $query = "SELECT * FROM items ORDER BY id ASC";
           //execute mysql query and store data in result
           $result = mysqli_query($con,$query);
 
