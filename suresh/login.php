@@ -29,7 +29,7 @@
              </label>
              <input type = "submit" class = "btn btn-primary w-100 " value = "Login" name = "log"></input>
           </div>
-          <href href = "#">  Forget password?</href>
+          <a href="forgetPassword.php"> Forget password?</a>
 
     </form>
     

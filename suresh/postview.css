@@ -28,6 +28,24 @@ body{
 
     
   }
+
+  .btnn{
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 195px;
+    height: 45px;
+    color: rgb(3, 3, 3);
+    font-size: 16px;
+    padding: 12px 28px;
+    background: #809D5B;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-style: lato;
+  }
   
   .cards:hover{
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

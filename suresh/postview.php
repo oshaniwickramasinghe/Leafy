@@ -15,6 +15,8 @@ include 'connect.php'
 
 <body>
 
+<button class = "btnn" onclick="document.location='createpost.php'"> Create New Post </button>
+
   <div class="container">
 
 
@@ -43,18 +45,19 @@ include 'connect.php'
                   
                     <img src="images/<?php echo $row['img']; ?>" width="100" height="100">
                             
-                    <h5 class="text_info">Name:<?php echo $row['fname']; ?></h5>
+                    <h5 class="text_info"><?php echo $row['fname']; ?></h5>
                     <h5>Location:<?= $row['flocation']; ?></h5>
                     <h5>Quantity : <?php echo $row['quantity'] ?>kg </h5>
                     <h5>Minimum Quantity : <?php echo $row['miniquantity'] ?>kg </h5>
-                    <h5 class="text_danger">Price: Rs <?php echo $row['price']; ?> /kg</h5>
-                    <input type="text" name="quantity" class="form-control" value="1" />
+                    <h5>Expiary Date : <?php echo $row['exdate'] ?></h5>
+                    <h5 class="text_danger">Price: Rs <?php echo $row['price']; ?></h5>
+                    <!-- <input type="text" name="quantity" class="form-control" value="1" /> -->
                     <input type="hidden" name="hidden_name" value="<?php echo $row["fname"]; ?>" />
                     <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
 
                                 
 
-                    <input type="submit" name="add_to_cart" class="btn" value="Eddit" data-inline="true" />
+                    <input type="submit" name="add_to_cart" class="btn" value="Edit" data-inline="true" />
                     <input type="submit" name="add_to_wishlist" class="btn" value="Delete" data-inline="true" />
 
                   </form>
