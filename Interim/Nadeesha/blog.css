@@ -1,0 +1,243 @@
+
+
+.role_name{
+    color:rgba(67, 86, 43, 0.62);
+    display:flex;
+
+}
+
+.role_name .left {
+    flex:8;
+    margin:0px;
+    padding-left: 260px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+
+
+h1{
+    margin:0px;
+
+}
+
+.role_name .right{
+    flex:2;
+}
+
+.instructor_wrapper{
+    display: flex;
+    height: calc(100%-100px);
+    
+}
+
+.instructor_wrapper .left_menu_bar{
+    flex:2;
+    height:100%;
+    background: #fff;
+    
+}
+
+
+.instructor_wrapper .left_menu_bar ul{
+    list-style: none;
+    margin: 10px;
+    padding: 0px;
+
+}
+
+.instructor_wrapper .left_menu_bar ul li a{
+    text-decoration: none;
+    padding: 11px;
+    margin: 4px;
+    display: block;
+    color: #43562B;
+    background: rgba(217, 217, 217, 0.15);
+    border-radius:4px;
+}
+
+.instructor_wrapper .left_menu_bar ul li a:hover{
+    background: rgba(217, 217, 217, 0.77);
+   
+}
+
+.instructor_wrapper .left_menu_bar h3{
+    color:rgba(67, 86, 43, 0.62);
+    margin-left: 8px;
+    padding-left: 15px;
+}
+
+
+.instructor_wrapper .content{
+    flex:8;
+    height: 100%;
+    padding: 10px 20px;
+    
+    
+   
+
+}
+
+.instructor_wrapper .content h2{
+    color:rgba(67, 86, 43, 0.62);
+}
+
+
+.instructor_wrapper .content .container .container_left button{
+    border:none;
+    color:#FCFEF9;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #5A713D;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.instructor_wrapper .content .container .container_left button:hover{
+    background: #323929;
+}
+
+.instructor_wrapper .content .container{
+    display:flex;
+    height:80%;
+    margin:20px;
+
+}
+
+.instructor_wrapper .content .container .container_right{
+    flex: 6.5;
+
+    background: rgba(128, 157, 91, 0.3);
+   /* overflow-y: scroll;
+    height: 300px; */
+    border-radius: 20px;
+    margin-left: 20px;
+    display: block;
+    
+    
+
+}
+ 
+.instructor_wrapper .content .container .container_right h3{
+    color: #43562B;
+    margin:10px 0 5px 20px;
+    font-size: 17px;
+    padding: 15px 3px 0px 20px;
+
+}
+
+.instructor_wrapper .content .container .container_right .container_button{
+    float: right;
+    margin-right: 20px;
+    margin-top: 0;
+
+}
+
+.instructor_wrapper .content .container .container_right .container_button #edit {
+    border:none;
+    color: #43562B;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 144, 75, 0.2);
+    border-radius: 20px;
+}
+
+.instructor_wrapper .content .container .container_right .container_button #delete{
+    border:none;
+    color:#43562B;
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(206, 91, 91, 0.2);
+    border-radius: 20px;
+}
+
+.instructor_wrapper .content .container .container_right .container_button #edit:hover{
+    background: rgba(39, 144, 75, 0.5);
+}
+
+.instructor_wrapper .content .container .container_right .container_button #delete:hover{
+    background-color: rgba(206, 91, 91, 0.5);
+}
+
+.instructor_wrapper .content .container .container_right .details_container{
+    text-align:left;
+    margin-left: 75px;
+    padding:30px 10px;
+    
+}
+
+.instructor_wrapper .content .container .container_right .details_container h4{
+    color:#43562B ;
+}
+
+.instructor_wrapper .content .container .container_right .details_container table tr{
+    vertical-align: top;
+    
+}
+
+.instructor_wrapper .content .container .container_right .details_container table th, td{
+    
+    padding: 5px;
+    
+
+} 
+
+
+.instructor_wrapper .content .container .container_left{
+    flex: 3.5;
+
+}
+
+
+.instructor_wrapper .content .container .container_left .main_card{
+    
+    display:block;
+    background: #809D5B;
+    overflow-y: scroll;
+    border-radius: 20px;
+    height: 300px;
+    
+}
+
+.instructor_wrapper .content .container .container_left .main_card p{
+    color: #FCFEF9;
+    font-size: 17px;
+    margin:10px 0 5px 20px;
+
+}
+
+.instructor_wrapper .content .container .container_left .main_card .card_left ul{
+    list-style: none;
+    margin: 10px;
+    padding: 0px;
+
+}
+
+.instructor_wrapper .content .container .container_left .main_card .card_left ul li a{
+    text-decoration: none;
+    padding: 12px;
+    margin: 11px;
+    display: block;
+    color: #43562B;
+    background:#fff;
+    border-radius:25px;
+}
+
+.instructor_wrapper .content .container .container_left .main_card .card_left  ul li a:focus {
+   background: rgba(255, 255, 255, 0.39);
+   
+}
+
+/*.hide{
+    display: none;
+}*/
+
