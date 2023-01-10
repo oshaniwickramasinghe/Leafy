@@ -25,7 +25,7 @@ include 'connect.php'
       <?php
 
       
-      $query = "SELECT * FROM postcreate ORDER BY itemID ASC";
+      $query = "SELECT * FROM postcreate ORDER BY itemID DESC";
       //execute mysql query and store data in result
       $result = mysqli_query($conn, $query);
 
@@ -40,7 +40,7 @@ include 'connect.php'
 
                 
 
-                  <form method="post" action="postview.php?id=<?php echo $row['id'] ?>">
+                  <form method="post" action="postview.php?id=<?php echo $row['itemID'] ?>">
 
                   
                     <img src="images/<?php echo $row['img']; ?>" width="100" height="100">
