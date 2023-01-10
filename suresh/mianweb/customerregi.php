@@ -1,3 +1,7 @@
+<?php $this->view('../App\views\includes/header',$data)?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
