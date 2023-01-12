@@ -14,7 +14,18 @@ class Signup extends Controller{
    if($_SERVER['REQUEST_METHOD'] == "POST"){
        if($user->validate($_POST))
          {
-           $user->insert($_POST);
+			$verification_code  = sha1($_POST['email'].time());
+			$arr=	array (
+				'fname' => $_POST['fname'],
+				'lname'=> $_POST['lname'],
+				'email' => $_POST['email'],
+				'password'=>password_hash($_POST['password'],PASSWORD_DEFAULT),
+				'role' => $_POST['role'],
+				'code'=>  $verification_code ,
+				
+			 );
+		
+           $user->insert($arr);
            
 	   $mail = new PHPMailer(true);
 	   $mail->isSMTP();
@@ -30,12 +41,11 @@ class Signup extends Controller{
 	   $mail->isHTML(true);
 	   $mail->Subject = "Email verification";
 	   $mail->Body    = 'Please click the below link to verify you email<b><br>
-	   <a href = "http://localhost/interim/interim-Govindani/verify.php?code=">http://localhost//interim-Govindani/verify.php?code = "</a></b>';
+	<a href = "http://localhost/Leafy/public/'.urldecode($verification_code) .'">http://localhost/copy/interim-Govindani/verify.php?code = '.$verification_code .'</a></b>';
+	   
 	    
-		$mail->send();
-
-            echo "<script>alert('Your profile was successfully created. Please check the email.')</script>";
-            redirect('signup');
+		       $mail->send();
+            redirect('message');
          }
       }
 
