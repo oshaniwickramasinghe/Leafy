@@ -12,7 +12,10 @@ class User extends Model
         'fname',
         'lname',
         'email',
+        'password',
         'role',
+        'code',
+        
     ];
     
 
