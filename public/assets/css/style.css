@@ -243,8 +243,8 @@ small{
 
 .card{
     position: relative;
-    top: 110px;
-    width: 320px;
+    top: 150px;
+    width: 350px;
     display: block;
     margin: auto;
     text-align: center;
@@ -253,7 +253,7 @@ small{
   
   .upper-side {
     padding: 2em;
-    background-color: #8BC34A;
+    background-color:#33ca93be;
     display: block;
     color: #fff;
     border-top-right-radius: 8px;
@@ -262,9 +262,49 @@ small{
   
   .lower-side {
     padding: 2em 2em 5em 2em;
-    background: #fff;
+    background:rgba(128, 156, 91, 0.384);
     display: block;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
   }
+  .contBtn {
+    position: relative;
+    top: 1.5em;
+    text-decoration: none;
+    background:#33ca93;
+    color: #fff;
+    margin: auto;
+    padding: .8em 3em;
+    box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.21);
+    border-radius: 25px;
+    
+  }
   
+  .contBtn:hover {
+    
+    box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
+   
+  }
+
+  .alert{
+    background-color: rgb(255 0 0 / 22%);
+    margin-right: 75px;
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+   
+  }
+
+  .container{
+    margin-top: 18px;
+    position: relative;
+  }
+
+  .container .btn {
+    position:absolute;
+    margin-top: 120px;
+    margin-left: 20px;
+  }
+
