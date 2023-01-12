@@ -19,10 +19,12 @@ function set_value($key)
 }
 
 
-function redirect()
+
+function redirect($link)
 {
  
-   header("Location: " . ROOT."/".$link);
+   header("Location:".$link);
    die;
 
 }
+
