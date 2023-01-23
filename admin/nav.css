@@ -53,9 +53,6 @@
     padding: 0 15px;
 }
 
-
-
-
 .header .center_wrapper .right_part{
     display: flex;
     align-items: center;
@@ -85,70 +82,13 @@
     color:#323929;
 }
 
-/* .header .center_wrapper .right_part .language a:hover{
-    color:#323929;
-} */
-
 .search{
    padding-top: -40%;
     padding-left: 40%;
     display: flex;
     
 
-}
-
-
-
-.container_1{
-
-    width: 250px;
-    height:350px;
-    left: 290px;
-    top: 480px;
-    background: #fefefe24;
-    border-radius: 50px;
-      margin-top: -30%;
-    position: relative;
-    margin-bottom: 8px;
-    }
-
-    .container_2{
-
-        width: 250px;
-        height:350px;
-        left: 290px;
-        top: 480px;
-        background:#fefefe24;
-        border-radius: 50px;
-        margin-left: 18%;
-        margin-top: -24%;
-        position: relative;
-        }
- .container_3{
-
-        width: 250px;
-        height:350px;
-        left: 290px;
-        top: 480px;
-        background:#fefefe24;
-        border-radius: 50px;
-        margin-left: 36%;
-        margin-top: -23%;  
-        position: relative;  
- }
- .container_4{
-        
-         width: 250px;
-        height:350px;
-        left: 290px;
-        top: 480px;
-        background: #fefefe24;
-        border-radius: 50px;
-        margin-left: 54%;
-        margin-top: -23%;
-        position: relative;
-}
-         
+}       
     
 footer{
 
@@ -235,49 +175,6 @@ h3{
     color: #43562B;
     opacity: 61%;
 }
-
-.image_1{
-    width: 250px;
-     height:350px;
-     left: 290px;
-     top: 480px;
-     mix-blend-mode: normal;
-     /* opacity: 0.7; */
-     border-radius: 13px;
-
- } 
-
-
- .image_2{
-    width: 250px;
-     height:350px;
-     left: 290px;
-     top: 480px;
-     mix-blend-mode: normal;
-     /* opacity: 0.7; */
-     border-radius: 13px;
-
- } 
- .image_3{
-    width: 250px;
-     height:350px;
-     left: 290px;
-     top: 480px;
-     mix-blend-mode: normal;
-/* opacity: 0.7; */
-border-radius: 13px;
- } 
-
- .image_4{
-    width: 250px;
-     height:350px;
-     left: 290px;
-     top: 480px;
-     mix-blend-mode: normal;
-     /* opacity: 0.7; */
-     border-radius: 13px;
-
- } 
 
   .btnn{
     position: absolute;

@@ -50,19 +50,7 @@
 </header>
 
 <body>
-   
-  <div class  =  "search">
 
-        <input  type = "text" placeholder = "Search for items.."  name= "search">
-        <a class="btn btn-danger" href="#" aria-label="search">
-            <div class = "icon">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        </div>
-         </a>
-   
-
-       
-    </div>
     <div class="input-icons">
         <h3>Menu </h3>
        <div class = "icon_1">
@@ -80,13 +68,13 @@
        <div class = "icon_4">
        <i class="fa fa-refresh" aria-hidden="true"></i>
        </div>
-            <input class="input-field" type="submit" value= "History">
+        <input class="input-field" type="submit" value= "History">
        <div class = "icon_5">
         <i class="fa fa-question-circle" ></i>
         </div>
          <input class="input-field" type="submit" value= "Forum"><br>
            
-        </div>
+    </div>
 
     
 </body>
