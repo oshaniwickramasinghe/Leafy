@@ -1,6 +1,3 @@
-<?php
-
-?>
 
 <html>
  
@@ -11,7 +8,7 @@
             <div class="left_part">
                 <div class="logo_1">
                     
-                        <img src="images/logo.svg"  height= "121.42px" >
+                        <img src="../images/logo.svg"  height= "121.42px" >
                       
                    
                 </div>
@@ -38,13 +35,13 @@
             <?php if(!logged_in()):
 
                 ?>  
-               <li><a href="login.view.php" class="">Login</a></li>
+               <li><a href="../Login.view.php" class="">Login</a></li>
             <?php else: ?>
                 <div>
                 <li><a href="#" class="">Hi,<?= getfname()?></a></li>
                     
                 </div>
-                <li><a href="Logout.php" class="">Logout</a></li>
+                <li><a href="../Logout.php" class="">Logout</a></li>
             <?php endif; ?>
             <li><a href="" class="">Languages (EN)</a></li>
                 

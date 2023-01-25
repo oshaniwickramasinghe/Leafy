@@ -1,4 +1,6 @@
-<?php include 'includes/header.view.php'?>
+<?php 
+require "Auth.php";
+include 'includes/header.view.php'?>
 
 <html>
 <link rel="stylesheet" href="../Customer/CSS/style.css">

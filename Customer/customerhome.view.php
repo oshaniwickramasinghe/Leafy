@@ -1,4 +1,7 @@
-<?php include 'includes/header.view.php';
+<?php 
+
+require "Auth.php";
+include 'includes/header.view.php';
 
 
 ?>
@@ -30,7 +33,7 @@
 
 <div class = "home_body">
 <div class = "shopping">
-<a href="cart" ><button ><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> Cart </button></a>
+<a href="../Customer/shopping_cart/cart.view.php" ><button ><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> Cart </button></a>
         
 </div>
 
