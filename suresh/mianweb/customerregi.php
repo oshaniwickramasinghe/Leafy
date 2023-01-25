@@ -1,4 +1,4 @@
-<?php $this->view('../App\views\includes/header',$data)?>
+
 
 
 
@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<link rel = "stylesheet" href = "regi.css">
+<link rel = "stylesheet" href = "style.css">
     <form action = "loginuser.php" method="post">
 
     <h1>Regiser</h1>
@@ -30,15 +30,18 @@
                         <option value="admin">Delivery Agent</option>
     </select><br>
     <label for="">Address</label><br>
-    <input type="text" placeholder="Enter your Address" name=""  required><br>
-    <input type="text" placeholder="Default Address" name=""  required><br>
+    <input type="text" placeholder="Address Line 1" name=""  required><br>
+    <input type="text" placeholder="Address Line 2" name=""  required><br>
 
-    <div class="input-group">
-				<button name="submit" class="btn">Sign up</button>
-			</div>
-  
+    <input type="submit" class="btn btn-primary w-100 " value="Submit" name=""></input>
 
     </form>
+    <style>
+     body{
+   
+    background-image: url('photos/agri.jpg');
+}
+</style>
     
 </body>
 </html>

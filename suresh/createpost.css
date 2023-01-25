@@ -5,16 +5,45 @@
   box-sizing: border-box;
   font-family: lato;
 }
+
+select{
+  width: 80%;
+  display:inline-block;
+  padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;opacity: 0.8;;
+box-sizing: border-box;
+}
+
+#exdate{
+  width: 80%;
+  display:inline-block;
+  padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;opacity: 0.8;;
+box-sizing: border-box;
+}
+
+h2{
+  align-items: center;
+  margin-left: 45%;
+  margin-top: 5px;
+ 
+}
 body{
     background-color: rgb(255, 255, 255);
 }
 
 form{
   background: #809D5B;
-  
 
+  align-items: center;
+  
     margin-left: 30%;
-    margin-right: 35%;
+    margin-right: 30%;
+    margin-bottom: 10%;
     padding-left: 5%;
     padding-top: 3%;
     padding-bottom: 3%;
