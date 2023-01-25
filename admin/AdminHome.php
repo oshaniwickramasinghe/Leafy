@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="..\includes\css\style.css">
 <title>
      Home
 </title> 
@@ -12,26 +12,28 @@
 
 <body>
 
-<?php include 'AdminNav.php'; ?>
-
- <div class  = "shopping">
+<?php include '..\includes\header.view.php'; ?>
+<?php include '..\includes\menu.view.php'; ?>
 
 <div class = "home_body">
-<!-- <div class = "shopping">
-<i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-        <button class = "cart" onclick="document.location='shopping_cart.php'"> Cart </button>
-</div> -->
-
 <ul>
-<li><div class  = "container "><a href="Vegetables" ><Button class = "btn">Vegetables & Fruits </Button></a><img src = "images/items.png" width = "200px" height = "300px" ></div></li>
-<li><div class  = "container "><a href="seeds" ><Button class = "btn">Seeds </Button></a><img src = "images/posts.png" width = "200px" height = "300px"></div></li>
-<li><div class  = "container "><a href="blog" ><Button class = "btn">Blog </Button></a><img src = "images/courses.png" width = "200px" height = "300px"></div></li>
-<li><div class  = "container "><a href="courses" ><Button class = "btn">Courses </Button></a><img src = "images/blogs.png" width = "200px" height = "300px"></div></li>
+<li><img src = "..\includes\images\items.png" width = "200px" height = "300px"></li>
+<li><img src = "..\includes\images\posts.png" width = "200px" height = "300px"></li>
+<li><img src = "..\includes\images\courses2.png" width = "200px" height = "300px"></li>
+<li><img src = "..\includes\images\blogs.png" width = "200px" height = "300px"></li>
 </ul>
 </div>
+
+<div class = "home_text">
+<ul>
+<li><a href="Vegetables" ><Button>Vegetables & Fruits </Button></a></li>
+<li><a href="seeds" ><Button>  Seeds </Button></a></li>
+<li><a href="blogs" ><Button>  Blogs</Button></a></li>
+<li><a href="courses" ><Button>  Courses </Button></a></li>
+</ul>
 </div>
 
-
+<?php include '..\includes\footer.view.php'; ?>
 </body>
 
 
