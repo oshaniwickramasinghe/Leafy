@@ -32,6 +32,7 @@ if(mysqli_num_rows($select)>0){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="home.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
@@ -62,10 +63,14 @@ if(mysqli_num_rows($select)>0){
             </div>
             <div class="right_part">
                 <div class="profile_icon">
+                    <label for="" class="button">
                     <a href="#" class="user-pic" onclick="toggleMenu()">
                         <img src="images/profilepic_icon.svg" alt="">
                         <p><?php echo $fetch['first_name']." ".$fetch['last_name']; ?></p>
                     </a>
+                    <span class="fa-solid fa-circle-chevron-down"></span>
+                    </label>
+                    <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
                 </div>
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
