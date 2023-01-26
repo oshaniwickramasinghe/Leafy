@@ -67,10 +67,13 @@
     padding: 0 15px;
 }
 
+<<<<<<< HEAD:public/assets/css/style.css
+=======
 footer{
     background-attachment: fixed;
     position: relative;
 }
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css
 .para{
     background-color: #12111110;
     margin: 0px 20px;
@@ -81,11 +84,19 @@ footer{
     text-align: center;
     text-decoration: none;
     font-family: 'Lato';
+<<<<<<< HEAD:public/assets/css/style.css
+    font-size: 16px;
+=======
     font-size: 20px;
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css
     font-weight: 400;
     color:#000000;
 }
  .home_body{
+<<<<<<< HEAD:public/assets/css/style.css
+    padding-left: 160px;
+ }
+=======
     padding-left: 180px;
     /* margin-top: -14%; */
  }
@@ -96,6 +107,7 @@ footer{
    
  }
  
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css
  .home_body ul {
     list-style: none;
     display: flex;
@@ -172,6 +184,8 @@ input[type= text] , input[type= password],input[type= email]{
   -o-border-radius:40px ;
 }
 
+<<<<<<< HEAD:public/assets/css/style.css
+=======
 input[type= search]{
     width: 80%;
     display:inline-block;
@@ -184,6 +198,7 @@ input[type= search]{
 }
 
 
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css
 input[type=submit] {
     background-color: #33ca93;
     color: white;
@@ -260,15 +275,24 @@ a{
 small{
     font-family: 'Lato';
     color: red;
+<<<<<<< HEAD:public/assets/css/style.css
+    margin-left: 10px;
+=======
     margin-left: 5px;
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css
     margin-top: -3px;
 
 }
 
 .card{
     position: relative;
+<<<<<<< HEAD:public/assets/css/style.css
+    top: 110px;
+    width: 320px;
+=======
     top: 150px;
     width: 350px;
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css
     display: block;
     margin: auto;
     text-align: center;
@@ -277,7 +301,11 @@ small{
   
   .upper-side {
     padding: 2em;
+<<<<<<< HEAD:public/assets/css/style.css
+    background-color: #8BC34A;
+=======
     background-color:#33ca93be;
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css
     display: block;
     color: #fff;
     border-top-right-radius: 8px;
@@ -286,11 +314,18 @@ small{
   
   .lower-side {
     padding: 2em 2em 5em 2em;
+<<<<<<< HEAD:public/assets/css/style.css
+    background: #fff;
+=======
     background:rgba(128, 156, 91, 0.384);
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css
     display: block;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
   }
+<<<<<<< HEAD:public/assets/css/style.css
+  
+=======
   .contBtn {
     position: relative;
     top: 1.5em;
@@ -429,3 +464,4 @@ h3{
 .fa-cart-plus{
     padding-right: 10px;
 }
+>>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:includes/CSS/style.css

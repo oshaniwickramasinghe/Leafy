@@ -1,0 +1,86 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: lato;
+  }
+  body{
+      background-color: rgb(255, 255, 255);
+      background-image: url('photos/vege0.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    
+  }
+  
+  form{
+    background: #809D5B;
+    opacity: 0.8;
+    
+    margin-top: 5%;
+      margin-left: 30%;
+      margin-right: 30%;
+      padding-left: 5%;
+      padding-top: 3%;
+      padding-bottom: 3%;
+      color: rgb(0, 0, 0);
+      border-radius: 50px;
+     
+  }
+  
+  input{
+      width: 80%;
+      display:inline-block;
+      padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(255, 255, 255);opacity: 0.8;;
+    box-sizing: border-box;
+    border-radius: 50px;
+  
+  }
+  
+  input[type=submit] {
+    /* background: #5A713D; */
+      color: white;
+      padding: 10px 14px;
+      margin-left: 50%;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      width: 30%;
+    }
+  
+  
+  h1{
+   text-align: center;
+      /* padding-left: 45%;
+      padding-top: 5%; */
+  }
+  
+  .select{
+    padding: 8px 15px;
+    background: #ffffff;
+    padding: 10px 14px;
+    border-radius: 50px;
+  
+    
+    width: 80%;
+  }
+
+  
+.btn{
+    background: #5A713D;
+    border-radius: 50px;
+  color: white;
+  padding: 10px 14px;
+  margin-left: 50%;
+  
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+  
+  
+  

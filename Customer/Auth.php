@@ -8,6 +8,7 @@ session_start();
     {
         if(!empty( $_SESSION['USER_DATA'] ))
         {
+            unset($_SESSION['cart']);
            unset($_SESSION['USER_DATA']);
         
         }
