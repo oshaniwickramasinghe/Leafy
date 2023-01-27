@@ -1,5 +1,4 @@
 <?php
-require "../Customer/Auth.php";
 
 ?>
 
@@ -11,9 +10,10 @@ require "../Customer/Auth.php";
         <div class="center_wrapper">
             <div class="left_part">
                 <div class="logo_1">
-                    <a href="">
-                        <img src="../Customer/images/logo.svg" alt="">
-                    </a>
+                    
+                        <img src="images/logo.svg"  height= "121.42px" >
+                      
+                   
                 </div>
                 <div class="menu">
                     <ul>

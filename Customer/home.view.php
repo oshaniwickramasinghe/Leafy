@@ -1,9 +1,12 @@
-<?php include 'includes/header.view.php'?>
+
+<?php 
+require "Auth.php";
+include 'includes/header.view.php'?>
 
 <html>
 <link rel="stylesheet" href="../Customer/CSS/style.css">
-<title>
-     Home
+
+   <title>Home
 </title> 
 <body>
 <div class = "para">
@@ -15,10 +18,11 @@ sell and by products.</p>
 </div>
 <div class = "home_body">
 <ul>
-<li><img src = "images/v.png" width = "200px" height = "300px"></li>
-<li><img src = "images/s.png" width = "200px" height = "300px"></li>
-<li><img src = "images/b.png" width = "200px" height = "300px"></li>
+<li><img src = "images/v.png" width = "200px" height = "300px" class = "responsive"></li>
+<li><img src = "images/s.png" width = "200px" height = "300px" class  = "responsive"></li>
+<li><img src = "images/b.png" width = "200px" height = "300px" class = "responsive"></li>
 <li><img src = "images/c.png" width = "200px" height = "300px"></li>
+
 </ul>
 </div>
 
@@ -33,4 +37,7 @@ sell and by products.</p>
 
 
 </body>
+
+
 <?php include 'includes/footer.view.php'?>
+
