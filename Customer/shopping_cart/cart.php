@@ -63,16 +63,16 @@ if(isset($_POST['add'])){
     }
 }
 
-// function cart(){
-//   $host = "localhost";
-// $uname = "root";
-// $password = "";
-// $db_name = "leafy";
+function cart(){
+  $host = "localhost";
+$uname = "root";
+$password = "";
+$db_name = "leafy";
 
 
-// $conn = mysqli_connect($host,$uname,$password,$db_name);
+$conn = mysqli_connect($host,$uname,$password,$db_name);
 
      
-//       // return $res;
-// }
+      // return $res;
+}
 

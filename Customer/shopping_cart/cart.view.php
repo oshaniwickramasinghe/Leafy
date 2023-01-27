@@ -3,6 +3,7 @@ error_reporting(0);
 require "../Auth.php";
 include '../includes/header.php';
 require "cart.php";
+// require "deleteItem.php";
 
 $host = "localhost";
 $uname = "root";
@@ -11,19 +12,10 @@ $db_name = "leafy";
 
 
 $conn = mysqli_connect($host,$uname,$password,$db_name);
-if (isset($_POST['remove'])){
-  
-    foreach ($_SESSION['cart'] as $key => $value){
-        
-            unset($_SESSION['cart'][$key]);
-            echo "<script>alert('Product has been Removed...!')</script>";
-            echo "<script>window.location = 'cart.view.php'</script>";
-            $sql = "UPDATE post SET quantity= '' WHERE post_id = $id";
-            $result = mysqli_query($conn,$sql);
-        
-    
-  }
-  }
+
+
+
+
 
 ?>
 
@@ -138,7 +130,27 @@ if (isset($_POST['remove'])){
       <td> <?php  echo $_SESSION['cart']['quantity']?>Kg</td>
       <td> Rs <?php  echo $rows["unit_price"]; ?></td>
 			<td> Rs <?php  echo $rows["unit_price"]*$_SESSION['cart']['quantity']*1; ?></td>
-      <td><button   class="text-danger"  name  = "remove">Remove</button></td>
+      <td><button class="text-danger"  name  = "remove" onclick = "deleteItem()" >Remove</button></td>
+      <script>
+
+        function deleteItem(){
+          if( confirm('Are you sure want to delete this item?') == true){
+            <?php
+
+              if (isset($_POST['remove'])){
+  
+            foreach ($_SESSION['cart'] as $key => $value){
+                    unset($_SESSION['cart'][$key]);
+          
+              }
+              }
+
+       ?>
+          }
+        }
+
+</script>
+
 
        <!-- getting sum of the items -->
             <?php
@@ -148,9 +160,12 @@ if (isset($_POST['remove'])){
 </tr>
 </table>
 
-<input type= "submit" name= "checkout" class= "btn_1" value= "Check Out  Rs. <?php echo $total ?> .00" data-inline = "true"/ style = "font-size :16px; width:200px">
+<input type= "submit" name= "checkout" class= "btn_1" value= "Check Out  Rs. <?php echo $total ?> .00" data-inline = "true" style = "font-size :16px; width:200px" >
 
-     <!-- after checking out update the post table and insert into database -->
+
+
+
+<!-- after checking out update the post table and insert into database -->
 
 <?php
 
