@@ -3,21 +3,12 @@ error_reporting(0);
 require "../Auth.php";
 include '../includes/header.php';
 require "cart.php";
-// require "deleteItem.php";
-
-$host = "localhost";
-$uname = "root";
-$password = "";
-$db_name = "leafy";
-
-
-$conn = mysqli_connect($host,$uname,$password,$db_name);
-
-
-
-
+// unset($_SESSION['cart']);
 
 ?>
+
+
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +95,11 @@ $conn = mysqli_connect($host,$uname,$password,$db_name);
    <?php
     $total =0;
 
-    $id =$_SESSION['cart'][0]['post_id']; 
+
+    $id =$_SESSION['cart']['0']['post_id']; 
+
+  
+  
     $sql = "SELECT * FROM `post` WHERE post_id = $id";
     $result = mysqli_query($conn,$sql);
     //  $rows = mysqli_fetch_assoc($result);
@@ -119,81 +114,89 @@ $conn = mysqli_connect($host,$uname,$password,$db_name);
      <!-- //details for the shopping cart -->
     <tr>
       <td> <?php  echo $rows["item_name"]; ?></td>
-      <td> <input type = "number" name = "quantity" id = "number" value = "<?php echo $_POST['quantity'];?>" class = "form-control"   width = "50px"></td>
+      <td> <input type = "number" name = "quantity" id = "number" value = "<?php echo $_POST['quantity'];?>" class = "form-control"   width = "50px">
+      <button class = "update" name = "update">Add</button>
+    </td>
 
       <!-- getting the quantity input by the customer -->
           <?php if($_SERVER['REQUEST_METHOD'] == "POST"){
-               $quantity = $_POST['quantity'];
+            $quantity = $_POST['quantity'];
+            if(isset($_POST['update'])){
+            if($quantity<= $rows['quantity'] && $quantity>0){
+               
+               if(isset($_SESSION['cart']['quantity'])){
+                $_SESSION['cart']['quantity'] +=$quantity;
+               }else{
                $_SESSION['cart']['quantity'] =  $quantity;
-               };
+               }
+            }
+              
+              }
+            }
            ?>
       <td> <?php  echo $_SESSION['cart']['quantity']?>Kg</td>
       <td> Rs <?php  echo $rows["unit_price"]; ?></td>
 			<td> Rs <?php  echo $rows["unit_price"]*$_SESSION['cart']['quantity']*1; ?></td>
       <td><button class="text-danger"  name  = "remove" onclick = "deleteItem()" >Remove</button></td>
-      <script>
+    <?php
+    function total(){
+         
+    }
+    ?>
 
-        function deleteItem(){
-          if( confirm('Are you sure want to delete this item?') == true){
-            <?php
+    <script>
 
-              if (isset($_POST['remove'])){
-  
-            foreach ($_SESSION['cart'] as $key => $value){
-                    unset($_SESSION['cart'][$key]);
-          
-              }
-              }
+function deleteItem(){
+  if( confirm('Are you sure want to delete this item?') == true){
+    <?php
+    if (isset($_POST['remove'])){
+    foreach ($_SESSION['cart'] as $key => $value){
+       unset($_SESSION['cart'][$key]);
+      }
+      }
+      
+      ?>
 
-       ?>
-          }
-        }
 
+  }
+}
 </script>
 
 
        <!-- getting sum of the items -->
             <?php
-              $total  = $total +$rows["unit_price"]*$_SESSION['cart']['quantity'];
+              $total  += $rows["unit_price"]*$_SESSION['cart']['quantity'];
 
             ?>
 </tr>
 </table>
 
-<input type= "submit" name= "checkout" class= "btn_1" value= "Check Out  Rs. <?php echo $total ?> .00" data-inline = "true" style = "font-size :16px; width:200px" >
-
-
-
-
-<!-- after checking out update the post table and insert into database -->
-
-<?php
-
-if(isset($_POST['checkout'])){
-   $quan = $rows['quantity']- $_SESSION['cart']['quantity'];
-
-   if($quan>=0){
-   $sql = "UPDATE post SET quantity= '$quan' WHERE post_id = $id";
-   $result = mysqli_query($conn,$sql);
-   $query = "INSERT INTO ";
-    }else{
-
-    }
-}
-
-?>
-
-   <!-- closing the while loop -->
+ <!-- closing the while loop -->
 <?php
    }
    }
+
 ?>
+
 </div>
-</form>
+
+</form>  
+
+<div class  =  "check_form">
+<form method = "Post" action  =  "checkout.php">
+ <div class  = "check">
+<input type= "submit" name= "checkout" class= "btn_1" value= "Check Out  Rs. <?php echo $total ?> .00" 
+ data-inline = "true" style = "font-size :16px; width:200px" >
+  </div>
+  </form>
+  </div>
  </div>
+
 <br>
+
   <!-- showing related items -->
 <p class = "topic">You may wish to add items from same agriculturalist...</p>
+
 <div class = "column">
                 <div class = "cards">
                     <div class = "card_body">
