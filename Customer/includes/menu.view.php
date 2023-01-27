@@ -20,24 +20,22 @@
        </a>
  </div>
 
-    <div class="input-icons">
-        <h3>Menu </h3>
-       <div class = "icon_1">
-       <i class="fa fa-pencil-square-o" aria-hidden="true" ></i>
-       </div>
-       <input class="input-field" type="button" value= "Posts"><br>
-       <div class = "icon_2">
-            <i class="fa fa-bell" aria-hidden="true"></i>
-       </div>    
-       <input class="input-field" type="button" value= "Notifications"><br>
-       <div class = "icon_3">
-            <i class="fa fa-line-chart" aria-hidden="true"></i>
-       </div>
-            <input class="input-field" type="button" value= "Reports">
-       <div class = "icon_4">
-        <i class="fa fa-question-circle" ></i>
+ <div class="containerr">
+        <div class="left_menu_bar">
+            <div id="menu">
+                <a><i class="fa-solid fa-bars"></i></a>
+                <div class="image"><img src="images/badge.svg" alt=""></div>
+                <h3>Leafy</h3>
+            </div>
+            <ul>
+                <li><a href=""><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Dashboard</a></li>
+                <li><a href=""><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
+                <li><a href=""><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Questions</a></li>
+                <li><a href="blog.php"><i class="fa-brands fa-blogger"  style="font-size:16px;color:black;"></i>Blogs</a></li>
+                <li><a href=""><i class="fa-brands fa-readme" style="font-size:16px;color:black;"></i>Courses</a></li>
+            </ul>
+
         </div>
-         <input class="input-field" type="button" value= "Forum"><br>
 </div>
 
 
