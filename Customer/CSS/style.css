@@ -105,7 +105,7 @@ footer{
 
  .loggedhome_body{
     padding-left: 55px;
-    margin-top:-16%;
+    margin-top:-40%;
    
  }
  
@@ -143,8 +143,8 @@ Button{
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
-   border-color:rgba(255, 255, 255, 0.241) ;
-    background-color: #d0d0d0;
+   border-color:rgba(228, 228, 228, 0.564) ;
+    background-color: #9c9c9c;
     color: rgb(255, 255, 255);
 }
 
@@ -737,8 +737,88 @@ background-color:rgb(159, 159, 159);
     margin-top: 15%;
     margin-left: 260px;
 }
-.fa-cc-mastercard{
+.fa-cc-mastercard{ 
     margin-top: -5%;
     margin-left: 360px;
+}
+.containerr{
+    height: 80%;
+    width: 15%;
+    display: flex;
+    padding-top: 15px;
+}
+
+
+
+
+.containerr .left_menu_bar{
+    flex:1.5;
+    background: #8f918b29;
+    display: block;
+    border-radius:10px;
+    height: 350px;
+    box-shadow: var(--box-shadow);
+    margin-top: 1%;
+    margin-left: 1%;
+    
+    
+}
+
+.containerr .left_menu_bar ul li a{
+    text-decoration: none;
+    padding: 11px;
+    margin: 4px;
+    display: block;
+    color: #43562B;
+    background:#fff;
+    border-radius:4px;
+
+    
+}
+
+.containerr .left_menu_bar ul li a:hover{
+    background: rgba(217, 217, 217);
+   
+}
+
+.containerr .left_menu_bar h3{
+    color:rgb(0, 0, 0);
+    margin-left: 0px;
+    padding-left:0px;
+   
+}
+
+
+
+.containerr .left_menu_bar #menu{
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.left_menu_bar i{
+    display: inline-block;
+    margin-right: 1em;
+    
+  }
+
+  .left_menu_bar #menu .image{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+
+  }
+
+.left_menu_bar #menu i{
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+.containerr .left_menu_bar ul{
+    list-style: none;
+    margin: 10px;
+    padding: 0px;
+
 }
 }
