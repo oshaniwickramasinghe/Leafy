@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\includes\css\style.css">
-<title>
-     Home
+
+<?php 
+require "connect.php";
+include '../Customer/includes/header.view.php'?>
+
+<html>
+<link rel="stylesheet" href="../Customer/CSS/style.css">
+
+   <title>Home
 </title> 
-</head>
-
 <body>
-
-<?php include '..\includes\header.view.php'; ?>
-<?php include '..\includes\menu.view.php'; ?>
-
+<div class = "para">
+<p><b>Agriculture </b>is the art and science f cultivating the soil,
+growing crops and raising livestock.<br>It includes the preparation 
+of plant and animal products for people to use and their distribution to markets.
+Here you will find numerous resources to grow your business and a platform to 
+sell and by products.</p>
+</div>
 <div class = "home_body">
 <ul>
-<li><img src = "..\includes\images\items.png" width = "200px" height = "300px"></li>
-<li><img src = "..\includes\images\posts.png" width = "200px" height = "300px"></li>
-<li><img src = "..\includes\images\courses2.png" width = "200px" height = "300px"></li>
-<li><img src = "..\includes\images\blogs.png" width = "200px" height = "300px"></li>
+<li><img src = "images/v.png" width = "200px" height = "300px" class = "responsive"></li>
+<li><img src = "images/s.png" width = "200px" height = "300px" class  = "responsive"></li>
+<li><img src = "images/b.png" width = "200px" height = "300px" class = "responsive"></li>
+<li><img src = "images/c.png" width = "200px" height = "300px"></li>
+
 </ul>
 </div>
 
@@ -33,9 +35,10 @@
 </ul>
 </div>
 
-<?php include '..\includes\footer.view.php'; ?>
+
 </body>
 
 
+<?php include '../Customer/includes/footer.view.php'?>
 
 </html>
