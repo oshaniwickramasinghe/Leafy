@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<link rel = "stylesheet" href = "style.css">
+<link rel = "stylesheet" href = "../agriculturalist/style.css">
     <form action = "loginuser.php" method="post">
 
     <h1>Regiser</h1>
@@ -39,9 +39,13 @@
     <style>
      body{
    
-    background-image: url('photos/agri.jpg');
+    /* background-image: url('photos/agri.jpg'); */
 }
 </style>
     
 </body>
+
 </html>
+
+
+

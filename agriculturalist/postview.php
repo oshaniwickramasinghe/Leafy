@@ -1,6 +1,8 @@
 <?php
-include 'connect.php'
+include 'connect.php';
+// include '../includes/header.view.php';
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,3 +79,5 @@ include 'connect.php'
 </body>
 
 </html>
+
+<?php include '../includes/footer.view.php'?>

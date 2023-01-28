@@ -85,3 +85,4 @@ document.getElementsByName("exdate")[0].setAttribute('min', today);
       </script> 
 
 </html>
+<?php include '../includes/footer.view.php'?>
