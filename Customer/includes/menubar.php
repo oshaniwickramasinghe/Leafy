@@ -4,23 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-   
-    <link rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+ integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" 
+ referrerpolicy="no-referrer" />                                                   
+          <link rel="stylesheet" href="../../instructor/InstructorProfile.css">
+
+
+          
 </head>
 <body>
-   
-  <div class  =  "search">
-       <input  type = "search" placeholder = "Search for items.."  name= "search">
-      <a  class = "search_button" href="#" aria-label="search">
-       <div class = "icon">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        </div>
-       </a>
- </div>
-
- <div class="containerr">
+<div class="container">
         <div class="left_menu_bar">
             <div id="menu">
                 <a><i class="fa-solid fa-bars"></i></a>
@@ -36,10 +29,7 @@
             </ul>
 
         </div>
-</div>
 
-
+    
 </body>
-
-
 </html>

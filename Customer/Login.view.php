@@ -34,7 +34,7 @@
              <p class="login-register-text">Do not Have an account?<a href="signup.view.php"> <b>Register Here.</b></a></p>
             </div>
             <div class  =  "logo">
-    <img src="../Customer/images/logo.svg" alt="logo" width = "150px" height = "150px">
+        <img src="../Customer/images/logo.svg" alt="logo" width = "150px" height = "150px" class = "responsive">
       </div>
 
 

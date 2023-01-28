@@ -1,4 +1,6 @@
 
+@media all{
+
 .header{
 
     background:url(../images/Header4.svg)no-repeat;
@@ -97,9 +99,13 @@ footer{
     /* margin-top: -14%; */
  }
 
+ .home_body .resposive{
+    height:auto;
+ }
+
  .loggedhome_body{
     padding-left: 55px;
-    margin-top:-16%;
+    margin-top:-40%;
    
  }
  
@@ -137,9 +143,9 @@ Button{
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
-    border-color: rgb(255, 255, 255);
-    background-color: #d0d0d0;
-    color: #000;
+   border-color:rgba(228, 228, 228, 0.564) ;
+    background-color: #9c9c9c;
+    color: rgb(255, 255, 255);
 }
 
 
@@ -177,6 +183,32 @@ input[type= text] , input[type= password],input[type= email]{
   -moz-border-radius:40px ;
   -ms-border-radius:40px ;
   -o-border-radius:40px ;
+}
+
+
+.cvv  input[type= text]{
+    width: 30%;
+}
+
+.cvv{
+    margin-left: 40%;
+    margin-top: -12%;
+}
+
+input[type  = month]{
+    width: 35%;
+    display:inline-block;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    opacity: 0.8;
+    box-sizing: border-box;
+    border-radius:40px ;
+    -webkit-border-radius:40px ;
+    -moz-border-radius:40px ;
+    -ms-border-radius:40px ;
+    -o-border-radius:40px ;
 }
 
 input[type= search]{
@@ -249,9 +281,11 @@ a{
     margin-top: -110%;
     margin-left: 25%;
     display: inline-flex;
+    height:auto
    
   
 }
+
 
 .select{
     width: 80%;
@@ -286,6 +320,12 @@ small{
     margin: auto;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+.card .card-body{
+
+    margin-bottom: 20px;
+   
   }
   
   .upper-side {
@@ -442,6 +482,7 @@ tr:nth-child(even){
     width: 100%;
     margin-top: 10px;
     margin-bottom: 45px;
+   
     }
 
 .left{
@@ -460,6 +501,23 @@ tr:nth-child(even){
 
     
 }
+.right_2{
+    margin-top:40px;
+  
+    height: 120%;
+    width: 80%;
+    background-color:#ffffff;
+}
+.right_2 form{
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-top:10%;  
+    margin-left: -20px;
+    height: 60%;
+    width: 80%;
+    background-color:rgba(128, 156, 91, 0.158);
+}
+
 .right input[type=submit]{
     margin-top :10px;
     margin-left: 510px;
@@ -608,5 +666,159 @@ h2{
     margin-left: -90px;
     margin-top: -2%;
     background-color: white;
+
+}
+
+.update {
+   width: 50px;
+   background-color: #33ca93;
+}
+
+
+.check {
+    margin-left: 70%;
+    margin-top: -5%;
+}
+.checkout {
+    width: 80%;
+    margin-top: 8%;
+    margin-left: 150px;
+
+}
+
+.checkout form {
+background-color: rgba(128, 156, 91, 0.182);
+text-align: left;
+padding-left: 90px;
+padding-bottom: 85px;
+}
+
+.check_form form{
+  
+    width:100%;
+}
+
+.summary_body{
+    margin-right: 100px;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.checkout  .btn_1{
+margin-left: 38%;
+margin-top: -65px;
+width: auto;
+background-color:rgb(159, 159, 159);
+}
+
+.checkout .logoo{
+   margin-top: -100px;
+   margin-left: 60px;
+}
+
+.checkout button{
+    background-color:rgb(159, 159, 159) ;
+}
+.right_2 .btn_1{
+    margin-left: 44%;
+    margin-top: 40px;
+    background-color:rgb(159, 159, 159);
+    }
+
+.back{
+    margin-left: -72%;
+    margin-top: -110px;
+}
+    .pay{
+        margin-left: 30px;
+    }
+
+.fa-cc-visa{
+    margin-top: 15%;
+    margin-left: 260px;
+}
+.fa-cc-mastercard{ 
+    margin-top: -5%;
+    margin-left: 360px;
+}
+.containerr{
+    height: 80%;
+    width: 15%;
+    display: flex;
+    padding-top: 15px;
+}
+
+
+
+
+.containerr .left_menu_bar{
+    flex:1.5;
+    background: #8f918b29;
+    display: block;
+    border-radius:10px;
+    height: 350px;
+    box-shadow: var(--box-shadow);
+    margin-top: 1%;
+    margin-left: 1%;
     
+    
+}
+
+.containerr .left_menu_bar ul li a{
+    text-decoration: none;
+    padding: 11px;
+    margin: 4px;
+    display: block;
+    color: #43562B;
+    background:#fff;
+    border-radius:4px;
+
+    
+}
+
+.containerr .left_menu_bar ul li a:hover{
+    background: rgba(217, 217, 217);
+   
+}
+
+.containerr .left_menu_bar h3{
+    color:rgb(0, 0, 0);
+    margin-left: 0px;
+    padding-left:0px;
+   
+}
+
+
+
+.containerr .left_menu_bar #menu{
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.left_menu_bar i{
+    display: inline-block;
+    margin-right: 1em;
+    
+  }
+
+  .left_menu_bar #menu .image{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+
+  }
+
+.left_menu_bar #menu i{
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+.containerr .left_menu_bar ul{
+    list-style: none;
+    margin: 10px;
+    padding: 0px;
+
+}
 }
