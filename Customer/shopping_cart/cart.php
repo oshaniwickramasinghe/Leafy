@@ -8,7 +8,8 @@ function display(){
 
 $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
-      $sql = "SELECT * FROM `post`";
+
+      $sql = "SELECT * FROM `post` WHERE post_id ";
       $result = mysqli_query($conn,$sql);
       if(mysqli_num_rows($result)>0){
       $res =  mysqli_fetch_array($result);
@@ -20,7 +21,7 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
 
 //add item to the cart
-if(isset($_POST['add'])){
+if(isset($_POST['cart'])){
 
   //check whether item already in the cart
     if(isset($_SESSION['cart'])){

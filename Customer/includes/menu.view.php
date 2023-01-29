@@ -28,11 +28,13 @@
                 <h3>Leafy</h3>
             </div>
             <ul>
-                <li><a href=""><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Dashboard</a></li>
+               
                 <li><a href=""><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
-                <li><a href=""><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Questions</a></li>
-                <li><a href="blog.php"><i class="fa-brands fa-blogger"  style="font-size:16px;color:black;"></i>Blogs</a></li>
-                <li><a href=""><i class="fa-brands fa-readme" style="font-size:16px;color:black;"></i>Courses</a></li>
+                <li><a href=""><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
+                <li><a href=""><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications</a></li>
+                <li><a href=""><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
+                <li><a href="blog.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
+                
             </ul>
 
         </div>

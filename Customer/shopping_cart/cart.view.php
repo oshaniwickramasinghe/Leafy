@@ -28,6 +28,7 @@ require "cart.php";
 
        <?php
 
+var_dump($_SESSION['cart']['post_id'] );
       if(!empty(display())){
        $res = display();
 
@@ -65,7 +66,7 @@ require "cart.php";
                     </div> <?php $id =$res["post_id"];?>
 
                     <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
-                     <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/>
+                     <input type= "submit" name= "cart" class= "btn_1" value= "Add to cart" data-inline = "true"/>
                      <input type= "submit" name= "Delete" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
 
       </div>
