@@ -13,14 +13,14 @@ $id =$_SESSION['cart']['0']['post_id'];
 $sql = "SELECT * FROM `post` WHERE post_id = $id";
 $result = mysqli_query($conn,$sql);
  $rows = mysqli_fetch_assoc($result);
- var_dump($rows);
+//  var_dump($rows);
  if(mysqli_num_rows($result)>0){
     // while($rows = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-        $quan = $rows['quantity']- $_SESSION['cart']['quantity'];
-        var_dump( $quan);
+        $quan = $rows['quantity']- $_SESSION['cart']['0']['quantity'];
+        
           if($quan>=0){
-          $sql = "UPDATE post SET quantity= '$quan' WHERE post_id = $id";
-          $result = mysqli_query($conn,$sql);
+          // $sql = "UPDATE post SET quantity= '$quan' WHERE post_id = $id";
+          // $result = mysqli_query($conn,$sql);
           }
         }
     }
@@ -56,9 +56,11 @@ $result = mysqli_query($conn,$sql);
    <!-- <button class = "update" name = "add">Add</button><br><br> -->
 
 <?php
+
    if(!empty(display())){
        $res = display();
-$sub =  $res['unit_price']*$_SESSION['cart']['quantity'];
+      //  var_dump($res);
+$sub =  $rows['unit_price']*$_SESSION['cart']['0']['quantity'];
        ?>
        <div  class=  "summary_body">
 
