@@ -20,18 +20,20 @@ include "../public/includes/header.view.php";
 
 <body>
    
-<?php include "../public/includes/admin_menu.view.php"?>
 
+    <?php include "../public/includes/admin_menu.view.php"?>
 
-<div class = "loggedhome_body">
+    <div class = "loggedhome_body">
 
     <div class = "home_body">
 
         <ul>
-            <li><?php include "../admin/charts/users.php"?>  </li>   
-            <li><?php include "../admin/charts/user.php"?>  </li>         
+            <li><?php include "../admin/charts/users.php"?> </li>               
+            <li><?php include "../admin/charts/user.php"?>  </li>   
         </ul>
     </div>
-</div>
+
+    
+    </div>
 
 <?php include '../public/includes/footer.view.php'?>
