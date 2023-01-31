@@ -11,7 +11,7 @@
             <div class="left_part">
                 <div class="logo_1">
                     
-                        <img src="images/logo.svg"  height= "121.42px" >
+                        <img src="/images/logo.svg"  height= "121.42px" >
                       
                    
                 </div>

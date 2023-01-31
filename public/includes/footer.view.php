@@ -1,5 +1,5 @@
 <html>
 <footer>
-<img src = "images/Footer.svg"  height= "121.42px">
+<img src = "../images/Footer.png"  height= "121.42px">
 </footer>
 </html>
