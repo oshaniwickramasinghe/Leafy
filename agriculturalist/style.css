@@ -1,7 +1,7 @@
 
 .header{
 
-    background:url(../images/Header4.svg)no-repeat;
+    background:url(../Customer/images/Header4.svg)no-repeat;
     max-width:100%;
     height: 120px;
     background-size: 100% ;
@@ -126,7 +126,7 @@ Button{
 
 body{
     background-color: rgb(255, 255, 255);
-    background-image: url('photos/agri.jpg');
+    /* background-image: url('photos/agri.jpg'); */
 }
 
 

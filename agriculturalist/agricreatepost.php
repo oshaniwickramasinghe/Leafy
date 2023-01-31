@@ -1,5 +1,6 @@
 <?php 
-include '../includes/header.view.php';
+include '../public/Auth.php';
+include '../Customer/includes/header.php';
 ?>
 
 <!DOCTYPE html>
