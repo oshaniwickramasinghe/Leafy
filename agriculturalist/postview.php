@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+include 'menu.view.php';
 // include '../includes/header.view.php';
 ?>
 
@@ -17,9 +18,10 @@ include 'connect.php';
 
 <body>
 
-<button class = "btnn" onclick="document.location='createpost.php'"> Create New Post </button>
+<!-- <button class = "btnn" onclick="document.location='createpost.php'"> Create New Post </button> -->
 
-  <div class="container">
+  
+<div class="container">
 
 
     <div class="row">

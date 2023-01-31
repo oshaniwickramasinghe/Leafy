@@ -21,26 +21,26 @@
         <div class = "body">
 
      <label  for="">province</label><br>
-    <input type="text" placeholder="Enter your province" name="" required><br>
+    <input type="text" placeholder="Enter your province" name="province" required><br>
     <label for="">District</label><br>
-    <select name="usertype"  class = "select">
-                        <option value="user">customer</option>
-                        <option value="admin">Agriculturalist</option>
-                        <option value="admin">Instructor</option>
-                        <option value="admin">Delivery Agent</option>
+    <select name="district"  class = "select">
+                        <option value="Ampara">Ampara</option>
+                        <option value="Anuaradapura">Anuaradapura</option>
+                        <option value="Badulla">Badulla</option>
+                        <option value="Batticaloa">Batticaloa</option>
     </select><br>
     <label for="">Address</label><br>
-    <input type="text" placeholder="Address Line 1" name=""  required><br>
-    <input type="text" placeholder="Address Line 2" name=""  required><br>
+    <input type="text" placeholder="Address Line 1" name="address1"  required><br>
+    <input type="text" placeholder="Address Line 2" name="address2"  required><br>
 
     <input type="submit" class="btn btn-primary w-100 " value="Submit" name=""></input>
 
     </form>
-    <style>
+    <!-- <style>
      body{
    
     /* background-image: url('photos/agri.jpg'); */
-}
+} -->
 </style>
     
 </body>
