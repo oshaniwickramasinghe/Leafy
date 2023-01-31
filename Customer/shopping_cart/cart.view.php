@@ -5,8 +5,7 @@ require "../Auth.php";
 include '../includes/header.php';
 require "cart.php";
 
-// unset($_SESSION['cart']);
-
+// unset($_SESSION['wishlist']);
 
 
 if(isset($_POST["delete"]))
@@ -32,7 +31,7 @@ if(isset($_POST['update'])){
  foreach($_SESSION['cart'] as $keys => $values)
           { 
   if($values['item_name'] == $_POST['item_name']){
- 
+   
     $_SESSION['cart'][$keys] =array( 
       'post_id'=>$_GET['post_id'],
       'item_name' =>$_POST['item_name'],
@@ -45,6 +44,20 @@ if(isset($_POST['update'])){
 
 }
           }
+
+
+          if(isset($_POST['wishlist'])){
+            $bool = isset($_POST['wishlist']);
+            $_SESSION['wishlist'][] =array(
+                'bool'=>$bool,
+                'id' =>$_POST['post_id'],
+
+            );
+           
+
+            var_dump($_SESSION['wishlist']);
+          }
+        
 ?>
 
 
@@ -95,7 +108,7 @@ if(isset($_POST['update'])){
                     <input type = "hidden" name= "price" value = "<?php echo $res['unit_price']; ?>">
 
                      <input type= "submit" name= "cart" class= "btn_1" value= "Add to cart" data-inline = "true"/>
-                     <input type= "submit" name= "Delete" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
+                 <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
     </form>
       </div>
 
@@ -132,7 +145,7 @@ if(isset($_POST['update'])){
         ?>
         <tr>
 <form  method  = "post" action = "">
-      <td> <input type = "text" value = "<?php  echo $values["item_name"] ?>"  name  ="item_name" style = "width :100px; background-color:transparent; border-color:transparent;" ></td>
+      <td> <input type = "text" value = "<?php  echo $values["item_name"] ?>"  name  ="item_name" style = "width :100px; background-color:transparent; border-color:transparent;" readonly></td>
       <td> 
       <input type = "number"  name = "quantity" style  = "width:50px" min = "0">
       <button class = "update" name = "update" style  = "width:50px">Add</button>
@@ -143,13 +156,19 @@ if(isset($_POST['update'])){
       <!-- getting the quantity input by the customer -->
          
       <td> <?php  echo $values['quantity'] ?>Kg</td>
-      <td> Rs <input type = "text" value = "<?php  echo $values["price"] ?>"  name  ="price"  style = "width :65px; background-color:transparent; border-color:transparent;" ></td>
+      <td> Rs <input type = "text" value = "<?php  echo $values["price"] ?>"  name  ="price"  style = "width :65px; background-color:transparent; border-color:transparent;" readonly></td>
 			<td> Rs <?php  echo $values["price"]*$values['quantity']  *1; ?></td>
       <td><button class="text-danger" name  = "delete">Remove</button></td>  
 </form>
           </tr>
         <?php
             $total = $total  + ($values["price"]*$values['quantity']  );
+           $_SESSION['total'] =$total;
+          
+            
+
+                     
+            
        }
        ?>
        <?php
@@ -157,7 +176,6 @@ if(isset($_POST['update'])){
   ?>
   </table>
  
-
 
  <div class  = "check">
   <form method = "Post" action  =  "checkout.php">

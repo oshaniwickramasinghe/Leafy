@@ -20,6 +20,15 @@ $id = $_GET['post_id'];
       $id = $res['post_id'];
       return $res;
       }
+}else{
+  $sql = "SELECT * FROM post ";
+     
+  $result = mysqli_query($conn,$sql);
+  if(mysqli_num_rows($result)>0){
+  $res =  mysqli_fetch_array($result);
+  $id = $res['post_id'];
+  return $res;
+  }
 }
 
 }
@@ -42,6 +51,7 @@ if(isset($_POST['cart'])){
         'item_name' =>$product_name,
         'price'=>$product_price,
          'quantity'=>$product_quantity,
+        
  
        );
        $_SESSION['cart'][$count]= $item_array;
@@ -49,7 +59,7 @@ if(isset($_POST['cart'])){
 
     }else{
            echo '<script>alert("Item already added")</script>';
-           echo '<script>window.location ="cart.view.php?post_id=</script>1';
+           echo '<script>window.location ="cart.view.php?post_id=</script>'.$product_id;
     }
 
   }else{
@@ -58,6 +68,7 @@ if(isset($_POST['cart'])){
         'item_name' =>$product_name,
         'price'=>$product_price,
          'quantity'=>$product_quantity,
+       
 
       );
 
