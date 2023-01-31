@@ -79,7 +79,8 @@ if(mysqli_num_rows($result)>0){
 
                   </div>
                 </div>
-             </form>
+             </form> 
+            
   </div>
 
  
