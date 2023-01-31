@@ -732,11 +732,13 @@ h2{
 
 }
 
+
 .checkout form {
 background-color: rgba(128, 156, 91, 0.182);
 text-align: left;
 padding-left: 90px;
 padding-bottom: 85px;
+height:400px
 }
 
 .check form{

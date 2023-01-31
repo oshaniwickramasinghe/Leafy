@@ -7,6 +7,8 @@ include "cart.php";
 
 if(isset($_POST['checkout'])){
 
+  var_dump($_SESSION['cart']);
+
 $id =$_SESSION['cart']['0']['post_id']; 
 
 
@@ -57,17 +59,14 @@ $result = mysqli_query($conn,$sql);
 
 <?php
 
-   if(!empty(display())){
-       $res = display();
-      //  var_dump($res);
-$sub =  $rows['unit_price']*$_SESSION['cart']['0']['quantity'];
+ 
+$sub =  $_SESSION['total'];
+
        ?>
        <div  class=  "summary_body">
 
   <br> <label>Sub Total : Rs <?= $sub?>.00</label>
-   <?php
-   }   
-   ?>
+ 
    <?php
    if(isset($_POST['Delivery'])){
     $fee = 100;
@@ -97,12 +96,12 @@ $sub =  $rows['unit_price']*$_SESSION['cart']['0']['quantity'];
 
 ?>
 <a href="payment.php"><input type= "submit" class= "btn_1" value= "Pay Now"  name = "payment"
- data-inline = "true" style = "font-size :16px; width:280px" ></a><br>
+ data-inline = "true" style = "font-size :16px; width:280px "  ></a><br>
  <?php
  }else{
   ?>
   <input type= "submit" class= "btn_1" value= "Pay Now"  name = "payment"
- data-inline = "true" style = "font-size :16px; width:280px" ><br>
+ data-inline = "true" style = "font-size :16px; width:280px " ><br>
   <?php
  }
  ?>
