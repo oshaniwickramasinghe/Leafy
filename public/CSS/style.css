@@ -120,7 +120,7 @@ footer{
     padding: 0 25px;
 }
 .home_text{
-    padding-left: 180px;
+    padding-left: 200px;
    margin-top: -15px;
 }
 .home_text ul {
@@ -131,7 +131,7 @@ footer{
  }
 
  .home_text ul li {
-    padding: 0 49px;
+    padding: 0 60px;
 }
 
 Button{
@@ -377,6 +377,7 @@ small{
   .container{
     margin-top: 18px;
     position: relative;
+    width: 20%;
   }
 
   .container .btn {
@@ -757,9 +758,11 @@ background-color:rgb(159, 159, 159);
     display: block;
     border-radius:10px;
     height: 350px;
+    width: 20%;
     box-shadow: var(--box-shadow);
     margin-top: 1%;
     margin-left: 1%;
+
     
     
 }
@@ -822,3 +825,17 @@ background-color:rgb(159, 159, 159);
 
 }
 }
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+.col-13 {width: 40%;}

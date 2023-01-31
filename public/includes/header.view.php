@@ -34,7 +34,7 @@
 =======
                 <div class="logo_1">
                     
-                        <img src="images/logo.svg"  height= "121.42px" >
+                        <img src="/images/logo.svg"  height= "121.42px" >
                       
                    
 >>>>>>> 5513fdc1da9bd97508fa236930afc30427686be7:public/includes/header.view.php

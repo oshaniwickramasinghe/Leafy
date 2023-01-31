@@ -14,7 +14,7 @@
 
 <?php 
 
-include '../includes/header.view.php';
+include '../public/includes/header.view.php';
 
 
 ?>
@@ -35,7 +35,7 @@ include '../includes/header.view.php';
 
     <body>
 
-    <?php include '../includes/menu.view.php'?>
+    <?php include '../public/includes/menu.view.php'?>
         <?php
             try{
 
