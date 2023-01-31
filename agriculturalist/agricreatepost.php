@@ -1,4 +1,6 @@
-
+<?php 
+include '../includes/header.view.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
