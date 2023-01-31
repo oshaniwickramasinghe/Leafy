@@ -952,9 +952,27 @@ a.next{
     color: black;
     margin-left: -30%;
    
-  }     
-/* .pagination_1 a:hover:not(.active) {   
-    background-color:#034F06;   
-} */
+ }
+
+.wishlist form{
+    width:80%;
+    margin-left:-5px;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-item-left {
+    background-color: #bb0000;
+    padding: 10px;
+    flex: 50%;
+  }
+  
+  .flex-item-right {
+    background-color: dodgerblue;
+    padding: 10px;
+    flex: 50%;
+  }
 
 }
