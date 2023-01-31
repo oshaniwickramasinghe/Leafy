@@ -2,7 +2,7 @@
 include 'connect.php';
 
 //customer
-$sqlcustomer="SELECT * FROM users where role='customer'";
+$sqlcustomer="SELECT * FROM user where role='customer'";
 
 // make query & get resultcustomer
 $resultcustomer= mysqli_query($conn,$sqlcustomer);
@@ -10,7 +10,7 @@ $resultcustomer= mysqli_query($conn,$sqlcustomer);
     if(isset($_GET['view']))
     {
         $cust_user_id = $_GET['view'];
-        $sql1 = "SELECT * FROM users WHERE user_id=$cust_user_id and role='customer'";
+        $sql1 = "SELECT * FROM user WHERE user_id=$cust_user_id and role='customer'";
         $result1=mysqli_query($conn,$sql1);
         
         if($result1)
@@ -19,9 +19,8 @@ $resultcustomer= mysqli_query($conn,$sqlcustomer);
             while($recordcustomer = mysqli_fetch_assoc($result1))
             {
                 $cust_user_id=$recordcustomer['user_id'];
-                $cust_first_name=$recordcustomer['first_name'];
+                $cust_first_name=$recordcustomer['fname'];
                 $cust_email=$recordcustomer['email'];
-                $cust_contact_no=$recordcustomer['contact_no'];
                 $cust_role=$recordcustomer['role'];
    
             }
@@ -30,7 +29,7 @@ $resultcustomer= mysqli_query($conn,$sqlcustomer);
     }
 
 //instructor
-$sqlinstructor="SELECT * FROM users where role='instructor'";
+$sqlinstructor="SELECT * FROM user where role='instructor'";
 
 // make query & get resultcustomer
 $resultinstructor= mysqli_query($conn,$sqlinstructor);
@@ -38,7 +37,7 @@ $resultinstructor= mysqli_query($conn,$sqlinstructor);
     if(isset($_GET['view']))
     {
         $inst_user_id = $_GET['view'];
-        $sql2 = "SELECT * FROM users WHERE user_id=$inst_user_id and role='instructor'";
+        $sql2 = "SELECT * FROM user WHERE user_id=$inst_user_id and role='instructor'";
         $result2=mysqli_query($conn,$sql2);
         
         if($result2)
@@ -47,9 +46,8 @@ $resultinstructor= mysqli_query($conn,$sqlinstructor);
             while($recordinstructor = mysqli_fetch_assoc($result2))
             {
                 $inst_user_id=$recordinstructor['user_id'];
-                $inst_first_name=$recordinstructor['first_name'];
+                $inst_first_name=$recordinstructor['fname'];
                 $inst_email=$recordinstructor['email'];
-                $inst_contact_no=$recordinstructor['contact_no'];
                 $inst_role=$recordinstructor['role'];
    
             }
@@ -58,7 +56,7 @@ $resultinstructor= mysqli_query($conn,$sqlinstructor);
     }
 
 //Agriculturalist
-$sqlagriculturalist="SELECT * FROM users where role='agriculturalist'";
+$sqlagriculturalist="SELECT * FROM user where role='agriculturalist'";
 
 // make query & get resultcustomer
 $resultagriculturalist= mysqli_query($conn,$sqlagriculturalist);
@@ -66,7 +64,7 @@ $resultagriculturalist= mysqli_query($conn,$sqlagriculturalist);
     if(isset($_GET['view']))
     {
         $agri_user_id = $_GET['view'];
-        $sql3 = "SELECT * FROM users WHERE user_id=$agri_user_id and role='agriculturalist'";
+        $sql3 = "SELECT * FROM user WHERE user_id=$agri_user_id and role='agriculturalist'";
         $result3=mysqli_query($conn,$sql3);
         
         if($result3)
@@ -75,9 +73,8 @@ $resultagriculturalist= mysqli_query($conn,$sqlagriculturalist);
             while($recordagriculturalist = mysqli_fetch_assoc($result3))
             {
                 $agri_user_id=$recordagriculturalist['user_id'];
-                $agri_first_name=$recordagriculturalist['first_name'];
+                $agri_first_name=$recordagriculturalist['fname'];
                 $agri_email=$recordagriculturalist['email'];
-                $agri_contact_no=$recordagriculturalist['contact_no'];
                 $agri_role=$recordagriculturalist['role'];
    
             }
@@ -86,7 +83,7 @@ $resultagriculturalist= mysqli_query($conn,$sqlagriculturalist);
     }
 
 //Delivery person
-$sqldelivery="SELECT * FROM users where role='delivery_person'";
+$sqldelivery="SELECT * FROM user where role='delivery_person'";
 
 // make query & get resultcustomer
 $resultdelivery= mysqli_query($conn,$sqldelivery);
@@ -94,7 +91,7 @@ $resultdelivery= mysqli_query($conn,$sqldelivery);
     if(isset($_GET['view']))
     {
         $del_user_id = $_GET['view'];
-        $sql4 = "SELECT * FROM users WHERE user_id=$del_user_id and role='delivery_person'";
+        $sql4 = "SELECT * FROM user WHERE user_id=$del_user_id and role='delivery_person'";
         $result4=mysqli_query($conn,$sql4);
         
         if($result4)
@@ -103,9 +100,8 @@ $resultdelivery= mysqli_query($conn,$sqldelivery);
             while($recorddelivery = mysqli_fetch_assoc($result4))
             {
                 $del_user_id=$recorddelivery['user_id'];
-                $del_first_name=$recorddelivery['first_name'];
+                $del_first_name=$recorddelivery['fname'];
                 $del_email=$recorddelivery['email'];
-                $del_contact_no=$recorddelivery['contact_no'];
                 $del_role=$recorddelivery['role'];
    
             }

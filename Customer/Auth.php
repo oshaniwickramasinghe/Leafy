@@ -10,24 +10,24 @@ session_start();
         {
             unset($_SESSION['cart']);
            unset($_SESSION['USER_DATA']);
-        
+
         }
     }
 
      // check if logged in 
-  
+
     function logged_in()
      {
            if(!empty($_SESSION['USER_DATA']))
            {
-          
+
              return true;
            }
            return false;
      }
 
 //check the roles
-     
+
       function  is_admin()
      {
            if(!empty($_SESSION['USER_DATA']))
@@ -35,11 +35,11 @@ session_start();
            if( $_SESSION['USER_DATA']['role'] == 'admin'){
             return true;
            }else{
-      
+
              return false;
            }
            }
-           
+
      }
    function  is_customer()
      {

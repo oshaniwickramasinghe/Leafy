@@ -35,7 +35,7 @@
 
                             <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
                                 <li><a onclick="myFunction()" href="AdminNotification.php#customer ?view=<?= $record1['user_id']; ?> ">
-                                Blog <?= $record1['user_id']?> - <?=$record1['first_name']?>  <?=$record1['role']?></a></li>
+                                Blog <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -87,7 +87,7 @@
                         <ul>
                             <?php while($record2=mysqli_fetch_assoc($resultinstructor)){?>
                                 <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record2['user_id']; ?> ">
-                                Blog <?= $record2['user_id']?> - <?=$record2['first_name']?>  <?=$record2['role']?></a></li>
+                                Blog <?= $record2['user_id']?> - <?=$record2['fname']?>  <?=$record2['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -138,7 +138,7 @@
                         <ul>
                             <?php while($record3=mysqli_fetch_assoc($resultagriculturalist)){?>
                                 <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record3['user_id']; ?> ">
-                                Blog <?= $record3['user_id']?> - <?=$record3['first_name']?>  <?=$record3['role']?></a></li>
+                                Blog <?= $record3['user_id']?> - <?=$record3['fname']?>  <?=$record3['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -190,7 +190,7 @@
                         <ul>
                             <?php while($record4=mysqli_fetch_assoc($resultdelivery)){?>
                                 <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record4['user_id']; ?> ">
-                                Blog <?= $record4['user_id']?> - <?=$record4['first_name']?>  <?=$record4['role']?></a></li>
+                                Blog <?= $record4['user_id']?> - <?=$record4['fname']?>  <?=$record4['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
