@@ -66,8 +66,8 @@ include '../public/includes/header.view.php';
           <label for="uname">Price</label><br>
           <input type="text" placeholder="price" id="price" name="price" required><br>
 
-          <label for="uname">Images</label><br>
-          <input type="file" placeholder="upload images" id="image" name="img" accept="images/jpg,images.jpeg,images/png" ><br>
+          <!-- <label for="uname">Images</label><br>
+          <input type="file" placeholder="upload images" id="image" name="img" accept="images/jpg,images.jpeg,images/png" ><br> -->
 
           <!-- <input class="button" type="submit" value="Uplaod files"><br><br> -->
 

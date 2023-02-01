@@ -1,5 +1,7 @@
 <?php
 include "../public/Auth.php";
+include "connect.php";
+
 
 
 
@@ -22,8 +24,8 @@ $price = $_REQUEST['price'];
 
 
 
-$sql = "INSERT INTO post (item_name,location, quantity, miniquantity,unit_price expire_date,category,image,user_id )
-VALUES ('$fname', '$flocation', '$quantity','$miniquantiy','$price' '$exdate', '$price',,'$category', '$file_name1',$uid )";
+$sql = "INSERT INTO post (item_name,location, quantity, miniquantity,unit_price expire_date,category )
+VALUES ('$fname', '$flocation', '$quantity','$miniquantiy','$price' '$exdate', '$price','$category' )";
 
 if ($conn->query($sql) === TRUE) {
 

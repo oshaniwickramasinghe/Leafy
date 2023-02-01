@@ -1,5 +1,5 @@
 <?php 
-include 'connect.php';
+
 include '../public/Auth.php';
 include '../public/includes/header.view.php';
 ?>
