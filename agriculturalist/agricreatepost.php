@@ -1,6 +1,6 @@
 <?php 
 include '../public/Auth.php';
-include '../Customer/includes/header.php';
+include '../public/includes/header.view.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ include '../Customer/includes/header.php';
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>create post</title>
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="../Customer/CSS/style.css">
      
 </head>
 
@@ -19,6 +19,7 @@ include '../Customer/includes/header.php';
 
 
 <body>
+
 
      <!-- <h1>Create Post</h1> -->
 
