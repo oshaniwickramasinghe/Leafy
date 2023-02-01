@@ -7,7 +7,6 @@ include '../includes/header.php';
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,13 +36,15 @@ $id = $_SESSION['wishlist'][$keys]['id'];
 
      ?>
      <br>
+     <div  class = "wishlist">
       <form method="post" action="wishlist.php"> 
          <div class = "flex-container">  
 
-         <div class = "flex-item-left">
+      <div class = "flex-item-left">
       <img src="../images/<?php echo $res["image"];?>" width = "180" height="180">
       </div>
       <div class  = "flex-item-right">
+
        <h5>Price: Rs  <?php echo $res['unit_price'];?>.00  per Kg</h5>
                    <h5>Quantity :   <?php echo $res['quantity']?>kg </h5>
                    <h5>Agriculturalist Name :   <?php echo $res['agriculturalist_name']?> </h5>
@@ -56,7 +57,7 @@ $id = $_SESSION['wishlist'][$keys]['id'];
       </div>
       </div>
       </form>
-
+      </div>
      <?php
 
       }
@@ -68,3 +69,6 @@ $id = $_SESSION['wishlist'][$keys]['id'];
 
 </body>
 </html>
+<footer>
+<img src = "../images/Footer.svg"  height= "121.3px" >
+</footer>
