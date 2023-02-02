@@ -1,6 +1,6 @@
 <?php
 include "../public/Auth.php";
-include "connect.php";
+include "database.php";
 
 
 
