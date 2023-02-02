@@ -1,6 +1,6 @@
 <?php
 
-include "database.php";
+include "../Customer/database.php";
 require "Auth.php";
 
 
@@ -30,14 +30,16 @@ $email= validate($_POST['email']);
 
      
        if(is_customer()){
-         header("Location:customerhome.php");
+         header("Location:../Customer/customerhome.view.php");
+       }else if(is_agriculturalist()){
+         header("Location:../agriculturalist/agriD.php");
        }else{
-         header("Location:home.view.php");
+        header("Location:../Customer/home.view.php");
        }
-          
-            // exit();
 
-           
+      
+          
+            // exit(); 
          }else{
             header("Location:login.view.php?error=Incorrect username or password");
 

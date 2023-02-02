@@ -10,6 +10,8 @@ include 'includes/header.view.php'?>
 </title> 
 <body>
 <div class = "para">
+
+
 <p><b>Agriculture </b>is the art and science f cultivating the soil,
 growing crops and raising livestock.<br>It includes the preparation 
 of plant and animal products for people to use and their distribution to markets.

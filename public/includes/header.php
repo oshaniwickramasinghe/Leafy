@@ -1,6 +1,6 @@
 
 <html>
-<link rel="stylesheet" href="../CSS/style.css">
+ 
 <header>
 
 <div class="header">
@@ -15,7 +15,7 @@
                 <div class="menu">
                     <ul>
                         <li>
-                            <a href="../customerhome.php" class="">Home</a>
+                            <a href="#home" class="active">Home</a>
                         </li>
                         <li>
                             <a href="#blogs" class="">Blogs</a>

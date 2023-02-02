@@ -1,6 +1,13 @@
 
 <html>
-<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="CSS/style.css">
+
+<?php
+
+?>
+
+<html>
+ 
 <header>
 
 <div class="header">
@@ -8,14 +15,14 @@
             <div class="left_part">
                 <div class="logo_1">
                     
-                        <img src="../images/logo.svg"  height= "121.42px" >
+                <img src="../public/images/logo.svg"  height= "200px" >
                       
                    
                 </div>
                 <div class="menu">
                     <ul>
                         <li>
-                            <a href="../customerhome.php" class="">Home</a>
+                            <a href="#home" class="">Home</a>
                         </li>
                         <li>
                             <a href="#blogs" class="">Blogs</a>
@@ -35,13 +42,13 @@
             <?php if(!logged_in()):
 
                 ?>  
-               <li><a href="../Login.view.php" class="">Login</a></li>
+               <li><a href="login.view.php" class="">Login</a></li>
             <?php else: ?>
                 <div>
                 <li><a href="#" class="">Hi,<?= getfname()?></a></li>
                     
                 </div>
-                <li><a href="../Logout.php" class="">Logout</a></li>
+                <li><a href="Logout.php" class="">Logout</a></li>
             <?php endif; ?>
             <li><a href="" class="">Languages (EN)</a></li>
                 
