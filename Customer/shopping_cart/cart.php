@@ -1,7 +1,13 @@
 <?php
 
 require "../../Customer/database.php";
+$host = "localhost";
+$uname = "root";
+$password = "";
+$db_name = "leafy";
 
+
+$conn = mysqli_connect($host,$uname,$password,$db_name);
 
 //display items in the database
 function display(){
@@ -31,16 +37,30 @@ $id = $_GET['post_id'];
   }
 }
 
-}
+}  
+
 
 $product_id  = $_POST['post_id'];
 $product_name = $_POST['item_name'];
 $product_price = $_POST['price'];
 $product_quantity =$_POST['quantity'];
 
+
+
+
 //add item to the cart
 if(isset($_POST['cart'])){
+
+
+
+
+
   if(isset ($_SESSION['cart'])){
+    // $name= $_POST['item_name'];
+    // $quan = $_POST['quantity'];
+    // $id = $_SESSION['USER_DATA']['user_id'];
+    // $sub =$_POST['quantity']*$_POST['price'];
+    
 
     $item_array_id = array_column($_SESSION['cart'] , 'post_id');
     if(!in_array($_POST['post_id'],$item_array_id)){
@@ -55,6 +75,7 @@ if(isset($_POST['cart'])){
  
        );
        $_SESSION['cart'][$count]= $item_array;
+     
        header("location:cart.view.php?post_id=$product_id");
 
     }else{
@@ -73,10 +94,14 @@ if(isset($_POST['cart'])){
       );
 
       $_SESSION['cart'][ '0'] = $item_array;
-
+   
       header("location:cart.view.php?post_id= $product_id");
   }
+
+
 }
+
+
 
 ?>
 

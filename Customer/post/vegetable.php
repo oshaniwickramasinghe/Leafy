@@ -27,7 +27,7 @@ if(!$conn){
     referrerpolicy="no-referrer" />
     <title>Vegetables</title>
     <?php include '../includes/menu.view.php'?>
-
+<body>
 <?php
 $result_per_page  = 4;
 
@@ -124,18 +124,10 @@ echo "<a class  =  'next' href ='vegetable.view.php?page=".($page)."'> Next page
 
 
 
-
-
-
-
-
-
-        
-
-
-    
 </head>
-<body>
-
 </body>
+<footer>
+<img src = "../images/Footer.svg"  height= "121.3px" >
+</footer>
+
 </html>

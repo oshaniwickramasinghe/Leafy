@@ -3,7 +3,7 @@
 ?>
 
 <html>
- 
+<link rel="stylesheet" href="../CSS/style.css">
 <header>
 
 <div class="header">
@@ -18,7 +18,7 @@
                 <div class="menu">
                     <ul>
                         <li>
-                            <a href="#home" class="">Home</a>
+                            <a href="customerhome.php" class="">Home</a>
                         </li>
                         <li>
                             <a href="#blogs" class="">Blogs</a>

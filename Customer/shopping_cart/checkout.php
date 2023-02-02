@@ -11,7 +11,6 @@ if(isset($_POST['checkout'])){
 
 $id =$_SESSION['cart']['0']['post_id']; 
 
-
 $sql = "SELECT * FROM `post` WHERE post_id = $id";
 $result = mysqli_query($conn,$sql);
  $rows = mysqli_fetch_assoc($result);
