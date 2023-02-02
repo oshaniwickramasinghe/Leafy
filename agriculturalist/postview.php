@@ -1,7 +1,7 @@
-<?php
-include 'connect.php';
-include 'menu.view.php';
-// include '../includes/header.view.php';
+<?php 
+
+include '../public/Auth.php';
+include '../public/includes/header.view.php';
 ?>
 
 
@@ -13,11 +13,14 @@ include 'menu.view.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>postview</title>
-  <link rel="stylesheet" href="postview.css">
+  <link rel="stylesheet" href="../Customer/CSS/style.css">
 </head>
 
 <body>
 
+<?php 
+include '../public/includes/agri_menu.view.php';
+?>
 <!-- <button class = "btnn" onclick="document.location='createpost.php'"> Create New Post </button> -->
 
   

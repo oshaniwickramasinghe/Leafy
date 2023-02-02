@@ -1,8 +1,8 @@
 <?php
-
+include "../public/Auth.php";
 include "connect.php";
 
-// $uid = $_SESSION["user"];
+
 
 
 $category = $_REQUEST['category'];
@@ -15,17 +15,17 @@ $price = $_REQUEST['price'];
 
 
 
-$file_tmp1 = $_FILES['image']['tmp_name']; 
-$file_name1 = "A"."$uid".rand(1,1000).$_FILES['image']['name'];
-$target_file1 = "images/".$file_name1;
-if($file_tmp1!="")
-{ move_uploaded_file($file_tmp1,$target_file1); }
-else { $file_name1=""; }
+// $file_tmp1 = $_FILES['image']['tmp_name']; 
+// $file_name1 = "A"."$uid".rand(1,1000).$_FILES['image']['name'];
+// $target_file1 = "images/".$file_name1;
+// if($file_tmp1!="")
+// { move_uploaded_file($file_tmp1,$target_file1); }
+// else { $file_name1=""; }
 
 
 
-$sql = "INSERT INTO post (item_name,location, quantity, miniquantity,unit_price expire_date,category,image,user_id )
-VALUES ('$fname', '$flocation', '$quantity','$miniquantiy','$price' '$exdate', '$price',,'$category', '$file_name1',$uid )";
+$sql = "INSERT INTO post (item_name,location, quantity, miniquantity,unit_price expire_date,category )
+VALUES ('$fname', '$flocation', '$quantity','$miniquantiy','$price' '$exdate', '$price','$category' )";
 
 if ($conn->query($sql) === TRUE) {
 

@@ -324,6 +324,22 @@ small{
     margin-bottom: 20px;
    
   }
+
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    display: grid ;
+    justify-content: center;
+    align-items: center; 
+  grid-template-columns: 3fr;
+  background-color: #809D5B; 
+  padding: 10px;
+   margin-left: 40px;
+   margin-top: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: \;
   
   .upper-side {
     padding: 2em;
