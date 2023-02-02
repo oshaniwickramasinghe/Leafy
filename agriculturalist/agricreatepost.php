@@ -1,5 +1,6 @@
 <?php 
-include '../includes/header.view.php';
+include '../public/Auth.php';
+include '../public/includes/header.view.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,7 @@ include '../includes/header.view.php';
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>create post</title>
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="../Customer/CSS/style.css">
      
 </head>
 
@@ -18,6 +19,7 @@ include '../includes/header.view.php';
 
 
 <body>
+
 
      <!-- <h1>Create Post</h1> -->
 
@@ -64,8 +66,8 @@ include '../includes/header.view.php';
           <label for="uname">Price</label><br>
           <input type="text" placeholder="price" id="price" name="price" required><br>
 
-          <label for="uname">Images</label><br>
-          <input type="file" placeholder="upload images" id="image" name="img" accept="images/jpg,images.jpeg,images/png" ><br>
+          <!-- <label for="uname">Images</label><br>
+          <input type="file" placeholder="upload images" id="image" name="img" accept="images/jpg,images.jpeg,images/png" ><br> -->
 
           <!-- <input class="button" type="submit" value="Uplaod files"><br><br> -->
 
