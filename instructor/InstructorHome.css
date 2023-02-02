@@ -152,7 +152,6 @@ footer .footer-copyright{
     margin-right: 1%;
     border-radius: 5px;
     margin-top: 1%;
-    margin-bottom: 1%;
     
 
 
@@ -161,6 +160,7 @@ footer .footer-copyright{
 .container .profile .view-wrap {
     display:flex;
     height: auto;
+    margin-right: 5px;
   
 }
 
@@ -176,7 +176,7 @@ footer .footer-copyright{
     width: 5%; 
     height: 200px;
     text-align:center ;
-    background-color: #fff;
+   
    
 
 }
@@ -190,6 +190,7 @@ footer .footer-copyright{
     background-color: #fff;
     margin-left: 1%;
     margin-right: 1%;
+    margin-bottom: 1%;
 }
 
 .container .profile .view-wrap .view button{
@@ -198,9 +199,13 @@ footer .footer-copyright{
     margin-right:0px ;
     margin-left: 30px;
     text-align: center;
-    margin-top: 1%;
-    background-color: transparent;
+    margin-top: 0.4%;
+    background-color:rgba(255, 255, 255, 0.422);
     width: 20%;
+    border-radius: 10px;
+    height: 80%;
+    
+   
 }
 
 .container .profile .view-wrap .view .btn-section{
@@ -213,76 +218,86 @@ footer .footer-copyright{
 
 
 .block{
-    display:flex;
     width:100%;
-    height:100%;
+    height:90%;
 }
 
 
 
 
 .edit-profile{
-    width:100%;
+    width:90%;
     height: auto;
-    display: none;
-    background-color: #43562B;
-    
-}
-
-.change-password{
-    width:100%;
-    height: auto;
-    display: none;
-    background-color: bisque;
-    
-}
-
-.view-div{
+    background-color: white;
     min-height: 40vh;
-    background-color:var(--light-bg);
-    display: flex;
+    display: none;
     justify-content: space-between;
     justify-content:center;
     text-align: center;
     margin: 30px;
+    align-items: left;
+        
+    
     
 }
-.view-div form{
-   
-    text-align: left;
-    background-color: var(--white);
-    box-shadow: var(--box-shadow);
 
- }
+.change-password{
+    width:90%;
+    height: auto;
+    display: none;
+    background-color:white;
+    min-height: 60vh;
+    margin: 30px;
+    align-items: left;
+}
 
- .view-div label{
+.view-div{
+    min-height: 40vh;
+    display: block;
+    justify-content: space-between;
+    justify-content:center;
     text-align: center;
-    color: var(--dark-green);
+    margin: 30px;
+    width: 90%;
+    
 }
 
-.view-div input .box{
-    width: 30px;
-}
 
 .image img{
     border-radius: 50%;
 }
 
-.view-div form {
+ form {
     display:flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
     gap: 5px;
     width:100%;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    height: auto;
 
 }
 
-.view-div form span{
+form .inputBox{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width:100%;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    height: auto;
+
+}
+
+ form span{
     text-align: left;
     margin-top: 15px;
     font-size: 17px;
-    color: #43562B;
+    color: #0e0e0e;
     padding-top: 5px;
+    width: 50%;
+    font-weight: 600;
+  
     
 
 
@@ -291,11 +306,51 @@ footer .footer-copyright{
 input{
     width:100%;
     border-radius: 5px;
-    height: 2px;
-
+    height: 15px;
     padding: 12px 14px ;
     font-size: 13px;
     background-color: rgba(169, 172, 172, 0.251);
     border: none;
+    align-self: left;
+    text-align: left;
+   
+
+}
+
+.btn{
+    background-color:#43562b;
+    width: 50%;
+    height: 40px;
+    color:whitesmoke;
+    margin-top: 30px;
+    border-radius: 5px;
+    align-content:center;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media (max-width:100%){
+    .block form .flex{
+        flex-wrap:wrap;
+        gap:0;
+
+    }
+
+    .block form .flex .inputBox{
+        width:100%;
+        
+    }
+}
+
+.message{
+    width: 87%;
+    border-radius: 5px;
+    padding:10px;
+    text-align: center;
+    background: rgba(255, 6, 6, 0.607);
+    color: whitesmoke;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 30px;
 
 }

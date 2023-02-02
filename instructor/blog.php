@@ -57,6 +57,11 @@ $result2= mysqli_query($conn,$sql2);
     }
 
 
+    if(isset($_GET['delete']))
+    {
+        
+    }
+
 
 
 
@@ -168,7 +173,7 @@ $result2= mysqli_query($conn,$sql2);
 
     </div>
    </div>
-    <footer style="background:url(images/Footer.svg)no-repeat;"class="footer">
+    <footer style="background:url(images/footerFinal.svg)no-repeat;"class="footer">
         <ul class="footer">
             <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
             <li><a href=""><i class="fa-brands fa-instagram" style="font-size:30px;color:#FCFEF9;"></i></a></li>
