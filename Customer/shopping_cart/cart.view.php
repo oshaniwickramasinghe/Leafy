@@ -40,24 +40,41 @@ if(isset($_POST['update'])){
           
     );
     
-}
+  }
 
 }
           }
 
+          // $name= $_POST['item_name'];
+          // $quan = $_POST['quantity'];
+          // $id = $_SESSION['USER_DATA']['user_id'];
+          // $sub =$_POST['quantity']*$_POST['price'];
+          // $sql = "INSERT INTO shopping_cart_product_details (item_name,quantity, total, user_id) VALUES ('$name','$quan','$sub','$id')";
+          // $result = mysqli_query($conn, $sql);
+          // var_dump( $result );
 
           if(isset($_POST['wishlist'])){
-            $bool = isset($_POST['wishlist']);
-            $_SESSION['wishlist'][] =array(
-                'bool'=>$bool,
-                'id' =>$_POST['post_id'],
 
-            );
-           
+            $id = $_POST['post_id'];
+               $sql = "SELECT * FROM post WHERE post_id = $id ";
+               
+              $result = mysqli_query($conn,$sql);
+              $res =  mysqli_fetch_array($result);
+              $id =$res['post_id'];
+              $user = $_SESSION['USER_DATA']['user_id'];
+              $query  = "SELECT * FROM wishlist WHERE user_id = $user && post_id =$id";
+              $result = mysqli_query($conn,$query);
+              if(mysqli_num_rows($result)>0){
+                echo '<script>alert("Item already added")</script>';
+               echo '<script>window.location ="cart.view.php?post_id=</script>'.$id;
+              }else{
+              $sql = "INSERT INTO wishlist (post_id, user_id) VALUES ($id,$user)";
+              $result = mysqli_query($conn,$sql);
+              echo '<script>alert("Item added to the wishlist")</script>';
+               echo '<script>window.location ="cart.view.php?post_id=</script>'.$id;
+              }
+        }
 
-            var_dump($_SESSION['wishlist']);
-          }
-        
 ?>
 
 
@@ -75,6 +92,7 @@ if(isset($_POST['update'])){
 
 <body>
 
+<div class  = "cart_body">
 
 <div  class  = "grid">
 
@@ -84,6 +102,8 @@ if(isset($_POST['update'])){
     if(!empty(display())){
 
       $res = display();
+
+      
 ?>
 
 
@@ -106,6 +126,7 @@ if(isset($_POST['update'])){
                     <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
                     <input type = "hidden" name= "quantity" value = "<?php  echo $res['quantity']; ?>">
                     <input type = "hidden" name= "price" value = "<?php echo $res['unit_price']; ?>">
+                    <input type = "hidden" name= "id" value = "<?php echo $res['user_id']; ?>">
 
                      <input type= "submit" name= "cart" class= "btn_1" value= "Add to cart" data-inline = "true"/>
                  <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
@@ -114,12 +135,14 @@ if(isset($_POST['update'])){
 
   </div>
   <div class="continue">
-          <a href = "../post/vegetable.view.php"><input type= "submit" name= "continue" class= "btn_1" value= "<< Continue" 
+          <a href = "../post/vegetable.php"><input type= "submit" name= "continue" class= "btn_1" value= "<< Continue" 
           data-inline = "true"/ style = "font-size :16px; width:150px"></a>
 
      </div>
 </div>
-<?php }
+<?php
+
+}
 ?>
 
 <div class  = "right">
@@ -137,11 +160,17 @@ if(isset($_POST['update'])){
 
   <?php
      if(!empty($_SESSION['cart'])){
+      
+      
+
+      // $sql = "INSERT INTO "
        $total = 0;
        $val = 0;
        $val =  $_SESSION['cart']['quantity'];
        foreach($_SESSION['cart'] as $keys=>$values)
        {
+
+ 
         ?>
         <tr>
 <form  method  = "post" action = "">
@@ -163,12 +192,10 @@ if(isset($_POST['update'])){
           </tr>
         <?php
             $total = $total  + ($values["price"]*$values['quantity']  );
-           $_SESSION['total'] =$total;
-          
-            
+            $_SESSION['total'] =$total;
+       
+           
 
-                     
-            
        }
        ?>
        <?php
@@ -189,11 +216,59 @@ if(isset($_POST['update'])){
 </div>
 
 
+<p>Your may like product from the same agriculturalist</p>
+
+<div class = "row_1">
+<?php
+$sql = "SELECT user_id FROM post WHERE post_id = $id";
+$result  = mysqli_query($conn , $sql);
+$row  = mysqli_fetch_array($result);
+$uid = $row['user_id'];
+$sql = "SELECT * FROM post WHERE user_id = $uid && post_id != $id ";
+$result  = mysqli_query($conn , $sql);
+if(mysqli_num_rows($result)>0){
+  while($row  = mysqli_fetch_array($result)){
+?>
+
+
+<div class = "column_1">
+<form method  = "Post " action  =  "cart.view.php">  
+                <div class = "cards_1">
+                    <div class = "card_body">
+                    <img src="../images/<?php echo $row["image"];?>" width = "180" height="150">
+                    <div class="detail"> 
+                    <h5 class= "text_info">Name:<?php echo $row['item_name'];?></h5>
+                    <h5>Location:<?=$row['district'];?></h5>
+                    <h5>Quantity : <?php echo $row['quantity']?>kg </h5>
+                    <h5 class = "text_danger">Price: Rs <?php echo $row['unit_price'];?> /kg</h5> 
+                   </div>
+                <?php $id =$row["post_id"]
+                ;?>
+                  <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
+                  <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/>
+                  <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
+
+                  </div>
+                </div>
+             </form> 
+            
+  </div>
+ 
+
+
+
+<?php
+  }
+}
+?>
+ </div>
+
+      </div>
 
 
 </body>
     <footer>
-<img src = "../images/Footer.svg"  height= "121.3px" >
+<img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">
 </footer>
 
 </html>

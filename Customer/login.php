@@ -30,7 +30,7 @@ $email= validate($_POST['email']);
 
      
        if(is_customer()){
-         header("Location:customerhome.view.php");
+         header("Location:customerhome.php");
        }else{
          header("Location:home.view.php");
        }
