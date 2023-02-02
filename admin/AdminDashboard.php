@@ -24,12 +24,13 @@ include "../public/includes/header.view.php";
 
         <style>
         * {
-            margin: 0;
+            margin : 0;
             padding: 0;
             font-family: sans-serif;
         }
         
         .chartCard {
+            margin-left: -200;
             width: 100vw;
             height: calc(70vh - 40px);
             display: flex;
@@ -37,6 +38,7 @@ include "../public/includes/header.view.php";
             justify-content: center;
         }
         .chartBox {
+            
             margin: 50;
             width: 500px;
             padding: 20px;

@@ -1,10 +1,3 @@
-<?php 
-        
-        require "../public/Auth.php";
-        include "../public/includes/header.view.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="notification.css">
-    <link rel="stylesheet" href="../public/CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
     <title>Admin Notification page</title>
 </head>
 <body>
-
-<?php include 'AdminNotificationPHP.php'; ?>
-    
+    <?php include 'AdminNotificationPHP.php';?>
+    <?php include 'AdminNav.php';?>
 
     <header></header>
     <div class="instructor_wrapper">
-        
+        <div class="left_menu_bar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="">Questions</a></li>
+                <li><a href="AdminNotification.php">Blogs</a></li>
+                <li><a href="">Courses</a></li>
+            </ul>
+            </ul>
+        </div>
         <div class="content">
             <h2>Notification</h2>
 
@@ -37,7 +35,7 @@
                         <ul>
 
                             <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php#customer ?view=<?= $record1['user_id']; ?> ">
+                                <li><a onclick="myFunction()" href="AdminNotification.php ?view=<?= $record1['user_id']; ?> ">
                                 Blog <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
                             <?php }?>
                         </ul>
