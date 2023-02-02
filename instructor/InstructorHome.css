@@ -67,8 +67,6 @@ footer .footer-copyright{
 }
 
 
-
-
 .container .left_menu_bar{
     flex:1.5;
     background: #8f918b29;
@@ -140,11 +138,10 @@ footer .footer-copyright{
 
 }
 
-
 .container .profile{
     width: 100%;
     height: auto;
-    background-color: rgba(206, 217, 177, 0.39);
+    background-color: rgba(239, 239, 239, 0.7);
     flex: 8.5;
     text-align: center;
     border-radius: 5px;
@@ -176,13 +173,14 @@ footer .footer-copyright{
 .container .profile .view-wrap .profile-image{
     flex: 2;
     display :block;
-    width: 5%;
-    background-color: #fff;
+    width: 5%; 
     height: 200px;
     text-align:center ;
+    background-color: #fff;
    
 
 }
+
 
 .container .profile .view-wrap .view{
     flex:8;
@@ -207,8 +205,7 @@ footer .footer-copyright{
 
 .container .profile .view-wrap .view .btn-section{
     background-color: rgba(100, 102, 99, 0.2);
-    height: 15%;
-    border-radius: 6px;
+    height: 30px;
     box-shadow: #FCFEF9;
     width: 100%;
 
@@ -221,13 +218,8 @@ footer .footer-copyright{
     height:100%;
 }
 
-.view-div{
-    width:100%;
-    height: auto;
-    display: block;
-    background-color: antiquewhite;
 
-}
+
 
 .edit-profile{
     width:100%;
@@ -243,4 +235,67 @@ footer .footer-copyright{
     display: none;
     background-color: bisque;
     
+}
+
+.view-div{
+    min-height: 40vh;
+    background-color:var(--light-bg);
+    display: flex;
+    justify-content: space-between;
+    justify-content:center;
+    text-align: center;
+    margin: 30px;
+    
+}
+.view-div form{
+   
+    text-align: left;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+
+ }
+
+ .view-div label{
+    text-align: center;
+    color: var(--dark-green);
+}
+
+.view-div input .box{
+    width: 30px;
+}
+
+.image img{
+    border-radius: 50%;
+}
+
+.view-div form {
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    gap: 5px;
+    width:100%;
+
+}
+
+.view-div form span{
+    text-align: left;
+    margin-top: 15px;
+    font-size: 17px;
+    color: #43562B;
+    padding-top: 5px;
+    
+
+
+}
+
+input{
+    width:100%;
+    border-radius: 5px;
+    height: 2px;
+
+    padding: 12px 14px ;
+    font-size: 13px;
+    background-color: rgba(169, 172, 172, 0.251);
+    border: none;
+
 }
