@@ -23,7 +23,6 @@ include '../public/includes/agri_menu.view.php';
 ?>
 <!-- <button class = "btnn" onclick="document.location='createpost.php'"> Create New Post </button> -->
 
-  
 <div class="container">
 
 

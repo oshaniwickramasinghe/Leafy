@@ -24,8 +24,14 @@ $price = $_REQUEST['price'];
 
 
 
-$sql = "INSERT INTO post (item_name,location, quantity, miniquantity,unit_price expire_date,category )
-VALUES ('$fname', '$flocation', '$quantity','$miniquantiy','$price' '$exdate', '$price','$category' )";
+$name = $_SESSION['USER_DATA']['fname'];
+
+
+
+  
+
+$sql = "INSERT INTO post (item_name,agriculturalist_name,location, quantity, minimum_quantity,unit_price ,expire_date,category )
+VALUES ('$fname', '$flocation',$name, '$quantity','$miniquantiy','$price', '$exdate', '$category' )";
 
 if ($conn->query($sql) === TRUE) {
 
