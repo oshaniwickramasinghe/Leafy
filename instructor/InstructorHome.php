@@ -47,14 +47,14 @@ if(isset($_POST['update_profile'])){
 
     if(!empty($update_image)){
         if($image_size > 2000000){
-            $message1[] = 'image is too large';
+            $message[] = 'image is too large';
         }else{
             if($sql){
                 move_uploaded_file($image_tmp_name, $image_folder);
-                $message1[]='update your details successfully!';
+                $message[]='update your details successfully!';
                 echo"<script>alert('registered successfully!');</script>";
             }else{
-                $message1[]="registered failed!";
+                $message[]="registered failed!";
             }
             
         }
@@ -72,14 +72,14 @@ if(isset($_POST['change_password'])){
     if(!empty($update_pass) || !empty($new_pass) || !empty($confirm_pass))
     {
         if($update_pass != $old_pass){
-            $message2[]="old password not matched!";
+            $message[]="old password not matched!";
            
         }elseif($new_pass != $confirm_pass){
-            $message2[]="confirm password is not matched!";
+            $message[]="confirm password is not matched!";
             echo"<script>alert('confirm password is not matched!')</script>";
         }else{
             mysqli_query($conn, "UPDATE `instructor` SET password='$confirm_pass' WHERE user_ID='$user_ID'") or die ('query failed');
-            $message2[]="password updated successfully!";
+            $message[]="password updated successfully!";
             echo"<script>alert('password updated successfully!');</script>";
         }
     }
@@ -151,6 +151,19 @@ if(isset($_POST['change_password'])){
                         <button href="update_profile.php" class="password-btn" id="password-btn">change password</button>
                    </div>
                     <div class="block">
+                    <?php
+                                if(isset($message)){
+                                    foreach($message as $message){
+                                        ?>
+                                        <div class="message"> 
+                                            <p><?php  echo $message;?></p>
+                                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                        </div>
+                                        
+                            <?php
+                                    }
+                                }
+                            ?>
                         <div class="view-div" id="view-div">
                             <form action="" method="post" enctype="multipart/form-data">
                                         <span>User ID :</span>
@@ -175,13 +188,7 @@ if(isset($_POST['change_password'])){
                         </div>
                         <div class="edit-profile" id="edit-profile">
                         <form action="" method="post" enctype="multipart/form-data"> 
-                            <?php
-                                if(isset($message1)){
-                                    foreach($message1 as $message1){
-                                        echo '<div class="message">'.$message1.'</div>';
-                                    }
-                                }
-                            ?>
+                            
                         
                             <div class="flex">
                                 <div class="inputBox">
@@ -208,13 +215,7 @@ if(isset($_POST['change_password'])){
                             </form>
                         </div>
                         <div class="change-password" id="change-password">
-                        <?php
-                            if(isset($message2)){
-                                foreach($message2 as $message2){
-                                    echo '<div class="message">'.$message2.'</div>';
-                                 }
-                                }
-                        ?>
+                      
                             <form action="" method="post" enctype="multipart/form-data">
                                 <div class="flex">
                                     <div class="inputBox">
