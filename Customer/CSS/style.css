@@ -339,9 +339,9 @@ small{
    margin-top: 60px;
    display: flex;
    justify-content: center;
-   align-items: \;
+   /* align-items: ; */
   
-  .upper-side {
+  .upper-side{
     padding: 2em;
     background-color:#33ca93be;
     display: block;
