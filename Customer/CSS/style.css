@@ -340,7 +340,7 @@ small{
    display: flex;
    justify-content: center;
    /* align-items: ; */
-  
+  }
   .upper-side{
     padding: 2em;
     background-color:#33ca93be;
