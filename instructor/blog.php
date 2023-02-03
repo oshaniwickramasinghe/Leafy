@@ -59,6 +59,9 @@ $result2= mysqli_query($conn,$sql2);
 
     if(isset($_GET['delete']))
     {
+        $blog_ID = $_GET['delete'];
+        $query = "DELETE * FROM blog WHERE blog_ID=$blog_ID";
+        $stmt = mysqli_query($conn,$query);
         
     }
 
@@ -119,10 +122,8 @@ $result2= mysqli_query($conn,$sql2);
                 <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div class="container_button">
-                <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                    <a href="blog.php?edit=<?= $record1['blog_ID']; ?>" type="button" id="edit">Edit</a>
-                    <a href="blog.php?detele=<?= $record1['blog_ID']; ?>" type="button"  id="delete">Delete</a>
-                <?php }?>
+                    <a href="blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit">Edit</a>
+                    <a href="blog.php?delete=<?=$blog_ID; ?>" type="button"  id="delete">Delete</a>
                 </div>
                 <div class="details_container">
                     <h4><?php if(isset ($fetch['first_name'])){ echo $fetch['first_name'];} ?></h4>
