@@ -31,8 +31,10 @@ if(mysqli_num_rows($select)>0){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="home.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="images/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="header.css">
+    
 </head>
 <body>
     <nav>
@@ -63,14 +65,15 @@ if(mysqli_num_rows($select)>0){
             </div>
             <div class="right_part">
                 <div class="profile_icon">
-                    <label for="" class="button">
-                    <a href="#" class="user-pic" onclick="toggleMenu()">
-                        <img src="images/profilepic_icon.svg" alt="">
-                        <p><?php echo $fetch['first_name']." ".$fetch['last_name']; ?></p>
-                    </a>
-                    <span class="fa-solid fa-circle-chevron-down"></span>
-                    </label>
-                    <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
+                    <div  class="user-pic" >
+                        <div class="user_details">
+                            <img src="images/profilepic_icon.svg" alt="" >
+                            <p><?php echo $fetch['first_name']." ".$fetch['last_name']; ?></p>
+                        </div>
+                        <button onclick="toggleMenu()">
+                        <span class="fa-solid fa-circle-chevron-down" ></span>
+                        </button>
+                    </div>
                 </div>
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
@@ -84,7 +87,7 @@ if(mysqli_num_rows($select)>0){
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "InstructorHome.php" class="sub-menu-link">
+                        <a href = "instructorHome.php?logout=<?php echo $user_ID; ?>" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>
@@ -108,11 +111,16 @@ if(mysqli_num_rows($select)>0){
     </div>
     </nav>
     <script>
-        let subMenu = documrnt.getElementById("subMenu");
-
+        
         function toggleMenu()
         {
-            subMenu.classList.toggle("open-menu");
+            var subMenu = document.getElementById("subMenu");
+            if(subMenu.style.display == "none")
+            {
+                subMenu.style.display = "block";
+            }else{
+                subMenu.style.display = "none";
+            }
         }
     </script>
 </body>
