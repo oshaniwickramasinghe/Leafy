@@ -7,14 +7,14 @@ include "cart.php";
 
 if(isset($_POST['checkout'])){
 
-  var_dump($_SESSION['cart']);
+
 
 $id =$_SESSION['cart']['0']['post_id']; 
 
 $sql = "SELECT * FROM `post` WHERE post_id = $id";
 $result = mysqli_query($conn,$sql);
  $rows = mysqli_fetch_assoc($result);
-//  var_dump($rows);
+ $agriculturalist =  $rows['user_id'];
  if(mysqli_num_rows($result)>0){
     // while($rows = mysqli_fetch_array($result,MYSQLI_ASSOC)){
         $quan = $rows['quantity']- $_SESSION['cart']['0']['quantity'];
@@ -25,6 +25,10 @@ $result = mysqli_query($conn,$sql);
           }
         }
     }
+
+
+
+
  ?>
     
 
@@ -57,8 +61,6 @@ $result = mysqli_query($conn,$sql);
    <!-- <button class = "update" name = "add">Add</button><br><br> -->
 
 <?php
-
- 
 $sub =  $_SESSION['total'];
 
        ?>
@@ -67,7 +69,9 @@ $sub =  $_SESSION['total'];
   <br> <label>Sub Total : Rs <?= $sub?>.00</label>
  
    <?php
+   $delivery =0;
    if(isset($_POST['Delivery'])){
+    $delivery =1;
     $fee = 100;
         ?>
      <br> <br><label>Delivery Fee : Rs  <?= $fee?> .00</label>
@@ -91,8 +95,10 @@ $sub =  $_SESSION['total'];
    
 
 </form>
-<?php if(isset($_POST['card'])){
-
+<?php
+$pay  = "cash";
+if(isset($_POST['card'])){
+  $pay  = "card";
 ?>
 <a href="payment.php"><input type= "submit" class= "btn_1" value= "Pay Now"  name = "payment"
  data-inline = "true" style = "font-size :16px; width:280px "  ></a><br>
@@ -105,6 +111,23 @@ $sub =  $_SESSION['total'];
  }
  ?>
 </div>
+
+<?php
+$id =$_SESSION['cart']['0']['post_id']; 
+$sql = "SELECT user_id FROM `post` WHERE post_id = $id";
+$result = mysqli_query($conn,$sql);
+ $rows = mysqli_fetch_assoc($result);
+ $agriculturalist =  $rows['user_id'];
+ $customer = $_SESSION['USER_DATA']['user_id'];
+
+ if(isset($_POST['add'])){
+
+ $sql  = "INSERT INTO `order`(`customer_id`, `payment_method`, `delivery`, `agriculturalist_id`, `post_id`) VALUES ($customer,'$pay',$delivery,$agriculturalist,$id)";
+ $result = mysqli_query($conn,$sql);
+ var_dump($sql);
+ var_dump( $result);
+ }
+?>
 
 
 </body>
