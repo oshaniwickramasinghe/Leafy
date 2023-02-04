@@ -42,29 +42,18 @@ footer .footer-copyright{
     margin-top: 0%;
 }
 
-.role_name{
-    color:rgba(67, 86, 43);
-    display:flex;
-    margin-top: 10px;
 
-}
-
-.role_name .left {
-    flex:8;
+.role_name  {
     margin:0px;
-    padding-left: 260px;
+    padding-left: 190px;
     padding-bottom: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     height: calc(100%-100px);
     text-transform:capitalize;
     font-size: 17px;
-}
-
-
-
-h1{
-    margin:0px;
-
+    color:rgba(0, 0, 0, 0.751);
+    
 }
 
 .body{
@@ -87,7 +76,7 @@ h1{
 
 .instructor_wrapper .left_menu_bar{
     flex:1.5;
-    background: rgba(206, 217, 177, 0.39);
+    background: #8f918b29;
     display: block;
     border-radius:20px;
     height: auto;
@@ -162,7 +151,7 @@ h1{
     flex:8.5;
     height: 100%;
     padding: 10px 20px;
-    background: rgba(217, 217, 217, 0.5);
+    background: #a9bc9b46;
     border-radius: 20px;
     margin-left: 1%;
     margin-bottom: 1%;
@@ -173,7 +162,7 @@ h1{
 }
 
 .instructor_wrapper .content h2{
-    color:rgba(67, 86, 43, 0.62);
+    color:rgba(0, 0, 0, 0.669);
     
 }
 
@@ -190,7 +179,7 @@ h1{
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    background-color: #6a7162;
+    background-color: #43562b;
     border-radius: 20px;
     margin-top: 20px;
 }
@@ -209,7 +198,7 @@ h1{
 .instructor_wrapper .content .container .container_right{
     flex: 6.5;
 
-    background: rgba(128, 157, 91, 0.3);
+    background: white;
     /*overflow-y: scroll;
     height: 300px; */
     border-radius: 20px;
@@ -217,6 +206,7 @@ h1{
     display: block;
     resize: both;
     overflow: auto;
+    box-shadow:black;
     
     
 
@@ -302,7 +292,7 @@ h1{
 .instructor_wrapper .content .container .container_left .main_card{
     
     display:block;
-    background: #d4e2ac8b;
+    background:#4e4e4e99;
     overflow-y: scroll;
     border-radius: 20px;
     height: 300px;
@@ -310,9 +300,10 @@ h1{
 }
 
 .instructor_wrapper .content .container .container_left .main_card p{
-    color: #FCFEF9;
+    color: black;
     font-size: 17px;
     margin:10px 0 5px 20px;
+    font-weight: 1000;
 
 }
 
@@ -329,7 +320,7 @@ h1{
     margin: 11px;
     display: block;
     color: #43562B;
-    background:#fff;
+    background:white;
     border-radius:25px;
 }
 
@@ -338,11 +329,121 @@ h1{
    
 }
 
+  
+  /* Float cancel and delete buttons and add an equal width */
+  .cancelbtn, .deletebtn {
+    float: left;
+    
+  }
+  
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
 
+  #id01 button{
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 10px;
+    
+  }
 
+  #id01 a{
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  
+  /* Add a color to the delete button */
+  .deletebtn {
+    background-color: #f44336;
+    color: black;
+  }
+  
+  /* Add padding and center-align text to the container */
+  #id01 .container {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
 
+  #id01 .container p{
+    margin-top: 10px;
+    margin-bottom: 10px;
 
-
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #070708a4;
+    padding-top: 50px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Change styles for cancel button and delete button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .deletebtn {
+      width: 100%;
+    }
+  }
 /*.hide{
     display: none;
 }*/
