@@ -1,17 +1,20 @@
 *{
     margin: 0px;/*gost margine*/
     padding:0px;
-    font-family: "Poppins" ,sans-serif;
-} 
-.header{
+    
 
-    background:url(images/newheader.svg)no-repeat;
-    max-width:100%;
+} 
+nav{
+
+    background:url(images/headerFinal.svg)no-repeat;
+    width:100%;
     height: 110px;
     background-size: 100% ;
     background-attachment: fixed;
     margin:0;
     padding: 0;
+    position: absolute;
+
 
 
 }
@@ -21,27 +24,32 @@
     margin: 0 auto;
     display: flex;
     padding: 0px 0;
+    flex-wrap: wrap;
 
 
 }
 
 .header .center_wrapper .left_part{
     display: flex;
-    align-items: center;
-    width: 70%;
+    width: 60%;
     
 
 
 }
-.header .center_wrapper .left_part img{
+.header .center_wrapper .left_part .logo img{
     max-width: 100%;
     height: auto;
     padding: 0;
-    margin-top: 2px;
+    margin-top: 1%;
+    padding-top: 3px;
+    position: relative;
+   
 }
 
 .header .center_wrapper .left_part .menu{
     padding-left: 76.99px;
+    padding-top: 5%;
+    
     
 }
 
@@ -61,17 +69,12 @@
 }
 
 
-body{
-    
-    background-size: cover;
-    height: 100%;
-    background-position-x: left;
-}
+
 
 .header .center_wrapper .right_part{
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 40%;
     justify-content: flex-end;
     
     
@@ -87,8 +90,23 @@ body{
 }
 
 .header .center_wrapper .right_part .profile_icon{
-    align-content: center;
+    align-items: center;
+    padding-right: 10px;
+    width: fit-content;
+    display: flex;
+    text-align: center;
+    
+
 }
+
+.header .center_wrapper .right_part .profile_icon .user_details{
+    justify-content: center;
+    display:block;
+}
+
+
+
+
 
 
 .header .center_wrapper .right_part .profile_icon a p{
@@ -108,6 +126,8 @@ body{
 .header .center_wrapper .right_part img{
     max-width: 100%;
     height: auto;
+    padding-top: 2px;
+    align-items: center;
     
     
     
@@ -122,21 +142,21 @@ body{
     color:#323929;
 }
 
-.sub-menu-wrap{
+#subMenu{
     position: absolute;
-    top: 100%;
+    top: 61%;
     right: 10%;
-    width: 320px;
+    width: 250px;
     max-height: 400px;
     overflow: hidden;
     transition: max-height 0.5s;
+    display: none;
+   
 }
 
-.sub-menu-wrap .open-menu{
-    max-height: 400px;
-}
+
 .sub-menu{
-    background: #8e8f8c;
+    background: #f6f7f5a0;
     padding : 20px;
     margin: 10px;
     border-radius: 5px;
@@ -150,12 +170,13 @@ body{
 .user-info p{
     font-weight: 1000;
     color: #323929;
-    font-size: large;
+    font-size: 11px;
+    width: 100%;
 
 }
 
 .user-info img{
-    width: 60px;
+    width: 40px;
     border-radius: 50%;
     margin-right: 15px;
 
@@ -182,12 +203,14 @@ body{
     color: #323929;
     margin: 0px 15px;
     text-decoration: none;
+    font-size: 10px;
 
 }
 
 .sub-menu-link span{
-    font-size: 22px;
+    font-size: 15px;
     color: #323929;
+    transform: transform 0.5s;
 }
 .sub-menu-link:hover span{
     transform: translateX(5px);
@@ -196,3 +219,44 @@ body{
 .sub-menu-link:hover p{
     font-weight: 600;
 }
+
+nav{
+    position:relative;
+    width:100%;
+    padding-top: 0%;
+    margin-top: 0%;
+
+}
+
+nav .user-pic{
+    color:#EDF3E5;
+    display: flex;
+    font-size: 10px;
+    align-items: center;
+    width:fit-content;
+}
+
+.profile_icon span{
+    float: right;
+    line-height: 35px;
+    font-size: 22px;
+}
+
+.user_details{
+    display: inline-block;
+    align-items: center;
+    
+}
+
+button{
+    cursor: pointer;
+    background: none;
+	color: inherit;
+	border: none;
+
+}
+
+button :hover{
+    font-weight: 600;
+    color: #323929;
+} 

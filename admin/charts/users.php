@@ -20,7 +20,7 @@
         <title>chart.js</title>
         <style type="text/css">
             .chartBox{
-                width: 700px;
+                width: 500px;
             }
         
         </style>
@@ -56,7 +56,7 @@
         ?>
 
         <div class="chartBox">
-        <canvas id="myChart"></canvas>
+        <canvas id="ABC"></canvas>
         </div>
         
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -67,8 +67,8 @@
             const count = <?php echo json_encode($count);?>;
            
 
-            const data = { 
-            labels: ['customer', 'agriculturalist', 'instructor', 'delivery_person'],
+            const theta = { 
+            labels: ['red', 'blue', 'yellow', 'green'],
                 datasets: [{
                     label: '# of Votes',
                     data: count,
@@ -84,9 +84,9 @@
                 }]
             };
             //config block
-            const config ={
+            const config2 ={
                     type: 'bar',
-                data,
+                data:theta,
                 options: {
                     scales: {
                         y: {
@@ -96,9 +96,9 @@
                 }
             };
             //render block
-            const myChart = new Chart(
-                document.getElementById('myChart'),
-                config
+            const ABC = new Chart(
+                document.getElementById('ABC'),
+                config2
             );
             
         </script>

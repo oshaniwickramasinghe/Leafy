@@ -20,7 +20,7 @@
         <title>chart.js</title>
         <style type="text/css">
             .chartBox{
-                width: 700px;
+                width: 500px;
             }
         
         </style>
@@ -31,7 +31,7 @@
         <?php
             try{
 
-                $sql = "SELECT * FROM leafy.user_count ";
+                $sql = "SELECT * FROM leafy.duplicate_user_count ";
                 $result = $pdo->query($sql);
                 if($result->rowCount()>0){
                     
@@ -86,7 +86,7 @@
             //config block
             const config ={
                     type: 'bar',
-                data,
+                data:data,
                 options: {
                     scales: {
                         y: {
@@ -95,13 +95,17 @@
                     }
                 }
             };
+
             //render block
             const myChart = new Chart(
                 document.getElementById('myChart'),
                 config
-            );
+            );  
+            
             
         </script>
+
+        
     </body>
 
 </html>

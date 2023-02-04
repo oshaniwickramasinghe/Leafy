@@ -106,6 +106,7 @@ footer{
  .loggedhome_body{
     padding-left: 55px;
     margin-top:-40%;
+    margin-left:10%;
    
  }
  
@@ -117,7 +118,7 @@ footer{
  }
 
  .home_body ul li {
-    padding: 0 px;
+    padding: 0 25px;
 }
 .home_text{
     padding-left: 200px;

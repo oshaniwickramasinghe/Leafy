@@ -22,15 +22,16 @@ include "../public/includes/header.view.php";
             Home
         </title> 
 
-        <style>
+        <button class = "btnn" onclick="document.location='agricreatepost.php'"> Create New Post </button> 
+
+        <!-- <style>
         * {
-            margin : 0;
+            margin: 0;
             padding: 0;
             font-family: sans-serif;
         }
         
         .chartCard {
-            margin-left: -200;
             width: 100vw;
             height: calc(70vh - 40px);
             display: flex;
@@ -38,7 +39,6 @@ include "../public/includes/header.view.php";
             justify-content: center;
         }
         .chartBox {
-            
             margin: 50;
             width: 500px;
             padding: 20px;
@@ -62,20 +62,8 @@ include "../public/includes/header.view.php";
     <div class = "home_body">
 
         
-                <?php 
-                    $username= "student";
-                    $password= "student";
-                    $database = "leafy";
-
-                    try{
-                        $pdo = new PDO("mysql:host=localhost;database=$database",$username,$password);
-
-                        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    }catch(PDOException $e){
-                        die("Error: not connected.".$e->getMessage());
-                    }
-                ?>
-
+               
+                  
             
                 <?php
                     try{
@@ -219,6 +207,6 @@ include "../public/includes/header.view.php";
                         </script>
                   
     </div>
-</div>
+</div> -->
 
 <?php include '../public/includes/footer.view.php'?>

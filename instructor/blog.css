@@ -2,12 +2,18 @@
     margin: 0;/*gost margine*/
     padding:0;
     box-sizing:inherit;
+    
    
 }
 
 footer{
     text-align: center;
-    padding-top: 30px;
+    height: 110px;
+    width: 100%;
+    display: block;
+    padding-top: 0px;
+    bottom: 0%;
+    
 }
 
 footer li{
@@ -16,14 +22,28 @@ footer li{
     padding: 5px 15px 0px 10px;
 }
 
+
 footer p{
     color: #FCFEF9;
     font-size: smaller;
-    padding-top: 5px;
+    padding-top: 0px;
+}
+
+
+footer ul{
+    width: 100%;
+    height: 50px;
+    padding-top: 40px;
+}
+
+footer .footer-copyright{
+    width: 100%;
+    padding-top: 0%;
+    margin-top: 0%;
 }
 
 .role_name{
-    color:rgba(67, 86, 43, 0.62);
+    color:rgba(67, 86, 43);
     display:flex;
     margin-top: 10px;
 
@@ -36,6 +56,8 @@ footer p{
     padding-bottom: 0px;
     margin-bottom: 0px;
     height: calc(100%-100px);
+    text-transform:capitalize;
+    font-size: 17px;
 }
 
 
@@ -47,25 +69,29 @@ h1{
 
 .body{
 
-  margin: 0% 1%;  
+  margin: 0% 1%; 
+  height: 60%; 
 }
 
 .role_name .right{
-    flex:2;
+    flex:1.5;
 }
 
 .instructor_wrapper{
     display: flex;
+    height: 40%;
     
     
     
 }
 
 .instructor_wrapper .left_menu_bar{
-    flex:2;
+    flex:1.5;
     background: rgba(206, 217, 177, 0.39);
     display: block;
     border-radius:20px;
+    height: auto;
+    box-shadow: var(--box-shadow);
     
 }
 
@@ -113,7 +139,7 @@ h1{
     margin: 4px;
     display: block;
     color: #43562B;
-    background: rgba(217, 217, 217, 0.50);
+    background:#fff;
     border-radius:4px;
 
     
@@ -125,14 +151,15 @@ h1{
 }
 
 .instructor_wrapper .left_menu_bar h3{
-    color:rgba(67, 86, 43, 0.62);
+    color:rgba(67, 86, 43);
     margin-left: 0px;
     padding-left:0px;
+   
 }
 
 
 .instructor_wrapper .content{
-    flex:8;
+    flex:8.5;
     height: 100%;
     padding: 10px 20px;
     background: rgba(217, 217, 217, 0.5);
@@ -147,6 +174,7 @@ h1{
 
 .instructor_wrapper .content h2{
     color:rgba(67, 86, 43, 0.62);
+    
 }
 
 /*.instructor_wrapper .content .container{
@@ -162,7 +190,7 @@ h1{
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    background-color: #5A713D;
+    background-color: #6a7162;
     border-radius: 20px;
     margin-top: 20px;
 }
@@ -310,19 +338,7 @@ h1{
    
 }
 
-/*.footer{
 
-    max-width:100%;
-    height: 110px;
-    background-size: 100% ;
-    background-attachment: fixed;
-    margin:0;
-    padding: 0;
-    background-position: bottom;
-
-
-
-}*/
 
 
 
