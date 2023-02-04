@@ -2,6 +2,7 @@
 
 include '../public/Auth.php';
 include '../public/includes/header.view.php';
+include 'database.php';
 ?>
 
 
@@ -28,38 +29,39 @@ include '../public/includes/agri_menu.view.php';
 
     <div class="row">
 
-      <?php
+    <?php
+    $sql  =  "SELECT * FROM post WHERE post_id ";
+    $result = mysqli_query($conn , $sql);
 
-      
-      $query = "SELECT * FROM postcreate ORDER BY itemID ASC";
-      //execute mysql query and store data in result
-      $result = mysqli_query($conn, $query);
-
-      if (mysqli_num_rows($result) > 0) {
-
-        while ($row = mysqli_fetch_array($result)) {
-      ?>
-          <div class="border">
+    if(mysqli_num_rows($result)>0){
+        while($res =  mysqli_fetch_array($result)){
+?>
+          <!-- <div class="border">
             <div class="column">
-              <div class="cards">
-                <div class="card_body">
+              <div class="agri_cards"> -->
+                <div class="card_agribody">
 
                 
 
-                  <form method="post" action="postview.php?id=<?php echo $row['id'] ?>">
+                  <form method="post" action="postview.php">
 
-                  
-                    <img src="images/<?php echo $row['img']; ?>" width="100" height="100">
+             
+                    <img src="images/<?php echo $row['img']; ?>" width="100" height="100"> 
                             
-                    <h5 class="text_info"><?php echo $row['fname']; ?></h5>
-                    <h5>Location:<?= $row['flocation']; ?></h5>
-                    <h5>Quantity : <?php echo $row['quantity'] ?>kg </h5>
-                    <h5>Minimum Quantity : <?php echo $row['miniquantity'] ?>kg </h5>
-                    <h5>Expiary Date : <?php echo $row['exdate'] ?></h5>
-                    <h5 class="text_danger">Price: Rs <?php echo $row['price']; ?></h5>
-                    <!-- <input type="text" name="quantity" class="form-control" value="1" /> -->
-                    <input type="hidden" name="hidden_name" value="<?php echo $row["fname"]; ?>" />
-                    <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
+                    <h5 class = "text_danger">Price: Rs  <?php echo $res['unit_price'];?>.00  per Kg</h5>
+                   <h5>Quantity :   <?php echo $res['quantity']?>kg </h5>
+                  
+                    <h5>District:  <?=$res['district'];?></h5>
+                    
+                  
+                    <?php $id =$res["post_id"];?>
+                    <input type = "hidden" name= "item_name" value = "<?php echo $res['item_name']; ?>">
+                    <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
+                    <input type = "hidden" name= "quantity" value = "<?php  echo $res['quantity']; ?>">
+                    <input type = "hidden" name= "price" value = "<?php echo $res['unit_price']; ?>">
+                     <input type= "submit" name= "Eddite" class= "btn" value= "Eddite" data-inline = "true"/>
+                    <input type= "submit" name= "Delete" class= "btn" value= "Delete" data-inline = "true"/>
+
 
                                 
 
@@ -68,9 +70,9 @@ include '../public/includes/agri_menu.view.php';
 
                   </form>
                 </div>
-              </div>
+              <!-- </div>
             </div>
-          </div>
+          </div> -->
       <?php
         }
       }

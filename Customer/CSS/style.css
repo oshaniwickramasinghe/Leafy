@@ -325,6 +325,35 @@ small{
    
   }
 
+  .row_agri {margin: 0 -5px;}
+
+  .card_agri_body{
+    padding: 2px 16px;
+    color: #5A713D
+}
+.agri_cards{
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    max-width: 250px;
+    text-align: left;
+    font-family: arial;
+    padding-left: 2%;
+    padding-bottom: 5%;
+    text-align: center;
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+  }
+
   .column {
     float: left;
     width: 25%;
@@ -339,8 +368,9 @@ small{
    margin-top: 60px;
    display: flex;
    justify-content: center;
-   /* align-items: ; */
-  }
+   /* align-items: \; */
+
+ }
   .upper-side{
     padding: 2em;
     background-color:#33ca93be;
