@@ -57,6 +57,17 @@ $result2= mysqli_query($conn,$sql2);
     }
 
 
+    if(isset($_GET['delete']))
+    {
+        $blog_ID = $_GET['delete'];
+        $query = "DELETE * FROM blog WHERE blog_ID=$blog_ID";
+        $stmt = mysqli_query($conn,$query);
+        
+        if($stmt){
+            $message[]='update your details successfully!';
+        }
+    }
+
 
 
 
@@ -114,8 +125,22 @@ $result2= mysqli_query($conn,$sql2);
                 <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div class="container_button">
-                    <button onclick="location.href=''" type="button" id="edit">Edit</button>
-                    <button type="button" id="delete">Delete</button>
+                    <a href="blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit"><button>Edit</button></a>
+                    <a href="blog.php?delete=<?=$blog_ID; ?>" type="button"  id="delete" onclick="open();">Delete</a>
+                </div>
+                <div id="id01" class="modal">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <form class="modal-content" action="/action_page.php">
+                        <div class="container">
+                            <h1>Delete Account</h1>
+                            <p>Are you sure you want to delete your account?</p>
+
+                            <div class="clearfix">
+                                <button type="button" class="cancelbtn">Cancel</button>
+                                <button type="button" class="deletebtn">Delete</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="details_container">
                     <h4><?php if(isset ($fetch['first_name'])){ echo $fetch['first_name'];} ?></h4>
@@ -168,7 +193,7 @@ $result2= mysqli_query($conn,$sql2);
 
     </div>
    </div>
-    <footer style="background:url(images/Footer.svg)no-repeat;"class="footer">
+    <footer style="background:url(images/footerFinal.svg)no-repeat;"class="footer">
         <ul class="footer">
             <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
             <li><a href=""><i class="fa-brands fa-instagram" style="font-size:30px;color:#FCFEF9;"></i></a></li>
@@ -180,6 +205,10 @@ $result2= mysqli_query($conn,$sql2);
 
     </footer>
 
-        <script src="blog.js"></script>
+        <script >
+            function open(){
+                document.getElementById('id01').style.display='block';
+            }
+        </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 include "../public/Auth.php";
-include "connect.php";
+include "database.php";
 
 
 
@@ -22,10 +22,19 @@ $price = $_REQUEST['price'];
 // { move_uploaded_file($file_tmp1,$target_file1); }
 // else { $file_name1=""; }
 
+// print_r($_SESSION)['USER_DATA'];
+
+// die;
 
 
-$sql = "INSERT INTO post (item_name,location, quantity, miniquantity,unit_price expire_date,category )
-VALUES ('$fname', '$flocation', '$quantity','$miniquantiy','$price' '$exdate', '$price','$category' )";
+$name = $_SESSION['USER_DATA']['fname'];
+
+
+
+  
+
+$sql = "INSERT INTO post (item_name,agriculturalist_name,location, quantity, minimum_quantity,unit_price ,expire_date,category )
+VALUES ('$fname','$name', '$flocation', '$quantity','$miniquantiy','$price', '$exdate', '$category' )";
 
 if ($conn->query($sql) === TRUE) {
 
