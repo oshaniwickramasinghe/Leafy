@@ -41,12 +41,12 @@
 .instructor_wrapper .content .box{
     display:flex;
     height:80%;
-    margin:20px;
+    margin:80px;
 
 }
 
 .instructor_wrapper .content .box .container_right{
-    flex: 6.5;
+    flex: 5.5;
 
     background: rgba(128, 157, 91, 0.3);
    /* overflow-y: scroll;
@@ -55,9 +55,33 @@
     margin-left: 20px;
     display: block;
     
+}
+
+
+
+
+
+
+.center{
+    flex: 3.5;
+
+    background: white;
+   /* overflow-y: scroll;
+    height: 300px; */
+    border-radius: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+    display: block;
+    
     
 
 }
+
+
+
+
+
  
 .instructor_wrapper .content .box .container_right h3{
     color: #43562B;
