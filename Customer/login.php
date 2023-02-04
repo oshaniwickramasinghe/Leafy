@@ -30,14 +30,7 @@ $email= validate($_POST['email']);
 
      
        if(is_customer()){
-<<<<<<< HEAD
          header("Location:customerhome.php");
-=======
-         header("Location:customerhome.view.php");
-       }else if(is_agriculturalist()){
-        header("Location:customerhome.view.php");
-          
->>>>>>> 18ed2c394d632677c5d336d882bbf09a0bade821
        }else{
          header("Location:home.view.php");
        }
