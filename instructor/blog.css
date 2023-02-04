@@ -42,29 +42,18 @@ footer .footer-copyright{
     margin-top: 0%;
 }
 
-.role_name{
-    color:rgba(67, 86, 43);
-    display:flex;
-    margin-top: 10px;
 
-}
-
-.role_name .left {
-    flex:8;
+.role_name  {
     margin:0px;
-    padding-left: 260px;
+    padding-left: 190px;
     padding-bottom: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     height: calc(100%-100px);
     text-transform:capitalize;
     font-size: 17px;
-}
-
-
-
-h1{
-    margin:0px;
-
+    color:rgba(0, 0, 0, 0.751);
+    
 }
 
 .body{
@@ -87,7 +76,7 @@ h1{
 
 .instructor_wrapper .left_menu_bar{
     flex:1.5;
-    background: rgba(206, 217, 177, 0.39);
+    background: #8f918b29;
     display: block;
     border-radius:20px;
     height: auto;
@@ -162,7 +151,7 @@ h1{
     flex:8.5;
     height: 100%;
     padding: 10px 20px;
-    background: rgba(217, 217, 217, 0.5);
+    background: #a9bc9b46;
     border-radius: 20px;
     margin-left: 1%;
     margin-bottom: 1%;
@@ -173,7 +162,7 @@ h1{
 }
 
 .instructor_wrapper .content h2{
-    color:rgba(67, 86, 43, 0.62);
+    color:rgba(0, 0, 0, 0.669);
     
 }
 
@@ -190,7 +179,7 @@ h1{
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    background-color: #6a7162;
+    background-color: #43562b;
     border-radius: 20px;
     margin-top: 20px;
 }
@@ -209,7 +198,7 @@ h1{
 .instructor_wrapper .content .container .container_right{
     flex: 6.5;
 
-    background: rgba(128, 157, 91, 0.3);
+    background: white;
     /*overflow-y: scroll;
     height: 300px; */
     border-radius: 20px;
@@ -217,6 +206,7 @@ h1{
     display: block;
     resize: both;
     overflow: auto;
+    box-shadow:black;
     
     
 
@@ -302,7 +292,7 @@ h1{
 .instructor_wrapper .content .container .container_left .main_card{
     
     display:block;
-    background: #d4e2ac8b;
+    background:#4e4e4e99;
     overflow-y: scroll;
     border-radius: 20px;
     height: 300px;
@@ -310,9 +300,10 @@ h1{
 }
 
 .instructor_wrapper .content .container .container_left .main_card p{
-    color: #FCFEF9;
+    color: black;
     font-size: 17px;
     margin:10px 0 5px 20px;
+    font-weight: 1000;
 
 }
 
@@ -329,7 +320,7 @@ h1{
     margin: 11px;
     display: block;
     color: #43562B;
-    background:#fff;
+    background:white;
     border-radius:25px;
 }
 

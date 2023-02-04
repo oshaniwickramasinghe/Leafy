@@ -94,7 +94,7 @@ $result2= mysqli_query($conn,$sql2);
     
    <div class="body">
    <div class="role_name">
-        <div class="left"><h1><?php echo $fetch['role'];?></h1></div>
+        <h1><?php echo $fetch['role'];?></h1>
     </div>
     <div class="instructor_wrapper">
         
@@ -111,6 +111,7 @@ $result2= mysqli_query($conn,$sql2);
             </ul>
         </div>
         <div class="content">
+            
             <h2>Blog</h2>
             <div class="container">
             <div class="container_left">
@@ -219,7 +220,6 @@ $result2= mysqli_query($conn,$sql2);
         }
 
         function deleteDetails() {
-        // Add your code to delete the details here
 
         hideModal();
         }
