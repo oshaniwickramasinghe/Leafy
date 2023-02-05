@@ -8,12 +8,6 @@ if(!isset($user_ID)){
     header('location:../login.php');
 };
 
-/*if(isset($_GET['logout'])){
-     unset($user_ID);
-     session_destroy();
-     header('location:login.php');
-}*/
-
 
 
 $sql2="SELECT *  FROM blog blog inner join instructor ins on  blog.user_ID = ins.user_ID where blog.user_ID='$user_ID' ORDER BY blog.blog_ID DESC";
@@ -60,10 +54,20 @@ $result2= mysqli_query($conn,$sql2);
     if(isset($_GET['delete']))
     {
         $blog_ID = $_GET['delete'];
-        $query = "DELETE FROM blog WHERE blog_ID=$blog_ID";
-        $stmt = mysqli_query($conn,$query);
+
+        /*$query1 = "SELECT image FROM instructor WHERE blog_ID=$blog_ID";
+        $stmt1 = mysqli_query($conn,$query1);
+        $result4 = mysqli_fetch_assoc($stmt1);
+        $imagepath = $result4['image'];
+
+        unlink($imagepath);*/
+
+        $query2 = "DELETE FROM blog WHERE blog_ID=$blog_ID";
+        $stmt2 = mysqli_query($conn,$query2);
         
-        if($stmt){
+
+        
+        if($stmt2){
             echo"<script>alert('Record Deleted from database')</script>";
             ?>
             <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/blog.php">
@@ -72,6 +76,8 @@ $result2= mysqli_query($conn,$sql2);
             echo "<script>alert('Failed to delete from database')</script>";
         }
     }
+
+   
 
 
 
@@ -131,7 +137,7 @@ $result2= mysqli_query($conn,$sql2);
                 <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div class="container_button">
-                    <a href="blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
+                    <a href="create blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
                 </div>
                 <div id="id01" class="modal" style="display: none;">

@@ -3,6 +3,16 @@
  include 'header.php';
  $user_ID = $_SESSION['user_ID'];
 
+ $update = false;
+ $blog_ID="";
+ $title="";
+ $date="";
+ $author="";
+ $content="";
+ $comment="";
+ $time="";
+ $image="";
+
  if(isset($_POST['submit']))
  {
    /* $blog_ID=mysqli_real_escape_string($conn,$_POST['blog_ID']); */
@@ -29,6 +39,72 @@
     
  }
 
+
+
+ if(isset($_GET['edit']))
+ {
+     $blog_ID = $_GET['edit'];
+
+
+     $query3 = "SELECT * FROM blog WHERE blog_ID=$blog_ID";
+     $stmt3 = mysqli_query($conn,$query3);
+     
+
+     
+     if($stmt3){
+         while($record3 = mysqli_fetch_assoc($stmt3))
+         {
+             $blog_ID=$record3['blog_ID'];
+             $title=$record3['title'];
+             $date=$record3['date'];
+             $author=$record3['author'];
+             $content=$record3['content'];
+             $comment=$record3['comment'];
+             $time=$record3['time'];
+             $image=$record3['image'];
+         }
+        
+     }else{
+         echo "<script>alert('Failed to delete from database')</script>";
+     }
+
+     $update = true;
+ }
+
+ if(isset($_POST['update'])){
+    $blog_ID=$_POST['blog_ID'];
+    $title=$_POST['title'];
+    $date=$_POST['date'];
+    $author=$_POST['author'];
+    $content=$_POST['content'];
+    $comment=$_POST['comment'];
+    $time=$_POST['time'];
+    $image=$_POST['oldimage'];
+
+    if(isset($_FILES['image']['name']) && ($_FILES['image']['name']!= ""))
+    {
+        $newimage="images/".$_FILES['image']['name'];
+        move_uploaded_file(($_FILES['image']['tmp_name']) , $newimage);
+
+    }
+    else{
+        $newimage = $image;
+    }
+
+    $query =  mysqli_query($conn,"UPDATE blog SET blog_ID='$blog_ID', title='$title', date=' $date', 
+    author='$author', content='$content', comment='$comment', time='$time', image='$newimage' WHERE blog_ID='$blog_ID'") 
+    or die('query failed');
+
+    if($query)
+    {
+        $message[]='update your details successfully!';
+    }else{
+        $message[]="registered failed!";
+    }
+    
+
+ }
+
 ?> 
 
 
@@ -45,27 +121,62 @@
     <title>create blog</title>
 </head>
 <body>
-    <header></header>
+    <?php
+        if(isset($message)){
+            foreach($message as $message){
+    ?>
+            <div class="message"> 
+                <p><?php  echo $message;?></p>
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            </div>
+    <?php
+            }
+        }
+    ?>
+
     <h1>Create a Blog Page</h1>
     <div class="create_form_wrapper">
     
         <form action="" method="post" enctype="multipart/form-data">
+            
           <div class="field">
             <div>
+                <input type="hidden" name="blog_ID" value="<?= $blog_ID;?>">
+                <input type="hidden" name="date" value="<?= $date;?>">
+                <input type="hidden" name="author" value="<?= $author;?>">
+                <input type="hidden" name="comment" value="<?= $comment;?>">
+                <input type="hidden" name="time" value="<?= $time;?>">
+            </div>
+            <div>
+                
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="Title of the Blog..." class="text_input" required><br>
+                <input type="text" id="title" name="title" placeholder="Title of the Blog..." class="text_input" value="<?= $title; ?>" required><br>
             </div>
             <div>
                 <label for="content">Content</label>
-                <textarea for="content" id="content" name="content" class="text_input" required></textarea><br>
+                <textarea for="content" id="content" name="content" class="text_input"  value="" required></textarea><br>
             </div>
             <div>
                 <label for="image">Attach images</label>
+                <input type="hidden" name="oldimage" value="<?= $image; ?>">
                 <input type="file" name="image" class="text_input" accept="image/jpg, image/jpeg, image/png"><br>
             </div>
+            <?php if($update == true) {?>
+                <div>
+                    <img src="./images/<?= $image; ?>" width ="120" class="img-thumbnail">
+                </div>
+            <?php } else {?>
+                <div>
+                    <img src="./images/<?= $image; ?>" width ="120" class="img-thumbnail" style="visibility:hidden" >
+                </div>
+            <?php } ?>
           </div>
             <div align="right">
-            <input type="submit" value="Submit" name="submit" class="btn">
+                <?php if($update == true) {?>
+                    <input type="submit" value="Update Blog" name="update" class="btn">
+                <?php } else {?>     
+                    <input type="submit" value="Submit" name="submit" class="btn">
+                <?php } ?>
         </div>
             
          </form>
@@ -86,9 +197,9 @@
 
     </footer>
 
-        <script src="blog.js"></script>
-    <script src="">
-
+    
+    <script>
+        document.getElementById("content").value = "<?= $content;?>";
     </script>
 </body>
 </html>
