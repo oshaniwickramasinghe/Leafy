@@ -109,6 +109,13 @@ footer{
     margin-left:10%;
    
  }
+ .loggedhome_body{
+   min-height: 70vh;
+   display: flex;
+   flex-direction: column;
+
+   
+ }
  
  .home_body ul {
     list-style: none;
@@ -133,7 +140,7 @@ footer{
  }
 
  .home_text ul li {
-    padding: 0 90px 0  ;
+    padding: 0 50px 0  ;
 }
 
 Button{
