@@ -2,6 +2,7 @@
 require "../Auth.php";
 include '../includes/header.php';
 include '../database.php';
+include "pagination.php";
 
 $host = "localhost";
 $uname = "root";
@@ -28,40 +29,25 @@ if(!$conn){
     <title>Vegetables</title>
     <?php include '../includes/menu.view.php'?>
 <body>
+  <div class = "vegetable_body">
+<div class = "row">
 <?php
-$result_per_page  = 4;
-
-$query  = "SELECT * FROM post ORDER BY post_id ASC";
-
-$result = mysqli_query($conn,$query);
-
-$num_of_result  = mysqli_num_rows($result);
-
-//rounds a number UP to the nearest integer
-$number_of_page  = ceil($num_of_result/$result_per_page);
-
-$pageLink  =  "";
-if(isset($_GET['page'])){
-    $page  = 1;
-}else{
-    $page = $_GET['page'];
-}
-
-$page_first_result= ($page)* $result_per_page;
-
-$query = "SELECT * FROM post  LIMIT  ".$page_first_result. ','.$result_per_page; 
-
+$count= 0;
 $result  = mysqli_query($conn , $query);
-// var_dump($query);
 if(mysqli_num_rows($result)>0){
-   while($row  = mysqli_fetch_array($result)){
-
+ 
+    while($row  = mysqli_fetch_array($result)){
+    $count = $count+1;
+    // if($count==4){
+    //   echo "hi";
 ?>
 
-<div class = "row">
-<div class = "column">
-<form method  = "Post " action  =  "../shopping_cart/cart.view.php">  
-                <div class = "cards">
+
+
+
+<div class = "column_2" >
+<form method  = "Post " action  =  "../shopping_cart/cart.view.php" >  
+                <div class = "cards" >
                     <div class = "card_body">
 
                     <img src="../images/<?php echo $row["image"];?>" width = "180" height="150">
@@ -71,8 +57,7 @@ if(mysqli_num_rows($result)>0){
                     <h5>Quantity : <?php echo $row['quantity']?>kg </h5>
                     <h5 class = "text_danger">Price: Rs <?php echo $row['unit_price'];?> /kg</h5> 
                    </div>
-                <?php $id =$row["post_id"]
-                ;?>
+                <?php $id =$row["post_id"] ;?>
                   <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
                   <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/>
                   <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
@@ -80,54 +65,66 @@ if(mysqli_num_rows($result)>0){
                   </div>
                 </div>
              </form> 
-            
-  </div>
+       
+  </div> 
 
- 
+
+
 
 
 
 <?php
-   }
-
+ 
   }
-
-if($page>= 2 ){
-    echo "<a href='vegetable.view.php?page=".($page-1)."'> Previous page </a>";
-  }else{
-    echo "<a href='vegetable.view.php?page=".($page)."'> Previous page </a>";
   }
+  ?>
 
 
- for($i = 1; $i<= $number_of_page; $i++){
-    if($i== $page){
-    $pagLink= "<a class ='active' href='vegetable.view.php?page=".$i."'>$i</a>";
-    echo $pagLink;
-    }else{
-    $pagLink= "<a class = 'normal' href='vegetable.view.php?page=".$i."'>$i</a>";
-    echo $pagLink;
-    }
+ 
 
- };
-
-
-
- if($page < $number_of_page){
-     echo "<a href ='vegetable.view.php?page=".($page+1)."'> Next page </a>";   
-
-}else{
-
-echo "<a class  =  'next' href ='vegetable.view.php?page=".($page)."'> Next page </a>"; 
-}
-?>
+  </div>
 </div>
 
 
+<div class  = "pagination">
+  <?php
+
+
+if($page>= 2 ){
+  echo "<a class  =  'prev' href='vegetable.php?page=".($page-1)."'> Previous page </a>";
+}else{
+  echo "<a class  =  'prev' href='vegetable.php?page=".($page)."'> Previous page </a>";
+}
+
+
+for($i = 1; $i<= $number_of_page; $i++){
+  if($i== $page){
+  $pagLink= "<a class ='active' href='vegetable.php?page=".$i."'>$i</a>";
+  echo $pagLink;
+  }else{
+  $pagLink= "<a class = 'normal' href='vegetable.php?page=".$i."'>$i</a>";
+  echo $pagLink;
+  }
+
+};
+
+
+
+if($page < $number_of_page){
+   echo "<a class  =  'next' href ='vegetable.php?page=".($page+1)."'> Next page </a>";   
+
+}else{
+
+echo "<a class  =  'next' href ='vegetable.php?page=".($page)."'> Next page </a>"; 
+}
+
+?>
+
+</div>
 
 </head>
 </body>
-<footer>
-<img src = "../images/Footer.svg"  height= "121.3px" >
-</footer>
-
 </html>
+<footer>
+<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+</footer>

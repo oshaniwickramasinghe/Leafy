@@ -2,7 +2,7 @@
 
 require "../../Customer/database.php";
 require "../Auth.php";
-include '../../public/includes/header.view.php';
+include '../../public/includes/header.php';
 
 
 // unset($_SESSION['wishlist']);

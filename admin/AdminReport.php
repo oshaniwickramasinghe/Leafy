@@ -1,115 +1,115 @@
 <?php 
-    $username= "student";
-    $password= "student";
-    $database = "leafy";
 
-    try{
-        $pdo = new PDO("mysql:host=localhost;database=$database",$username,$password);
-
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }catch(PDOException $e){
-        die("Error: not connected.".$e->getMessage());
-    }
-?>
-
-<?php 
-
-include '../public/includes/header.view.php';
+//require "connect.php";
+require "../public/Auth.php";
+include "../public/includes/header.view.php";
 
 
 ?>
 
 <!DOCTYPE html>
-<html lang="=en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1">
-        <title>chart.js</title>
-        <style type="text/css">
-            .chartBox{
-                width: 700px;
-            }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="notification.css">
+    <link rel="stylesheet" href="../public/CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
+          
+    <title>Admin Report page</title>
+</head>
+<body>
+    <?php include 'AdminNotificationPHP.php';?>
+    <?php include "../public/includes/admin_menu.view.php"?>
+
+<div class = "loggedhome_body">
+    <div class="instructor_wrapper">
         
-        </style>
-    </head>
+        <div class="content">
+            <h2>Reports</h2>
 
-    <body>
+        <section id='customer'>;
+            <!-- Customer-->
+            <div class="box">
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Orders</p>
+                    <div class="card_left">
+                        <ul>
 
-    <?php include '../public/includes/menu.view.php'?>
-        <?php
-            try{
+                            <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
+                                <li><a onclick="myFunction()" href="AdminNotification.php ?view=<?= $record1['user_id']; ?> ">
+                                User <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
 
-                $sql = "SELECT * FROM leafy.user_count ";
-                $result = $pdo->query($sql);
-                if($result->rowCount()>0){
+                <div class="container_right" id="view_more">
+                    <div class="center">
+                        <?php include '../admin/charts/user.php';?>
+                    </div>
                     
-                     $count = array();
-                    
-                    while($row=$result->fetch()){
-                        $count[]=$row["count"];
-                        
-                        echo $row["count"];
-                    }
-                    unset($result);
-                }
-                else{
-                    echo "no records found";
-                }
-            }catch(PDOException $e){
-                die ("Error: unable to excecute $sql.".$e->getMessage());
-            }
-            unset($pdo);
+                </div>
 
+           </div>
+        </section>
+
+           <!-- Instructor -->
+           <div class="box">
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Delivered orders</p>
+                    <div class="card_left">
+                        <ul>
+                            <?php while($record2=mysqli_fetch_assoc($resultinstructor)){?>
+                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record2['user_id']; ?> ">
+                                User <?= $record2['user_id']?> - <?=$record2['fname']?>  <?=$record2['role']?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="container_right" id="view_more">
+                    <div class="center">
+                        <?php include '../admin/charts/user.php';?>
+                    </div>
+                    
+                </div>
+
+           </div>
+
+           <!-- Agriculturalist -->
+           <div class="box">
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Users</p>
+                    <div class="card_left">
+                        <ul>
+                            <?php while($record3=mysqli_fetch_assoc($resultagriculturalist)){?>
+                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record3['user_id']; ?> ">
+                                User <?= $record3['user_id']?> - <?=$record3['fname']?>  <?=$record3['role']?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="container_right" id="view_more">
+                    <div class="center">
+                        <?php include '../admin/charts/users.php';?>
+                    </div>
+                    
+                </div>
+
+           </div>
             
-        ?>
-
-        <div class="chartBox">
-        <canvas id="myChart"></canvas>
         </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <script>
+    </div>
+</div>    
 
-            //setup block
-            const count = <?php echo json_encode($count);?>;
-           
-
-            const data = { 
-            labels: ['customer', 'agriculturalist', 'instructor', 'delivery_person'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: count,
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
-                        
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        
-                    ],
-                    borderWidth: 1
-                }]
-            };
-            //config block
-            const config ={
-                    type: 'bar',
-                data,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            };
-            //render block
-            const myChart = new Chart(
-                document.getElementById('myChart'),
-                config
-            );
-            
-        </script>
-    </body>
-
+        <script src="notification.js"></script>
+</body>
 </html>

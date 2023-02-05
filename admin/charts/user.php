@@ -19,8 +19,26 @@
         <meta name="viewport" content="width=device-width", initial-scale="1">
         <title>chart.js</title>
         <style type="text/css">
-            .chartBox{
+            * {
+                margin: 0px;
+                padding: 0;
+                font-family: sans-serif;
+            }
+            
+            .chartCard {
                 width: 500px;
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .chartBox {
+                width: 500px;
+                padding: 20px;
+                border-radius: 20px;
+                border: solid 3px rgba(54, 162, 235, 1);
+                background: white;
+                margin-left: 100px;
             }
         
         </style>
@@ -55,9 +73,12 @@
             
         ?>
 
-        <div class="chartBox">
+    <div class="chartCard">
+      <div class="chartBox">
         <canvas id="myChart"></canvas>
-        </div>
+      </div>
+    
+    </div>
         
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

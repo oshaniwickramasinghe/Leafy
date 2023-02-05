@@ -45,7 +45,7 @@ include 'includes/header.view.php';
             <ul>
                 <li><a href="../Customer/customerhome.view.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../Customer/wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
-                <li><a href=""><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications</a></li>
+                <li><a href="../Customer/notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications</a></li>
                 <li><a href=""><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
                 <li><a href="blog.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
             </ul>
@@ -69,7 +69,7 @@ include 'includes/header.view.php';
 </div>
 
 <ul>
-<li><div class  = "container "><a href="post/Vegetable.php" ><Button class = "btn">Vegetables & Fruits </Button></a><img src = "images/v.png" width = "200px" height = "300px" ></div></li>
+<li><div class  = "container "><a href="post/Vegetable.php?page=1" ><Button class = "btn">Vegetables & Fruits </Button></a><img src = "images/v.png" width = "200px" height = "300px" ></div></li>
 <li><div class  = "container "><a href="seeds" ><Button class = "btn">Seeds </Button></a><img src = "images/s.png" width = "200px" height = "300px"></div></li>
 <li><div class  = "container "><a href="blog" ><Button class = "btn">Blog </Button></a><img src = "images/b.png" width = "200px" height = "300px"></div></li>
 <li><div class  = "container "><a href="courses" ><Button class = "btn">Courses </Button></a><img src = "images/c.png" width = "200px" height = "300px"></div></li>

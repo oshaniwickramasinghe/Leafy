@@ -59,7 +59,18 @@ $result2= mysqli_query($conn,$sql2);
 
     if(isset($_GET['delete']))
     {
+        $blog_ID = $_GET['delete'];
+        $query = "DELETE FROM blog WHERE blog_ID=$blog_ID";
+        $stmt = mysqli_query($conn,$query);
         
+        if($stmt){
+            echo"<script>alert('Record Deleted from database')</script>";
+            ?>
+            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/blog.php">
+        <?php
+        }else{
+            echo "<script>alert('Failed to delete from database')</script>";
+        }
     }
 
 
@@ -83,7 +94,7 @@ $result2= mysqli_query($conn,$sql2);
     
    <div class="body">
    <div class="role_name">
-        <div class="left"><h1><?php echo $fetch['role'];?></h1></div>
+        <h1><?php echo $fetch['role'];?></h1>
     </div>
     <div class="instructor_wrapper">
         
@@ -100,6 +111,7 @@ $result2= mysqli_query($conn,$sql2);
             </ul>
         </div>
         <div class="content">
+            
             <h2>Blog</h2>
             <div class="container">
             <div class="container_left">
@@ -108,7 +120,7 @@ $result2= mysqli_query($conn,$sql2);
                 <div class="card_left">
                     <ul>
                         <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                            <li><a onclick="myFunction()" href="blog.php?view=<?= $record1['blog_ID']; ?> ">Blog <?= $record1['blog_ID']?> - <?=$record1['title']?></a></li>
+                            <li><a  href="blog.php?view=<?= $record1['blog_ID']; ?>">Blog <?= $record1['blog_ID']?> - <?=$record1['title']?></a></li>
                         <?php }?>
                     </ul>
                 </div>
@@ -119,10 +131,21 @@ $result2= mysqli_query($conn,$sql2);
                 <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div class="container_button">
-                <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                    <a href="blog.php?edit=<?= $record1['blog_ID']; ?>" type="button" id="edit">Edit</a>
-                    <a href="blog.php?detele=<?= $record1['blog_ID']; ?>" type="button"  id="delete">Delete</a>
-                <?php }?>
+                    <a href="blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
+                    <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
+                </div>
+                <div id="id01" class="modal" style="display: none;">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <form class="modal-content" action="/action_page.php">
+                        <div class="container">
+                            <h1>Delete this blog</h1>
+                            <p>Are you sure you want to delete the blog?</p>
+                            <div class="clearfix">
+                                <a href="blog.php?delete=<?=$blog_ID; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
+                                <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
+                            </div>
+                            </div>
+                    </form>
                 </div>
                 <div class="details_container">
                     <h4><?php if(isset ($fetch['first_name'])){ echo $fetch['first_name'];} ?></h4>
@@ -187,6 +210,19 @@ $result2= mysqli_query($conn,$sql2);
 
     </footer>
 
-        <script src="blog.js"></script>
+    <script>
+        function showModal() {
+            document.getElementById("id01").style.display = "flex";
+        }
+
+        function hideModal() {
+            document.getElementById("id01").style.display = "none";
+        }
+
+        function deleteDetails() {
+
+        hideModal();
+        }
+    </script>
 </body>
 </html>

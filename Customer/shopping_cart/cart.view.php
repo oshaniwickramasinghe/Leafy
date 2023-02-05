@@ -6,7 +6,7 @@ include '../includes/header.php';
 require "cart.php";
 
 // unset($_SESSION['wishlist']);
-
+// unset($_SESSION['cart']);
 
 if(isset($_POST["delete"]))
 {
