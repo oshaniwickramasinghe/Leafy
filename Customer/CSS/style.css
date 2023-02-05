@@ -918,7 +918,7 @@ background-color:rgb(159, 159, 159);
 margin-top: 6px;
     
    flex-wrap: wrap;
-   height: auto; 
+   height: 50%; 
 }
 .rowone form{
     background-color:rgb(197, 197, 219); 
