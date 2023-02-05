@@ -72,6 +72,7 @@
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 40px;
+    margin-bottom: 40px;
     display: block;
     
     
@@ -155,7 +156,7 @@
 
 
 .instructor_wrapper .content .box .container_left{
-    flex: 3.5;
+    flex: 4.5;
 
 }
 

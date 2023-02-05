@@ -27,14 +27,14 @@ include "../public/includes/header.view.php";
     <div class="instructor_wrapper">
         
         <div class="content">
-            <h2>Notification</h2>
+            <h2>Reports</h2>
 
         <section id='customer'>;
             <!-- Customer-->
             <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>Customer</p>
+                    <p>Orders</p>
                     <div class="card_left">
                         <ul>
 
@@ -45,7 +45,6 @@ include "../public/includes/header.view.php";
                         </ul>
                     </div>
                     </div>
-                    <button onclick="location.href='createblog.php'" type="button" id="create">create</button>
                 </div>
 
                 <div class="container_right" id="view_more">
@@ -62,7 +61,7 @@ include "../public/includes/header.view.php";
            <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>Instructor</p>
+                    <p>Delivered orders</p>
                     <div class="card_left">
                         <ul>
                             <?php while($record2=mysqli_fetch_assoc($resultinstructor)){?>
@@ -72,7 +71,6 @@ include "../public/includes/header.view.php";
                         </ul>
                     </div>
                     </div>
-                    <button onclick="location.href='createblog.php'" type="button" id="create">create</button>
                 </div>
                 <div class="container_right" id="view_more">
                     <div class="center">
@@ -87,7 +85,7 @@ include "../public/includes/header.view.php";
            <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>Agriculturalist</p>
+                    <p>Users</p>
                     <div class="card_left">
                         <ul>
                             <?php while($record3=mysqli_fetch_assoc($resultagriculturalist)){?>
@@ -97,7 +95,6 @@ include "../public/includes/header.view.php";
                         </ul>
                     </div>
                     </div>
-                    <button onclick="location.href='createblog.php'" type="button" id="create">create</button>
                 </div>
                 <div class="container_right" id="view_more">
                     <div class="center">
@@ -107,34 +104,6 @@ include "../public/includes/header.view.php";
                 </div>
 
            </div>
-
-           
-           <!-- Delivery person -->
-           <div class="box">
-                <div class="container_left">
-                    <div class="main_card">
-                    <p>Delivery person</p>
-                    <div class="card_left">
-                        <ul>
-                            <?php while($record4=mysqli_fetch_assoc($resultdelivery)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record4['user_id']; ?> ">
-                                User <?= $record4['user_id']?> - <?=$record4['fname']?>  <?=$record4['role']?></a></li>
-                            <?php }?>
-                        </ul>
-                    </div>
-                    </div>
-                    <button onclick="location.href='createblog.php'" type="button" id="create">create</button>
-                </div>
-                <div class="container_right" id="view_more">
-                    <div class="center">
-                        <?php include '../admin/charts/user.php';?>
-                    </div>
-                    
-                </div>
-
-           </div>
-
-            
             
         </div>
 
