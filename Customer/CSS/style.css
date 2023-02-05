@@ -901,7 +901,7 @@ background-color:rgb(159, 159, 159);
     background-color:transparent;
     width: 70%;
     margin-left: 15%;
-    margin-top: -38%;
+    margin-top: -36%;
     
    flex-wrap: wrap;
    height: 60%;
@@ -909,8 +909,22 @@ background-color:rgb(159, 159, 159);
 
 }
 
-
-   
+.rowone{
+    display: flex;
+    /* flex-direction: row; */
+    background-color:violet;
+    width: 90%;
+    margin-left: 8%;
+margin-top: 6px;
+    
+   flex-wrap: wrap;
+   height: auto; 
+}
+.rowone form{
+    background-color:rgb(197, 197, 219); 
+    width:60%;
+ 
+}  
     
 
 .cards{
@@ -1109,6 +1123,13 @@ a.next{
     display: flex;
     flex-direction: column;
     
+  }
+
+  .notification_body{
+     min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y:scroll;
   }
 
   .view_body{
