@@ -1,6 +1,6 @@
 <?php
  include 'config.php';
- include 'home.php';
+ include 'header.php';
  $user_ID = $_SESSION['user_ID'];
 
  if(isset($_POST['submit']))
@@ -8,8 +8,6 @@
    /* $blog_ID=mysqli_real_escape_string($conn,$_POST['blog_ID']); */
     $title=mysqli_real_escape_string($conn,$_POST['title']);
     $content=mysqli_real_escape_string($conn,$_POST['content']);
-    $auther=mysqli_real_escape_string($conn,$_POST['auther']);
-    $comment=mysqli_real_escape_string($conn,$_POST['comment']);
     $image=$_FILES['image']['name'];
     $image_size=$_FILES['image']['size'];
     $image_tmp_name=$_FILES['image']['tmp_name'];
