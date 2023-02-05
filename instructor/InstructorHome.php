@@ -41,7 +41,9 @@ if(isset($_POST['update_profile'])){
     $image_tmp_name=$_FILES['update_image']['tmp_name'];
     $image_folder="images/".$update_image;
 
-    $sql = mysqli_query($conn, "UPDATE `instructor` SET first_name='$update_fname' , last_name='$update_lname', email='$update_email' , image='$update_image', contact_number='$update_cnumber', occupation='$update_occupation', specialized_area='$update_specialized_area', education_level='$update_education_level' 
+    $sql = mysqli_query($conn, "UPDATE `instructor` SET first_name='$update_fname' , last_name='$update_lname', 
+    email='$update_email' , image='$update_image', contact_number='$update_cnumber', occupation='$update_occupation', 
+    specialized_area='$update_specialized_area', education_level='$update_education_level' 
     WHERE user_ID='$user_ID'") or die('query failed');
 
 
@@ -49,16 +51,20 @@ if(isset($_POST['update_profile'])){
         if($image_size > 2000000){
             $message[] = 'image is too large';
         }else{
-            if($sql){
-                move_uploaded_file($image_tmp_name, $image_folder);
-                $message[]='update your details successfully!';
-                echo"<script>alert('registered successfully!');</script>";
-            }else{
-                $message[]="registered failed!";
-            }
-            
+            move_uploaded_file($image_tmp_name, $image_folder);
         }
+    }else{
+        $update_image = $image;
     }
+
+    if($sql){
+            
+        $message[]='update your details successfully!';
+    }else{
+        $message[]="registered failed!";
+    }
+        
+    
    
 }
 
@@ -151,7 +157,7 @@ if(isset($_POST['change_password'])){
                         <button href="update_profile.php" class="password-btn" id="password-btn">change password</button>
                    </div>
                     <div class="block">
-                    <?php
+                            <?php
                                 if(isset($message)){
                                     foreach($message as $message){
                                         ?>
