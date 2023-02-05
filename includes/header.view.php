@@ -18,7 +18,7 @@
                 <div class="menu">
                     <ul>
                         <li>
-                            <a href="#home" class="active">Home</a>
+                            <a href="">Home</a>
                         </li>
                         <li>
                             <a href="#blogs" class="">Blogs</a>
