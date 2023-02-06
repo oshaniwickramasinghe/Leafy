@@ -1,0 +1,22 @@
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+    box-sizing:inherit;
+}
+
+footer{
+    text-align: center;
+    padding-top: 30px;
+}
+
+footer li{
+    list-style: none;
+    display :inline-block;
+    padding: 5px 15px 0px 10px;
+}
+
+footer p{
+    color: #FCFEF9;
+    font-size: smaller;
+    padding-top: 5px;
+}

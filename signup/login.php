@@ -12,7 +12,9 @@ if(isset($_POST['submit'])){
     if(mysqli_num_rows($select)>0){ 
         $row= mysqli_fetch_assoc($select);
         $_SESSION['user_ID'] = $row['user_ID'];
-        header("location:./CreateBlog/blog.php");
+        $_SESSION['fname'] = $row['fname'];
+        $_SESSION['lname'] =  $row['lname'];
+        header("location:blog.php");
     
     }else{
         $message[]='incorrect email or password!';
@@ -48,6 +50,7 @@ if(isset($_POST['submit'])){
             <input type="text" name="email" placeholder="Enter your email" class="box" required>
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="enter password" class="box" required>
+            <a href="forgetPassword.php">Forget Password?</a>
             <input type="submit" name="submit" value="login now" class="btn">
              
         </form>

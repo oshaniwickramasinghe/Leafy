@@ -32,8 +32,8 @@ if(isset($_POST['submit'])){
             $sql =mysqli_query($conn,"INSERT INTO instructor(first_name,last_name,email,contact_number,password,occupation,specialized_area,education_level,role,image) Values('$first_name','$last_name','$email','$contact_number','$password','$occupation','$specialized_area','$education_level','$role','$image')");
         if($sql){
             move_uploaded_file($image_tmp_name, $image_folder);
-            $message[]="registered successfully!";
-            header('location:login.php');
+            $message[]='registered successfully!';
+            echo"<script>alert('registered successfully!');window.location.href='login.php';</script>";
         }else{
             $message[]="registered failed!";
 
@@ -76,9 +76,9 @@ if(isset($_POST['submit'])){
             <label for="cnumber">Contact number</label>
             <input type="tel" name="cnumber" placeholder="Enter your number" class="box" pattern="[0-9]{10}" required>
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="enter password" class="box" required>
+            <input type="password" name="password" placeholder="enter password" class="box" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
             <label for="cpassword">Confirm Password</label>
-            <input type="password" name="cpassword" placeholder="confirm password" class="box" required>
+            <input type="password" name="cpassword" placeholder="confirm password" class="box"  required>
             <label for="occupation">Occupation</label>
             <input type="text" name="occupation" placeholder="Enter your occupation" class="box" required>
             <label for="sarea">Specialized area</label>
@@ -87,20 +87,19 @@ if(isset($_POST['submit'])){
             <select name="elevel" class="box"> 
             <option value="advanced_level">Advanced Level</option>
             <option value="degree">Degree Level</option>
-            <option value="Other">Other</option>
+
             <br>
             </select>
             <label for="role">Select the user role</label><br> 
             <select name="role" class="box">
-            <option value="admin">Admin</option>
-            <option value="customer">customer</option>
-            <option value="agriculturalist">Agriculruralist</option>
-            <option value="delivery_person">Delivery Person</option>
-            <option value="instructor">Instructor</option>
+            <option value="Customer">ustomer</option>
+            <option value="Agriculturalist">Agriculruralist</option>
+            <option value="Delivery_person">Delivery Person</option>
+            <option value="Instructor" selected>Instructor</option>
             <br>
             </select>
             <label for="image">Attach images of your education certificates</label>
-            <input type="file" name="image" class="box" accept="image/jpg, imge/jpeg, image/png"> 
+            <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png" required> 
             <input type="submit" name="submit" value="register now" class="btn">
              
         </form>

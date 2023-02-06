@@ -179,6 +179,7 @@
     color:var(--red);
 }
 
+
 .container .profile p a:hover{
     text-decoration: underline;
 }
@@ -187,3 +188,19 @@
     display:none;
 }
 
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: none !important;
+    color: fieldtext !important;
+}
+
+.form-container a{
+    color:var(--red);
+    text-align: left;
+
+}
+
+.form-container a:hover{
+    text-decoration: underline;
+}
