@@ -7,8 +7,7 @@
     <title>delivery person Register</title>
 </head>
 <body>
-
-<link rel = "stylesheet" href = "style.css">
+<link rel="stylesheet" href="../Customer/CSS/style.css">
     <form action = "loginuser.php" method="post">
 
     <h1>Regiser</h1>
@@ -26,7 +25,14 @@
 
     <!-- <input type="checkbox" name="time" placeholder="Full Time"><br>
     <input type="checkbox" name="time" placeholder="part Time"><br> -->
-
+    <label for="">Vehicle Number</label><br>
+    <input type="text" placeholder="Enter your Vehicle Number" name="" required><br>
+    <label for="">Vehicle Register Number</label><br>
+    <input type="text" placeholder="Enter your Vehicle Register Number" name="" required><br>
+    <label for="">License Number</label><br>
+    <input type="text" placeholder="Enter your Location" name="" required><br>
+    <label for="">Contact Number</label><br>
+    <input type="text" placeholder="Enter your Contact Number" name="" required><br>
     <label for="">Vehicle Type</label><br>
     <select name="usertype"  class = "select">
                         <option value="user">Motor Bike</option>
@@ -34,6 +40,10 @@
                         <option value="admin">Three Weel</option>
                         
     </select><br>
+    <label for="">Capacity</label><br>
+    <input type="text" placeholder="Enter Capacity of vehicle in Kg"><br>
+    <label for="">Fuel Type</label><br>
+    <input type="text" placeholder="Enter vehicle fuel type"><br>
     <label for="">Address</label><br>
     <input type="text" placeholder="Enter your Address" name=""  required><br>
     <input type="text" placeholder="Default Address" name=""  required><br>
