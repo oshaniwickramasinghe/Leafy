@@ -368,17 +368,9 @@ small{
    margin-top: 60px;
    display: flex;
    justify-content: center;
-<<<<<<< HEAD
    /* align-items: \; */
 
  }
-=======
-   /* align-items: ; */
-  }
-  .upper-side {
-   /* align-items: ; */
-  }
->>>>>>> e51146c22f0a144c5b4d1f268e38d038458f886a
   .upper-side{
     padding: 2em;
     background-color:#33ca93be;

@@ -29,9 +29,9 @@
                 <h3>Leafy</h3>
             </div>
             <ul>
-            agriculturalist\agricreatepost.php
+            
                 <li><a href="../Customer/customerhome.view.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
-                <li><a href="../ agriculturalist/agricreatepost.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Post</a></li>
+                <li><a href="agricreatepost.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Post</a></li>
                 <li><a href=""><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications</a></li>
                 <li><a href=""><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Report</a></li>
                 <li><a href="blog.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Form</a></li>

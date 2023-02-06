@@ -2,7 +2,10 @@
 // include "database.php";
 // include "User.php";
 
-include "connect.php";
+
+include '../public/Auth.php';
+
+
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 if(empty($errors)){
@@ -40,7 +43,7 @@ if(empty($errors)){
 </head>
 <body>
 
-<link rel = "stylesheet" href = "../agriculturalist/style.css">
+<link rel = "stylesheet" href = "agristyle.css">
     <form action = "loginuser.php" method="post">
 
     <h1>Regiser</h1>
