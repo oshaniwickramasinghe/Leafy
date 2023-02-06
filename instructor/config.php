@@ -1,19 +1,22 @@
 <?php
 
-$servername="localhost";
-$username="root";
-$password="";
-$database="leafy";
+// echo "<per>";
+// print_r($_SERVER);
 
-//create connection
-$conn=mysqli_connect($servername, $username, $password, $database);
 
-//check connection
-if(!$conn)
-{
-    die("Connection failed: " . mysqli_connect_error());
+
+if($_SERVER['SERVER_NAME'] == 'localhost'){
+    //database config for local server
+    define('DBHOST' , 'localhost');
+    define('DBNAME' , 'leafy');
+    define('DBUSER' , 'root');
+    define('DBPASS' , '');
+    define('DBDRIVER' , 'mysql');
+}else{
+    //database config for live server
+    define('DBHOST' , 'localhost');
+    define('DBNAME' , 'leafy');
+    define('DBUSER' , 'root');
+    define('DBPASS' , '');
+    define('DBDRIVER' , 'mysql');
 }
-
-
-
-?>

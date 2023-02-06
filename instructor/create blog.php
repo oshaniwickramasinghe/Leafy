@@ -4,6 +4,7 @@
  $user_ID = $_SESSION['user_ID'];
 
  $update = false;
+
  $blog_ID="";
  $title="";
  $date="";
@@ -83,8 +84,11 @@
 
     if(isset($_FILES['image']['name']) && ($_FILES['image']['name']!= ""))
     {
-        $newimage="images/".$_FILES['image']['name'];
-        move_uploaded_file(($_FILES['image']['tmp_name']) , $newimage);
+        $newimage=$_FILES['image']['name'];
+        $newimage_size=$_FILES['image']['size'];
+        $newimage_tmp_name=$_FILES['image']['tmp_name'];
+        $image_folder="images/".$newimage;
+        move_uploaded_file($newimage_tmp_name, $image_folder);
 
     }
     else{
@@ -98,6 +102,9 @@
     if($query)
     {
         $message[]='update your details successfully!';
+        ?>
+        <META http-equiv="Refresh" content="6; URL=http://localhost/leafy/instructor/blog.php">
+        <?php
     }else{
         $message[]="registered failed!";
     }
@@ -180,11 +187,12 @@
         </div>
             
          </form>
-
-         
-         
-            
+      
     </div>
+    <div align="right">
+        <a href="blog.php" class="goback-btn">go back >></a> 
+    </div>    
+
     <footer style="background:url(images/Footer.svg)no-repeat;"class="footer">
         <ul class="footer">
             <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
