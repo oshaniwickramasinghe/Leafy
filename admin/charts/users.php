@@ -91,7 +91,7 @@
             const theta = { 
             labels: ['red', 'blue', 'yellow', 'green'],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'no of users',
                     data: colour,
                     backgroundColor: [
                         'rgba(54, 162, 235, 0.2)',
