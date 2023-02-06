@@ -1,7 +1,6 @@
 <?php
- include 'config.php';
  include 'header.php';
- $user_ID = $_SESSION['user_ID'];
+ $user_ID = $_SESSION['USER_DATA']['user_id'];
 
  $update = false;
 
@@ -26,7 +25,7 @@
     
 
 
-    $sql1=" INSERT INTO blog(title,content,comment,image,user_ID) Values ('$title','$content','$comment','$image','$user_ID')";
+    $sql1=" INSERT INTO blog(title,content,image,user_id) Values ('$title','$content','$image','$user_ID')";
    
     $result1=mysqli_query($conn,$sql1);
     if($result1){
@@ -47,7 +46,7 @@
      $blog_ID = $_GET['edit'];
 
 
-     $query3 = "SELECT * FROM blog WHERE blog_ID=$blog_ID";
+     $query3 = "SELECT * FROM blog WHERE blog_id=$blog_ID";
      $stmt3 = mysqli_query($conn,$query3);
      
 
@@ -55,12 +54,10 @@
      if($stmt3){
          while($record3 = mysqli_fetch_assoc($stmt3))
          {
-             $blog_ID=$record3['blog_ID'];
+             $blog_ID=$record3['blog_id'];
              $title=$record3['title'];
              $date=$record3['date'];
-             $author=$record3['author'];
              $content=$record3['content'];
-             $comment=$record3['comment'];
              $time=$record3['time'];
              $image=$record3['image'];
          }
@@ -73,12 +70,10 @@
  }
 
  if(isset($_POST['update'])){
-    $blog_ID=$_POST['blog_ID'];
+    $blog_ID=$_POST['blog_id'];
     $title=$_POST['title'];
     $date=$_POST['date'];
-    $author=$_POST['author'];
     $content=$_POST['content'];
-    $comment=$_POST['comment'];
     $time=$_POST['time'];
     $image=$_POST['oldimage'];
 
@@ -95,8 +90,8 @@
         $newimage = $image;
     }
 
-    $query =  mysqli_query($conn,"UPDATE blog SET blog_ID='$blog_ID', title='$title', date=' $date', 
-    author='$author', content='$content', comment='$comment', time='$time', image='$newimage' WHERE blog_ID='$blog_ID'") 
+    $query =  mysqli_query($conn,"UPDATE blog SET blog_id='$blog_ID', title='$title', date=' $date', 
+     content='$content', time='$time', image='$newimage' WHERE blog_id='$blog_ID'") 
     or die('query failed');
 
     if($query)
@@ -150,8 +145,6 @@
             <div>
                 <input type="hidden" name="blog_ID" value="<?= $blog_ID;?>">
                 <input type="hidden" name="date" value="<?= $date;?>">
-                <input type="hidden" name="author" value="<?= $author;?>">
-                <input type="hidden" name="comment" value="<?= $comment;?>">
                 <input type="hidden" name="time" value="<?= $time;?>">
             </div>
             <div>

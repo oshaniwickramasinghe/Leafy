@@ -1,17 +1,24 @@
 <?php
-include 'config.php';
 include 'header.php';
-$user_ID = $_SESSION['user_ID'];
-$first_name = $_SESSION['fname'];
-$last_name = $_SESSION['lname']; 
+
+//$user_ID = $_SESSION['user_ID'];
+//$first_name = $_SESSION['fname'];
+//$last_name = $_SESSION['lname']; 
+//if(!isset($user_ID)){
+    //header('location:../login.php');
+//};
+
+$user_ID=$_SESSION['USER_DATA']['user_id'];
+
 if(!isset($user_ID)){
     header('location:../login.php');
-};
+}
 
 
 
-$sql2="SELECT *  FROM blog blog inner join instructor ins on  blog.user_ID = ins.user_ID where blog.user_ID='$user_ID' ORDER BY blog.blog_ID DESC";
-$select=mysqli_query($conn,"SELECT * FROM `instructor` WHERE user_ID='$user_ID'") or die('query failed');
+$sql2="SELECT *  FROM blog where user_id='$user_ID' ORDER BY blog_id DESC";
+$select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
+
 
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
@@ -27,7 +34,7 @@ $result2= mysqli_query($conn,$sql2);
     if(isset($_GET['view']))
     {
         $blog_ID = $_GET['view'];
-        $sql3 = "SELECT * FROM blog WHERE blog_ID=$blog_ID";
+        $sql3 = "SELECT * FROM blog WHERE blog_id=$blog_ID";
         $result3=mysqli_query($conn,$sql3);
         
         if($result3)
@@ -36,12 +43,12 @@ $result2= mysqli_query($conn,$sql2);
            
             while($record2 = mysqli_fetch_assoc($result3))
              {
-                $blog_ID=$record2['blog_ID'];
+                $blog_ID=$record2['blog_id'];
                 $title=$record2['title'];
                 $date=$record2['date'];
-                $author=$record2['author'];
+               // $author=$record2['author'];
                 $content=$record2['content'];
-                $comment=$record2['comment'];
+               // $comment=$record2['comment'];
                 $time=$record2['time'];
                 $image=$record2['image'];
    
@@ -126,7 +133,7 @@ $result2= mysqli_query($conn,$sql2);
                 <div class="card_left">
                     <ul>
                         <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                            <li><a  href="blog.php?view=<?= $record1['blog_ID']; ?>">Blog <?= $record1['blog_ID']?> - <?=$record1['title']?></a></li>
+                            <li><a  href="blog.php?view=<?= $record1['blog_id']; ?>">Blog <?= $record1['blog_id']?> - <?=$record1['title']?></a></li>
                         <?php }?>
                     </ul>
                 </div>
@@ -154,7 +161,7 @@ $result2= mysqli_query($conn,$sql2);
                     </form>
                 </div>
                 <div class="details_container">
-                    <h4><?php if(isset ($fetch['first_name'])){ echo $fetch['first_name'];} ?></h4>
+                    <h4><?php if(isset ($fetch['fname'])){ echo $fetch['fname'];} ?></h4>
                     <p><?php if(isset ($time)){ echo $time;} ?></p>
                     <table>
                         

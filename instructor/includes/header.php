@@ -1,7 +1,5 @@
 <?php
-include 'Auth.php';
 include 'database.php';
-
 $user_ID = $_SESSION['USER_DATA']['user_id'];
 //$user_ID = $_SESSION['user_ID'];
 //if(!isset($user_ID)){
@@ -15,7 +13,7 @@ if(isset($_GET['logout'])){
 }
 
 
-$select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
+$select=mysqli_query($conn,"SELECT * FROM `instructor` WHERE user_id='$user_ID'") or die('query failed');
 
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);

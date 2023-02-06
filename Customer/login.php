@@ -31,7 +31,8 @@ $email= validate($_POST['email']);
      
        if(is_customer()){
          header("Location:customerhome.php");
-       }else{
+       }
+       else{
          header("Location:home.view.php");
        }
           
