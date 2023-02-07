@@ -30,9 +30,11 @@ $email= validate($_POST['email']);
 
      
        if(is_customer()){
-         header("Location:../Customer/customerhome.view.php");
+         header("Location:../Customer/customerhome.php");
        }else if(is_agriculturalist()){
          header("Location:../agriculturalist/agriD.php");
+       }else if(is_admin()){
+        header("Location: ../admin/AdminHome.php");
        }else{
         header("Location:../Customer/home.view.php");
        }

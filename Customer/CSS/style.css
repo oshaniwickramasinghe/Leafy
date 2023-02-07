@@ -1,4 +1,6 @@
 
+
+
 @media all{
 
 .header{
@@ -254,7 +256,6 @@ h1{
      display:inline-block;
      padding: 12px 20px;
    margin: 8px 0;
-
 } */
 
 a{
@@ -1264,7 +1265,6 @@ font-family: lato;
     }
 
     /* .rating-wrap form{
-
         display: none;
   }
  .rating-wrap input:checked ~ form{
