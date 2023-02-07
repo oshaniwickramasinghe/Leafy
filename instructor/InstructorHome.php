@@ -20,11 +20,11 @@ if(isset($_GET['overview']))
     $fetch= mysqli_fetch_assoc($select1); 
     }
 
-   $select2=mysqli_query($conn,"SELECT * FROM `instructor` WHERE user_id='$user_ID'") or die('query failed');
+$select2=mysqli_query($conn,"SELECT * FROM `instructor` WHERE user_id='$user_ID'") or die('query failed');
 
    if(mysqli_num_rows($select2)>0){
 
-    $ins= mysqli_fetch_assoc($select2); 
+    $result= mysqli_fetch_assoc($select2); 
     }
 
 
@@ -186,23 +186,23 @@ if(isset($_POST['change_password'])){
                         <div class="view-div" id="view-div">
                             <form action="" method="post" enctype="multipart/form-data">
                                         <span>User ID :</span>
-                                        <input type="text" name="user_ID" value="<?php echo $fetch['user_id']?>" class="box"  readonly><br>
+                                        <input type="text" name="user_ID" value="<?php if(isset ($fetch['user_id'])) {echo $fetch['user_id'];}?>" class="box"  readonly><br>
                                         <span>First Name :</span>
-                                        <input type="text" name="first_name" value="<?php echo $fetch['fname']?>" class="box"  readonly><br>
+                                        <input type="text" name="first_name" value="<?php  if(isset ($fetch['fname'])) {echo $fetch['fname'];}?>" class="box"  readonly><br>
                                         <span>Last Name :</span>
-                                        <input type="text" name="last_name" value="<?php echo $fetch['lname']?>" class="box"  readonly><br>
+                                        <input type="text" name="last_name" value="<?php if(isset ($fetch['lname'])) {echo $fetch['lname'];}?>" class="box"  readonly><br>
                                         <span>Email :</span>
-                                        <input type="text" name="email" value="<?php echo $fetch['email']?>" class="box"  readonly><br>
+                                        <input type="text" name="email" value="<?php if(isset ( $fetch['email'])) {echo $fetch['email'];} ?>" class="box"  readonly><br>
                                         <span>Contact Number :</span>
-                                        <input type="text" name="cnumber" value="<?php echo $fetch['contact_number']?>" class="box"  readonly><br>
+                                        <input type="text" name="cnumber" value="<?php if(isset ($result['contact_number'])){echo $result['contact_number'];}?>" class="box"  readonly><br>
                                         <span>Occupation:</span>
-                                        <input type="text" name="occupation" value="<?php echo $fetch['occupation']?>" class="box"  readonly><br>
+                                        <input type="text" name="occupation" value="<?php if(isset ($result['occupation'])) {echo $result['occupation'];}?>" class="box"  readonly><br>
                                         <span>Specialized Area :</span>
-                                        <input type="text" name="specialized_area" value="<?php echo $ins['specialized_area']?>" class="box"  readonly><br>
+                                        <input type="text" name="specialized_area" value="<?php if(isset ($result['specialized_area'])) {echo $result['specialized_area'];} ?>" class="box"  readonly><br>
                                         <span>Education Level :</span>
-                                        <input type="text" name="education_level" value="<?php echo $ins['education_level']?>" class="box"  readonly><br>
+                                        <input type="text" name="education_level" value="<?php if(isset ($result['education_level'])) {echo $result['education_level'];}?>" class="box"  readonly><br>
                                         <span>Role :</span>
-                                        <input type="text" name="role" value="<?php echo $fetch['role']?>" class="box"  readonly><br>
+                                        <input type="text" name="role" value="<?php if(isset ( $fetch['role'])) {echo $fetch['role'];}?>" class="box"  readonly><br>
                             </form>
                         </div>
                         <div class="edit-profile" id="edit-profile">
@@ -212,21 +212,21 @@ if(isset($_POST['change_password'])){
                             <div class="flex">
                                 <div class="inputBox">
                                         <span>First Name :</span>
-                                        <input type="text" name="update_first_name" value="<?php echo $fetch['fname']?>" class="box">
+                                        <input type="text" name="update_first_name" value="<?php if(isset ($fetch['user_id'])) {echo $fetch['user_id'];}?>" class="box">
                                         <span>Last Name :</span>
-                                        <input type="text" name="update_last_name" value="<?php echo $fetch['lname']?>" class="box">
+                                        <input type="text" name="update_last_name" value="<?php if(isset ($fetch['fname'])) {echo $fetch['fname'];}?>" class="box">
                                         <span>Email :</span>
-                                        <input type="text" name="update_email" value="<?php echo $fetch['email']?>" class="box">
+                                        <input type="text" name="update_email" value="<?php if(isset ( $fetch['email'])) { echo $fetch['email'];}?>" class="box">
                                         <span>update your pic :</span>
-                                        <input type="file" name="update_image" value="<?php echo $fetch['image']?>" class="box" accept="image/jpg, image/jpeg, image/png">
+                                        <input type="file" name="update_image" value="<?php if(isset ( $fetch['image'])) {echo $fetch['image'];}?>" class="box" accept="image/jpg, image/jpeg, image/png">
                                         <span>Contact Number :</span>
-                                        <input type="text" name="update_cnumber" value="<?php echo $ins['contact_number']?>" class="box">
+                                        <input type="text" name="update_cnumber" value="<?php if(isset ($result['contact_number'])){echo $result['contact_number'];}?>" class="box">
                                         <span>Occupation:</span>
-                                        <input type="text" name="update_occupation" value="<?php echo $ins['occupation']?>" class="box">
+                                        <input type="text" name="update_occupation" value="<?php if(isset ($result['occupation'])) {echo $result['occupation'];} ?>" class="box">
                                         <span>Specialized Area :</span>
-                                        <input type="text" name="update_specialized_area" value="<?php echo $ins['specialized_area']?>" class="box">
+                                        <input type="text" name="update_specialized_area" value="<?php if(isset ($result['specialized_area'])) {echo $result['specialized_area'];}?>" class="box">
                                         <span>Education Level :</span>
-                                        <input type="text" name="update_education_level" value="<?php echo $ins['education_level']?>" class="box">  
+                                        <input type="text" name="update_education_level" value="<?php if(isset ($result['education_level'])) {echo $result['education_level'];} ?>" class="box">  
                                 </div> 
                                 <input type="submit" value="update profile" name="update_profile" class="btn">
                                 <!--<a href="InstructorHome.php" class="btn">go back</a> -->
@@ -240,11 +240,14 @@ if(isset($_POST['change_password'])){
                                     <div class="inputBox">
                                         <input type="hidden" name="old_pass" value="<?php echo $fetch['password']?>" class="box">
                                         <span>Old Password :</span>
-                                        <input type="password" name="update_pass" placeholder="enter previous password" class="box">
+                                        <input type="password" name="update_pass" placeholder="enter previous password" class="box"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                         <span>New Password :</span>
-                                        <input type="password" name="new_pass" placeholder="enter new password" class="box">
+                                        <input type="password" name="new_pass" placeholder="enter new password" class="box"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                         <span>Confirm Password :</span>
-                                        <input type="password" name="confirm_pass" placeholder="confirm new password" class="box">
+                                        <input type="password" name="confirm_pass" placeholder="confirm new password" class="box"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                     </div>
                                     <input type="submit" value="change password" name="change_password" class="btn">
                                 </div>

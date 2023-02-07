@@ -4,9 +4,9 @@ include 'database.php';
 
 $user_ID = $_SESSION['USER_DATA']['user_id'];
 //$user_ID = $_SESSION['user_ID'];
-//if(!isset($user_ID)){
- //   header('location:login.php');
-//};
+if(!isset($user_ID)){
+   header('location:login.php');
+};
 
 if(isset($_GET['logout'])){
      unset($user_ID);
