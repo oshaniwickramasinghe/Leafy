@@ -82,9 +82,9 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
 <?php //include "../public/includes/admin_menu.view.php"?>
 
 
-<!-- <div class = "loggedhome_body">  
+<!-- <div class = "loggedhome_body">  -->
 
-    <div class = "home_body">  -->
+    <!-- <div class = "home_body">  -->
     <div class="container">
     
         <div class="profile">
@@ -149,8 +149,9 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
         </div>
     </div>
                             
-<!-- </div> 
- </div>  -->
+<!-- </div>  -->
+<!-- </div>  -->
       
 </body>
 </html>
+

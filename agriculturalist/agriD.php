@@ -22,16 +22,15 @@ include "../public/includes/header.view.php";
             Home
         </title> 
 
-        <button class = "btnn" onclick="document.location='agricreatepost.php'"> Create New Post </button> 
-
-        <!-- <style>
+        <style>
         * {
-            margin: 0;
+            margin : 0;
             padding: 0;
             font-family: sans-serif;
         }
         
         .chartCard {
+            margin-left: -200;
             width: 100vw;
             height: calc(70vh - 40px);
             display: flex;
@@ -39,6 +38,7 @@ include "../public/includes/header.view.php";
             justify-content: center;
         }
         .chartBox {
+            
             margin: 50;
             width: 500px;
             padding: 20px;
@@ -54,7 +54,7 @@ include "../public/includes/header.view.php";
 
 <body>
    
-<?php include "../public/includes/admin_menu.view.php"?>
+<?php include "agri_menu.view.php"?>
 
 
 <div class = "loggedhome_body">
@@ -62,8 +62,20 @@ include "../public/includes/header.view.php";
     <div class = "home_body">
 
         
-               
-                  
+                <?php 
+                    $username= "root";
+                    $password= "";
+                    $database = "leafy";
+
+                    try{
+                        $pdo = new PDO("mysql:host=localhost;database=$database",$username,$password);
+
+                        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    }catch(PDOException $e){
+                        die("Error: not connected.".$e->getMessage());
+                    }
+                ?>
+
             
                 <?php
                     try{
@@ -89,7 +101,7 @@ include "../public/includes/header.view.php";
 
                     try{
 
-                        $sql = "SELECT * FROM leafy.duplicate_user_count ";
+                        $sql = "SELECT * FROM leafy.user_count ";
                         $result = $pdo->query($sql);
                         if($result->rowCount()>0){
                             
@@ -131,9 +143,9 @@ include "../public/includes/header.view.php";
                             
 
                             const data = { 
-                            labels: ['customer', 'agriculturalist', 'instructor', 'delivery_person'],
+                            labels: ['week1', 'Week2', 'Week3', 'Week4'],
                                 datasets: [{
-                                    label: '# of Votes',
+                                    label: '# Income',
                                     data: count,
                                     backgroundColor: [
                                         'rgba(54, 162, 235, 0.2)',
@@ -171,9 +183,9 @@ include "../public/includes/header.view.php";
                         const colour = <?php echo json_encode($colour);?>;
                         // setup 
                         const theta = { 
-                                labels: ['red', 'blue', 'yellow', 'green'],
+                                labels: ['week1', 'Week2', 'Week3', 'Week4'],
                                     datasets: [{
-                                        label: '# of Votes',
+                                        label: '# No of Orders',
                                         data: colour,
                                         backgroundColor: [
                                             'rgba(54, 162, 235, 0.2)',
@@ -207,6 +219,6 @@ include "../public/includes/header.view.php";
                         </script>
                   
     </div>
-</div> -->
+</div>
 
 <?php include '../public/includes/footer.view.php'?>

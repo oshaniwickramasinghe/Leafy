@@ -1,6 +1,9 @@
-<?php
+<?php 
+
+
 include "signup.php";
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -14,12 +17,13 @@ include "signup.php";
 
 
 
-<link rel="stylesheet" href="CSS/start.css">
-<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="../Customer/CSS/start.css">
+<link rel="stylesheet" href="../Customer/CSS/style.css">
 
 	<div class="body_1">
     
 		<form action="" method="POST" class="login-email">
+		
 
             <h1>Sign Up</h1>
 			<div class="input-group" >
@@ -54,7 +58,7 @@ include "signup.php";
 					
 			</div>
             <p><b>Select your Role : </b><select name="role"  class = "select">
-                        <option value="customer">customer</option>
+                        <option value="customer">Customer</option>
                         <option value="Agriculturalist">Agriculturalist</option>
                         <option value="Instructor">Instructor</option>
                         <option value="Delivery Agent">Delivery Agent</option>
@@ -64,7 +68,7 @@ include "signup.php";
 			<div class="input-group">
             <input type = "submit" class = "btn btn-primary w-100 " value = "Signup" name = ""></input>
 
-			<p class="login-register-text"><b>Have an account? </b><a href="login"><b>Login Here.</b></a></p>
+			<p class="login-register-text"><b>Have an account? </b><a href="login.view.php"><b>Login Here.</b></a></p>
           
 
 		</form>

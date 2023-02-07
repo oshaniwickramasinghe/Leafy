@@ -1,8 +1,32 @@
 <?php
+<<<<<<< HEAD
 include "../Customer/Auth.php";
 include 'config.php';
 
 
+=======
+include 'Auth.php';
+include 'database.php';
+
+$user_ID = $_SESSION['USER_DATA']['user_id'];
+//$user_ID = $_SESSION['user_ID'];
+if(!isset($user_ID)){
+   header('location:login.php');
+};
+
+if(isset($_GET['logout'])){
+     unset($user_ID);
+     session_destroy();
+     header('location:login.php');
+}
+
+
+$select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
+
+if(mysqli_num_rows($select)>0){
+    $fetch= mysqli_fetch_assoc($select);
+}
+>>>>>>> 046f07f02f5630be50251897dfbc530ddc77d14b
 
 
 ?>
@@ -52,6 +76,7 @@ include 'config.php';
                 <div class="profile_icon">
                     <div  class="user-pic" >
                         <div class="user_details">
+<<<<<<< HEAD
                         <?php if(logged_in()):
 $user_ID = $_SESSION['USER_DATA']['user_id'];
 // if(!isset($user_ID)){
@@ -72,6 +97,9 @@ if(mysqli_num_rows($select)>0){
 }
 ?>  
                             <img src="images/profilepic_icon.svg" alt="" height= "21.42px">
+=======
+                            <img src="images/profilepic_icon.svg" alt="" >
+>>>>>>> 046f07f02f5630be50251897dfbc530ddc77d14b
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <button onclick="toggleMenu()">

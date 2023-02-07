@@ -78,7 +78,7 @@ footer .footer-copyright{
     box-shadow: var(--box-shadow);
     padding-left: 20px;
     
-    /* margin-left: 1%; */
+    margin-left: 1%;
     margin-right: 1%;
     border-radius: 5px;
     margin-top: 1%;
@@ -118,7 +118,7 @@ footer .footer-copyright{
     width: 50%;
     height: auto;
     background-color: #fff;
-    /* margin-left: 1%; */
+    margin-left: 1%;
     margin-right: 1%;
     margin-bottom: 1%;
 }
@@ -127,7 +127,7 @@ footer .footer-copyright{
     color: rgb(68, 71, 71);
     border-color: black;
     margin-right:0px ;
-    /* margin-left: 30px; */
+    margin-left: 30px;
     text-align: center;
     margin-top: 0.4%;
     background-color:rgba(255, 255, 255, 0.422);

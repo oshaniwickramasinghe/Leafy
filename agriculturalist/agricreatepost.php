@@ -11,7 +11,7 @@ include '../public/includes/header.view.php';
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>create post</title>
-     <link rel="stylesheet" href="../Customer/CSS/style.css">
+     <link rel="stylesheet" href="agristyle.css">
      
 </head>
 
@@ -20,8 +20,6 @@ include '../public/includes/header.view.php';
 
 <body>
 
-
-     <!-- <h1>Create Post</h1> -->
 
      <form action="user.php" method="post" enctype="multipart/form-data">
 
@@ -66,10 +64,10 @@ include '../public/includes/header.view.php';
           <label for="uname">Price</label><br>
           <input type="text" placeholder="price" id="price" name="price" required><br>
 
-          <!-- <label for="uname">Images</label><br>
-          <input type="file" placeholder="upload images" id="image" name="img" accept="images/jpg,images.jpeg,images/png" ><br> -->
+          <label for="uname">Images</label><br>
+          <input type="file" placeholder="upload images" id="images" name="images" accept="images/jpg,images.jpeg,images/png" ><br> 
 
-          <!-- <input class="button" type="submit" value="Uplaod files"><br><br> -->
+        <input class="button" type="submit" value="Uplaod files"><br><br>
 
           <input type="submit" class="btn btn-primary w-100 " value="Submit" name=""></input>
 

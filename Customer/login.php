@@ -31,12 +31,19 @@ $email= validate($_POST['email']);
      
        if(is_customer()){
          header("Location:customerhome.php");
+<<<<<<< HEAD
        }else if(is_agriculturalist()){
         header("Location:../agriculturalist/agriD.php");
        }else if(is_instructor()){
         header("Location:../instructor/blog.php");
        }else{
         header("Location:../admin/AdminHome.php");
+=======
+       }
+       else{
+         header("Location:home.view.php");
+       }
+>>>>>>> 046f07f02f5630be50251897dfbc530ddc77d14b
           
         } // exit();
 
