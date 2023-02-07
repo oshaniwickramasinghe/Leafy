@@ -20,6 +20,8 @@ include '../public/includes/header.view.php';
 
 <?php 
 include '../public/includes/agri_menu.view.php';
+
+
 ?>
 <!-- <button class = "btnn" onclick="document.location='createpost.php'"> Create New Post </button> -->
 
@@ -30,7 +32,6 @@ include '../public/includes/agri_menu.view.php';
 
       <?php
 
-      
       $query = "SELECT * FROM postcreate ORDER BY itemID ASC";
       //execute mysql query and store data in result
       $result = mysqli_query($conn, $query);

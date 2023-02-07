@@ -1,13 +1,8 @@
 <?php
 include "../Auth.php";
+include "../database.php";
 include '../includes/header.php';
 
-$host = "localhost";
-$uname = "root";
-$password = "";
-$db_name = "userdata";
-
-$conn = mysqli_connect($host,$uname,$password,$db_name);
 
 ?>
 
@@ -41,8 +36,16 @@ $conn = mysqli_connect($host,$uname,$password,$db_name);
               <div class  =  "rowone">
               <form method  = "post">
 
-                 <h5><?php $row['']
-            
+                 <h5><?= $row['n_id']?></h5>
+                 <h5><?= $row['n_sub']?></h5>
+                 <?php
+                 date_default_timezone_set('Asia/Kolkata');
+            $time = date("h:i:sa");
+
+              // $dif  = $time-$row['time']
+              ?>
+                 <input  type  =  "time" value = "<?= $row['time']?>" readonly >
+
                </form>
 
               </div>
@@ -54,8 +57,16 @@ $conn = mysqli_connect($host,$uname,$password,$db_name);
    ?>
          </div>
 
+         <!-- <script>
+    function displayTime() {
+        var date = new Date();
+        var time = date.toLocaleTimeString();
+        document.getElementById("time").innerHTML = time;
+    }
 
-    
+    setInterval(displayTime, 1000);
+</script>
+     -->
 </body>
 <footer>
 <img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">

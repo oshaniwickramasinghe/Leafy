@@ -4,10 +4,6 @@ include 'header.php';
 
 
 
-if(!isset($user_ID)){
-    header('location:login.php');
-};
-
 if(isset($_GET['logout'])){
      unset($user_ID);
      session_destroy();
@@ -18,7 +14,7 @@ if(isset($_GET['logout'])){
 
 if(isset($_GET['overview']))
 {
-   $select=mysqli_query($conn,"SELECT * FROM `instructor` WHERE user_ID='$user_ID'") or die('query failed');
+   $select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_ID='$user_ID'") or die('query failed');
 
     if(mysqli_num_rows($select)>0){
 
@@ -41,7 +37,7 @@ if(isset($_POST['update_profile'])){
     $image_tmp_name=$_FILES['update_image']['tmp_name'];
     $image_folder="images/".$update_image;
 
-    $sql = mysqli_query($conn, "UPDATE `instructor` SET first_name='$update_fname' , last_name='$update_lname', email='$update_email' , image='$update_image', contact_number='$update_cnumber', occupation='$update_occupation', specialized_area='$update_specialized_area', education_level='$update_education_level' 
+    $sql = mysqli_query($conn, "UPDATE `user` SET fname='$update_fname' , lname='$update_lname', email='$update_email' , image='$update_image', contact_number='$update_cnumber', occupation='$update_occupation', specialized_area='$update_specialized_area', education_level='$update_education_level' 
     WHERE user_ID='$user_ID'") or die('query failed');
 
 

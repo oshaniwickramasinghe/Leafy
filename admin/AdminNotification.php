@@ -24,6 +24,7 @@ include "../public/includes/header.view.php";
     <?php include "../public/includes/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
+<div class = "home_body">
     <div class="instructor_wrapper">
         
         <div class="content">
@@ -235,6 +236,7 @@ include "../public/includes/header.view.php";
 
             
             
+        </div>
         </div>
 
     </div>
