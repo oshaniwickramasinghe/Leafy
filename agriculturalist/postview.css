@@ -87,11 +87,11 @@ body{
      border: 0ch;
      display:inline-block;
      
-  width: 100px;
-  height: 30px;
-  left: 900px;
-  top: 1800px;
-  margin-top: 5%;
+        width: 100px;
+        height: 30px;
+        left: 900px;
+        top: 1800px;
+        margin-top: 5%;
   }
   
   header{

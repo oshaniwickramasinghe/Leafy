@@ -1,7 +1,17 @@
 <?php
- include 'config.php';
  include 'header.php';
- $user_ID = $_SESSION['user_ID'];
+ $user_ID = $_SESSION['USER_DATA']['user_id'];
+
+ $update = false;
+
+ $blog_ID="";
+ $title="";
+ $date="";
+ $author="";
+ $content="";
+ $comment="";
+ $time="";
+ $image="";
 
  if(isset($_POST['submit']))
  {
@@ -15,7 +25,7 @@
     
 
 
-    $sql1=" INSERT INTO blog(title,content,comment,image,user_ID) Values ('$title','$content','$comment','$image','$user_ID')";
+    $sql1=" INSERT INTO blog(title,content,image,user_id) Values ('$title','$content','$image','$user_ID')";
    
     $result1=mysqli_query($conn,$sql1);
     if($result1){
@@ -27,6 +37,74 @@
 
 
     
+ }
+
+
+
+ if(isset($_GET['edit']))
+ {
+     $blog_ID = $_GET['edit'];
+
+
+     $query3 = "SELECT * FROM blog WHERE blog_id=$blog_ID";
+     $stmt3 = mysqli_query($conn,$query3);
+     
+
+     
+     if($stmt3){
+         while($record3 = mysqli_fetch_assoc($stmt3))
+         {
+             $blog_ID=$record3['blog_id'];
+             $title=$record3['title'];
+             $date=$record3['date'];
+             $content=$record3['content'];
+             $time=$record3['time'];
+             $image=$record3['image'];
+         }
+        
+     }else{
+         echo "<script>alert('Failed to delete from database')</script>";
+     }
+
+     $update = true;
+ }
+
+ if(isset($_POST['update'])){
+    $blog_ID=$_POST['blog_id'];
+    $title=$_POST['title'];
+    $date=$_POST['date'];
+    $content=$_POST['content'];
+    $time=$_POST['time'];
+    $image=$_POST['oldimage'];
+
+    if(isset($_FILES['image']['name']) && ($_FILES['image']['name']!= ""))
+    {
+        $newimage=$_FILES['image']['name'];
+        $newimage_size=$_FILES['image']['size'];
+        $newimage_tmp_name=$_FILES['image']['tmp_name'];
+        $image_folder="images/".$newimage;
+        move_uploaded_file($newimage_tmp_name, $image_folder);
+
+    }
+    else{
+        $newimage = $image;
+    }
+
+    $query =  mysqli_query($conn,"UPDATE blog SET blog_id='$blog_ID', title='$title', date=' $date', 
+     content='$content', time='$time', image='$newimage' WHERE blog_id='$blog_ID'") 
+    or die('query failed');
+
+    if($query)
+    {
+        $message[]='update your details successfully!';
+        ?>
+        <META http-equiv="Refresh" content="6; URL=http://localhost/leafy/instructor/blog.php">
+        <?php
+    }else{
+        $message[]="registered failed!";
+    }
+    
+
  }
 
 ?> 
@@ -45,35 +123,69 @@
     <title>create blog</title>
 </head>
 <body>
-    <header></header>
+    <?php
+        if(isset($message)){
+            foreach($message as $message){
+    ?>
+            <div class="message"> 
+                <p><?php  echo $message;?></p>
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            </div>
+    <?php
+            }
+        }
+    ?>
+
     <h1>Create a Blog Page</h1>
     <div class="create_form_wrapper">
     
         <form action="" method="post" enctype="multipart/form-data">
+            
           <div class="field">
             <div>
+                <input type="hidden" name="blog_ID" value="<?= $blog_ID;?>">
+                <input type="hidden" name="date" value="<?= $date;?>">
+                <input type="hidden" name="time" value="<?= $time;?>">
+            </div>
+            <div>
+                
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="Title of the Blog..." class="text_input" required><br>
+                <input type="text" id="title" name="title" placeholder="Title of the Blog..." class="text_input" value="<?= $title; ?>" required><br>
             </div>
             <div>
                 <label for="content">Content</label>
-                <textarea for="content" id="content" name="content" class="text_input" required></textarea><br>
+                <textarea for="content" id="content" name="content" class="text_input"  value="" required></textarea><br>
             </div>
             <div>
                 <label for="image">Attach images</label>
+                <input type="hidden" name="oldimage" value="<?= $image; ?>">
                 <input type="file" name="image" class="text_input" accept="image/jpg, image/jpeg, image/png"><br>
             </div>
+            <?php if($update == true) {?>
+                <div>
+                    <img src="./images/<?= $image; ?>" width ="120" class="img-thumbnail">
+                </div>
+            <?php } else {?>
+                <div>
+                    <img src="./images/<?= $image; ?>" width ="120" class="img-thumbnail" style="visibility:hidden" >
+                </div>
+            <?php } ?>
           </div>
             <div align="right">
-            <input type="submit" value="Submit" name="submit" class="btn">
+                <?php if($update == true) {?>
+                    <input type="submit" value="Update Blog" name="update" class="btn">
+                <?php } else {?>     
+                    <input type="submit" value="Submit" name="submit" class="btn">
+                <?php } ?>
         </div>
             
          </form>
-
-         
-         
-            
+      
     </div>
+    <div align="right">
+        <a href="blog.php" class="goback-btn">go back >></a> 
+    </div>    
+
     <footer style="background:url(images/Footer.svg)no-repeat;"class="footer">
         <ul class="footer">
             <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
@@ -86,9 +198,9 @@
 
     </footer>
 
-        <script src="blog.js"></script>
-    <script src="">
-
+    
+    <script>
+        document.getElementById("content").value = "<?= $content;?>";
     </script>
 </body>
 </html>

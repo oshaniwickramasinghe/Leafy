@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<link rel = "stylesheet" href = "../agriculturalist/style.css">
+<link rel="stylesheet" href="../Customer/CSS/style.css">
     <form action = "loginuser.php" method="post">
 
     <h1>Regiser</h1>
@@ -32,6 +32,9 @@
     <label for="">Address</label><br>
     <input type="text" placeholder="Address Line 1" name="address1"  required><br>
     <input type="text" placeholder="Address Line 2" name="address2"  required><br>
+
+    <input type="text" placeholder="Enter your Contact Number" name="" required><br>
+    <label for="">Vehicle Type</label><br>
 
     <input type="submit" class="btn btn-primary w-100 " value="Submit" name=""></input>
 

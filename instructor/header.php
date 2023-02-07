@@ -1,10 +1,12 @@
 <?php
-include 'config.php';
-session_start();
-$user_ID = $_SESSION['user_ID'];
-if(!isset($user_ID)){
-    header('location:login.php');
-};
+include 'Auth.php';
+include 'database.php';
+
+$user_ID = $_SESSION['USER_DATA']['user_id'];
+//$user_ID = $_SESSION['user_ID'];
+//if(!isset($user_ID)){
+ //   header('location:login.php');
+//};
 
 if(isset($_GET['logout'])){
      unset($user_ID);
@@ -13,7 +15,7 @@ if(isset($_GET['logout'])){
 }
 
 
-$select=mysqli_query($conn,"SELECT * FROM `instructor` WHERE user_ID='$user_ID'") or die('query failed');
+$select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
 
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
@@ -68,7 +70,7 @@ if(mysqli_num_rows($select)>0){
                     <div  class="user-pic" >
                         <div class="user_details">
                             <img src="images/profilepic_icon.svg" alt="" >
-                            <p><?php echo $fetch['first_name']." ".$fetch['last_name']; ?></p>
+                            <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <button onclick="toggleMenu()">
                         <span class="fa-solid fa-circle-chevron-down" ></span>
@@ -79,7 +81,7 @@ if(mysqli_num_rows($select)>0){
                     <div class="sub-menu">
                         <div class="user-info">
                             <img src="images/profilepic_icon.svg" alt="">
-                            <p><?php echo $fetch['first_name']." ".$fetch['last_name']; ?></p>
+                            <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <hr>
                         <a href = "InstructorHome.php" class="sub-menu-link">
