@@ -33,21 +33,26 @@ include '../includes/header.php';
  ?>
 
        
-              <div class  =  "rowone">
+              <div class  =  "rowone" style = "height:120px">
+                <div class="right_row">
+               <p><?= $row['n_id']?></p>
+
+                </div>
+                <div class="left_row">
               <form method  = "post">
 
-                 <h5><?= $row['n_id']?></h5>
-                 <h5><?= $row['n_sub']?></h5>
+                 
+                 <p><?= $row['n_sub']?></p>
                  <?php
                  date_default_timezone_set('Asia/Kolkata');
             $time = date("h:i:sa");
 
               // $dif  = $time-$row['time']
               ?>
-                 <input  type  =  "time" value = "<?= $row['time']?>" readonly >
+                 <p><?= $row['time'];?> </p>
 
                </form>
-
+               </div>
               </div>
  <?php
      }
@@ -69,6 +74,9 @@ include '../includes/header.php';
      -->
 </body>
 <footer>
+<!-- <div class="footer-copyright">
+            <p>copyright @2022 Leafy All Rights Reserved</p>
+        </div> -->
 <img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">
 </footer>
 </html>

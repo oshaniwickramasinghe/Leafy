@@ -292,6 +292,9 @@ nav .user-pic{
     color: #323929;
 } 
 
+.footer-copyright p{
+    margin-top: 6%;
+}
 
 footer{
    margin-top: auto;
@@ -1158,20 +1161,40 @@ background-color:rgb(159, 159, 159);
     display: flex;
     /* flex-direction: row; */
     background-color:violet;
-    width: 90%;
-    margin-left: 8%;
-margin-top: 6px;
-    
-   flex-wrap: wrap;
-   height: 50%; 
+    width: 65%;
+    margin-left: 18%;
+margin-top: 5px;
+margin-bottom: 30px;   
+   /* flex-wrap: wrap; */
+   height: 10%; 
+} */
+}
+
+.rowone:hover{
+    background-color: #a21313;
+}
+.right_row{
+    background-color:rgb(132, 130, 238); 
+    flex:20%;
+
+}
+
+.left_row{
+    background-color:rgb(130, 238, 153);
+    flex:60%;
+
 }
 .rowone form{
     background-color:rgb(197, 197, 219); 
-    width:60%;
- 
+    width:90%;
+ margin-left: 2%;
+ height:82px;
+ margin-top: 0px;
 }  
     
-
+.rowone .right_row p{
+    margin-left: 25px;
+}
 .cards{
     /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
