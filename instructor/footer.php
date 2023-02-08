@@ -19,7 +19,6 @@
         <div class="footer-copyright">
             <p>copyright @2022 Leafy All Rights Reserved</p>
         </div>
-
     </footer>
 </body>
 </html>

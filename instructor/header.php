@@ -5,13 +5,13 @@ include 'database.php';
 $user_ID = $_SESSION['USER_DATA']['user_id'];
 //$user_ID = $_SESSION['user_ID'];
 if(!isset($user_ID)){
-   header('location:login.php');
+   header('location:login.view.php');
 };
 
 if(isset($_GET['logout'])){
      unset($user_ID);
      session_destroy();
-     header('location:login.php');
+     header('location:login.view.php');
 }
 
 
@@ -69,7 +69,13 @@ if(mysqli_num_rows($select)>0){
                 <div class="profile_icon">
                     <div  class="user-pic" >
                         <div class="user_details">
-                            <img src="images/profilepic_icon.svg" alt="" >
+                            <?php
+                                if($fetch['image'] == ''){
+                                    echo '<img src="images/profilepic_icon.svg" >';
+                                }else{
+                                    echo '<img src="./images/'.$fetch['image'].'>';
+                                }
+                            ?>
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <button onclick="toggleMenu()">
@@ -80,7 +86,13 @@ if(mysqli_num_rows($select)>0){
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                         <div class="user-info">
-                            <img src="images/profilepic_icon.svg" alt="">
+                        <?php
+                                if($fetch['image'] == ''){
+                                    echo '<img src="images/profilepic_icon.svg" >';
+                                }else{
+                                    echo '<img src="./images/'.$fetch['image'].'>';
+                                }
+                                ?>
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <hr>
@@ -106,9 +118,23 @@ if(mysqli_num_rows($select)>0){
 
                 <div class="language">
                     <a href="" class="">Languages (EN)</a>
+                    <button onclick="toggleLan()">
+                        <span class="fa-solid fa-caret-down"></span>
+                    </button>
+                    <div class="languages" id="lanList">
+                      <a href = "" class="lan-link">
+                            <i class="fa-duotone fa-e" style="font-size:18px;color:#43562B;"></i>
+                            <p>English</p>
+                            <span>></span>
+                        </a>
+                        <a href = "" class="lan-link">
+                            <i class="fa-duotone fa-s" style="font-size:18px;color:#43562B;"></i>
+                            <p>Sinhala</p>
+                            <span>></span>
+                        </a>
+                     </div>
                 </div>
             </div>
-        </div>
      
     </div>
     </nav>
@@ -124,6 +150,18 @@ if(mysqli_num_rows($select)>0){
                 subMenu.style.display = "none";
             }
         }
+        function toggLan()
+        {
+            var languages = document.getElementById("lanList");
+            if(languages.style.display == "none")
+            {
+                languages.style.display = "block";
+            }else{
+                languages.style.display = "none";
+            }
+        }
+
+
     </script>
 </body>
 </html>
