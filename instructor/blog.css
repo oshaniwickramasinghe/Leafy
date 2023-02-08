@@ -233,6 +233,18 @@ footer .footer-copyright{
 
 }
 
+.instructor_wrapper .content .container .container_right .container_button #view {
+    border:none;
+    color: #314063;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 58, 144, 0.425);
+    border-radius: 20px;
+}
+
 .instructor_wrapper .content .container .container_right .container_button #edit {
     border:none;
     color: #43562B;
@@ -241,13 +253,13 @@ footer .footer-copyright{
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    background-color: rgba(39, 144, 75, 0.2);
+    background-color: rgba(39, 144, 76, 0.334);
     border-radius: 20px;
 }
 
 .instructor_wrapper .content .container .container_right .container_button #delete{
     border:none;
-    color:#43562B;
+    color:#531614;
     padding: 10px 35px;
     text-align: center;
     text-decoration: none;

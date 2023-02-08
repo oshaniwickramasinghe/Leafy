@@ -1,13 +1,5 @@
 <?php
-include 'header.php';
-
-//$user_ID = $_SESSION['user_ID'];
-//$first_name = $_SESSION['fname'];
-//$last_name = $_SESSION['lname']; 
-//if(!isset($user_ID)){
-    //header('location:../login.php');
-//};
-
+include 'header.php'; 
 $user_ID=$_SESSION['USER_DATA']['user_id'];
 
 if(!isset($user_ID)){
@@ -144,7 +136,7 @@ $result2= mysqli_query($conn,$sql2);
                 <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div class="container_button">
-                    <a href="userblog.php?view_blog=<?=$blog_ID; ?>" type="button" id="edit" >View</a>
+                    <a href="userblog.php?view_blog=<?=$blog_ID; ?>" type="button" id="view">View</a>
                     <a href="create blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
                 </div>

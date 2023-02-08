@@ -119,18 +119,15 @@ if(mysqli_num_rows($select)>0){
                 <div class="language">
                     <a href="" class="">Languages (EN)</a>
                     <button onclick="toggleLan()">
-                        <span class="fa-solid fa-caret-down"></span>
+                        <span class="fa-solid fa-caret-down" style="font-size:20px; color:#FFFFFF;"></span>
                     </button>
                     <div class="languages" id="lanList">
-                      <a href = "" class="lan-link">
-                            <i class="fa-duotone fa-e" style="font-size:18px;color:#43562B;"></i>
-                            <p>English</p>
-                            <span>></span>
-                        </a>
                         <a href = "" class="lan-link">
-                            <i class="fa-duotone fa-s" style="font-size:18px;color:#43562B;"></i>
+                            <p>English</p>
+                        </a>
+                        <hr>
+                        <a href = "" class="lan-link">
                             <p>Sinhala</p>
-                            <span>></span>
                         </a>
                      </div>
                 </div>
@@ -150,7 +147,7 @@ if(mysqli_num_rows($select)>0){
                 subMenu.style.display = "none";
             }
         }
-        function toggLan()
+        function toggleLan()
         {
             var languages = document.getElementById("lanList");
             if(languages.style.display == "none")
