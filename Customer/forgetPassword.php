@@ -71,8 +71,8 @@ if (isset($_POST['sent'])) {
 	   $mail->isSMTP();
 	   $mail->Host = 'smtp.gmail.com';
 	   $mail->SMTPAuth = true;
-	   $mail->Username = 'Leafycompany2022@gmail.com'; // Your gmail
-	   $mail->Password = 'qgzilgqvjzfljtel'; // Your gmail app password
+	   $mail->Username = 'companyleafy@gmail.com'; // Your gmail
+	   $mail->Password = 'ugwcwlkvbiubqadi'; // Your gmail app password
 	   $mail->SMTPSecure ='ssl';
 	   $mail->Port = 465;
 

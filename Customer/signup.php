@@ -1,6 +1,11 @@
 <?php
 include "database.php";
 include "User.php";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 if(empty($errors)){
@@ -16,15 +21,15 @@ if(empty($errors)){
 			 
     $sql  = "INSERT INTO user(fname, lname, email, password, role, code) VALUES ('$fname','$lname','$email','$password','$role','$code')";
     $result = mysqli_query($conn,$sql);
-    var_dump($result);
+ 
     if(!empty($result)){
 
 	   $mail = new PHPMailer(true);
 	   $mail->isSMTP();
 	   $mail->Host = 'smtp.gmail.com';
 	   $mail->SMTPAuth = true;
-	   $mail->Username = 'Leafycompany2022@gmail.com'; // Your gmail
-	   $mail->Password = 'qgzilgqvjzfljtel'; // Your gmail app password
+	   $mail->Username = 'companyleafy@gmail.com'; // Your gmail
+	   $mail->Password = 'ugwcwlkvbiubqadi'; // Your gmail app password
 	   $mail->SMTPSecure ='ssl';
 	   $mail->Port = 465;
 	   

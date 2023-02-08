@@ -36,7 +36,7 @@ $email= validate($_POST['email']);
        }else if(is_instructor()){
         header("Location:../instructor/blog.php");
        }else{
-        // header("Location:../admin/AdminHome.php");
+        header("Location:../admin/AdminHome.php");
           
         } // exit();
 
