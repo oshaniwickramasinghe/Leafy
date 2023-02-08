@@ -29,9 +29,9 @@ include 'agri_menu.view.php';
 
 <?php
 
+    $user_id =$_SESSION["USER_DATA"]["user_id"];
 
-
-    $sql  =  "SELECT * FROM post WHERE user_id ";
+    $sql  =  "SELECT * FROM post WHERE user_id='$user_id' ";
     $result = mysqli_query($conn , $sql);
 
     if(mysqli_num_rows($result)>0){
@@ -42,25 +42,27 @@ include 'agri_menu.view.php';
 
 
 <div class = "column_2" >
-<form method  = "Post " action  =  "postview.php"  enctype="multipart/form-data">  
+<form method  = "Post " action  =  ""  enctype="multipart/form-data">  
                 <div class = "cards" >
                     <div class = "card_body">
 
-                    <img src="images/<?php echo $row['image']; ?>" width="100" height="100"> 
+                    <img src="./images/<?php echo $res['image'];?>" width="180" height="180" > 
 
-                    <h5>    <?php echo $res['item_name']?></h5>
+                    <h5 style="font-size:large;">    <?php echo $res['item_name']?></h5>
 
                             
                     <h5 class = "text_danger">Price: Rs  <?php echo $res['unit_price'];?>.00  per Kg</h5>
                     <h5>Quantity :   <?php echo $res['quantity']?>kg </h5>
                     <h5>Minimum Quantity :   <?php echo $res['minimum_quantity']?>kg </h5>
                     <h5>Expire Date :   <?php echo $res['expire_date']?></h5>
+                    
 
-                     <input type= "submit" name= "Eddite" class= "btn" value= "Eddite" data-inline = "true"/>
-                    <input type= "submit" name= "Delete" class= "btn" value= "Delete" data-inline = "true"/>
-
-
-                                
+                    <a class="btn"  href="eddit.php">Edit</a>
+                      <a class="btn" href="eddit.php">Delete</a>
+                    
+                     <!-- <input type= "submit" name= "Delete" class= "btn" value= "Delete" data-inline = "true"/> 
+                     
+                     <input type= "submit" name= "Delete" class= "btn" value= "Delete" data-inline = "true"/>  -->
 
                     
                   </div>
