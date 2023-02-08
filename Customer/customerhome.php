@@ -43,7 +43,7 @@ include 'includes/header.view.php';
                 <h3>Leafy</h3>
             </div>
             <ul>
-                <li><a href="../Customer/customerhome.view.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
+                <li><a href="../Customer/customerhome.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../Customer/wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
                 <li><a href="../Customer/notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications</a></li>
                 <li><a href=""><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
@@ -52,12 +52,6 @@ include 'includes/header.view.php';
 
         </div>
 </div>
-
-
-
-
-   
-
 
 <body>
 <div class = "loggedhome_body">

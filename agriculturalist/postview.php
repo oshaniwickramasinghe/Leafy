@@ -20,7 +20,13 @@ include 'database.php';
 <body>
 
 <?php 
+<<<<<<< HEAD
+include '../public/includes/agri_menu.view.php';
+
+
+=======
 include 'agri_menu.view.php';
+>>>>>>> 046f07f02f5630be50251897dfbc530ddc77d14b
 ?>
 <!-- <button class = "btnn" onclick="document.location='createpost.php'"> Create New Post </button> -->
 
@@ -34,9 +40,15 @@ include 'agri_menu.view.php';
     $sql  =  "SELECT * FROM post WHERE user_id='$user_id' ";
     $result = mysqli_query($conn , $sql);
 
+<<<<<<< HEAD
+      $query = "SELECT * FROM postcreate ORDER BY itemID ASC";
+      //execute mysql query and store data in result
+      $result = mysqli_query($conn, $query);
+=======
     if(mysqli_num_rows($result)>0){
         while($res =  mysqli_fetch_array($result)){
 ?>
+>>>>>>> 046f07f02f5630be50251897dfbc530ddc77d14b
 
 
 

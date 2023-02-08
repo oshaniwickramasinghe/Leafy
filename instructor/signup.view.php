@@ -1,6 +1,4 @@
 <?php 
-
-
 include "signup.php";
 ?>
 

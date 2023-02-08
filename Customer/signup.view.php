@@ -1,5 +1,3 @@
-<<<<<<< HEAD:App/views/signup.view.php
-=======
 <?php 
 
 
@@ -7,7 +5,6 @@ include "signup.php";
 ?>
 
 
->>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:Customer/signup.view.php
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,21 +17,13 @@ include "signup.php";
 
 
 
-<<<<<<< HEAD:App/views/signup.view.php
-<link rel="stylesheet" href="../public/assets/css/start.css">
-<link rel="stylesheet" href="../public/assets/css/style.css">
-=======
 <link rel="stylesheet" href="../Customer/CSS/start.css">
 <link rel="stylesheet" href="../Customer/CSS/style.css">
->>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:Customer/signup.view.php
 
 	<div class="body_1">
     
 		<form action="" method="POST" class="login-email">
-<<<<<<< HEAD:App/views/signup.view.php
-=======
 		
->>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:Customer/signup.view.php
 
             <h1>Sign Up</h1>
 			<div class="input-group" >
@@ -69,11 +58,7 @@ include "signup.php";
 					
 			</div>
             <p><b>Select your Role : </b><select name="role"  class = "select">
-<<<<<<< HEAD:App/views/signup.view.php
-                        <option value="customer">customer</option>
-=======
                         <option value="customer">Customer</option>
->>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:Customer/signup.view.php
                         <option value="Agriculturalist">Agriculturalist</option>
                         <option value="Instructor">Instructor</option>
                         <option value="Delivery Agent">Delivery Agent</option>
@@ -83,11 +68,7 @@ include "signup.php";
 			<div class="input-group">
             <input type = "submit" class = "btn btn-primary w-100 " value = "Signup" name = ""></input>
 
-<<<<<<< HEAD:App/views/signup.view.php
-			<p class="login-register-text"><b>Have an account? </b><a href="login"><b>Login Here.</b></a></p>
-=======
 			<p class="login-register-text"><b>Have an account? </b><a href="login.view.php"><b>Login Here.</b></a></p>
->>>>>>> 10fda9860a40eea51fdb9d0d98ed94ed1e7a9c52:Customer/signup.view.php
           
 
 		</form>

@@ -1,6 +1,6 @@
 
 <html>
-<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="../CSS/style.css">
 
 <?php
 
@@ -48,7 +48,7 @@
                 <li><a href="#" class="">Hi,<?= getfname()?></a></li>
                     
                 </div>
-                <li><a href="Logout.php" class="">Logout</a></li>
+                <li><a href="../Customer/Logout.php" class="">Logout</a></li>
             <?php endif; ?>
             <li><a href="" class="">Languages (EN)</a></li>
                 

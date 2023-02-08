@@ -1,5 +1,5 @@
 <html>
 <footer>
-<img src = "../public/images/footer.png"  height= "185px">
+<img src = "../public/images/footer.png"  height= "155px" style  = "margin-top:auto">
 </footer>
 </html>

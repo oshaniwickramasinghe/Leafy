@@ -1,0 +1,311 @@
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+   
+
+
+    
+   
+}
+
+body{
+    position: relative;
+    margin: 0%;
+    height: 100%;
+    width: 100;
+}
+
+
+
+
+footer{
+    text-align: center;
+    height: 110px;
+    width: 100%;
+    display: block;
+    padding-top: 0px;
+    bottom: 0%;
+    
+}
+
+footer li{
+    list-style: none;
+    display :inline-block;
+    padding: 5px 15px 0px 10px;
+}
+
+footer p{
+    color: #FCFEF9;
+    font-size: smaller;
+    padding-top: 0px;
+}
+
+.upper_line{
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    
+}
+
+footer ul{
+    width: 100%;
+    height: 50px;
+    padding-top: 40px;
+}
+
+footer .footer-copyright{
+    width: 100%;
+    padding-top: 0%;
+    margin-top: 0%;
+}
+
+.container{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    padding-top: 5px;
+}
+
+
+
+.container .profile{
+    width: 100%;
+    height: auto;
+    background-color: rgba(239, 239, 239, 0.7);
+    flex: 8.5;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    padding-left: 20px;
+    
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 5px;
+    margin-top: 1%;
+    
+
+
+}
+
+.container .profile .view-wrap {
+    display:flex;
+    height: auto;
+    margin-right: 5px;
+  
+}
+
+.container .profile .profile-text{
+    text-align: left;
+    color: #43562B;
+    margin-bottom: 10px;
+}
+
+.container .profile .view-wrap .profile-image{
+    flex: 2;
+    display :block;
+    width: 5%; 
+    height: 200px;
+    text-align:center ;
+   
+   
+
+}
+
+
+.container .profile .view-wrap .view{
+    flex:8;
+    display:block;
+    width: 50%;
+    height: auto;
+    background-color: #fff;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+}
+
+.container .profile .view-wrap .view button{
+    color: rgb(68, 71, 71);
+    border-color: black;
+    margin-right:0px ;
+    margin-left: 30px;
+    text-align: center;
+    margin-top: 0.4%;
+    background-color:rgba(255, 255, 255, 0.422);
+    width: 20%;
+    border-radius: 10px;
+    height: 80%;
+    
+   
+}
+
+.container .profile .view-wrap .view .btn-section{
+    background-color: rgba(100, 102, 99, 0.2);
+    height: 30px;
+    box-shadow: #FCFEF9;
+    width: 100%;
+
+}
+
+
+.block{
+    width:100%;
+    height:90%;
+}
+
+
+
+
+.edit-profile{
+    width:90%;
+    height: auto;
+    background-color: white;
+    min-height: 40vh;
+    display: none;
+    justify-content: space-between;
+    justify-content:center;
+    text-align: center;
+    margin: 30px;
+    align-items: left;
+        
+    
+    
+}
+
+.change-password{
+    width:90%;
+    height: auto;
+    display: none;
+    background-color:white;
+    min-height: 60vh;
+    margin: 30px;
+    align-items: left;
+}
+
+.view-div{
+    min-height: 40vh;
+    display: block;
+    justify-content: space-between;
+    justify-content:center;
+    text-align: center;
+    width: 90%;
+    
+}
+
+
+.image img{
+    border-radius: 50%;
+}
+
+ form {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width:100%;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    height: auto;
+
+}
+
+form .inputBox{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width:100%;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    height: auto;
+
+}
+
+ form span{
+    text-align: left;
+    margin-top: 15px;
+    font-size: 17px;
+    color: #0e0e0e;
+    padding-top: 5px;
+    width: 50%;
+    font-weight: 600;
+  
+    
+
+
+}
+
+input{
+    width:100%;
+    border-radius: 5px;
+    height: 15px;
+    padding: 12px 14px ;
+    font-size: 13px;
+    background-color: rgba(169, 172, 172, 0.251);
+    border: none;
+    align-self: left;
+    text-align: left;
+   
+
+}
+
+.btn{
+    background-color:#43562b;
+    width: 50%;
+    height: 40px;
+    color:whitesmoke;
+    margin-top: 30px;
+    border-radius: 5px;
+    align-content:center;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media (max-width:100%){
+    .block form .flex{
+        flex-wrap:wrap;
+        gap:0;
+
+    }
+
+    .block form .flex .inputBox{
+        width:100%;
+        
+    }
+}
+
+.message{
+    width: 80%;
+    height: 25px;
+    border-radius: 5px;
+    padding:10px;
+    text-align: center;
+    background: #ed9494;
+    font-size: 20px;
+    margin-left: 70px;
+    margin-right: 10px;
+    display: flex;
+    margin-top: 20px;
+
+    
+
+}
+
+.message p{
+    
+    flex: 8;
+    color: white;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    flex:2;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }

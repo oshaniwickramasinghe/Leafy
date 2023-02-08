@@ -2,8 +2,8 @@
 error_reporting(0);
 
 require "../Auth.php";
-include '../includes/header.php';
 require "cart.php";
+include '../includes/header.php';
 
 // unset($_SESSION['wishlist']);
 // unset($_SESSION['cart']);
@@ -103,7 +103,7 @@ if(isset($_POST['update'])){
 
       $res = display();
 
-      
+
 ?>
 
 
@@ -143,7 +143,10 @@ if(isset($_POST['update'])){
 <?php
 
 }
+
+$res = display();
 ?>
+
 
 <div class  = "right">
   <table>
@@ -158,15 +161,22 @@ if(isset($_POST['update'])){
     </tr>
 
 
+
   <?php
+
+
+
      if(!empty($_SESSION['cart'])){
       
-      
+    
+  
 
       // $sql = "INSERT INTO "
        $total = 0;
        $val = 0;
        $val =  $_SESSION['cart']['quantity'];
+ 
+    
        foreach($_SESSION['cart'] as $keys=>$values)
        {
 
@@ -176,7 +186,7 @@ if(isset($_POST['update'])){
 <form  method  = "post" action = "">
       <td> <input type = "text" value = "<?php  echo $values["item_name"] ?>"  name  ="item_name" style = "width :100px; background-color:transparent; border-color:transparent;" readonly></td>
       <td> 
-      <input type = "number"  name = "quantity" style  = "width:50px" min = "0">
+      <input type = "number"  name = "quantity" style  = "width:50px" min = "0"   max  = "<?= $res['quantity']?>">
       <button class = "update" name = "update" style  = "width:50px">Add</button>
 
       

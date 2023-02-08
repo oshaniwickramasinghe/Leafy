@@ -1,6 +1,6 @@
 <?php 
-    $username= "student";
-    $password= "student";
+    $username= "root";
+    $password= "";
     $database = "leafy";
 
     try{
@@ -91,7 +91,7 @@
             const data = { 
             labels: ['customer', 'agriculturalist', 'instructor', 'delivery_person'],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'no of users',
                     data: count,
                     backgroundColor: [
                         'rgba(54, 162, 235, 0.2)',

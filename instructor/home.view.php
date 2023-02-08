@@ -1,15 +1,10 @@
 
-
-<html>
-
-<link rel="stylesheet" href="../Customer/CSS/style.css">
 <?php 
 require "Auth.php";
-include 'includes/header.view.php';
+include 'header.php'?>
 
-?>
-
-
+<html>
+<link rel="stylesheet" href="../instructor/CSS/style.css">
 
    <title>Home
 </title> 
