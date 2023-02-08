@@ -1168,7 +1168,7 @@ margin-bottom: 30px;
    /* flex-wrap: wrap; */
    height: 10%; 
 } */
-}
+
 
 .rowone:hover{
     background-color: #a21313;
@@ -1582,6 +1582,20 @@ font-family: lato;
 
 .right_part .language{
 margin-top: -15%;
+}
+
+.reset_body{
+    margin-top: 10%;
+}
+.reset_body h1{
+    margin-left: 2%;
+}
+
+.newPass_body h1{
+    margin-left: 2%;
+}
+.otp_body h1{
+    margin-left: 2%;
 }
 
 }

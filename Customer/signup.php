@@ -18,6 +18,24 @@ if(empty($errors)){
     $result = mysqli_query($conn,$sql);
     var_dump($result);
     if(!empty($result)){
+
+	   $mail = new PHPMailer(true);
+	   $mail->isSMTP();
+	   $mail->Host = 'smtp.gmail.com';
+	   $mail->SMTPAuth = true;
+	   $mail->Username = 'Leafycompany2022@gmail.com'; // Your gmail
+	   $mail->Password = 'qgzilgqvjzfljtel'; // Your gmail app password
+	   $mail->SMTPSecure ='ssl';
+	   $mail->Port = 465;
+	   
+	   $mail->setFrom('Leafycompany2022@gmail.com');
+	   $mail->addAddress($email);
+	   $mail->isHTML(true);
+	   $mail->Subject = "Email verification";
+	   $mail->Body    = 'Please click the below link to verify you email<b><br>
+	   <a href = "http://localhost/Leafy-1/Customer/verify.php?code='.urldecode($code) .'">http://localhost/Leafy-1/Customer/verify.php?code = '.$code .'</a></b>';
+	    
+		$mail->send();
         header("Location:message.view.php");
     }
 }
