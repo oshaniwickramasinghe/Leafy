@@ -843,3 +843,100 @@ background-color:rgb(159, 159, 159);
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 .col-13 {width: 40%;}
+
+
+
+.container .profile{
+    width: 100%;
+    height: auto;
+    background-color: rgba(239, 239, 239, 0.7);
+    flex: 8.5;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    padding-left: 20px;
+    
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 5px;
+    margin-top: 1%;
+    
+
+
+}
+
+.container .profile .view-wrap {
+    display:flex;
+    height: auto;
+    margin-right: 5px;
+  
+}
+
+.container .profile .profile-text{
+    text-align: left;
+    color: #43562B;
+    margin-bottom: 10px;
+}
+
+.container .profile .view-wrap .profile-image{
+    flex: 2;
+    display :block;
+    width: 5%; 
+    height: 200px;
+    text-align:center ;
+   
+   
+
+}
+
+
+.container .profile .view-wrap .view{
+    flex:8;
+    display:block;
+    width: 50%;
+    height: auto;
+    background-color: #fff;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+}
+
+.container .profile .view-wrap .view button{
+    color: rgb(68, 71, 71);
+    border-color: black;
+    margin-right:0px ;
+    margin-left: 30px;
+    text-align: center;
+    margin-top: 0.4%;
+    background-color:rgba(255, 255, 255, 0.422);
+    width: 20%;
+    border-radius: 10px;
+    height: 80%;
+    
+   
+}
+
+.container .profile .view-wrap .view .btn-section{
+    background-color: rgba(100, 102, 99, 0.2);
+    height: 30px;
+    box-shadow: #FCFEF9;
+    width: 100%;
+
+}
+
+
+.edit-profile{
+    width:90%;
+    height: auto;
+    background-color: white;
+    min-height: 40vh;
+    display: none;
+    justify-content: space-between;
+    justify-content:center;
+    text-align: center;
+    margin: 30px;
+    align-items: left;
+        
+    
+    
+}
