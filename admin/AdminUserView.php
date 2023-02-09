@@ -74,7 +74,7 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/CSS/style.css"> 
     <!-- <link rel="stylesheet" href="profile.css"> -->
-    <title>Instructor Home</title>
+    <title>User Details</title>
     
     
 </head>
@@ -84,11 +84,12 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
 <?php //include "../public/includes/admin_menu.view.php"?>
 
 
-<div class = "loggedhome_body"> 
+<!-- <div class = "loggedhome_body">  -->
 
-    <div class = "home_body"> 
-    <div class="container">
+    <!-- <div class = "home_body">  -->
+    <!-- <div class="container"> -->
 
+    <div class="top">
         
     <div class="profile">
             <div class="profile-text">
@@ -150,13 +151,14 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
                 </div>
             </div>
         </div>
+        </div>
     
 
 
-    </div>
+    <!-- </div>  -->
                             
-    </div> 
-</div> 
+     <!-- </div>  -->
+<!-- </div>  -->
       
 </body>
 </html>
