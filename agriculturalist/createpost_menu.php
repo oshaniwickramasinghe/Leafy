@@ -11,15 +11,7 @@
           <link rel="stylesheet" href="../Customer/CSS/style.css">
 </head>
 <body>
-   
-  <div class  =  "search">
-       <input  type = "search" placeholder = "Search for items.."  name= "search">
-      <a  class = "search_button" href="#" aria-label="search">
-       <div class = "icon">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        </div>
-       </a>
- </div>
+
 
  <div class="containerr">
         <div class="left_menu_bar">
@@ -30,10 +22,10 @@
             </div>
             <ul>
             
-                <li><a href="landing.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
+                <li><a href="../Customer/customerhome.view.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="agricreatepost.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Create Post</a></li>
                 <li><a href="postview.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>My Posts</a></li>
-                <li><a href="agriculturalnotification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications</a></li>
+                <li><a href=""><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications</a></li>
                 <li><a href="agriD.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Report</a></li>
                 <li><a href="blog.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Form</a></li>
                 

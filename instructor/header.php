@@ -1,10 +1,4 @@
 <?php
-<<<<<<< HEAD
-include "../Customer/Auth.php";
-include 'config.php';
-
-
-=======
 include 'Auth.php';
 include 'database.php';
 
@@ -26,7 +20,6 @@ $select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or d
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
 }
->>>>>>> 046f07f02f5630be50251897dfbc530ddc77d14b
 
 
 ?>
