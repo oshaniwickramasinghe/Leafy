@@ -704,6 +704,7 @@ small{
 
 .shopping {
    margin-left :70%;
+   margin-top: 1%;
 }
 
 
@@ -1160,35 +1161,37 @@ background-color:rgb(159, 159, 159);
 .rowone{
     display: flex;
     /* flex-direction: row; */
-    background-color:violet;
-    width: 65%;
-    margin-left: 18%;
+    background-color:rgba(253, 253, 253, 0.611);   
+    width: 50%;
+    margin-left: 25%;
 margin-top: 5px;
 margin-bottom: 30px;   
    /* flex-wrap: wrap; */
    height: 10%; 
 } */
-}
+
 
 .rowone:hover{
     background-color: #a21313;
 }
 .right_row{
-    background-color:rgb(132, 130, 238); 
-    flex:20%;
+    background-color:rgba(128, 156, 91, 0.501);
+  
+    flex:4%;
 
 }
 
 .left_row{
-    background-color:rgb(130, 238, 153);
-    flex:60%;
+    background-color: rgba(181, 181, 181, 0.342);
+   
+    flex:72%;
 
 }
 .rowone form{
-    background-color:rgb(197, 197, 219); 
-    width:90%;
+    background-color:transparent; 
+    width:85%;
  margin-left: 2%;
- height:82px;
+ height:78px;
  margin-top: 0px;
 }  
     
@@ -1210,7 +1213,7 @@ margin-bottom: 30px;
     /* margin-left: 20%; */
     /* padding-bottom: 5%;
     text-align: center;
-    background-color: rgb(51, 156, 126);
+    ;
     width: 100%; */
     width:fit-content;
    
@@ -1335,7 +1338,7 @@ a.next{
     grid-template-columns: 1fr 1fr;
     height: 460px       ;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 45px;
    
 
@@ -1361,7 +1364,7 @@ a.next{
 }
 
   .right_3 form{
-
+    margin-top: 5%;
     margin-left: 5%;
     height: 350px;
     width: 70%;
@@ -1390,7 +1393,12 @@ a.next{
     min-height: 60vh;
     display: flex;
     flex-direction: column;
-    
+
+  }
+  .contact_body{
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .notification_body{
@@ -1398,6 +1406,27 @@ a.next{
     display: flex;
     flex-direction: column;
     overflow-y:scroll;
+
+  }
+
+.forum_body{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+  
+
+  }
+  
+  .history_body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  
+
+  }
+
+  .notification_body h2{
+     margin-left: 25%;
   }
 
   .view_body{
@@ -1583,5 +1612,393 @@ font-family: lato;
 .right_part .language{
 margin-top: -15%;
 }
+
+.reset_body{
+    margin-top: 10%;
+}
+.reset_body h1{
+    margin-left: 2%;
+}
+
+.newPass_body h1{
+    margin-left: 2%;
+}
+.otp_body h1{
+    margin-left: 2%;
+}
+
+.rowone i{
+
+    margin-left: 30%;
+    margin-top: -12%;
+  
+}
+
+.rowone input[type= time]{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#id01 button{
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 10px;
+    
+  }
+
+  #id01 a{
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  
+  /* Add a color to the delete button */
+  .deletebtn {
+    background-color: #f44336;
+    color: black;
+  }
+  .cancelbtn {
+    background-color: #b2adac;
+    color: black;
+  }
+  
+  /* Add padding and center-align text to the container */
+  #id01 .model_body {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+  #id01 .container {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  #id01 .container p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #070708a4;
+    padding-top: 50px;
+  }
+  
+  .model {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #070708a4;
+    padding-top: 50px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+  }
+ /* Modal Content/Box */
+ .model-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+  }
+ 
+  
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #9e9b9b;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    padding-left: 2%;
+  }
+  
+  /* Change styles for cancel button and delete button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .deletebtn {
+      width: 100%;
+    }
+  }
+
+  .left_row form button{
+    margin-left: 45%;
+    margin-top: -10%;
+  }
+
+
+   .notification_body .left_row .modal form{
+    background-color: #ffffffe0;
+    height: 60%;
+    width:40%;
+    margin-left:25%;
+    margin-top: 4%;
+   }
+
+   .modal .model_body  h1{
+    margin-left: -25%;
+   
+   }
+
+  
+   .modal .model_body{
+    margin-left: -25%;
+    font-size: 18px;
+   }
+
+   .notification_body button{
+    margin-top: 2%;
+         margin-left: 25%;
+   }
+
+.forum_body  h2{
+    margin-left: 22%;
+}
+   .forum_body form{
+    border-radius: 40px;
+    width: 60%;
+    height: 70%;
+    margin-top: -1%;
+    padding-bottom: 2%;
+    margin-left: 20%;
+    overflow-y:scroll;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+}
+
+.forum_body form button{
+    margin-left: 75%;
+}
+
+   .question{
+    background-color: white;
+    padding-left:2% ;
+    padding-top:1% ;
+    width:85%;
+    height: 15%;
+    padding-bottom:1% ;
+    margin-left: 5%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+   .reply{
+    background-color: white;
+    padding-left:2% ;
+    padding-top:1% ;
+    width:80%;
+    height: 20%;
+    padding-bottom:1% ;
+    margin-top: 1%;
+    margin-left: 10%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+    .reply i {
+        margin-left: 85%;
+     
+     }
+
+    .reply p{
+        margin-left: 90%;
+        margin-top: -3%; 
+    }
+
+    .add_question input[type  = text]{
+        height: 40%;
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -ms-border-radius: 0px;
+        -o-border-radius: 0px;
+        margin-left: 5%;
+        margin-top: 3%;
+        width: 87%;
+}
+
+.forum_body .backk{
+    margin-top: 2%;
+    margin-left: 20%;
+}
+.modal form .container{
+    height: 30%;
+   
+}
+.modal form {
+    height: 40%;
+}
+.modal form h1{
+    margin-left:-35%;
+
+}
+.clearfix {
+    height: 60%;
+   
+    margin-top:6%;
+}
+.clearfix a{
+    
+    margin-top:4%;
+    padding-left: 2%;
+
+}
+
+.history_body table{
+    margin-left: -6%;
+    box-shadow: 5px 8px 10px #e1e5ee;
+    
+}
+.history_body form h2{
+    margin-left: 30%;
+    margin-top: -1%;
+    padding-bottom: 2%;
+   
+    
+}
+.history_body form{
+
+    width: 70%;
+    background-color: transparent;
+    margin-left: 15%;
+
+}
+
+
+.history_body tr:hover {background-color:rgba(128, 157, 91, 0.122);}
+input[type = button]{
+    background-color: #33ca93;
+    color: white;
+    padding: 10px 14px;
+    margin-left: 10%;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    width:65%;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+}
+
+.history_body 
+th{
+    padding: 20px;
+    padding-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Lato";
+}
+.history_body 
+td{
+    font-size: 18px;
+    font-family: "Lato";
+}
+
+.history_body h3{
+    margin-left: 35%;
+}
+
+.backk {
+    width: 30%;
+    margin-left: 1%;
+    
+}
+
+.model_box{
+    background-color: rgb(216, 206, 206); 
+    width: 80%;
+    font-size: 18px;
+    margin-left: 15%;
+    align-content: center;
+    padding-left: 20%;
+    padding-bottom: 3%;
+    box-shadow: 0 2px 5px #e1e5ee;
+    
+}
+
+.model_box  img{
+    margin-left: 25%; 
+}
+.model_box  h2{
+    margin-left: 15%; 
+}
+.model_box  p{
+    
+    text-align: left;
+    margin-left: 15%;
+}
+
+.history_form form{
+    width: 80%;
+    margin-left: 15%;
+
+
+}
+
 
 }

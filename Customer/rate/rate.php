@@ -15,6 +15,7 @@
 		<div class  = "post">
 		<div class="edit">Edit</div>
 		<div class  = "text">Thank you for rating Us </div>
+		<a href = "../customerhome.php"><input type  = "submit" value  = "Go Back" style = "margin-left:-5% ; margin-top:2%"></a>
 	   
 	     </div>
 			<h2>Rate our service</h2>

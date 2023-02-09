@@ -46,8 +46,8 @@ include 'includes/header.view.php';
                 <li><a href="../Customer/customerhome.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../Customer/wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
                 <li><a href="../Customer/notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications</a></li>
-                <li><a href=""><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
-                <li><a href="blog.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
+                <li><a href="../Customer/forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
+                <li><a href="../Customer/history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
             </ul>
 
         </div>
