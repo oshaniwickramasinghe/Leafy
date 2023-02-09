@@ -1,19 +1,21 @@
 <?php
-include 'config.php';
-session_start();
-$user_ID = $_SESSION['user_ID'];
+include 'Auth.php';
+include 'database.php';
+
+$user_ID = $_SESSION['USER_DATA']['user_id'];
+//$user_ID = $_SESSION['user_ID'];
 if(!isset($user_ID)){
-    header('location:login.php');
+   header('location:login.view.php');
 };
 
 if(isset($_GET['logout'])){
      unset($user_ID);
      session_destroy();
-     header('location:login.php');
+     header('location:login.view.php');
 }
 
 
-$select=mysqli_query($conn,"SELECT * FROM `instructor` WHERE user_ID='$user_ID'") or die('query failed');
+$select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
 
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
@@ -33,26 +35,26 @@ if(mysqli_num_rows($select)>0){
     <title>Home</title>
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="images/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="header.css">
+
     
 </head>
 <body>
     <nav>
-    <div style="background:url(images/header7.svg)no-repeat;"class="header">
+    <div class="header">
         <div class="center_wrapper">
             <div class="left_part">
                 <div class="logo">
                     <a href="">
-                        <img src="images/logo.svg" alt="">
+                    <img src="../../Customer/images/logo.svg"  height= "121.42px" >
                     </a>
                 </div>
                 <div class="menu">
                     <ul>
                         <li>
-                            <a href="homee.view.php" class="active">Home</a>
+                            <a href="#home" >Home</a>
                         </li>
                         <li>
-                            <a href="blog.php" class="">Blogs</a>
+                            <a href="#blogs" class="">Blogs</a>
                         </li>
                         <li>
                             <a href="#courses" class="">Courses</a>
@@ -68,7 +70,7 @@ if(mysqli_num_rows($select)>0){
                     <div  class="user-pic" >
                         <div class="user_details">
                             <img src="images/profilepic_icon.svg" alt="" >
-                            <p><?php echo $fetch['first_name']." ".$fetch['last_name']; ?></p>
+                            <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <button onclick="toggleMenu()">
                         <span class="fa-solid fa-circle-chevron-down" ></span>
@@ -78,8 +80,14 @@ if(mysqli_num_rows($select)>0){
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                         <div class="user-info">
-                            <img src="images/profilepic_icon.svg" alt="">
-                            <p><?php echo $fetch['first_name']." ".$fetch['last_name']; ?></p>
+                        <?php
+                                if($fetch['image'] == ''){
+                                    echo '<img src="images/profilepic_icon.svg" >';
+                                }else{
+                                    echo '<img src="./images/'.$fetch['image'].'>';
+                                }
+                                ?>
+                            <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <hr>
                         <a href = "InstructorHome.php" class="sub-menu-link">
@@ -87,24 +95,18 @@ if(mysqli_num_rows($select)>0){
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "instructorHome.php?logout=<?php echo $user_ID; ?>" class="sub-menu-link">
+                        <a href = "../Customer/Logout.php" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>
                         </a>
-                        <a href = "InstructorHome.php" class="sub-menu-link">
-                            <i class="fa-solid fa-bell" style="font-size:18px;color:#43562B;"></i>
-                            <p>Notifications</p>
-                            <span>></span>
-                        </a>
+                
                         
                     </div>
                     
                 </div>
 
-                <div class="language">
-                    <a href="" class="">Languages (EN)</a>
-                </div>
+               
             </div>
         </div>
      
@@ -122,6 +124,18 @@ if(mysqli_num_rows($select)>0){
                 subMenu.style.display = "none";
             }
         }
+        function toggleLan()
+        {
+            var languages = document.getElementById("lanList");
+            if(languages.style.display == "none")
+            {
+                languages.style.display = "block";
+            }else{
+                languages.style.display = "none";
+            }
+        }
+
+
     </script>
 </body>
 </html>
