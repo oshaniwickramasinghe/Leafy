@@ -24,7 +24,7 @@ include 'agri_menu.view.php';
 
 
 ?>
-<!-- <button class = "btnn" onclick="document.location='createpost.php'"> Create New Post </button> -->
+
 
 <div class = "vegetable_body">
 <div class = "row">

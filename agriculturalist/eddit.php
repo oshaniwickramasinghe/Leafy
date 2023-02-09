@@ -29,7 +29,18 @@ $postid=$_REQUEST["postid"];
 
 <body>
 
+<div style="position: relative; height: 10vh;">
+<div style="position: relative; height: 10vh;">
+<br><br><br><br><br>
 
+<?php 
+include 'agri_menu.view.php';
+
+
+?>
+</div>
+
+<br><br><br>
      <form action="post_function/eddite.post.php" method="post" enctype="multipart/form-data">
 
 
@@ -79,13 +90,15 @@ $postid=$_REQUEST["postid"];
           <input type="text" placeholder="price" value="<?php echo $price ?>" id="price" name="price" required><br>
 
           <label for="uname">Images</label><br>
-          <input type="file" placeholder="upload images" src="./images/" value="<?php echo $img ?>" id="images" name="images" accept="images/jpg,images.jpeg,images/png" ><br> 
+          <input type="file" placeholder="upload images" src="images/" value="<?php echo $img ?>" id="images" name="images" accept="images/jpg,images.jpeg,images/png" ><br> 
 
-        <input class="button" type="submit" value="Uplaod files"><br><br>
+       
 
           <input type="submit" class="btn btn-primary w-100 " value="Submit" name=""></input>
 
      </form>
+     <?php include '../includes/footer.view.php'?>
+</div>
 
 
 
@@ -101,4 +114,3 @@ document.getElementsByName("exdate")[0].setAttribute('min', today);
       </script> 
 
 </html>
-<?php include '../includes/footer.view.php'?>
