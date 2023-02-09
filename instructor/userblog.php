@@ -49,16 +49,14 @@ if(isset($_GET['view_blog']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>userblog</title>
-    <link rel="stylesheet" href="userblog.php">
+    <link rel="stylesheet" href="userblog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
-        <div style="background:url(images/farmer.jpg)no-repeat;" class="display">
-            <p>weetrtdghdutadyusdsjaf jqfduyfdyufwfydayfdhsjfdjsh ajdfuafdyuruydruyduyfusydfshfdhsfdhyfdfhsyd 
-                jfjyafjdrffdjafd wjfddfuywdruyw yfquydfuwrduy dfjywfdywfdyuwf fqjdfjfdjwyf can you give me the background iamge</p>
+        <div class="begin">
         </div>
-        <main class="container">
+        <div class="main">
             <h1><?php if(isset ($title)){ echo $title;} ?></h1> 
             <div class="profile-container">
                 <div class="profile">
@@ -97,7 +95,7 @@ if(isset($_GET['view_blog']))
             <div class="tags">
 
             </div>
-        </main>
+        </div>
     </div>
 
     <div class="articles">
@@ -122,7 +120,7 @@ if(isset($_GET['view_blog']))
                 </div>
                 <div class="card-text">
                     <h4>Indoor Vertical Farming: The New Era of Agriculture</h4>
-                    <p>As the world’s population grows exponentially, our total supply of fruits and vegetables is falling 22% short of global nutritional needs. Traditional farming methods are having difficulties meeting this demand as it faces increasing problems such as water shortage, land scarcity, and an aging farming population with decreased interest from newer generations. In recent years,</p>
+                    <p>As the world's population grows exponentially, our total supply of fruits and vegetables is falling 22% short of global nutritional needs. Traditional farming methods are having difficulties meeting this demand as it faces increasing problems such as water shortage, land scarcity, and an aging farming population with decreased interest from newer generations. In recent years,</p>
                 </div>
             </div>
             <div class="cards-container-three">
@@ -135,11 +133,14 @@ if(isset($_GET['view_blog']))
                 </div>
             </div>
         </div>
+        <div class="button">
+            <a href="#" class="btn">view more</a>
+        </div>
 
         
     </div>
 <footer>
-<?php include 'footer.php'; ?>
+    <?php include 'footer.php'; ?>
 </footer>
     
 </body>
