@@ -1662,8 +1662,17 @@ margin-top: -15%;
     background-color: #f44336;
     color: black;
   }
+  .cancelbtn {
+    background-color: #b2adac;
+    color: black;
+  }
   
   /* Add padding and center-align text to the container */
+  #id01 .model_body {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
   #id01 .container {
     padding: 16px;
     text-align: center;
@@ -1690,15 +1699,39 @@ margin-top: -15%;
     padding-top: 50px;
   }
   
+  .model {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #070708a4;
+    padding-top: 50px;
+  }
+  
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
     border-radius: 10px;
     text-align: center;
   }
+ /* Modal Content/Box */
+ .model-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+  }
+ 
+  
   
   /* Style the horizontal ruler */
   hr {
@@ -1713,7 +1746,7 @@ margin-top: -15%;
     top: 15px;
     font-size: 40px;
     font-weight: bold;
-    color: #f1f1f1;
+    color: #9e9b9b;
   }
   
   .close:hover,
@@ -1727,6 +1760,7 @@ margin-top: -15%;
     content: "";
     clear: both;
     display: table;
+    padding-left: 2%;
   }
   
   /* Change styles for cancel button and delete button on extra small screens */
@@ -1743,19 +1777,21 @@ margin-top: -15%;
 
 
    .notification_body .left_row .modal form{
-    background-color: #f6f6f6e0;
+    background-color: #ffffffe0;
     height: 60%;
     width:40%;
     margin-left:25%;
     margin-top: 4%;
    }
+
    .modal .model_body  h1{
     margin-left: -25%;
    
    }
 
+  
    .modal .model_body{
-    margin-left: -22%;
+    margin-left: -25%;
     font-size: 18px;
    }
 
@@ -1831,5 +1867,27 @@ margin-top: -15%;
 .forum_body .backk{
     margin-top: 2%;
     margin-left: 20%;
+}
+.modal form .container{
+    height: 30%;
+   
+}
+.modal form {
+    height: 40%;
+}
+.modal form h1{
+    margin-left:-35%;
+
+}
+.clearfix {
+    height: 60%;
+   
+    margin-top:6%;
+}
+.clearfix a{
+    
+    margin-top:4%;
+    padding-left: 2%;
+
 }
 }
