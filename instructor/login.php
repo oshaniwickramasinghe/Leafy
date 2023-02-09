@@ -34,7 +34,7 @@ $email= validate($_POST['email']);
 //          // die;       
 // die;
        if(is_instructor()){
-         header("Location:blog.php");
+         header("Location:Insdashboard.php");
        }else{
          header("Location:home.view.php");
        }
