@@ -93,7 +93,7 @@ $result2= mysqli_query($conn,$sql2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="blog.css">
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
-    <title>instructor blog page</title>
+    <title>instructor notification page</title>
 </head>
 <body>
     
@@ -118,27 +118,25 @@ $result2= mysqli_query($conn,$sql2);
         </div>
         <div class="content">
             
-            <h2>Blog</h2>
+            <h2>Notifications</h2>
             <div class="container">
             <div class="container_left">
                 <div class="main_card">
-                <p>Your blog list</p>
+                <p>Notification List</p>
                 <div class="card_left">
                     <ul>
                         <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                            <li><a  href="blog.php?view=<?= $record1['blog_id']; ?>">Blog <?= $record1['blog_id']?> - <?=$record1['title']?></a></li>
+                            <li><a  href="notification.php?view=<?= $record1['blog_id']; ?>">Notification-How to make a paddy Field</a></li>
                         <?php }?>
                     </ul>
                 </div>
                 </div>
-                <button onclick="location.href='create blog.php'" type="button" id="create">create</button>
             </div>
             <div class="container_right" id="view_more">
-                <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
+                <h3> Question<!--<?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?>--></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div class="container_button">
-                    <a href="userblog.php?view_blog=<?=$blog_ID; ?>" type="button" id="view">View</a>
-                    <a href="create blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
+                    <button href="notification.php" id="answer-btn"  class="answer-btn" >Answer</button>
                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
                 </div>
                 <div id="id01" class="modal" style="display: none;">
@@ -156,45 +154,32 @@ $result2= mysqli_query($conn,$sql2);
                 </div>
                 <div class="details_container">
                     <h4><?php if(isset ($fetch['fname'])){ echo $fetch['fname'];} ?></h4>
+                    <p><?php if(isset ($date)){ echo $date;} ?></p>
                     <p><?php if(isset ($time)){ echo $time;} ?></p>
                     <table>
                         
                         <tr>
-                            <th>Blog ID</th>
+                            <th>Question ID</th>
                             <td>:</td>
-                            <td><?php if(isset ($blog_ID)){ echo $blog_ID;} ?></td>
-                            
-                                
+                            <td><?php if(isset ($blog_ID)){ echo $blog_ID;} ?></td>      
                         </tr>
                         <tr>
-                            <th>Image</th>
-                            <td>:</td>
-                            <td><img src="./images/<?php if(isset ($image)){ echo $image;} ?>" align="middle" width="110"></td>
-                        </tr>
-                        <tr>
-                            <th>Title </th>
+                            <th>Question </th>
                             <td>:</td>
                             <td><?php if(isset ($title)){ echo $title;} ?></td>
-                        </tr>
-                        <tr>
-                            <th>Date </th>
-                            <td>:</td>
-                            <td><?php if(isset ($date)){ echo $date;} ?></td>
-                            
-                        </tr>
-                        <tr>
-                            <th>Content </th>
-                            <td>:</td>
-                            <td><?php if(isset ($content)){ echo $content;} ?></td>
                         </tr>
                        <!-- <tr>
                             <th>Comment </th>
                             <td>:</td>
                             <td><?php if(isset ($commen)){ echo $commen;} ?></td>
                         </tr>-->
-                    </table>
+                    </table>   
                 </div>
-            
+                <div class="answer-container" id="answer-div">
+                        <h3>Answer</h3>
+                        <p>Ensure that the field is level, well drained, and under shade. Chop compost materials into small pieces (3−5 cm). If possible, build compost heaps in layers consisting of rice crop material, combined with legume or manure wastes, on a 2:1 ratio. Keep compost heaps moist—not to wet and not too dry.</p>
+                        <a href="#" type="button" class="submit-btn" id="submit-btn">Submit</a>
+                </div>
                 
             </div>
 
@@ -205,11 +190,33 @@ $result2= mysqli_query($conn,$sql2);
 
     </div>
    </div>
-   <footer>
-           <?php include "footer.php";?>
+    <footer style="background:url(images/footerFinal.svg)no-repeat;"class="footer">
+        <ul class="footer">
+            <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-instagram" style="font-size:30px;color:#FCFEF9;"></i></a></li>
+            <li><a href=""><i class="fa-solid fa-envelope" style="font-size:30px;color:#FCFEF9;"></i></a></li>
+        </ul>
+        <div class="footer-copyright">
+            <p>copyright @2022 Leafy All Rights Reserved</p>
+        </div>
+
     </footer>
 
     <script>
+         var answer_div = document.getElementById("answer-div");
+         var answer_btn = document.getElementById("answer-btn");
+         var submit_btn = document.getElementById("submit-btn");
+
+         answer_btn.addEventListener('click', ()=>{
+            answer_div.style.display ='block';
+        });
+
+        submit_btn.addEventListener('click', ()=>{
+            answer_div.style.display ='none';
+        });
+
+
+
         function showModal() {
             document.getElementById("id01").style.display = "flex";
         }

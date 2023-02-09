@@ -1,10 +1,4 @@
 <?php
-<<<<<<< HEAD
-include "../Customer/Auth.php";
-include 'config.php';
-
-
-=======
 include 'Auth.php';
 include 'database.php';
 
@@ -20,18 +14,12 @@ if(isset($_GET['logout'])){
      header('location:login.view.php');
 }
 
-
-$select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
+$select=mysqli_query($conn,"SELECT * FROM user WHERE user_ID='$user_ID'") or die('query failed');
 
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
 }
->>>>>>> 046f07f02f5630be50251897dfbc530ddc77d14b
-
-
-?>
-
-
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +30,7 @@ if(mysqli_num_rows($select)>0){
     <title>Home</title>
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="images/fontawesome/css/all.css" />
-
+    <link rel="stylesheet" href="header.css" />
     
 </head>
 <body>
@@ -52,7 +40,7 @@ if(mysqli_num_rows($select)>0){
             <div class="left_part">
                 <div class="logo">
                     <a href="">
-                    <img src="../../Customer/images/logo.svg"  height= "121.42px" >
+                    <img src="images/logo.svg"  height= "121.42px" >
                     </a>
                 </div>
                 <div class="menu">
@@ -76,30 +64,7 @@ if(mysqli_num_rows($select)>0){
                 <div class="profile_icon">
                     <div  class="user-pic" >
                         <div class="user_details">
-<<<<<<< HEAD
-                        <?php if(logged_in()):
-$user_ID = $_SESSION['USER_DATA']['user_id'];
-// if(!isset($user_ID)){
-//     header('location:login.php');
-// };
-
-// if(isset($_GET['logout'])){
-//      unset($user_ID);
-//      session_destroy();
-//      header('location:../Customer/home.view.php');
-// }
-
-
-$select=mysqli_query($conn,"SELECT * FROM user WHERE user_ID='$user_ID'") or die('query failed');
-
-if(mysqli_num_rows($select)>0){
-    $fetch= mysqli_fetch_assoc($select);
-}
-?>  
                             <img src="images/profilepic_icon.svg" alt="" height= "21.42px">
-=======
-                            <img src="images/profilepic_icon.svg" alt="" >
->>>>>>> 046f07f02f5630be50251897dfbc530ddc77d14b
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <button onclick="toggleMenu()">
@@ -120,12 +85,12 @@ if(mysqli_num_rows($select)>0){
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <hr>
-                        <a href = "InstructorHome.php" class="sub-menu-link">
+                        <a href = "InstructorProfile.php" class="sub-menu-link">
                             <i class="fa-solid fa-circle-user" style="font-size:18px;color:#43562B;"></i>
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "../Customer/Logout.php" class="sub-menu-link">
+                        <a href = "Login.view.php" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>

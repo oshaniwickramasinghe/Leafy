@@ -93,7 +93,7 @@ $result2= mysqli_query($conn,$sql2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="blog.css">
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
-    <title>instructor blog page</title>
+    <title>instructor course page</title>
 </head>
 <body>
     
@@ -118,35 +118,35 @@ $result2= mysqli_query($conn,$sql2);
         </div>
         <div class="content">
             
-            <h2>Blog</h2>
+            <h2>Course</h2>
             <div class="container">
             <div class="container_left">
                 <div class="main_card">
-                <p>Your blog list</p>
+                <p>Your course list</p>
                 <div class="card_left">
                     <ul>
                         <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                            <li><a  href="blog.php?view=<?= $record1['blog_id']; ?>">Blog <?= $record1['blog_id']?> - <?=$record1['title']?></a></li>
+                            <li><a  href="course.php?view=<?= $record1['blog_id']; ?>">Course <?= $record1['blog_id']?> - <?=$record1['title']?></a></li>
                         <?php }?>
                     </ul>
                 </div>
                 </div>
-                <button onclick="location.href='create blog.php'" type="button" id="create">create</button>
+                <button onclick="location.href='create course.php'" type="button" id="create">create</button>
             </div>
             <div class="container_right" id="view_more">
-                <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
+                <h3> Course <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div class="container_button">
-                    <a href="userblog.php?view_blog=<?=$blog_ID; ?>" type="button" id="view">View</a>
-                    <a href="create blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
+                    <a href="userCourse.php?view_blog=<?=$blog_ID; ?>" type="button" id="view">View</a>
+                    <a href="create course.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
                 </div>
                 <div id="id01" class="modal" style="display: none;">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <form class="modal-content" action="/action_page.php">
                         <div class="container">
-                            <h1>Delete this blog</h1>
-                            <p>Are you sure you want to delete the blog?</p>
+                            <h1>Delete this course</h1>
+                            <p>Are you sure you want to delete the course?</p>
                             <div class="clearfix">
                                 <a href="blog.php?delete=<?=$blog_ID; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
                                 <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
@@ -160,17 +160,17 @@ $result2= mysqli_query($conn,$sql2);
                     <table>
                         
                         <tr>
-                            <th>Blog ID</th>
+                            <th>Course ID</th>
                             <td>:</td>
                             <td><?php if(isset ($blog_ID)){ echo $blog_ID;} ?></td>
                             
                                 
                         </tr>
-                        <tr>
+                        <!--<tr>
                             <th>Image</th>
                             <td>:</td>
                             <td><img src="./images/<?php if(isset ($image)){ echo $image;} ?>" align="middle" width="110"></td>
-                        </tr>
+                        </tr>-->
                         <tr>
                             <th>Title </th>
                             <td>:</td>
@@ -183,7 +183,7 @@ $result2= mysqli_query($conn,$sql2);
                             
                         </tr>
                         <tr>
-                            <th>Content </th>
+                            <th>Description </th>
                             <td>:</td>
                             <td><?php if(isset ($content)){ echo $content;} ?></td>
                         </tr>
@@ -205,8 +205,8 @@ $result2= mysqli_query($conn,$sql2);
 
     </div>
    </div>
-   <footer>
-           <?php include "footer.php";?>
+    <footer>
+        <?php    include "footer.php"; ?>
     </footer>
 
     <script>

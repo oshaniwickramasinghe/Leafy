@@ -120,7 +120,7 @@ if(isset($_POST['change_password'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="InstructorHome.css">
+    <link rel="stylesheet" href="InstructorProfile.css">
     <title>Instructor Home</title>
     
     
@@ -134,11 +134,11 @@ if(isset($_POST['change_password'])){
                 <h3>Leafy</h3>
             </div>
             <ul>
-                <li><a href=""><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
-                <li><a href=""><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
-                <li><a href=""><i class="fa-solid fa-comments" style="font-size:17px;color:#43562B;"></i>Questions</a></li>
+                <li><a href="Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
+                <li><a href="home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
+                <li><a href="notification"><i class="fa-solid fa-comments" style="font-size:17px;color:#43562B;"></i>Notifications</a></li>
                 <li><a href="blog.php"><i class="fa-brands fa-blogger" style="font-size:20px;color:#43562B;"></i>Blogs</a></li>
-                <li><a href=""><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>Courses</a></li>
+                <li><a href="course.php"><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>Courses</a></li>
  
 
             </ul>
@@ -153,14 +153,16 @@ if(isset($_POST['change_password'])){
                     <div class="image"><?php
 
                     if($fetch['image'] == ''){
-                        echo '<img src="images/profile-img.jpg" align="middle" width="100%" border-radius:50%>';
+                        echo '<img src="images/profile-img.jpg" align="middle" width="60%" border-radius:50%>';
                     }else{
-                        echo '<img src="./images/'.$fetch['image'].'" align="middle" width="100%" border-radius:50%;>';
+                        echo '<img src="./images/'.$fetch['image'].'" align="middle" width="60%" border-radius:50%;>';
                     }
             
                     ?>
                     </div>
+                    <h1><?php echo $fetch['role']; ?></h1>
                     <h3><?php echo $fetch['fname']." ".$fetch['lname']; ?></h3>
+                   
                     
                 </div>
                 <div class="view">
@@ -259,19 +261,10 @@ if(isset($_POST['change_password'])){
         </div>
     </div>
 
-      
-      
-    <footer style="background:url(images/footerFinal.svg)no-repeat;">
-        <ul class="footer">
-            <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-            <li><a href=""><i class="fa-brands fa-instagram" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-            <li><a href=""><i class="fa-solid fa-envelope" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-        </ul>
-        <div class="footer-copyright">
-            <p>copyright @2022 Leafy All Rights Reserved</p>
-        </div>
-
+    <footer>
+           <?php include "footer.php";?>
     </footer>
+    
     <script>
         var view_div = document.getElementById("view-div");
         var edit_profile = document.getElementById("edit-profile");

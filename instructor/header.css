@@ -251,6 +251,7 @@ nav .user-pic{
     background: none;
 	color: inherit;
 	border: none;
+} 
 
 #lanList{
     position: absolute;
@@ -288,6 +289,8 @@ nav .user-pic{
 
 .right_part button :hover{
     font-weight: 600;
+}
+
 .lan-link p{
     width: 100%;
     color: #323929;

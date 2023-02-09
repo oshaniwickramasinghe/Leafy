@@ -245,7 +245,33 @@ footer .footer-copyright{
     border-radius: 20px;
 }
 
-.instructor_wrapper .content .container .container_right .container_button #edit {
+.instructor_wrapper .content .container .container_right .container_button #edit{
+    border:none;
+    color: #43562B;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 144, 76, 0.334);
+    border-radius: 20px;
+}
+
+#submit-btn{
+    border:none;
+    color: #43562B;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 144, 76, 0.334);
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+
+.instructor_wrapper .content .container .container_right .container_button #answer-btn{
     border:none;
     color: #43562B;
     padding: 10px 40px;
@@ -270,6 +296,14 @@ footer .footer-copyright{
 }
 
 .instructor_wrapper .content .container .container_right .container_button #edit:hover{
+    background: rgba(39, 144, 75, 0.5);
+}
+
+.instructor_wrapper .content .container .container_right .container_button #answer-btn:hover{
+    background: rgba(39, 144, 75, 0.5);
+}
+
+ #submit-btn:hover{
     background: rgba(39, 144, 75, 0.5);
 }
 
@@ -454,6 +488,18 @@ footer .footer-copyright{
     content: "";
     clear: both;
     display: table;
+  }
+
+  #answer-div{
+    width: 95%;
+    background-color: #70787042;
+    border-radius: 30px;
+    padding-left:10px ;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: none;
+
   }
   
   /* Change styles for cancel button and delete button on extra small screens */

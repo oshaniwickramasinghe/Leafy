@@ -120,7 +120,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="create blog.css">
-    <title>create blog</title>
+    <title>create course</title>
 </head>
 <body>
     <?php
@@ -136,7 +136,7 @@
         }
     ?>
 
-    <h1>Create a Blog Page</h1>
+    <h1>Create a Course </h1>
     <div class="create_form_wrapper">
     
         <form action="" method="post" enctype="multipart/form-data">
@@ -156,7 +156,7 @@
                 <label for="content">Content</label>
                 <textarea for="content" id="content" name="content" class="text_input"  value="" required></textarea><br>
             </div>
-            <div>
+        <!-- <div>
                 <label for="image">Attach images</label>
                 <input type="hidden" name="oldimage" value="<?= $image; ?>">
                 <input type="file" name="image" class="text_input" accept="image/jpg, image/jpeg, image/png"><br>
@@ -169,21 +169,24 @@
                 <div>
                     <img src="./images/<?= $image; ?>" width ="120" class="img-thumbnail" style="visibility:hidden" >
                 </div>
-            <?php } ?>
-          </div>
+            <?php } ?>-->
+            </div>
             <div align="right">
+                <button class="btn" id="add_video">Upload vidoes</button>
+                <button class="btn" id="add_question">Add question</button>
                 <?php if($update == true) {?>
                     <input type="submit" value="Update Blog" name="update" class="btn">
                 <?php } else {?>     
                     <input type="submit" value="Submit" name="submit" class="btn">
                 <?php } ?>
-        </div>
+               
+             </div> 
             
          </form>
       
     </div>
     <div align="right">
-        <a href="blog.php" class="goback-btn">go back >></a> 
+        <a href="course.php" class="goback-btn">go back >></a> 
     </div>    
 
     <footer>
