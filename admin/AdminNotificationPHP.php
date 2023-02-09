@@ -112,4 +112,34 @@ $resultdelivery= mysqli_query($conn,$sqldelivery);
         }
     }
 
+
+
+
+//select all
+$sqlall="SELECT * FROM user";
+
+// make query & get resultcustomer
+$resultall= mysqli_query($conn,$sqlall);
+
+    if(isset($_GET['view']))
+    {
+        $del_user_id = $_GET['view'];
+        $sql4 = "SELECT * FROM user WHERE user_id=$del_user_id and role='delivery_person'";
+        $result4=mysqli_query($conn,$sql4);
+        
+        if($result4)
+        { 
+                       
+            while($recorddelivery = mysqli_fetch_assoc($result4))
+            {
+                $del_user_id=$recorddelivery['user_id'];
+                $del_first_name=$recorddelivery['fname'];
+                $del_email=$recorddelivery['email'];
+                $del_role=$recorddelivery['role'];
+   
+            }
+            
+        }
+    }
+
 ?> 

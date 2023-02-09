@@ -1,7 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
 *{
     margin: 0;/*gost margine*/
     padding:0;
     box-sizing:inherit;
+    font-family:'Lato', sans-serif;
+    
     
    
 }
@@ -151,7 +157,7 @@ footer .footer-copyright{
     flex:8.5;
     height: 100%;
     padding: 10px 20px;
-    background: #a9bc9b46;
+    background: #8d8f8c46;
     border-radius: 20px;
     margin-left: 1%;
     margin-bottom: 1%;
@@ -227,7 +233,19 @@ footer .footer-copyright{
 
 }
 
-.instructor_wrapper .content .container .container_right .container_button #edit {
+.instructor_wrapper .content .container .container_right .container_button #view {
+    border:none;
+    color: #314063;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 58, 144, 0.425);
+    border-radius: 20px;
+}
+
+.instructor_wrapper .content .container .container_right .container_button #edit{
     border:none;
     color: #43562B;
     padding: 10px 40px;
@@ -235,13 +253,39 @@ footer .footer-copyright{
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    background-color: rgba(39, 144, 75, 0.2);
+    background-color: rgba(39, 144, 76, 0.334);
+    border-radius: 20px;
+}
+
+#submit-btn{
+    border:none;
+    color: #43562B;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 144, 76, 0.334);
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+
+.instructor_wrapper .content .container .container_right .container_button #answer-btn{
+    border:none;
+    color: #43562B;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 144, 76, 0.334);
     border-radius: 20px;
 }
 
 .instructor_wrapper .content .container .container_right .container_button #delete{
     border:none;
-    color:#43562B;
+    color:#531614;
     padding: 10px 35px;
     text-align: center;
     text-decoration: none;
@@ -252,6 +296,14 @@ footer .footer-copyright{
 }
 
 .instructor_wrapper .content .container .container_right .container_button #edit:hover{
+    background: rgba(39, 144, 75, 0.5);
+}
+
+.instructor_wrapper .content .container .container_right .container_button #answer-btn:hover{
+    background: rgba(39, 144, 75, 0.5);
+}
+
+ #submit-btn:hover{
     background: rgba(39, 144, 75, 0.5);
 }
 
@@ -436,6 +488,18 @@ footer .footer-copyright{
     content: "";
     clear: both;
     display: table;
+  }
+
+  #answer-div{
+    width: 95%;
+    background-color: #70787042;
+    border-radius: 30px;
+    padding-left:10px ;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: none;
+
   }
   
   /* Change styles for cancel button and delete button on extra small screens */

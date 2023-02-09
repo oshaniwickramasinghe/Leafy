@@ -194,6 +194,7 @@
     color: #43562B;
     background:#fff;
     border-radius:25px;
+    /* width: 500px; */
 }
 
 .instructor_wrapper .content .box .container_left .main_card .card_left  ul li a:focus {

@@ -73,6 +73,12 @@
                                 <td>:</td>
                                 <td><?=$cust_email ?></td>
                             </tr>
+
+                            <tr>
+                                <th>Total Value </th>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
                             
                         </table>
                     </div>

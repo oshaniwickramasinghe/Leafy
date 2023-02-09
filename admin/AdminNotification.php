@@ -52,7 +52,7 @@ include "../public/includes/header.view.php";
                     <h3> User <?= $cust_user_id ?>:   <?= $cust_first_name ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
+                        <button onclick="location.href=''" type="button" id="Accept">Accept</button> 
                         <button type="button" id="delete">Delete</button>
                     </div>
                     <div class="details_container">
@@ -102,7 +102,7 @@ include "../public/includes/header.view.php";
                     <h3> Blog <?= $inst_user_id ?>:   <?= $inst_first_name ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="edit">Edit</button>
+                        <button onclick="location.href=''" type="button" id="Accept">Accept</button>
                         <button type="button" id="delete">Delete</button>
                     </div>
                     <div class="details_container">
@@ -151,7 +151,7 @@ include "../public/includes/header.view.php";
                     <h3> Courses <?= $agri_user_id ?>:   <?= $agri_first_name ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="edit">Edit</button>
+                        <button onclick="location.href=''" type="button" id="Accept">Accept</button>
                         <button type="button" id="delete">Delete</button>
                     </div>
                     <div class="details_container">
@@ -201,7 +201,7 @@ include "../public/includes/header.view.php";
                     <h3> Orders <?= $del_user_id ?>:   <?= $del_first_name ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
+                        <button onclick="location.href=''" type="button" id="Accept">Accept</button> 
                         <button type="button" id="delete">Delete</button>
                     </div>
                     <div class="details_container">

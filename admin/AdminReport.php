@@ -2,7 +2,7 @@
 
 require "database.php";
 require "../public/Auth.php";
-include "../public/includes/header.php";
+include "../Customer/includes/header.php";
 
 
 ?>
@@ -40,7 +40,7 @@ include "../public/includes/header.php";
                         <ul>
 
                             <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php ?view=<?= $record1['user_id']; ?> ">
+                                <li><a >
                                 User <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
                             <?php }?>
                         </ul>
@@ -50,7 +50,7 @@ include "../public/includes/header.php";
 
                 <div class="container_right" id="view_more">
                     <div class="center">
-                        <?php include '../admin/charts/user.php';?>
+                        <?php include '../admin/charts/users.php';?>
                     </div>
                     
                 </div>
@@ -66,7 +66,7 @@ include "../public/includes/header.php";
                     <div class="card_left">
                         <ul>
                             <?php while($record2=mysqli_fetch_assoc($resultinstructor)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record2['user_id']; ?> ">
+                                <li><a>
                                 User <?= $record2['user_id']?> - <?=$record2['fname']?>  <?=$record2['role']?></a></li>
                             <?php }?>
                         </ul>
@@ -75,7 +75,7 @@ include "../public/includes/header.php";
                 </div>
                 <div class="container_right" id="view_more">
                     <div class="center">
-                        <?php include '../admin/charts/user.php';?>
+                        <?php include '../admin/charts/users.php';?>
                     </div>
                     
                 </div>
@@ -89,8 +89,8 @@ include "../public/includes/header.php";
                     <p>Users</p>
                     <div class="card_left">
                         <ul>
-                            <?php while($record3=mysqli_fetch_assoc($resultagriculturalist)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record3['user_id']; ?> ">
+                            <?php while($record3=mysqli_fetch_assoc($resultall)){?>
+                                <li><a >
                                 User <?= $record3['user_id']?> - <?=$record3['fname']?>  <?=$record3['role']?></a></li>
                             <?php }?>
                         </ul>
@@ -99,7 +99,7 @@ include "../public/includes/header.php";
                 </div>
                 <div class="container_right" id="view_more">
                     <div class="center">
-                        <?php include '../admin/charts/users.php';?>
+                        <?php include '../admin/charts/user.php';?>
                     </div>
                     
                 </div>

@@ -1,17 +1,9 @@
 <?php
-include 'header.php';
-
-//$user_ID = $_SESSION['user_ID'];
-//$first_name = $_SESSION['fname'];
-//$last_name = $_SESSION['lname']; 
-//if(!isset($user_ID)){
-    //header('location:../login.php');
-//};
-
+include 'header.php'; 
 $user_ID=$_SESSION['USER_DATA']['user_id'];
 
 if(!isset($user_ID)){
-    header('location:../login.php');
+    header('location:../login.view.php');
 }
 
 
@@ -118,9 +110,11 @@ $result2= mysqli_query($conn,$sql2);
             <h3>Leafy</h3>
            </div>
             <ul>
-                <li><a href=""><i class="fa-solid fa-comments" style="font-size:17px;color:#43562B;"></i>Questions</a></li>
+                <li><a href="home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
+                <li><a href="Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
+                <li><a href="notification.php"><i class="fa-solid fa-comments" style="font-size:17px;color:#43562B;"></i>Questions</a></li>
                 <li><a href="blog.php"><i class="fa-brands fa-blogger" style="font-size:20px;color:#43562B;"></i>Blogs</a></li>
-                <li><a href=""><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>Courses</a></li>
+                <li><a href="course.php"><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>Courses</a></li>
             </ul>
         </div>
         <div class="content">
@@ -144,6 +138,7 @@ $result2= mysqli_query($conn,$sql2);
                 <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div class="container_button">
+                    <a href="userblog.php?view_blog=<?=$blog_ID; ?>" type="button" id="view">View</a>
                     <a href="create blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
                 </div>
@@ -211,16 +206,8 @@ $result2= mysqli_query($conn,$sql2);
 
     </div>
    </div>
-    <footer style="background:url(images/footerFinal.svg)no-repeat;"class="footer">
-        <ul class="footer">
-            <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-            <li><a href=""><i class="fa-brands fa-instagram" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-            <li><a href=""><i class="fa-solid fa-envelope" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-        </ul>
-        <div class="footer-copyright">
-            <p>copyright @2022 Leafy All Rights Reserved</p>
-        </div>
-
+   <footer>
+           <?php include "footer.php";?>
     </footer>
 
     <script>

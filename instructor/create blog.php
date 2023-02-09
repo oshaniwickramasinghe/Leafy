@@ -120,6 +120,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="create blog.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <title>create blog</title>
 </head>
 <body>
@@ -186,19 +187,11 @@
         <a href="blog.php" class="goback-btn">go back >></a> 
     </div>    
 
-    <footer style="background:url(images/Footer.svg)no-repeat;"class="footer">
-        <ul class="footer">
-            <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-            <li><a href=""><i class="fa-brands fa-instagram" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-            <li><a href=""><i class="fa-solid fa-envelope" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-        </ul>
-        <div class="footer-copyright">
-            <p>copyright @2022 Leafy All Rights Reserved</p>
-        </div>
-
+    <footer>
+           <?php include "footer.php";?>
     </footer>
 
-    
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
         document.getElementById("content").value = "<?= $content;?>";
     </script>

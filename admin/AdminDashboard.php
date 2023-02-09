@@ -19,16 +19,16 @@ include "../public/includes/header.view.php";
             
 
         <title>
-            Home
+            Dashboard
         </title> 
 
         <style>
-        * {
+        /* * {
             margin : 0;
             padding: 0;
             font-family: sans-serif;
         }
-        
+         */
         .chartCard {
             margin-left: -160;
             width: 100vw;
@@ -43,7 +43,7 @@ include "../public/includes/header.view.php";
             width: 500px;
             padding: 20px;
             border-radius: 20px;
-            border: solid 3px rgba(54, 162, 235, 1);
+            border: solid 3px rgba(54, 162, 54, 1);
             background: white;
         }
         </style>
@@ -145,14 +145,14 @@ include "../public/includes/header.view.php";
                             const data = { 
                             labels: ['customer', 'agriculturalist', 'instructor', 'delivery_person'],
                                 datasets: [{
-                                    label: '# of Votes',
+                                    label: '# of Users',
                                     data: count,
                                     backgroundColor: [
-                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(54, 162, 54, 0.2)',
                                         
                                     ],
                                     borderColor: [
-                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(54, 162, 54, 1)',
                                         
                                     ],
                                     borderWidth: 1
@@ -183,16 +183,16 @@ include "../public/includes/header.view.php";
                         const colour = <?php echo json_encode($colour);?>;
                         // setup 
                         const theta = { 
-                                labels: ['red', 'blue', 'yellow', 'green'],
+                                labels: ['Orders', 'Delivered orders', 'Blogs', 'Courses'],
                                     datasets: [{
-                                        label: '# of Votes',
+                                        label: '# of content',
                                         data: colour,
                                         backgroundColor: [
-                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(54, 162, 54, 0.2)',
                                             
                                         ],
                                         borderColor: [
-                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(54, 162, 54, 1)',
                                             
                                         ],
                                         borderWidth: 1

@@ -5,26 +5,21 @@ include 'database.php';
 $user_ID = $_SESSION['USER_DATA']['user_id'];
 //$user_ID = $_SESSION['user_ID'];
 if(!isset($user_ID)){
-   header('location:login.php');
+   header('location:login.view.php');
 };
 
 if(isset($_GET['logout'])){
      unset($user_ID);
      session_destroy();
-     header('location:login.php');
+     header('location:login.view.php');
 }
 
-
-$select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
+$select=mysqli_query($conn,"SELECT * FROM user WHERE user_ID='$user_ID'") or die('query failed');
 
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
 }
-
-
-?>
-
-
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +30,7 @@ if(mysqli_num_rows($select)>0){
     <title>Home</title>
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="images/fontawesome/css/all.css" />
-
+    <link rel="stylesheet" href="header.css" />
     
 </head>
 <body>
@@ -45,7 +40,7 @@ if(mysqli_num_rows($select)>0){
             <div class="left_part">
                 <div class="logo">
                     <a href="">
-                    <img src="../../Customer/images/logo.svg"  height= "121.42px" >
+                    <img src="images/logo.svg"  height= "121.42px" >
                     </a>
                 </div>
                 <div class="menu">
@@ -69,25 +64,6 @@ if(mysqli_num_rows($select)>0){
                 <div class="profile_icon">
                     <div  class="user-pic" >
                         <div class="user_details">
-                        <?php if(logged_in()):
-$user_ID = $_SESSION['USER_DATA']['user_id'];
-// if(!isset($user_ID)){
-//     header('location:login.php');
-// };
-
-// if(isset($_GET['logout'])){
-//      unset($user_ID);
-//      session_destroy();
-//      header('location:../Customer/home.view.php');
-// }
-
-
-$select=mysqli_query($conn,"SELECT * FROM user WHERE user_ID='$user_ID'") or die('query failed');
-
-if(mysqli_num_rows($select)>0){
-    $fetch= mysqli_fetch_assoc($select);
-}
-?>  
                             <img src="images/profilepic_icon.svg" alt="" height= "21.42px">
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
@@ -99,16 +75,22 @@ if(mysqli_num_rows($select)>0){
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                         <div class="user-info">
-                            <img src="images/profilepic_icon.svg" alt="">
+                        <?php
+                                if($fetch['image'] == ''){
+                                    echo '<img src="images/profilepic_icon.svg" >';
+                                }else{
+                                    echo '<img src="./images/'.$fetch['image'].'>';
+                                }
+                                ?>
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <hr>
-                        <a href = "InstructorHome.php" class="sub-menu-link">
+                        <a href = "InstructorProfile.php" class="sub-menu-link">
                             <i class="fa-solid fa-circle-user" style="font-size:18px;color:#43562B;"></i>
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "../Customer/Logout.php" class="sub-menu-link">
+                        <a href = "Login.view.php" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>
@@ -120,12 +102,23 @@ if(mysqli_num_rows($select)>0){
                 </div>
 
                
+                <div class="language">
+                    <a href="" class="">Languages (EN)</a>
+                    <button onclick="toggleLan()">
+                        <span class="fa-solid fa-caret-down" style="font-size:20px; color:#FFFFFF;"></span>
+                    </button>
+                    <div class="languages" id="lanList">
+                        <a href = "" class="lan-link">
+                            <p>English</p>
+                        </a>
+                        <hr>
+                        <a href = "" class="lan-link">
+                            <p>Sinhala</p>
+                        </a>
+                     </div>
+                </div>
             </div>
-        </div>
-        <?php else: ?>
-            <li><a href="../Customer/Login.view.php" class="">Login</a></li>
-
-            <?php endif; ?>
+     
     </div>
     </nav>
     <script>
@@ -140,6 +133,18 @@ if(mysqli_num_rows($select)>0){
                 subMenu.style.display = "none";
             }
         }
+        function toggleLan()
+        {
+            var languages = document.getElementById("lanList");
+            if(languages.style.display == "none")
+            {
+                languages.style.display = "block";
+            }else{
+                languages.style.display = "none";
+            }
+        }
+
+
     </script>
 </body>
 </html>
