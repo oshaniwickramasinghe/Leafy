@@ -74,9 +74,7 @@
         margin-top: 8px;
     }
     
-    footer{
-       margin-top: auto;
-    }
+   
     .para{
         background-color: #12111110;
         margin: 0px 20px;
@@ -288,6 +286,7 @@
       
     }
     
+
     
     .select{
         width: 80%;
@@ -375,6 +374,13 @@
        justify-content: center;
        /* align-items: \; */
     
+     }
+
+     .edit_delete {
+
+        background-color: red;
+        color: red;
+
      }
       .upper-side{
         padding: 2em;
@@ -697,6 +703,7 @@
         padding-bottom: 2%;
         text-align: center;
         background-color:#EBEBEB;
+        height: 100%;
     
       }
       
@@ -710,6 +717,7 @@
       
       .card_body{
           padding: 4px 16px;
+          /* height: 25%; */
       }
       
       .row {margin: 0 -5px;}
@@ -733,8 +741,7 @@
         width: 48%;
     
     }
-    
-    
+  
     
     
     .detail{
@@ -1150,13 +1157,17 @@
         display: flex;
         flex-direction: column;
       }
+    
       .vegetable_body{
-        min-height: 60vh;
+        min-height: 40vh;
         display: flex;
         flex-direction: column;
         
       }
-    
+    footer{
+        margin-top:auto;
+       
+    }
       .notification_body{
          min-height: 70vh;
         display: flex;

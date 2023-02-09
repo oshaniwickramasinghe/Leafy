@@ -67,7 +67,7 @@ include '../public/includes/header.view.php';
           <label for="uname">Images</label><br>
           <input type="file" placeholder="upload images" id="images" name="images" accept="images/jpg,images.jpeg,images/png" ><br> 
 
-        <input class="button" type="submit" value="Uplaod files"><br><br>
+        <!-- <input class="button" type="submit" value="Uplaod files"><br><br> -->
 
           <input type="submit" class="btn btn-primary w-100 " value="Submit" name=""></input>
 

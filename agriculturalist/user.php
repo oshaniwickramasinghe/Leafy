@@ -27,7 +27,7 @@ else { $file_name1=""; }
 
 
 
-$name = $_SESSION['USER_DATA']['fname'];
+// $name = $_SESSION['USER_DATA']['fname'];
 
 
 
