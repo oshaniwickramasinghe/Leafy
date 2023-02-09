@@ -8,21 +8,26 @@ include '../includes/header.php';
 // unset($_SESSION['wishlist']);
 // unset($_SESSION['cart']);
 
-if(isset($_POST["delete"]))
-{
-                
-   
-          foreach($_SESSION["cart"] as $keys => $values)
-          {
-               if($values["item_name"] == $_POST["item_name"])
-               {
-                
-                    unset($_SESSION["cart"][$keys]);
-                    echo '<script>alert("Item Removed")</script>';
-                    echo '<script>window.location="cart.view.php</script>';
-               }
-          }
-     }
+// if(isset($_POST["delete"]))
+// {
+
+
+  if(isset($_GET["delete"]))
+  {
+                  
+     
+            foreach($_SESSION["cart"] as $keys => $values)
+            {
+                 if($values["post_id"] == $_GET["delete"])
+                 {
+                  
+                      unset($_SESSION["cart"][$keys]);
+                      ?>
+                       <META http-equiv="Refresh" content="5; URL=http://localhost/leafy-1/Customer/shopping_cart/cart.view.php">
+                      <?php
+                 }
+            }
+       }
 
 
 
@@ -93,6 +98,7 @@ if(isset($_POST['update'])){
 <body>
 
 <div class  = "cart_body">
+
 
 <div  class  = "grid">
 
@@ -175,7 +181,7 @@ $res = display();
        $total = 0;
        $val = 0;
        $val =  $_SESSION['cart']['quantity'];
- 
+   
     
        foreach($_SESSION['cart'] as $keys=>$values)
        {
@@ -197,9 +203,15 @@ $res = display();
       <td> <?php  echo $values['quantity'] ?>Kg</td>
       <td> Rs <input type = "text" value = "<?php  echo $values["price"] ?>"  name  ="price"  style = "width :65px; background-color:transparent; border-color:transparent;" readonly></td>
 			<td> Rs <?php  echo $values["price"]*$values['quantity']  *1; ?></td>
-      <td><button class="text-danger" name  = "delete">Remove</button></td>  
+      <td><a href="#" type="button" id="delete" onclick="showModal(); return false;" ><button class="text-danger" name  = "delete" id  = "delete">Remove</button></a>
+    
+    
+    </td>  
+      
+      
 </form>
           </tr>
+         
         <?php
             $total = $total  + ($values["price"]*$values['quantity']  );
             $_SESSION['total'] =$total;
@@ -212,15 +224,27 @@ $res = display();
        }
   ?>
   </table>
- 
-
+  <div id="id01" class="modal" style="display: none;">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <form class="modal-content" method = "post"  action="/action_page.php">
+                        <div class="container">
+                            <h1>Delete this item from the cart</h1>
+                            <p>Are you sure you want to delete the item?</p>
+                            <div class="clearfix">
+                                <a href="cart.view.php?delete=<?=$values["post_id"]; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
+                                <a href="" type="button" class="cancelbtn" onclick="hideModal();">Cancel</a>
+                                
+                            </div>
+                            </div>
+                    </form>
+                </div> 
  <div class  = "check">
   <form method = "Post" action  =  "checkout.php">
 <input type= "submit" name= "checkout" class= "btn_1" value= "Check Out  Rs. <?php echo $total ?> .00" 
  data-inline = "true" style = "font-size :16px; width:200px" >
   </form>  </div>
 
-  
+
 
 </div>
 </div>
@@ -273,9 +297,39 @@ if(mysqli_num_rows($result)>0){
 ?>
  </div>
 
+
+
       </div>
 
+      <script>
+        function showModal() {
+            document.getElementById("id01").style.display = "flex";
+        }
 
+        function hideModal() {
+            document.getElementById("id01").style.display = "none";
+        }
+
+        function deleteDetails() {
+         <?php if(isset($_POST["delete"]))
+{
+                
+   
+          foreach($_SESSION["cart"] as $keys => $values)
+          {
+               if($values["item_name"] == $_POST["item_name"])
+               {
+                
+                    unset($_SESSION["cart"][$keys]);
+                    
+               }
+          }
+     }
+?>
+
+        hideModal();
+        }
+    </script>
 </body>
     <footer>
 <img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">
