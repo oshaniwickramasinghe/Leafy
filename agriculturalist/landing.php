@@ -14,8 +14,9 @@ include '../public/includes/header.view.php';
     <title>Agriculturalist Home</title>
 </head>
 <body>
-       
 <?php include "agri_menu.view.php"?>
+      <div class="home_body"> 
+
 
 
 <div style="padding-top:50px" class = "loggedhome_body">
@@ -41,6 +42,9 @@ include '../public/includes/header.view.php';
 </div>
 
 </div>
-    
+      </div>
 </body>
+<footer>
+<img src = "../Customer/images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+</footer>
 </html>

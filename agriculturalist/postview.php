@@ -15,6 +15,8 @@ include '../public/includes/header.view.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>postview</title>
   <link rel="stylesheet" href="agristyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
+
 </head>
 
 <body>
@@ -87,7 +89,7 @@ include 'agri_menu.view.php';
   ?>
 </div> 
 <footer>
-<img src = "../Customer/images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<img src = "../Customer/images/Footer.svg"  height= "121.3px"  style = "margin-top:100%">
 </footer>
 
 </body>

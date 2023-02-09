@@ -13,7 +13,11 @@
         margin-left: -7px;
        
     }
-    
+    .home_body{
+        min-height: 20vh;
+        display: flex;
+        flex-direction: column;
+    }
     .header .center_wrapper{
         width: 95%;
         margin: 0 auto;
@@ -90,8 +94,9 @@
         color:#000000;
     }
      .home_body{
-        padding-left: 180px;
+        /* padding-left: 180px; */
         /* margin-top: -14%; */
+        margin-left: -5%;
      }
     
      .home_body .resposive{
@@ -121,6 +126,7 @@
     .home_text ul {
         list-style: none;
         display: flex;
+        margin-left: -7%;
         
      
      }
