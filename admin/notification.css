@@ -3,11 +3,12 @@
 .instructor_wrapper{
     display: flex;
     height: calc(100%-100px);
+    margin-left: -10%;
     
 }
 
 .instructor_wrapper .content{
-    flex:8;
+    flex:6;
     height: 100%;
     padding: 10px 20px;
     
@@ -46,7 +47,7 @@
 }
 
 .instructor_wrapper .content .box .container_right{
-    flex: 5.5;
+    flex: 4.5;
 
     background: rgba(128, 157, 91, 0.3);
    /* overflow-y: scroll;

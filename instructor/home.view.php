@@ -41,5 +41,5 @@ sell and by products.</p>
 </body>
 
 
-<?php include 'includes/footer.view.php'?>
+<?php include 'footer.php'?>
 

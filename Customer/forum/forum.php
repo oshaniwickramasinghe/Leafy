@@ -25,7 +25,7 @@ include '../includes/header.php';
     <h2> Forum</h2>
     <form  method  = "post">
   <div class  = "question">
-    <p>What climate is needed for Mediterranean agriculture?</p>
+    <b><p>What climate is needed for Mediterranean agriculture?</p></b>
 
   </div>
 <div class="reply">

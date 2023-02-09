@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../public/Auth.php';
 include '../public/includes/header.view.php';
 ?>
@@ -12,7 +12,9 @@ include '../public/includes/header.view.php';
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>create post</title>
      <link rel="stylesheet" href="agristyle.css">
-     
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
+
+
 </head>
 
 
@@ -20,8 +22,20 @@ include '../public/includes/header.view.php';
 
 <body>
 
+<div style="position: relative; height: 10vh;">
+<div style="position: relative; height: 10vh;">
+<br>
+<br>
+<br>
+<br>
+<br>
+     <?php include "createpost_menu.php" ?>
+</div>
 
-     <form action="user.php" method="post" enctype="multipart/form-data">
+
+
+
+     <form action="user.php" method="post" enctype="multipart/form-data style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"">
 
 
           <h1>Create Post</h1>
@@ -35,7 +49,7 @@ include '../public/includes/header.view.php';
 
 
           <label for="uname">Name</label><br>
-          <select class="select"  class="select" name="fname">
+          <select class="select" class="select" name="fname">
                <option value="Beetroot">Beetroot</option>
                <option value="Big onion">Big onion</option>
                <option value="Bitter gourd">Bitter gourd</option>
@@ -57,7 +71,7 @@ include '../public/includes/header.view.php';
 
           <label for="uname">Minimum Quantity</label><br>
           <input type="text" placeholder="Enter Minimum Quantity in Kg" id="miniquantity" name="miniquantity" required><br>
-          
+
           <label for="uname">Expiary Date</label><br>
           <input class="select" type="date" placeholder="Enter Expiary Date" id="exdate" name="exdate" required><br>
 
@@ -65,13 +79,21 @@ include '../public/includes/header.view.php';
           <input type="text" placeholder="price" id="price" name="price" required><br>
 
           <label for="uname">Images</label><br>
-          <input type="file" placeholder="upload images" id="images" name="images" accept="images/jpg,images.jpeg,images/png" ><br> 
+          <input type="file" placeholder="upload images" id="images" name="images" accept="images/jpg,images.jpeg,images/png"><br>
 
-        <input class="button" type="submit" value="Uplaod files"><br><br>
+          <!-- <input class="button" type="submit" value="Uplaod files"><br><br> -->
 
           <input type="submit" class="btn btn-primary w-100 " value="Submit" name=""></input>
 
      </form>
+
+
+     
+<?php include '../includes/footer.view.php' ?>
+
+</div>
+
+
 
 
 
@@ -79,12 +101,15 @@ include '../public/includes/header.view.php';
 </body>
 
 <script type="text/javascript">
-    window.onload=function(){ 
-var today = new Date().toISOString().split('T')[0];
-document.getElementsByName("exdate")[0].setAttribute('min', today);
-    }
-
-      </script> 
+     window.onload = function() {
+          var today = new Date().toISOString().split('T')[0];
+          document.getElementsByName("exdate")[0].setAttribute('min', today);
+     }
+</script>
 
 </html>
-<?php include '../includes/footer.view.php'?>
+
+
+
+
+<?php //include '../includes/footer.view.php' ?>

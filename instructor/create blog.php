@@ -186,16 +186,8 @@
         <a href="blog.php" class="goback-btn">go back >></a> 
     </div>    
 
-    <footer style="background:url(images/Footer.svg)no-repeat;"class="footer">
-        <ul class="footer">
-            <li><a href=""><i class="fa-brands fa-facebook" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-            <li><a href=""><i class="fa-brands fa-instagram" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-            <li><a href=""><i class="fa-solid fa-envelope" style="font-size:30px;color:#FCFEF9;"></i></a></li>
-        </ul>
-        <div class="footer-copyright">
-            <p>copyright @2022 Leafy All Rights Reserved</p>
-        </div>
-
+    <footer>
+           <?php include "footer.php";?>
     </footer>
 
     

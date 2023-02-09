@@ -23,12 +23,12 @@ include "../public/includes/header.view.php";
         </title> 
 
         <style>
-        * {
+        /* * {
             margin : 0;
             padding: 0;
             font-family: sans-serif;
         }
-        
+         */
         .chartCard {
             margin-left: -160;
             width: 100vw;

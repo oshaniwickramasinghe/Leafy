@@ -13,7 +13,11 @@
         margin-left: -7px;
        
     }
-    
+    .home_body{
+        min-height: 20vh;
+        display: flex;
+        flex-direction: column;
+    }
     .header .center_wrapper{
         width: 95%;
         margin: 0 auto;
@@ -74,9 +78,7 @@
         margin-top: 8px;
     }
     
-    footer{
-       margin-top: auto;
-    }
+   
     .para{
         background-color: #12111110;
         margin: 0px 20px;
@@ -92,8 +94,9 @@
         color:#000000;
     }
      .home_body{
-        padding-left: 180px;
+        /* padding-left: 180px; */
         /* margin-top: -14%; */
+        margin-left: -5%;
      }
     
      .home_body .resposive{
@@ -123,6 +126,7 @@
     .home_text ul {
         list-style: none;
         display: flex;
+        margin-left: -7%;
         
      
      }
@@ -288,6 +292,7 @@
       
     }
     
+
     
     .select{
         width: 80%;
@@ -366,7 +371,7 @@
         display: grid ;
         justify-content: center;
         align-items: center; 
-      grid-template-columns: 3fr;
+      grid-template-columns: fr;
       background-color: #809D5B; 
       padding: 10px;
        margin-left: 40px;
@@ -376,9 +381,16 @@
        /* align-items: \; */
     
      }
+
+     .edit_delete {
+
+        background-color: red;
+        color: red;
+
+     }
       .upper-side{
         padding: 2em;
-        background-color:#33ca93be;
+        background-color:row;
         display: block;
         color: #fff;
         border-top-right-radius: 8px;
@@ -697,6 +709,7 @@
         padding-bottom: 2%;
         text-align: center;
         background-color:#EBEBEB;
+        height: 100%;
     
       }
       
@@ -710,6 +723,7 @@
       
       .card_body{
           padding: 4px 16px;
+          /* height: 25%; */
       }
       
       .row {margin: 0 -5px;}
@@ -733,8 +747,7 @@
         width: 48%;
     
     }
-    
-    
+  
     
     
     .detail{
@@ -742,7 +755,7 @@
         margin-left:-5px;
         padding-left: 5px;
         width: 230px;
-        margin-right:30%;
+        /* margin-right:30%; */
     
     }
     .card_body img{
@@ -1150,13 +1163,17 @@
         display: flex;
         flex-direction: column;
       }
+    
       .vegetable_body{
-        min-height: 60vh;
+        min-height: 40vh;
         display: flex;
         flex-direction: column;
         
       }
-    
+    footer{
+        margin-top:auto;
+       
+    }
       .notification_body{
          min-height: 70vh;
         display: flex;
