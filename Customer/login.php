@@ -32,11 +32,11 @@ $email= validate($_POST['email']);
        if(is_customer()){
          header("Location:customerhome.php");
        }else if(is_agriculturalist()){
-        header("Location:../agriculturalist/agriD.php");
+        header("Location:../agriculturalist/landing.php");
        }else if(is_instructor()){
         header("Location:../instructor/blog.php");
        }else{
-        // header("Location:../admin/AdminHome.php");
+        header("Location:../admin/AdminHome.php");
           
         } // exit();
 

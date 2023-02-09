@@ -29,7 +29,7 @@
              <input type = "email" placeholder = "example@gmail.com" id = "email"   name = "email"><br>
              <label for = "password">Password</label><br>
              <input type = "password" placeholder = "Enter Password" id = "password"    name = "password" required><br><br>
-             <a href = "#">  Forget password?</a>
+             <a href = "forgetPassword.php">  Forget password?</a>
              <input type = "submit" class = "btn " value = "Login" name = ""></input>
              <p class="login-register-text">Do not Have an account?<a href="signup.view.php"> <b>Register Here.</b></a></p>
             </div>

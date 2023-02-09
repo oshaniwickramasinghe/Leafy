@@ -1,6 +1,6 @@
 
 <?php 
-require "connect.php";
+require "database.php";
 require "../public/Auth.php";
 include '../public/includes/header.view.php';
 ?>

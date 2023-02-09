@@ -3,7 +3,7 @@
 //require "connect.php";
 include 'connect.php';
 require "../public/Auth.php";
-//include "../public/includes/header.view.php";
+include "../public/includes/header.view.php";
 
 
 //customer
@@ -73,21 +73,24 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/CSS/style.css"> 
-    <link rel="stylesheet" href="profile.css">
+    <!-- <link rel="stylesheet" href="profile.css"> -->
     <title>Instructor Home</title>
     
     
 </head>
 <body>
+
+<?php include "../public/includes/admin_menu.view.php"?>
 <?php //include "../public/includes/admin_menu.view.php"?>
 
 
-<!-- <div class = "loggedhome_body">  -->
+<div class = "loggedhome_body"> 
 
-    <!-- <div class = "home_body">  -->
+    <div class = "home_body"> 
     <div class="container">
-    
-        <div class="profile">
+
+        
+    <div class="profile">
             <div class="profile-text">
                 <h1>Profile</h1>
             </div> 
@@ -147,10 +150,13 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
                 </div>
             </div>
         </div>
+    
+
+
     </div>
                             
-<!-- </div>  -->
-<!-- </div>  -->
+    </div> 
+</div> 
       
 </body>
 </html>
