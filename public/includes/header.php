@@ -19,7 +19,7 @@
                 <div class="menu">
                     <ul>
                         <li>
-                            <a href="../customerhome.php" class="">Home</a>
+                            <a href="../home.php" class="">Home</a>
                         </li>
                         <li>
                             <a href="#blogs" class="">Blogs</a>
@@ -60,11 +60,11 @@ if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
 }
 ?>  
-                            <img src="images/profilepic_icon.svg"  >
+                            <img src="../images/profilepic_icon.svg"  >
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
-                        <button onclick="toggleMenu()">
-                        <span class="fa-solid fa-circle-chevron-down" ></span>
+                        <button onclick="toggleMenu()" style  = "margin-top:15%">
+                        <span class="fa-solid fa-circle-chevron-down"  style  = "margin-top:15%"></span>
                         </button>
                     </div>
                 </div>
@@ -90,14 +90,14 @@ if(mysqli_num_rows($select)>0){
                     </div>
                    
                 </div> 
-                <div class  = "lan">
+                <div class  = "lan" style  = "margin-left :2%">
             <a href="" class="">Languages (EN)</a>
             </div>
 
             <?php }else{ ?>
                 <li><a href="../Customer/Login.view.php" class="">Login</a></li>
                 <div class  = "language">
-            <a href="" class="">Languages (EN)</a>
+             <a href="" class="">Languages (EN)</a>
             </div>
             <?php } ?>
           
