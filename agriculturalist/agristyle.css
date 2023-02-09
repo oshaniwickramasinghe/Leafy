@@ -134,6 +134,46 @@
      .home_text ul li {
         padding: 0 49px;
     }
+
+    .cont_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        background-color: #809D5B;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 1%;
+        border-radius: 50px;
+    }
+
+    .hed {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .contact-info {
+        display: flex;
+        font-size: 18px;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .cont_hed p {
+        font-size: 25px;
+        margin: 10px 0;
+        color: white ;
+    }
+
+    .cont_hed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color:#323929;
+        height: 150px;
+        margin-top: 2%;
+    }
     
     Button{
         margin-left:5px;
