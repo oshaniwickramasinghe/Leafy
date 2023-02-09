@@ -28,9 +28,9 @@
                 <h3>Leafy</h3>
             </div>
             <ul>
-                <li><a href=".php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Delivered orders</a></li>
-                <li><a href=".php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Notifications</a></li>
-                <li><a href=".php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Reports</a></li>
+                <li><a href="DelOrderHistory.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Delivered orders</a></li>
+                <li><a href="DeliNotification.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Notifications</a></li>
+                <li><a href="DeliDashboard.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Reports</a></li>
                 
             </ul>
 

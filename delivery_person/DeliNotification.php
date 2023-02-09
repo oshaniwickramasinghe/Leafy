@@ -51,7 +51,7 @@
                     <h3> Customer order <?= $cust_user_id ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
+                        <button onclick="location.href=''" type="button" id="Accept">Accept</button> 
                         <button type="button" id="delete">Delete</button>
                     </div>
                     <div class="details_container">
@@ -104,7 +104,7 @@
                     <h3> Customer order <?= $cust_user_id ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
+                        <button onclick="location.href=''" type="button" id="Accept">Accept</button> 
                         <button type="button" id="delete">Delete</button>
                     </div>
                     <div class="details_container">

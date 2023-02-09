@@ -54,7 +54,7 @@ include "../public/includes/header.view.php";
 
 <body>
    
-<?php include "../public/includes/admin_menu.view.php"?>
+<?php include "../public/includes/deli_menu.view.php"?>
 
 
 <div class = "loggedhome_body">
@@ -143,9 +143,9 @@ include "../public/includes/header.view.php";
                             
 
                             const data = { 
-                            labels: ['customer', 'agriculturalist', 'instructor', 'delivery_person'],
+                            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday', 'Sunday'],
                                 datasets: [{
-                                    label: '# of Votes',
+                                    label: 'Income',
                                     data: count,
                                     backgroundColor: [
                                         'rgba(54, 162, 235, 0.2)',
@@ -183,9 +183,9 @@ include "../public/includes/header.view.php";
                         const colour = <?php echo json_encode($colour);?>;
                         // setup 
                         const theta = { 
-                                labels: ['red', 'blue', 'yellow', 'green'],
+                                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday', 'Sunday'],
                                     datasets: [{
-                                        label: '# of Votes',
+                                        label: '# Order rate',
                                         data: colour,
                                         backgroundColor: [
                                             'rgba(54, 162, 235, 0.2)',

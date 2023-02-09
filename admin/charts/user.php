@@ -36,7 +36,7 @@
                 width: 500px;
                 padding: 20px;
                 border-radius: 20px;
-                border: solid 3px rgba(54, 162, 235, 1);
+                border: solid 3px rgba(54, 162, 54, 1);
                 background: white;
                 margin-left: 100px;
             }
@@ -94,11 +94,11 @@
                     label: 'no of users',
                     data: count,
                     backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 54, 0.2)',
                         
                     ],
                     borderColor: [
-                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 54, 1)',
                         
                     ],
                     borderWidth: 1
