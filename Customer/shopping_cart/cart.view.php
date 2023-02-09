@@ -233,14 +233,13 @@ $res = display();
                             <div class="clearfix">
                                 <a href="cart.view.php?delete=<?=$values["post_id"]; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
                                 <a href="" type="button" class="cancelbtn" onclick="hideModal();">Cancel</a>
-                                
                             </div>
                             </div>
                     </form>
-                </div> 
- <div class  = "check">
+                </div>
+  <div class  = "check">
   <form method = "Post" action  =  "checkout.php">
-<input type= "submit" name= "checkout" class= "btn_1" value= "Check Out  Rs. <?php echo $total ?> .00" 
+  <input type= "submit" name= "checkout" class= "btn_1" value= "Check Out  Rs. <?php echo $total ?> .00" 
  data-inline = "true" style = "font-size :16px; width:200px" >
   </form>  </div>
 
