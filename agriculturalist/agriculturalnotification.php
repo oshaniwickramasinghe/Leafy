@@ -3,7 +3,7 @@
 
 require "../public/Auth.php";
 include "../public/includes/header.view.php";
-include "database.php";
+// include "database.php";
 
 
 ?>
