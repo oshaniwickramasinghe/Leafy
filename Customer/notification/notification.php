@@ -54,7 +54,7 @@ include '../includes/header.php';
                </form>
                <div id="id01" class="modal" style="display: none;">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                  <form class="modal-content" method = "post"  action="/action_page.php">
+                  <form class="model-content" method = "post"  action="/action_page.php">
                       <div class  = "model_body">
                       <img src="../images/logo.svg"  height= "120px" >
                            <h1><?= $row['n_sub']?></h1>
