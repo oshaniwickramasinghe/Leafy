@@ -1,13 +1,8 @@
 <?php
 include "../Auth.php";
+include "../database.php";
 include '../includes/header.php';
 
-$host = "localhost";
-$uname = "root";
-$password = "";
-$db_name = "userdata";
-
-$conn = mysqli_connect($host,$uname,$password,$db_name);
 
 ?>
 
@@ -38,13 +33,26 @@ $conn = mysqli_connect($host,$uname,$password,$db_name);
  ?>
 
        
-              <div class  =  "rowone">
+              <div class  =  "rowone" style = "height:120px">
+                <div class="right_row">
+               <p><?= $row['n_id']?></p>
+
+                </div>
+                <div class="left_row">
               <form method  = "post">
 
-                 <h5><?php $row['']
-            
-               </form>
+                 
+                 <p><?= $row['n_sub']?></p>
+                 <?php
+                 date_default_timezone_set('Asia/Kolkata');
+            $time = date("h:i:sa");
 
+              // $dif  = $time-$row['time']
+              ?>
+                 <p><?= $row['time'];?> </p>
+
+               </form>
+               </div>
               </div>
  <?php
      }
@@ -54,10 +62,21 @@ $conn = mysqli_connect($host,$uname,$password,$db_name);
    ?>
          </div>
 
+         <!-- <script>
+    function displayTime() {
+        var date = new Date();
+        var time = date.toLocaleTimeString();
+        document.getElementById("time").innerHTML = time;
+    }
 
-    
+    setInterval(displayTime, 1000);
+</script>
+     -->
 </body>
 <footer>
+<!-- <div class="footer-copyright">
+            <p>copyright @2022 Leafy All Rights Reserved</p>
+        </div> -->
 <img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">
 </footer>
 </html>

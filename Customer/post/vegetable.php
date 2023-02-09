@@ -1,7 +1,8 @@
 <?php
 require "../Auth.php";
-include '../includes/header.php';
+
 include '../database.php';
+include '../includes/header.php';
 include "pagination.php";
 
 $host = "localhost";

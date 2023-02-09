@@ -96,7 +96,8 @@ footer{
 }
  .home_body{
     padding-left: 180px;
-    margin-left: -10%; 
+    margin-top: -35%;
+    margin-left: 5%;
  }
 
  .home_body .resposive{
@@ -104,9 +105,10 @@ footer{
  }
 
  .loggedhome_body{
-    padding-left: 55px;
-    margin-top:-40%;
-    margin-left:10%;
+min-height: 60vh;
+  
+
+
    
  }
  
@@ -123,7 +125,7 @@ footer{
 .home_text{
     padding-left: 300px;
     margin-top: -15px;
-    margin-left: -240px;
+    margin-left: -30px;
 }
 .home_text ul {
     list-style: none;
@@ -133,7 +135,7 @@ footer{
  }
 
  .home_text ul li {
-    padding: 0 90px 0  ;
+    padding: 0 50px 0  ;
 }
 
 Button{

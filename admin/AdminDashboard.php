@@ -30,7 +30,7 @@ include "../public/includes/header.view.php";
         }
         
         .chartCard {
-            margin-left: -200;
+            margin-left: -160;
             width: 100vw;
             height: calc(70vh - 40px);
             display: flex;
@@ -63,8 +63,8 @@ include "../public/includes/header.view.php";
 
         
                 <?php 
-                    $username= "student";
-                    $password= "student";
+                    $username= "root";
+                    $password= "";
                     $database = "leafy";
 
                     try{

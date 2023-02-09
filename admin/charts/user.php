@@ -1,6 +1,6 @@
 <?php 
-    $username= "student";
-    $password= "student";
+    $username= "root";
+    $password= "";
     $database = "leafy";
 
     try{

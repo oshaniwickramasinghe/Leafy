@@ -248,7 +248,7 @@ nav .user-pic{
     
 }
 
-button{
+.right_part button{
     cursor: pointer;
     background: none;
 	color: inherit;
@@ -256,7 +256,7 @@ button{
 
 }
 
-button :hover{
+.right_part button :hover{
     font-weight: 600;
     color: #323929;
 } 

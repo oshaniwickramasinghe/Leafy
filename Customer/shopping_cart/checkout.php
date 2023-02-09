@@ -124,8 +124,8 @@ $result = mysqli_query($conn,$sql);
 
  $sql  = "INSERT INTO `order`(`customer_id`, `payment_method`, `delivery`, `agriculturalist_id`, `post_id`) VALUES ($customer,'$pay',$delivery,$agriculturalist,$id)";
  $result = mysqli_query($conn,$sql);
- var_dump($sql);
- var_dump( $result);
+//  var_dump($sql);
+//  var_dump( $result);
  }
 ?>
 

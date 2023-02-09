@@ -237,7 +237,12 @@
         -moz-border-radius: 40px;
         -ms-border-radius: 40px;
         -o-border-radius: 40px;
+       
     }
+
+    
+
+  
     
     
     
@@ -257,10 +262,10 @@
     
     } */
     
-    a{
+    /* a{
       color: rgb(34, 63, 36);
       text-decoration:none;
-    }
+    } */
     .body{
         margin-top: 10%;
     }
