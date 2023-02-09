@@ -29,6 +29,7 @@ include "database.php";
     <div class="instructor_wrapper">
         
         <div class="content">
+            <br><br>
             <h2>Notifications</h2>
 
         <section id='customer'>;
@@ -36,7 +37,7 @@ include "database.php";
             <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>New users</p>
+                    <p>New orders</p>
                     <div class="card_left">
                         <ul>
 
@@ -95,192 +96,13 @@ include "database.php";
         </section>
 
            <!-- Blog -->
-           <div class="box">
-                <div class="container_left">
-                    <div class="main_card">
-                    <p>New blogs</p>
-                    <div class="card_left">
-                        <ul>
-                            <?php while($record2=mysqli_fetch_assoc($resultinstructor)){?>
-                                <li><a onclick="myFunction()" href="agriculturalnotification.php?view=<?= $record2['user_id']; ?> ">
-                                Blog <?= $record2['user_id']?> - <?=$record2['fname']?>  <?=$record2['role']?></a></li>
-                            <?php }?>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
-                <div class="container_right" id="view_more">
-                    <h3> New Order <?= $inst_user_id ?>:   <?= $inst_first_name ?></h3>
-                <!-- <button class="close-button">&times;</button>-->
-                    <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="edit">Edit</button>
-                        <button type="button" id="delete">Delete</button>
-                    </div>
-                    <div class="details_container">
-                        <table>
-                            
-                            <tr>
-                                <th>Order ID</th>
-                                <td>:</td>
-                                <td><?=$inst_user_id ?></td>
-                            </tr>
-                            <tr>
-                                <th>Category </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                            <tr>
-                                <th>Quantity </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                            <tr>
-                                <th>Customer Address </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                        
-                            <tr>
-                                <th>Date created </th>
-                                <td>:</td>
-                                <td><?=$inst_email ?></td>
-                            </tr>
-                            
-                        </table>
-                    </div>
-                    
-                </div>
-
-           </div>
-
-           <!-- Courses -->
-           <div class="box">
-                <div class="container_left">
-                    <div class="main_card">
-                    <p>New Courses</p>
-                    <div class="card_left">
-                        <ul>
-                            <?php while($record3=mysqli_fetch_assoc($resultagriculturalist)){?>
-                                <li><a onclick="myFunction()" href="agriculturalnotification.php?view=<?= $record3['user_id']; ?> ">
-                                Courses <?= $record3['user_id']?> - <?=$record3['fname']?>  <?=$record3['role']?></a></li>
-                            <?php }?>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
-                <div class="container_right" id="view_more">
-                    <h3> Courses <?= $agri_user_id ?>:   <?= $agri_first_name ?></h3>
-                <!-- <button class="close-button">&times;</button>-->
-                    <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="edit">Edit</button>
-                        <button type="button" id="delete">Delete</button>
-                    </div>
-                    <div class="details_container">
-                    <table>
-                            
-                            <tr>
-                                <th>Order ID</th>
-                                <td>:</td>
-                                <td><?=$inst_user_id ?></td>
-                            </tr>
-                            <tr>
-                                <th>Category </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                            <tr>
-                                <th>Quantity </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                            <tr>
-                                <th>Customer Address </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                        
-                            <tr>
-                                <th>Date created </th>
-                                <td>:</td>
-                                <td><?=$inst_email ?></td>
-                            </tr>
-                            
-                        </table>
-                    </div>
-                    
-                </div>
-
-           </div>
-
            
-           <!-- Orders -->
-           <div class="box">
-                <div class="container_left">
-                    <div class="main_card">
-                    <p>New Orders</p>
-                    <div class="card_left">
-                        <ul>
-                            <?php while($record4=mysqli_fetch_assoc($resultdelivery)){?>
-                                <li><a onclick="myFunction()" href="agriculturalnotification.php?view=<?= $record4['user_id']; ?> ">
-                                Orders <?= $record4['user_id']?> - <?=$record4['fname']?>  <?=$record4['role']?></a></li>
-                            <?php }?>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
-                <div class="container_right" id="view_more">
-                    <h3> Orders <?= $del_user_id ?>:   <?= $del_first_name ?></h3>
-                <!-- <button class="close-button">&times;</button>-->
-                    <div class="container_button">
-                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
-                        <button type="button" id="delete">Delete</button>
-                    </div>
-                    <div class="details_container">
-                    <table>
-                            
-                            <tr>
-                                <th>Order ID</th>
-                                <td>:</td>
-                                <td><?=$inst_user_id ?></td>
-                            </tr>
-                            <tr>
-                                <th>Category </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                            <tr>
-                                <th>Quantity </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                            <tr>
-                                <th>Customer Address </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                        
-                            <tr>
-                                <th>Date created </th>
-                                <td>:</td>
-                                <td><?=$inst_email ?></td>
-                            </tr>
-                            
-                        </table>
-                    </div>
-                    
-                </div>
-
-           </div>
-
-            
-            
-        </div>
-        </div>
-
     </div>
 </div>    
 
         <script src="agri_notification.js"></script>
 </body>
-<?php include '../includes/footer.view.php' ?>
+<div style="margin-left: -25.5%;">
+<?php include  '../includes/footer.view.php' ?>
+</div>
 </html>
