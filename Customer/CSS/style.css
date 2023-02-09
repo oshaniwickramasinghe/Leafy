@@ -1395,6 +1395,11 @@ a.next{
     flex-direction: column;
 
   }
+  .contact_body{
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+  }
 
   .notification_body{
      min-height: 70vh;
