@@ -37,9 +37,237 @@ body {
 
   .begin{
     max-width: 114rem;
-    height:40vh;
+    height: 50vh;
     background:url(images/gardener.jpg) no-repeat center center / cover;
+    margin: 2rem auto;
     
   }
 
+  .main{
+    width:100%;
+    max-width:80rem;
+    background-color:rgba(7, 181, 140, 0.466);
+    margin: 0 auto;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    margin-top:-12rem;
+  }
+
+  .main h2{
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+
+ 
+  .main .profile-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+  }
+
+  .main .profile-container .profile{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0%;
+  }
+
+.main .profile-container .profile .img-container{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 0.5rem;
+
+}
+
+.main .profile-container .profile .text{
+  margin: 0 1rem;
+  color:black;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.btn{
+  display: inline-block;
+  text-decoration: capitalize;
+  font-size: 1.2rem;
+  padding:0.3rem 1.5rem;
+  background-color: rgba(255, 60, 0, 0.341);
+  border-radius: 0.2rem;
+  color: aliceblue;
+}
+
+.main .content p{
+  color:black;
+  margin: 1rem 0;
+
+}
+
+.main .content h2{
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: black;
+  margin: 2rem 0;
+}
+
+.main .content h4{
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: black;
+  margin: 2rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.main .content .text{
+  flex:6;
+}
+
+.main .content .image{
+  flex:4;
+  margin:15px;
+}
+
+.main .content img{
+  width: 100%;
+  height: auto;
+}
+
+.main .content .content-img{
+  display: flex;
+}
+
+.tags{
+  display:flex;
+  align-items: center;
+}
+
+.tags p{
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+
+.tags a{
+  display: inline-block;
+  padding: 0.3rem 1.5rem;
+  background-color: beige;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin: 0 0.5rem;
+}
+
+.articles{
+  width: 100%;
+  background-color:azure;
+  margin-top: 5rem ;
+  padding-top: 5rem 0;
+ 
+}
+
+.articles .articles-heading{
+  text-transform: capitalize;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.articles .articles-heading h5{
+  font-size: 10rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  position: relative;
+  color: rgba(99, 98, 98, 0.189);
+  text-transform: capitalize;
+}
+
+.articles-heading h6{
+  font-size: 4rem;
+  font-weight: 200;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  color:#4a4a4e;
+}
   
+.cards{
+  display: block;
+  justify-content: space-between;
+  margin: 4rem auto;
+  gap: 5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.cards-container{
+  cursor:pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem auto;
+  gap: 5rem;
+  
+
+}
+
+.cards-container .img-holder{
+  max-width:100%;
+  height: 24rem;
+  position: relative;
+  background:url(images/gardener.jpg) no-repeat center center / cover;
+}
+
+ .cards-container .img-holder a{
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  padding: 0.3rem 1.5rem;
+  display: inline-block;
+  color:aqua;
+  font-weight: 400;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  transition: all 0.4s ease;
+}
+
+ .cards-container:hover{
+  transform: translateY(-1rem);
+}
+
+ .cards-container:hover a{
+  background-color: #db7474;
+  color:white;
+  
+}
+
+ .cards-container .card-text{
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 0 0.3rem grey;
+}
+
+ .cards-container .card-text h4{
+  font-size:1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+ .cards-container .card-text p{
+  font-size: 1.2rem;
+}
+
+.articles .buttons{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.articles .btn{
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  font-weight: 200;
+  border-radius: none;
+  padding: 0.5rem 3rem;
+}

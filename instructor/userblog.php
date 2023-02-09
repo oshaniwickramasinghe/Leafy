@@ -57,53 +57,86 @@ if(isset($_GET['view_blog']))
         <div class="begin">
         </div>
         <div class="main">
-            <h1><?php if(isset ($title)){ echo $title;} ?></h1> 
+            <h2><?php if(isset ($title)){ echo $title;} ?></h2> 
             <div class="profile-container">
                 <div class="profile">
-                    <div class="img-container"></div>
+                    <div class="img-container">
+                        <?php if($fetch['image'] == ''){
+                                    echo '<img src="images/profilepic_icon.svg" >';
+                                }else{
+                                    echo '<img src="./images/'.$fetch['image'].'>';
+                                }
+                        ?>
+                    </div>
                     <div class="text">
                         <h4><?php if(isset ($fetch['fname'])){ echo $fetch['fname']." ".$fetch['lname'];} ?></h4>
                         <p><?php if(isset ($date)){ echo $date;} ?></p>
-                    </div>
+                    </div>    
+                </div>
                     <div class="button">
                         <a href="#" class="btn">passion</a>
                     </div>
-                </div>
             </div>
             <div class="content">
                 <div class="first_para">
-                    <h2>This is the first title</h2> 
-                    <img src="./images/<?php if(isset ($image)){ echo $image;} ?>">
-                    <p><?php if(isset ($content)){ echo $content;} ?></p>
+                    <h4>This is the first title</h4>
+                    <div class="content-img">
+                        <div class="text"> 
+                            <p><?php if(isset ($content)){ echo $content;} ?></p>
+                        </div>
+                        <div class="image"> 
+                            <img src="./images/<?php if(isset ($image)){ echo $image;} ?>">
+                        </div>
+                    </div>
                 </div>
                 <diV class="second_para">
-                    <h2>This is the second title</h2>
-                    <img src="./images/<?php if(isset ($image)){ echo $image;} ?>">
-                    <p><?php if(isset ($content)){ echo $content;} ?></p>
+                    <h4>This is the second title</h4>
+                    <div class="content-img">
+                        <div class="image">
+                            <img src="./images/<?php if(isset ($image)){ echo $image;} ?>">
+                        </div>
+                        <div class="text"> 
+                            <p><?php if(isset ($content)){ echo $content;} ?></p>
+                        </div> 
+                    </div>
                 </diV>
                 <diV class="third_para">
-                    <h2>This is the third title</h2>
-                    <img src="./images/<?php if(isset ($image)){ echo $image;} ?>">
-                    <p><?php if(isset ($content)){ echo $content;} ?></p>
+                    <h4>This is the third title</h4>
+                    <div class="content-img">
+                        <div class="text"> 
+                            <p><?php if(isset ($content)){ echo $content;} ?></p>
+                        </div>
+                        <div class="image">
+                            <img src="./images/<?php if(isset ($image)){ echo $image;} ?>">
+                        </div>    
+                    </div>
                 </diV>
                 <diV class="last_para">
-                    <h2>This is the last title</h2>
-                    <img src="./images/<?php if(isset ($image)){ echo $image;} ?>">
-                    <p><?php if(isset ($content)){ echo $content;} ?></p>
+                    <h4>This is the last title</h4>
+                    <div class="content-img">
+                        <div class="image">
+                            <img src="./images/<?php if(isset ($image)){ echo $image;} ?>">
+                        </div> 
+                        <div class="text"> 
+                            <p><?php if(isset ($content)){ echo $content;} ?></p>
+                        </div>
+                    </div>
                 </diV>
             </div>
             <div class="tags">
-
+                <p>tags:</p>
+                <a href="#">courses</a>
+                <a href="#">work shops</a>
             </div>
         </div>
     </div>
 
     <div class="articles">
-        <div class="articles heading">
-            <h5>articles</h5>
+        <div class="articles-heading">
+            <h5>ARTICLES</h5>
             <h6>recent blog</h6>
         </div>
-
+    <div class="cards">
         <div class="cards-container">
             <div class="cards-container-one">
                 <div class="img-holder">
@@ -129,15 +162,13 @@ if(isset($_GET['view_blog']))
                 </div>
                 <div class="card-text">
                     <h4>New Agriculture Technology in Modern Farming</h4>
-                    <p></p>
+                    <p>As the world's population grows exponentially, our total supply of fruits and vegetables is falling 22% short of global nutritional needs. Traditional farming methods are having difficulties meeting this demand as it faces increasing problems such as water shortage, land scarcity, and an aging farming population with decreased interest from newer generations. In recent years,</p>
                 </div>
             </div>
         </div>
         <div class="button">
             <a href="#" class="btn">view more</a>
         </div>
-
-        
     </div>
 <footer>
     <?php include 'footer.php'; ?>
