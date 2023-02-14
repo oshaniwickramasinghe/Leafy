@@ -120,6 +120,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="create blog.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <title>create blog</title>
 </head>
 <body>
@@ -190,7 +191,7 @@
            <?php include "footer.php";?>
     </footer>
 
-    
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
         document.getElementById("content").value = "<?= $content;?>";
     </script>

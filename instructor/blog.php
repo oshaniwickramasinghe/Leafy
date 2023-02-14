@@ -110,6 +110,7 @@ $result2= mysqli_query($conn,$sql2);
             <h3>Leafy</h3>
            </div>
             <ul>
+                <li><a href="home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
                 <li><a href="Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
                 <li><a href="notification.php"><i class="fa-solid fa-comments" style="font-size:17px;color:#43562B;"></i>Questions</a></li>
                 <li><a href="blog.php"><i class="fa-brands fa-blogger" style="font-size:20px;color:#43562B;"></i>Blogs</a></li>

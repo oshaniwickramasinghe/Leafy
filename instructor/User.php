@@ -34,9 +34,11 @@
      //checking if already existing email
      $email= $_POST['email'];
      $row  = "SELECT * FROM user WHERE email = '$email'";
+     var_dump( $row);
      $result = mysqli_query($conn,$row);
+    
      $res =  mysqli_fetch_array($result);
-   
+    
 
      if (!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
      {

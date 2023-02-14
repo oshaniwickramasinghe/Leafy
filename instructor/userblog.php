@@ -54,6 +54,7 @@ if(isset($_GET['view_blog']))
 </head>
 <body>
     <div class="container">
+        
         <div class="begin">
         </div>
         <div class="main">

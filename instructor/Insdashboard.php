@@ -134,6 +134,7 @@ if(isset($_POST['change_password'])){
                 <h3>Leafy</h3>
             </div>
             <ul>
+                <li><a href="home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
                 <li><a href="Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
                 <li><a href="InstructorProfile.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>My Profile</a></li>
                 <li><a href=""><i class="fa-solid fa-comments" style="font-size:17px;color:#43562B;"></i>Notifications</a></li>
