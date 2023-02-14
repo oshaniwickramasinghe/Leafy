@@ -31,11 +31,11 @@ include "../public/includes/header.view.php";
             <h2>Notifications</h2>
 
         <section id='customer'>;
-            <!-- User-->
+            <!-- Customer-->
             <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>New users</p>
+                    <p>Customer</p>
                     <div class="card_left">
                         <ul>
 
@@ -46,13 +46,15 @@ include "../public/includes/header.view.php";
                         </ul>
                     </div>
                     </div>
-                    <!-- <button onclick="location.href='createblog.php'" type="button" id="create">create</button> -->
                 </div>
                 <div class="container_right" id="view_more">
                     <h3> User <?= $cust_user_id ?>:   <?= $cust_first_name ?></h3>
+
+                    <?php  $id = $_GET['view']; ?>
+
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="Accept">Accept</button> 
+                        <a href="AdminUserView.php ?UID=<?=$id ?>" >View</a>
                         <button type="button" id="delete">Delete</button>
                     </div>
                     <div class="details_container">
@@ -90,19 +92,22 @@ include "../public/includes/header.view.php";
                     <p>New blogs</p>
                     <div class="card_left">
                         <ul>
-                            <?php while($record2=mysqli_fetch_assoc($resultinstructor)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record2['user_id']; ?> ">
-                                Blog <?= $record2['user_id']?> - <?=$record2['fname']?>  <?=$record2['role']?></a></li>
+                            <?php while($record2=mysqli_fetch_assoc($resultblog)){?>
+                                <li><a onclick="myFunction()" href="AdminNotification.php?viewblog=<?= $record2['blog_id']; ?> ">
+                                Blog <?= $record2['blog_id']?> - <?=$record2['title']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
                     </div>
                 </div>
                 <div class="container_right" id="view_more">
-                    <h3> Blog <?= $inst_user_id ?>:   <?= $inst_first_name ?></h3>
+                    <h3> Blog </h3>
+
+                    <?php  $id = $_GET['viewblog']; ?>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="Accept">Accept</button>
+                        <!-- <button onclick="location.href='AdminBlogView.php'" type="button" id="Accept">View</button> -->
+                        <a href="AdminBlogView.php ?UID=<?=$id ?>" >View</a>
                         <button type="button" id="delete">Delete</button>
                     </div>
                     <div class="details_container">
@@ -111,18 +116,18 @@ include "../public/includes/header.view.php";
                             <tr>
                                 <th>Blog ID</th>
                                 <td>:</td>
-                                <td><?=$inst_user_id ?></td>
+                                <td><?=$blog_id ?></td>
                             </tr>
                             <tr>
                                 <th>Title </th>
                                 <td>:</td>
-                                <td><?=$inst_first_name ?></td>
+                                <td><?=$blog_title ?></td>
                             </tr>
                         
                             <tr>
                                 <th>Date created </th>
                                 <td>:</td>
-                                <td><?=$inst_email ?></td>
+                                <td><?=$created_date ?></td>
                             </tr>
                             
                         </table>
