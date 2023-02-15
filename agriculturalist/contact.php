@@ -26,7 +26,7 @@ include '../public/includes/header.view.php';
         <div class="contact-info">
             <p>Phone: 011-5556668</p>
             <p>Facebook: <a href="">Leafy</a></p>
-            <p>Intagram: <a href="">Leafy</a></p>
+            <p>Instagram: <a href="">Leafy</a></p>
             <p>Email: <a href="">leafy@example.com</a></p>
         </div>
     </div>
