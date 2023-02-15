@@ -49,7 +49,7 @@ if(mysqli_num_rows($select)>0){
                             <a href="#home" >Home</a>
                         </li>
                         <li>
-                            <a href="#blogs" class="">Blogs</a>
+                            <a href="theBlog.php" class="">Blogs</a>
                         </li>
                         <li>
                             <a href="#courses" class="">Courses</a>

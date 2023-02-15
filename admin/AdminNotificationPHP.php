@@ -31,27 +31,26 @@ $resultcustomer= mysqli_query($conn,$sqlcustomer);
         }
     }
 
-//instructor
-$sqlinstructor="SELECT * FROM user where role='instructor'";
+//blog
+$sqlblog="SELECT * FROM blog where verified=0";
 
-// make query & get resultcustomer
-$resultinstructor= mysqli_query($conn,$sqlinstructor);
+// make query & get blogs
+$resultblog= mysqli_query($conn,$sqlblog);
 
-    if(isset($_GET['view']))
+    if(isset($_GET['viewblog']))
     {
-        $inst_user_id = $_GET['view'];
-        $sql2 = "SELECT * FROM user WHERE user_id=$inst_user_id and role='instructor'";
+        $blog_id = $_GET['viewblog'];
+        $sql2 = "SELECT * FROM blog WHERE blog_id=$blog_id and verified=0";
         $result2=mysqli_query($conn,$sql2);
         
         if($result2)
         { 
                        
-            while($recordinstructor = mysqli_fetch_assoc($result2))
+            while($recordblog = mysqli_fetch_assoc($result2))
             {
-                $inst_user_id=$recordinstructor['user_id'];
-                $inst_first_name=$recordinstructor['fname'];
-                $inst_email=$recordinstructor['email'];
-                $inst_role=$recordinstructor['role'];
+                $blog_id=$recordblog['blog_id'];
+                $blog_title=$recordblog['title'];
+                $created_date=$recordblog['date'];
    
             }
             
