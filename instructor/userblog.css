@@ -259,3 +259,14 @@ body {
   border-radius: none;
   padding: 0.5rem 3rem;
 }
+
+.a{
+  text-decoration: none;
+    padding: 12px;
+    margin: 11px;
+    display: block;
+    color: #43562B;
+    background:#fff;
+    border-radius:25px;
+    width: 500px; 
+}
