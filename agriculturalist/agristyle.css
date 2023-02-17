@@ -140,7 +140,7 @@
         flex-direction: column;
         align-items: center;
         padding: 30px;
-        background-color: #809D5B;
+        background-color: button;
         margin-left: 25%;
         margin-right: 25%;
         margin-top: 1%;
@@ -412,7 +412,7 @@
         justify-content: center;
         align-items: center; 
       grid-template-columns: fr;
-      background-color: #809D5B; 
+      background-color: btn; 
       padding: 10px;
        margin-left: 40px;
        margin-top: 60px;
