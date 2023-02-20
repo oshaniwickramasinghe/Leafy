@@ -4,7 +4,7 @@ error_reporting(0);
 
 include 'connect.php';
 
-//customer
+//user
 $sqlcustomer="SELECT * FROM user where role='customer'";
 
 // make query & get resultcustomer
@@ -57,32 +57,33 @@ $resultblog= mysqli_query($conn,$sqlblog);
         }
     }
 
-//Agriculturalist
-$sqlagriculturalist="SELECT * FROM user where role='agriculturalist'";
+//course
+$sqlcourse="SELECT * FROM course where verified=0";
 
 // make query & get resultcustomer
-$resultagriculturalist= mysqli_query($conn,$sqlagriculturalist);
+$resultcourse= mysqli_query($conn,$sqlcourse);
 
-    if(isset($_GET['view']))
+    if(isset($_GET['viewcourse']))
     {
-        $agri_user_id = $_GET['view'];
-        $sql3 = "SELECT * FROM user WHERE user_id=$agri_user_id and role='agriculturalist'";
+        $course_user_id = $_GET['viewcourse'];
+        $sql3 = "SELECT * FROM course WHERE course_id=$course_user_id and verified=0";
         $result3=mysqli_query($conn,$sql3);
         
         if($result3)
         { 
                        
-            while($recordagriculturalist = mysqli_fetch_assoc($result3))
+            while($recordcourse = mysqli_fetch_assoc($result3))
             {
-                $agri_user_id=$recordagriculturalist['user_id'];
-                $agri_first_name=$recordagriculturalist['fname'];
-                $agri_email=$recordagriculturalist['email'];
-                $agri_role=$recordagriculturalist['role'];
+                $course_id=$recordcourse['course_id'];
+                $course_name=$recordcourse['title'];
+                
    
             }
             
         }
     }
+
+
 
 //Delivery person
 $sqldelivery="SELECT * FROM user where role='delivery_person'";
