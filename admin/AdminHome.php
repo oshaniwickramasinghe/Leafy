@@ -23,22 +23,22 @@ include '../public/includes/header.view.php';
 
    
    <div class = "home_body">
-      <ul>
+      <xul>
          <li><img src = "../public/images/items.png" width = "200px" height = "200px" class = "responsive"></li>
          <li><img src = "../public/images/posts.png" width = "200px" height = "200px" class  = "responsive"></li>
          <li><img src = "../public/images/courses.png" width = "200px" height = "200px" class = "responsive"></li>
          <li><img src = "../public/images/blogs.png" width = "200px" height = "200px" class = "responsive"></li>
 
-      </ul>
+      </xul>
    </div>
 
    <div class = "home_text">
-      <ul>
+      <xul>
          <li><a href="items" ><Button>Items </Button></a></li>
          <li><a href="posts" ><Button>  Posts </Button></a></li>
          <li><a href="courses" ><Button>  Courses</Button></a></li>
          <li><a href="blogs" ><Button>  Blogs </Button></a></li>
-      </ul>
+      </xul>
    </div>
 
    </div>

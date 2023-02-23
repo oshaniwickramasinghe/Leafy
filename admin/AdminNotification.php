@@ -1,6 +1,7 @@
 <?php 
 
 //require "connect.php";
+require "database.php";
 require "../public/Auth.php";
 include "../public/includes/header.view.php";
 
@@ -35,13 +36,17 @@ include "../public/includes/header.view.php";
             <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>Customer</p>
+                    <p>Users</p>
                     <div class="card_left">
                         <ul>
 
+                        <li><a style="color: gray;">
+                            UserID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Role
+                        </a></li>
+
                             <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
                                 <li><a onclick="myFunction()" href="AdminUserView.php ?UID=<?= $record1['user_id']; ?> ">
-                                User <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
+                                <?= $record1['user_id'   ]?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record1['fname']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record1['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -59,9 +64,14 @@ include "../public/includes/header.view.php";
                     <p>New blogs</p>
                     <div class="card_left">
                         <ul>
+
+                        <li><a style="color: gray;">
+                            BlogID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Blog Title&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </a></li>
+
                             <?php while($record2=mysqli_fetch_assoc($resultblog)){?>
                                 <li><a href="AdminBlogView.php ? viewblog=<?= $record2['blog_id']; ?> ">
-                                Blog <?= $record2['blog_id']?> - <?=$record2['title']?> </a></li>
+                                <?= $record2['blog_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record2['title']?> </a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -78,9 +88,14 @@ include "../public/includes/header.view.php";
                     <p>New Courses</p>
                     <div class="card_left">
                         <ul>
+
+                        <li><a style="color: gray;">
+                            CourseID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Course Title&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </a></li>
+
                             <?php while($record3=mysqli_fetch_assoc($resultcourse)){?>
                                 <li><a href="AdminCourseView.php ? viewcourse=<?= $record3['course_id']; ?> ">
-                                Courses <?= $record3['course_id']?> - <?=$record3['title']?> </a></li>
+                                <?= $record3['course_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record3['title']?> </a></li>
                             <?php }?>
                         </ul>
                     </div>

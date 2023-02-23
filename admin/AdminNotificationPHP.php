@@ -5,7 +5,7 @@ error_reporting(0);
 include 'connect.php';
 
 //user
-$sqlcustomer="SELECT * FROM user where role='customer'";
+$sqlcustomer="SELECT * FROM user where approved=0";
 
 // make query & get resultcustomer
 $resultcustomer= mysqli_query($conn,$sqlcustomer);
@@ -13,7 +13,7 @@ $resultcustomer= mysqli_query($conn,$sqlcustomer);
     if(isset($_GET['view']))
     {
         $cust_user_id = $_GET['view'];
-        $sql1 = "SELECT * FROM user WHERE user_id=$cust_user_id and role='customer'";
+        $sql1 = "SELECT * FROM user WHERE user_id=$cust_user_id";
         $result1=mysqli_query($conn,$sql1);
         
         if($result1)

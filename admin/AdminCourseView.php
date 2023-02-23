@@ -1,5 +1,3 @@
-<h1>This is course page</h1>
-
 <?php 
 
 //require "connect.php";
@@ -34,11 +32,29 @@ include 'connect.php';
 <?php
     if(isset($_GET['viewcourse']))
     {?>
-      <a href="AdminCourseView.php ?deleteUID=<?=$_GET['viewcourse'] ?>" >Delete</a>
-      <!-- <button onclick="AdminBlogView.php ?deleteUID=<?=$_GET['viewcourse'] ?>"  type="button" id="Delete">Delete</button> -->
-      <!-- <button type="button" id="Accept">Accept</button> -->
-      <a href="AdminCourseView.php ?acceptUID=<?=$_GET['viewcourse'] ?>" >Accept</a>
+    <div align="right">
+        <a class="delete" href="AdminCourseView.php ?deleteUID=<?=$_GET['viewcourse'] ?>" >Delete</a>
+        <a class="accept" href="AdminCourseView.php ?acceptUID=<?=$_GET['viewcourse'] ?>" >Accept</a>
 
+    </div>
+      
       <?php 
     }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course</title>
+    <link rel="stylesheet" href="notification.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <p>
+      This is course page
+    </p>
+</body>

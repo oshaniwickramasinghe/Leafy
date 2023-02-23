@@ -20,7 +20,7 @@ include "../Customer/includes/header.php";
     <title>Admin Report page</title>
 </head>
 <body>
-    <?php include 'AdminNotificationPHP.php';?>
+    <?php include 'AdminReportPHP.php';?>
     <?php include "../public/includes/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
@@ -31,17 +31,21 @@ include "../Customer/includes/header.php";
             <h2>Reports</h2>
 
         <section id='customer'>;
-            <!-- Customer-->
+            <!-- not delivered orders-->
             <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>Orders</p>
+                    <p>Orders to be delivered</p>
                     <div class="card_left">
                         <ul>
 
-                            <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
+                        <li><a style="color: gray;">
+                        OrderID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;CustomerID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Payment method
+                        </a></li>
+
+                            <?php while($record1=mysqli_fetch_assoc($resultorder)){?>
                                 <li><a >
-                                User <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
+                                <?= $record1['order_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;<?= $record1['customer_id']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?= $record1['payment_method']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -58,16 +62,21 @@ include "../Customer/includes/header.php";
            </div>
         </section>
 
-           <!-- Instructor -->
+           <!-- delivered orders -->
            <div class="box">
                 <div class="container_left">
                     <div class="main_card">
                     <p>Delivered orders</p>
                     <div class="card_left">
                         <ul>
-                            <?php while($record2=mysqli_fetch_assoc($resultinstructor)){?>
+
+                        <li><a style="color: gray;">
+                        OrderID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;CustomerID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Payment method
+                        </a></li>
+
+                            <?php while($record2=mysqli_fetch_assoc($resultnonorder)){?>
                                 <li><a>
-                                User <?= $record2['user_id']?> - <?=$record2['fname']?>  <?=$record2['role']?></a></li>
+                                <?= $record2['order_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?= $record2['customer_id']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?= $record2['payment_method']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -82,16 +91,80 @@ include "../Customer/includes/header.php";
 
            </div>
 
-           <!-- Agriculturalist -->
+           <!-- All Users -->
            <div class="box">
                 <div class="container_left">
                     <div class="main_card">
                     <p>Users</p>
                     <div class="card_left">
                         <ul>
+
+                        <li><a style="color: gray;">
+                        UserID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Role
+                        </a></li>
+
                             <?php while($record3=mysqli_fetch_assoc($resultall)){?>
                                 <li><a >
-                                User <?= $record3['user_id']?> - <?=$record3['fname']?>  <?=$record3['role']?></a></li>
+                                <?= $record3['user_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record3['fname']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record3['role']?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="container_right" id="view_more">
+                    <div class="center">
+                        <?php include '../admin/charts/user.php';?>
+                    </div>
+                    
+                </div>
+
+           </div>
+
+
+           <!-- All Blogs -->
+           <div class="box">
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Blogs</p>
+                    <div class="card_left">
+                        <ul>
+
+                        <li><a style="color: gray;">
+                        BlogID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Blog Title&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Date created
+                        </a></li>
+
+                            <?php while($record4=mysqli_fetch_assoc($resultblog)){?>
+                                <li><a >
+                                <?= $record4['blog_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['title']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['date']?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="container_right" id="view_more">
+                    <div class="center">
+                        <?php include '../admin/charts/blog.php';?>
+                    </div>
+                    
+                </div>
+
+           </div>
+
+           <!-- All Courses -->
+           <div class="box">
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Courses</p>
+                    <div class="card_left">
+                        <ul>
+
+                            <li><a style="color: gray;">
+                            CoursesID &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Courses Title
+                            </a></li>                      
+
+                            <?php while($record4=mysqli_fetch_assoc($resultcourse)){?>
+                                <li><a >
+                                <?= $record4['course_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['title']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</a></li>
                             <?php }?>
                         </ul>
                     </div>

@@ -1,8 +1,7 @@
 <?php 
 
-//require "connect.php";
-include 'connect.php';      
-      
+include 'connect.php'; 
+     
 
   if(isset($_GET['deleteUID']))
   {
@@ -32,11 +31,12 @@ include 'connect.php';
 <?php
     if(isset($_GET['viewblog']))
     {?>
-      <a href="AdminBlogView.php ?deleteUID=<?=$_GET['viewblog'] ?>" >Delete</a>
-      <!-- <button onclick="AdminBlogView.php ?deleteUID=<?=$_GET['viewblog'] ?>"  type="button" id="Delete">Delete</button> -->
-      <!-- <button type="button" id="Accept">Accept</button> -->
-      <a href="AdminBlogView.php ?acceptUID=<?=$_GET['viewblog'] ?>" >Accept</a>
-
+    <div align="right">
+        <a class="delete" href="AdminBlogView.php ?deleteUID=<?=$_GET['viewblog'] ?>" >Delete</a>
+        <a class="accept" href="AdminBlogView.php ?acceptUID=<?=$_GET['viewblog'] ?>" >Accept</a>
+      
+    </div>
+        
       <?php 
     }
 ?>
@@ -80,7 +80,6 @@ if(isset($_GET['viewblog']))
  ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,6 +88,7 @@ if(isset($_GET['viewblog']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>userblog</title>
     <link rel="stylesheet" href="../instructor/userblog.css">
+    <link rel="stylesheet" href="notification.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
