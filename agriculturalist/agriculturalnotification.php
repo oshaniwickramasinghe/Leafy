@@ -3,8 +3,8 @@
 
 require "../public/Auth.php";
 include "../public/includes/header.view.php";
-// include "database.php";
 
+// include "database.php";
 
 ?>
 
@@ -21,29 +21,47 @@ include "../public/includes/header.view.php";
     <title>Agriculturalist Notification page</title>
 </head>
 <body>
-    
 
+    <?php
+
+    $user_id =$_SESSION["USER_DATA"]["user_id"];
+   
+
+    $sql  =  "SELECT * FROM post WHERE user_id='$user_id' ";
+   
+    $result = mysqli_query($conn , $sql);
+
+      // $query = "SELECT * FROM post ORDER BY post_id ASC";
+      // //execute mysql query and store data in result
+      // $result = mysqli_query($conn, $query);
+
+      if (mysqli_num_rows($result) > 0) {
+
+        while ($res = mysqli_fetch_array($result)) {
+    ?>
     <div class="notification-row">
       <div class="notification-text">
-        <p><?php echo $res[''] ?></p>
-        <p><?php echo $res[''] ?></p>
-        <p><?php echo $res[''] ?></p>
+        <p>Item Name -<?php echo $res['item_name'] ?></p>
+        <p>Address - <?php echo $res['location'] ?></p>
+        <p>Mobile Number -<?php echo $res['contact_no'] ?></p>
+        
       </div>
       <div class="notification-buttons">
-        <button class="notification-button accept">Accept</button>
-        <button class="notification-button reject">Reject</button>
+      <input  type="hidden" name="id1" value="1"> <!-- the ID of the record you want to update -->
+      <input  type="submit" name="accept" value="Accept">
+
+      <input type="hidden" name="id0" value="1"> <!-- the ID of the record you want to update -->
+      <input type="submit" name="Delete" value="Delete">
       </div>
     </div>
     
-    <div class="notification-row">
-      <div class="notification-text">
-        <p>Test</p>
-      </div>
-      <div class="notification-buttons">
-        <button class="notification-button accept">Accept</button>
-        <button class="notification-button reject">Reject</button>
-      </div>
-    </div>
+   
+
+    <?php
+ 
+}
+}
+?>
 
     <footer>
 
@@ -51,5 +69,6 @@ include "../public/includes/header.view.php";
 </footer>
     
 </body>
+
 
 </html>

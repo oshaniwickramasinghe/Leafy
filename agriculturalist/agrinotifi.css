@@ -20,7 +20,7 @@
       }
       
       /* Style for accept and reject buttons */
-      .notification-button {
+      input.notification-button {
         padding: 5px;
         border: none;
         border-radius: 25px;
