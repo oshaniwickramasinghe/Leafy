@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+    box-sizing:inherit;
+    font-family:'Lato', sans-serif;
+   
+    
+    
+   
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Lato', sans-serif;
+    margin: 5px;
+
+}
+
+h3{
+    color: #43562b;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear:both;
+}
+
+P{
+    font-size: 14px;
+    margin-top: 15px;
+    
+}
+
+
+    
+
+.btn{
+    padding: .5rem 1rem;
+    background:#43562b;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    
+}
+
+.btn:hover{
+    color: white !important;
+    background:#43562b;
+}
+
+.text-input{
+    padding: .7rem 1rem;
+    display: block;
+    width: 90%;
+    border-radius: 5px;
+    outline: none;
+    color: aqua;
+    line-height: 1.5rem;
+    border: 1px solid #43562b;
+    font-size: .9rem;
+
+}
+
+.page-wrapper a:hover{
+    color:rgb(47, 80, 37);
+}
+
+
+.page-slider{
+    
+    height:450px;
+    padding: 30px auto;
+    position:relative;
+    background-color: rgba(239, 239, 239);
+}
+
+.page-slider .slider-title{
+    text-align: center;
+    margin: 30px auto;
+    padding-top: 30px;
+}
+
+.page-slider .next{
+    position:absolute;
+    top:50%;
+    right: 60px;
+    font-size: 2em;
+    color: rgba(46, 45, 45, 0.803);
+    cursor: pointer;
+
+}
+
+.page-slider .prev{
+    position:absolute;
+    top:50%;
+    left: 60px;
+    font-size: 2em;
+    color: rgba(46, 45, 45, 0.803);
+    cursor: pointer;
+
+}
+
+
+.page-slider .post-wrapper{
+    width:80%;
+    height: 300px;
+    margin: 10px auto;
+    overflow: hidden;
+    padding:10px 0px 10px 0px;
+    
+    
+}
+
+.page-slider .post-wrapper .post{
+    display: inline-block;
+    width:305px;
+    margin:0px 12px;
+    background-color: rgba(56, 57, 56, 0.142);
+    height:280px;
+    border-radius: 5px;
+    box-shadow: 1rem 1rem 1rem 1rem rgb(255, 255, 255);
+}
+
+.page-slider .post-wrapper .post .slider-image{
+    width:100%;
+    height:200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.page-slider .post-wrapper .post .post-info{
+    height:130px;
+    padding: 10px 15px;
+
+}
+
+.content{
+    width:90%;
+    margin: 30px auto 30px;
+    display: flex;
+    
+
+}
+
+.main-content{
+    width: 70%;
+    float:left;
+    background-color:rgba(239, 239, 239);
+ 
+}
+
+.content .slidbar{
+    width: 30%;
+    float:right;
+    height:auto;
+    margin-left: 20px;
+
+}
+
+.content .slidbar .section-search{
+    background-color:rgba(239, 239, 239);
+    padding: 20px 10px 10px 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
+}
+
+
+.content .slidbar .section-topics{
+    background-color:rgba(239, 239, 239);
+    margin-top: 10px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+    height: 87.5%;
+    border-radius: 5px;
+}
+
+ .content .slidbar .section-topics ul{
+    margin:10px;
+    padding:5px;
+    list-style: none;
+    border: 10px soild red;
+    
+
+ }
+
+ .content .slidbar .section-topics ul li a{
+    border-bottom: 1px solid rgb(109, 104, 104);
+    display: block;
+    padding: 15px 0px 15px 10px;
+    
+ }
+
+ .content .slidbar .section-topics ul li a:hover{
+    padding-left:10px;
+    transition: all 0.3s;
+ }
+
+.content .main-content .post{
+    width:95%;
+    height:270px;
+    margin: 20px auto;
+    border-radius:5px;
+    background-color: white;
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+
+}
+
+.content .main-content .post .read-more{
+    position:absolute;
+    bottom:10px;
+    right: 10px;
+    border: 1px solid #43562b;
+    background:transparent;
+    border-radius: 5px;
+    color:#43562b;
+}
+
+.content .main-content .post .read-more:hover{
+    background-color: #43562b;
+    color:white;
+    transition: .25s;
+}
+
+.content .main-content .post .post-image{
+    width:40%;
+    height:100%;
+    float: left;
+}
+
+.content .main-content .post .post-review{
+    width:60%;
+    padding: 10px;
+    float: right;
+
+}
+
+.content .main-content .recent-post-title{
+    margin:20px;
+}
+
+
+
+
+/*MEDIA QUERIES */
+
+@media only screen and (max-width: 750px){
+}
