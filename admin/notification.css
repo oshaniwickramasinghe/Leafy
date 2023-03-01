@@ -32,7 +32,7 @@
     cursor: pointer;
     background-color: #5A713D;
     border-radius: 20px;
-    /* margin-top: 20px; */
+    margin-top: 10px; 
 }
 
 .instructor_wrapper .content .box .container_left button:hover{

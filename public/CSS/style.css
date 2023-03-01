@@ -632,10 +632,11 @@ small{
     
 }
 .search{
-    padding-top: -30%;
-     padding-left: 35%;
+    background: white;
+    padding-top: 0%;
+     padding-left: 0%;
     display: flex;
-    width: 30%;
+    width: 60%;
 
  }
 
@@ -974,7 +975,7 @@ background-color:rgb(159, 159, 159);
     height: 80%;
     width: 15%;
     display: flex;
-    padding-top: 15px;
+    padding-top: 150px;
 }
 
 

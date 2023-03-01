@@ -2,7 +2,7 @@
 
 error_reporting(0);
 
-include 'connect.php';
+require "../../database/database.php";
 
 //user
 $sqlcustomer="SELECT * FROM user where approved=0";

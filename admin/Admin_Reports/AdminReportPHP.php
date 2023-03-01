@@ -1,8 +1,8 @@
 <?php
 
-//error_reporting(0);
+error_reporting(0);
 
-include 'connect.php';
+include '../../database/database.php';
 
 //not delivered orders
 $sqlorder="SELECT * FROM `order` WHERE delivery=0";
@@ -71,6 +71,37 @@ $resultblog= mysqli_query($conn,$sqlblog);
         }
     }
 
+////select users by role
+if(ISSET($_POST['search'])){
+	$keyword = $_POST['start1'];
+			
+    //require '../connect.php';
+    $queryusers = mysqli_query($conn, "SELECT * FROM `user` WHERE `role` LIKE '%$keyword%' ") ;
+
+}
+
+
+////select blog by range
+if(ISSET($_POST['search'])){
+	$keyword = $_POST['start2'];
+			
+    //require '../connect.php';
+    $query = mysqli_query($conn, "SELECT * FROM `blog` WHERE `date` LIKE '%$keyword%' ORDER BY `date`") ;
+
+}
+
+
+////select course by range
+if(ISSET($_POST['search'])){
+	$keyword = $_POST['start3'];
+			
+    //require '../connect.php';
+    $querycourse = mysqli_query($conn, "SELECT * FROM `course` WHERE `user_id` LIKE '%$keyword%' ") ;
+
+}
+
+
+
 
 
 //select course
@@ -101,5 +132,4 @@ $resultcourse= mysqli_query($conn,$sqlcourse);
     }
 
 ?> 
-
 
