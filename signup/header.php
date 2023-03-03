@@ -2,7 +2,7 @@
 include 'Auth.php';
 include 'database.php';
 
-$user_ID = $_SESSION['USER_DATA']['user_id'];
+/ $user_ID = $_SESSION['USER_DATA']['user_id'];
 //$user_ID = $_SESSION['user_ID'];
 if(!isset($user_ID)){
    header('location:login.view.php');

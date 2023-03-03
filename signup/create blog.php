@@ -1,5 +1,4 @@
 <?php
- include 'config.php';
  include 'header.php';
  $user_ID = $_SESSION['user_ID'];
 
@@ -126,6 +125,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="create blog.css">
     <title>create blog</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
     <?php
@@ -162,6 +162,7 @@
             <div>
                 <label for="content">Content</label>
                 <textarea for="content" id="content" name="content" class="text_input"  value="" required></textarea><br>
+                <div id="editor">This is some sample content.</div>
             </div>
             <div>
                 <label for="image">Attach images</label>
