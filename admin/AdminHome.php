@@ -16,7 +16,7 @@ include '../public/includes/header.view.php';
 <body>
 
    
-<?php include "../public/includes/admin_menu.view.php"?>
+<?php include "admin_menu.view.php"?>
 
 
    <div class = "loggedhome_body">

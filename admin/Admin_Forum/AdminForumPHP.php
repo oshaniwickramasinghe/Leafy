@@ -5,7 +5,7 @@ error_reporting(0);
 include '../connect.php';
 
 //customer
-$GetQuestions="SELECT * FROM question";
+$GetQuestions="SELECT * FROM question where approved=0";
 
 // make query & get resultcustomer
 $result= mysqli_query($conn,$GetQuestions);

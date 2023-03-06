@@ -11,6 +11,46 @@ include "../../Customer/includes/header.php";
 
 ?>
 
+<?php   
+
+  if(isset($_GET['deleteUID']))
+  {
+      
+      $Q_id = $_GET['deleteUID'];
+      $sql2 = "UPDATE question SET approved=2 WHERE question_id=$Q_id";
+      $result2=mysqli_query($conn,$sql2);
+
+      echo 'deleted';
+
+  }
+
+
+  if(isset($_GET['acceptUID']))
+  {
+
+      $Q_id = $_GET['acceptUID'];
+      $sql2 = "UPDATE question SET approved=1 WHERE question_id=$Q_id";
+      $result2=mysqli_query($conn,$sql2);
+
+      echo 'updated';
+
+  }
+
+?>
+
+<!-- <?php
+    if(isset($_GET['view']))
+    {?>
+    <div align="right">
+        <a class="delete" href="AdminForum.php ?deleteUID=<?=$_GET['view'] ?>" >Deactivate</a>
+        <a class="accept" href="AdminForum.php ?acceptUID=<?=$_GET['view'] ?>" >Accept</a>
+
+    </div>
+      
+      <?php 
+    }
+?> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +65,7 @@ include "../../Customer/includes/header.php";
 </head>
 <body>
     <?php include 'AdminForumPHP.php';?>
-    <?php include "../../public/includes/admin_menu.view.php"?>
+    <?php include "../admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
@@ -56,7 +96,14 @@ include "../../Customer/includes/header.php";
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
                         <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
-                        <button type="button" id="delete">Delete</button>
+                        <!-- <button type="button" id="delete">Delete</button> -->
+
+                        <div align="right">
+                            <a class="delete" href="AdminForum.php ?deleteUID=<?=$question_id ?>" >Delete</a>
+                            <a class="accept" href="AdminForum.php ?acceptUID=<?=$question_id ?>" >Approve</a>
+
+                        </div>
+
                     </div>
                     <div class="details_container">
                         <table>

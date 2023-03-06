@@ -21,7 +21,7 @@ include "../../public/includes/header.view.php";
 </head>
 <body>
     <?php include 'AdminNotificationPHP.php';?>
-    <?php include "../../public/includes/admin_menu.view.php"?>
+    <?php include "../admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
@@ -44,7 +44,7 @@ include "../../public/includes/header.view.php";
                         </a></li>
 
                             <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
-                                <li><a onclick="myFunction()" href="AdminUserView.php ?UID=<?= $record1['user_id']; ?> ">
+                                <li><a onclick="myFunction()" href="../Admin_Users/AdminUserView.php ?UID=<?= $record1['user_id']; ?> ">
                                 <?= $record1['user_id'   ]?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record1['fname']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record1['role']?></a></li>
                             <?php }?>
                         </ul>
@@ -69,7 +69,7 @@ include "../../public/includes/header.view.php";
                         </a></li>
 
                             <?php while($record2=mysqli_fetch_assoc($resultblog)){?>
-                                <li><a href="AdminBlogView.php ? viewblog=<?= $record2['blog_id']; ?> ">
+                                <li><a href="../AdminBlogView.php ? viewblog=<?= $record2['blog_id']; ?> ">
                                 <?= $record2['blog_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record2['title']?> </a></li>
                             <?php }?>
                         </ul>
@@ -93,7 +93,7 @@ include "../../public/includes/header.view.php";
                         </a></li>
 
                             <?php while($record3=mysqli_fetch_assoc($resultcourse)){?>
-                                <li><a href="AdminCourseView.php ? viewcourse=<?= $record3['course_id']; ?> ">
+                                <li><a href="../AdminCourseView.php ? viewcourse=<?= $record3['course_id']; ?> ">
                                 <?= $record3['course_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record3['title']?> </a></li>
                             <?php }?>
                         </ul>
