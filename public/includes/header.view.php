@@ -1,5 +1,7 @@
 <?php
-include "database.php";
+include "C:/xampp/htdocs/Leafy/database/database.php";
+//include "../../database/database.php";
+
 ?>
 
 <html>

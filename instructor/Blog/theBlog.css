@@ -26,13 +26,18 @@ a{
     color: inherit;
 }
 
+.clearfix{
+    margin-bottom: 10px;
+}
+
+
 .clearfix::after{
     content: '';
     display: block;
     clear:both;
 }
 
-P{
+.page-wrapper P{
     font-size: 14px;
     margin-top: 15px;
     
@@ -40,6 +45,23 @@ P{
 
 nav{
     z-index: 2;
+}
+
+.goback-btn{
+    border:none;
+    color:#FCFEF9;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #43562b;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.goback-btn:hover{
+    background: #323929;
 }
     
 
@@ -63,7 +85,7 @@ nav{
     width: 90%;
     border-radius: 5px;
     outline: none;
-    color: aqua;
+    color:#43562b;
     line-height: 1.5rem;
     border: 1px solid #43562b;
     font-size: .9rem;
@@ -81,7 +103,6 @@ nav{
     padding: 30px auto;
     position:relative;
     margin-top: 50px;
-    background-color:rgba(239, 239, 239);
     z-index: 1;
 }
 
@@ -114,8 +135,8 @@ nav{
 
 .page-slider .post-wrapper{
     width:80%;
-    height: 300px;
-    margin: 10px auto;
+    height: 270px;
+    margin: 0px auto;
     overflow: hidden;
     padding:10px 0px 10px 0px;
     
@@ -157,6 +178,7 @@ nav{
     width: 70%;
     float:left;
     background-color:rgba(239, 239, 239);
+    min-height: 700px;;
  
 }
 
@@ -181,8 +203,7 @@ nav{
     background-color:rgba(239, 239, 239);
     margin-top: 10px;
     padding-top: 20px;
-    margin-bottom: 10px;
-    height: 87.5%;
+    height: 600px;
     border-radius: 5px;
 }
 
@@ -209,7 +230,7 @@ nav{
 
 .content .main-content .post{
     width:95%;
-    height:270px;
+    height:240px;
     margin: 20px auto;
     border-radius:5px;
     background-color: white;
@@ -217,6 +238,11 @@ nav{
     position: relative;
     border-radius: 10px;
 
+}
+
+.content .main-content .post .icon{
+    margin-bottom: 10px;
+    font-size: 11px;
 }
 
 .content .main-content .post .read-more{
@@ -237,8 +263,9 @@ nav{
 
 .content .main-content .post .post-image{
     width:40%;
-    height:100%;
+    max-height:90%;
     float: left;
+    padding: 20px;
 }
 
 .content .main-content .post .post-review{

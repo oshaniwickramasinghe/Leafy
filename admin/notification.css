@@ -32,7 +32,7 @@
     cursor: pointer;
     background-color: #5A713D;
     border-radius: 20px;
-    /* margin-top: 20px; */
+    margin-top: 10px; 
 }
 
 .instructor_wrapper .content .box .container_left button:hover{
@@ -169,6 +169,7 @@
     overflow-y: scroll;
     border-radius: 20px;
     height: 300px;
+    margin-left: 150px;
     
 }
 
@@ -194,7 +195,7 @@
     color: #43562B;
     background:#fff;
     border-radius:25px;
-    /* width: 500px; */
+    width: 500px; 
 }
 
 .instructor_wrapper .content .box .container_left .main_card .card_left  ul li a:focus {
@@ -206,3 +207,34 @@
     display: none;
 }*/
 
+a.delete {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:25px;
+  }
+
+  a.accept {
+    background-color: #809D5B;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:25px;
+  }
+  
+  #tablet {
+    width: 300px;
+    /* height: 300px; */
+    border: 1px solid black;
+    display: flex;
+  }
+  
+  #tablet space {
+    -ms-flex: 1;  /* IE 10 */  
+    flex: 1;
+  }

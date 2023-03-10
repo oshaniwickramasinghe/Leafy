@@ -1,11 +1,100 @@
 <?php
 include "../includes/header.php";
 
-$sql= "SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1
-       FROM blog
-       INNER JOIN user ON blog.user_id=user.user_id";
-$result= mysqli_query($conn, $sql);
+$posts = array();
+$postsTitle ="Recent Posts";
 
+
+$query="SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
+       FROM blog
+       INNER JOIN user ON blog.user_id=user.user_id ";
+    /*  where blog.Verified=1";*/
+
+$result2= mysqli_query($conn, $query);
+
+/*function executeQuery($sql, $data)
+{
+    global $conn;
+
+    $stmt = $conn ->prepare($sql);
+    $values = array_values($data);
+    $types = str_repeat{'s' , count($values)};
+    $stmt->bind_param($types, ...$values);
+    return $stmt;
+
+}*/
+
+function getPublishedPosts()
+{
+	global $conn;
+
+	$sql1= "SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
+           FROM blog
+           INNER JOIN user ON blog.user_id=user.user_id";
+		   /*  where blog.Verified=1"; */
+
+    $stmt = $conn -> prepare($sql1);
+    $stmt -> execute();
+    $records = $stmt -> get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+
+}
+
+function search($term)
+{
+    global $conn;
+
+    $match = '%'. $term .'%';
+
+    $sql2="SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
+           FROM blog
+           INNER JOIN user ON blog.user_id=user.user_id /* where blog.Verified=1*/
+           AND (blog.title LIKE ? OR blog.content1 LIKE ? OR blog.description LIKE ? OR blog.topic LIKE ?)";
+
+    $stmt = $conn -> prepare($sql2);
+    $stmt->bind_param('ssss', $match, $match, $match, $match);
+	$stmt -> execute();
+	$records = $stmt -> get_result()->fetch_all(MYSQLI_ASSOC);
+	return $records;
+}
+
+function getPostByTopic($topic)
+{
+    global $conn;
+
+    $sql3="SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
+    FROM blog
+    INNER JOIN user ON blog.user_id=user.user_id /* where blog.Verified=1 AND*/
+    WHERE blog.topic=?";
+
+    $stmt = $conn -> prepare($sql3);
+    $stmt->bind_param('s', $topic);
+    $stmt -> execute();
+	$records = $stmt -> get_result()->fetch_all(MYSQLI_ASSOC);
+	return $records;
+
+
+}
+
+
+
+
+
+
+
+ if(isset($_POST['search-term']))
+ {
+    $postsTitle = "You searched for '" . $_POST['search-term'] ."'";
+    $posts = search($_POST['search-term']);
+
+ }else if(isset($_GET['view'])){
+
+    $postsTitle = "You searched for '" . $_GET['view'] ."'";
+    $posts = getPostByTopic($_GET['view']);
+
+}else{
+ $posts = getPublishedPosts();
+}
 
 ?>
 
@@ -31,117 +120,67 @@ $result= mysqli_query($conn, $sql);
             <i class="fa-solid fa-chevron-left prev"></i>
             <i class="fa-solid fa-chevron-right next "></i>
             <div class="post-wrapper">
-                        <?php while($record=mysqli_fetch_assoc($result)){?>
-                        <a href="userblog.php?view_blog=<?=$record['blog_id']; ?>"><div class="post"> 
-                            <img src="../images/<?php if(isset ($record['image1'])){ echo $record['image1'];} ?>" class="slider-image">
-                            <h4><?php if(isset ($record['title'])){ echo $record['title'];} ?></h4>
-
+                <?php while($record=mysqli_fetch_assoc($result2)){?>
+                    <a href="userblog.php?view_blog=<?=$record['blog_id']; ?>">
+                    <div class="post"> 
+                        <img src="../images/<?php if(isset ($record['image1'])){ echo $record['image1'];} ?>" class="slider-image">
+                        <h4><?php if(isset ($record['title'])){ echo $record['title'];} ?></h4>
                             <div class="post-info">
                                 <i class="fa-solid fa-user"></i>&nbsp;<?php if(isset ($record['author'])){ echo $record['author'];} ?></i> &nbsp; &nbsp;
                                 <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;<?php if(isset ($record['date'])){ echo $record['date'];} ?></i>
                             </div>
-                        </div>
-                        </a>
-                        <?php }?>
+                    </div>
+                    </a>
+                    <?php }?>
             </div>
         </div>
         <!--content-->
         <div class="content clearfix">
             <div class="main-content">
-                <h1 class="recent-post-title">Recent Post</h1>
-                <div class="post">
-                    <img src="../images/vege5.jpg" alt="" class="post-image">
-                    <div class="post-review">
-                        <h3><a href="userBlog.php">The benefit of organic farming</a></h3>
-                        <i class="fa-solid fa-user"></i>&nbsp;name</i> 
-                        &nbsp; &nbsp;
-                        <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;date</i><br>
-                        <p class="preview-text">Organic agriculture reduces non-renewable energy use by
-                            decreasing agrochemical needs (these require high quantities of fossil fuel to be produced).
-                            Organic agriculture contributes to mitigating the greenhouse effect and global warming through
-                            its ability to sequester carbon in the soil.</p><br>
-                        <a href="userBlog.php" class="btn read-more">Read More</a>
-
+                <h1 class="recent-post-title"><?php echo $postsTitle?></h1>
+                <?php foreach ($posts as $post): ?>
+                    <div class="post"> 
+                        <img src="../images/<?php if(isset ($post['image1'])){ echo $post['image1'];} ?>" class="post-image">
+                        <div class="post-review">
+                            <h3><?php if(isset ($post['title'])){ echo $post['title'];} ?></h3>
+                            <div class="icon">
+                                <i class="fa-solid fa-user"></i>&nbsp;<?php if(isset ($post['author'])){ echo $post['author'];} ?></i> &nbsp; &nbsp;
+                                <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;<?php if(isset ($post['date'])){ echo $post['date'];} ?></i>
+                            </div>
+                            <p class="preview-text"><?php if(isset ($post['description'])){ echo substr($post['description'],0,200,).'....';} ?></p><br>
+                            <a href="userblog.php?view_blog=<?=$post['blog_id'];?>" class="btn read-more">Read More</a>
+    
+                        </div>
                     </div>
-                </div>
-
-                <div class="post">
-                    <img src="../images/vege5.jpg" alt="" class="post-image">
-                    <div class="post-review">
-                        <h3><a href="userBlog.php">The benefit of organic farming</a></h3>
-                        <i class="fa-solid fa-user"></i>&nbsp;name</i> 
-                        &nbsp; &nbsp;
-                        <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;date</i><br>
-                        <p class="preview-text">Organic agriculture reduces non-renewable energy use by
-                            decreasing agrochemical needs (these require high quantities of fossil fuel to be produced).
-                            Organic agriculture contributes to mitigating the greenhouse effect and global warming through
-                            its ability to sequester carbon in the soil.</p><br>
-                        <a href="userBlog.php" class="btn read-more">Read More</a>
-
-                    </div>
-                </div>
-
-                <div class="post">
-                    <img src="../images/vege5.jpg" alt="" class="post-image">
-                    <div class="post-review">
-                        <h3><a href="userBlog.php">The benefit of organic farming</a></h3>
-                        <i class="fa-solid fa-user"></i>&nbsp;name</i> 
-                        &nbsp; &nbsp;
-                        <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;date</i><br>
-                        <p class="preview-text">Organic agriculture reduces non-renewable energy use by
-                            decreasing agrochemical needs (these require high quantities of fossil fuel to be produced).
-                            Organic agriculture contributes to mitigating the greenhouse effect and global warming through
-                            its ability to sequester carbon in the soil.</p><br>
-                        <a href="userBlog.php" class="btn read-more">Read More</a>
-
-                    </div>
-                </div>
-
-                <div class="post">
-                    <img src="../images/vege5.jpg" alt="" class="post-image">
-                    <div class="post-review">
-                        <h3><a href="userBlog.php">The benefit of organic farming</a></h3>
-                        <i class="fa-solid fa-user"></i>&nbsp;name</i> 
-                        &nbsp; &nbsp;
-                        <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;date</i><br>
-                        <p class="preview-text">Organic agriculture reduces non-renewable energy use by
-                            decreasing agrochemical needs (these require high quantities of fossil fuel to be produced).
-                            Organic agriculture contributes to mitigating the greenhouse effect and global warming through
-                            its ability to sequester carbon in the soil.</p><br>
-                        <a href="userBlog.php" class="btn read-more">Read More</a>
-                        
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
             <div class="slidbar">
                 <div class="section-search">
                     <h2 class="section-title">search</h2>
-                    <form action="userblog.php" method="post">
+                    <form action="theBlog.php" method="post">
                         <input type="text" name="search-term" class="text-input" placeholder="search...">
                     </form>        
                 </div>
                 <div class="section-topics">
                     <h2 class="section-title">Topics</h2>
                     <ul>
-                         <li><a href="#">Agronomy</a></li>
-                         <li><a href="#">Horticulture</a></li>
-                         <li><a href="#">Soil Science</a></li>
-                         <li><a href="#">Plant Pathology</a></li>
-                         <li><a href="#">Entomology</a></li>
-                         <li><a href="#">Agricultural Engineering</a></li>
-                         <li><a href="#">Agricultural Economics</a></li>
-                         <li><a href="#">Agricultural Extension</a></li>
-                         <li><a href="#">Agroforestry</a></li>
-                </ul>
+                         <li><a href="theBlog.php?view=Agronomy">Agronomy</a></li>
+                         <li><a href="theBlog.php?view=Horticulture">Horticulture</a></li>
+                         <li><a href="theBlog.php?view=Soil Science">Soil Science</a></li>
+                         <li><a href="theBlog.php?view=Plant Pathology">Plant Pathology</a></li>
+                         <li><a href="theBlog.php?view=Entomology">Entomology</a></li>
+                         <li><a href="theBlog.php?view=Agricultural Engineering">Agricultural Engineering</a></li>
+                         <li><a href="theBlog.php?view=Agricultural EconomicsHorticulture">Agricultural Economics</a></li>
+                         <li><a href="theBlog.php?view=Agricultural Extension">Agricultural Extension</a></li>
+                         <li><a href="theBlog.php?view=Agroforestry">Agroforestry</a></li>
+                    </ul>
                 </div>
             </div>
-    
-
         </div>
+    
     </div>
-
     <div align="right">
-        <a href=".php" class="goback-btn">go back >></a> 
+        <a href="home.php" class="goback-btn">go back >></a> 
     </div> 
 
     <!--jQuery-->

@@ -17,10 +17,10 @@ include "../public/includes/header.view.php";
     <link rel="stylesheet" href="../public/CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
           
-    <title>Admin Notification page</title>
+    <title>All users view</title>
 </head>
 <body>
-    <?php include 'AdminNotificationPHP.php';?>
+    <?php include 'AdminUsersPHP.php';?>
     <?php include "../public/includes/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
@@ -28,20 +28,24 @@ include "../public/includes/header.view.php";
     <div class="instructor_wrapper">
         
         <div class="content">
-            <h2>Notifications</h2>
+            <h2>All Users</h2>
 
         <section id='customer'>;
             <!-- User-->
             <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>New users</p>
+                    <p>Customer</p>
                     <div class="card_left">
                         <ul>
 
+                        <li><a style="color: gray;">
+                        UserID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Role&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </a></li>
+
                             <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php ?view=<?= $record1['user_id']; ?> ">
-                                User <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
+                                <li><a onclick="myFunction()" href="AdminUsers.php ?view1=<?= $record1['user_id']; ?> ">
+                                <?= $record1['user_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record1['fname']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record1['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -52,8 +56,8 @@ include "../public/includes/header.view.php";
                     <h3> User <?= $cust_user_id ?>:   <?= $cust_first_name ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="Accept">Accept</button> 
-                        <button type="button" id="delete">Delete</button>
+                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
+                        <button type="button" id="delete">Deactivate</button>
                     </div>
                     <div class="details_container">
                         <table>
@@ -83,44 +87,49 @@ include "../public/includes/header.view.php";
            </div>
         </section>
 
-           <!-- Blog -->
+           <!-- instructor -->
            <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>New blogs</p>
+                    <p>Instructor</p>
                     <div class="card_left">
                         <ul>
+
+                        <li><a style="color: gray;">
+                        UserID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Role&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </a></li>
+
                             <?php while($record2=mysqli_fetch_assoc($resultinstructor)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record2['user_id']; ?> ">
-                                Blog <?= $record2['user_id']?> - <?=$record2['fname']?>  <?=$record2['role']?></a></li>
+                                <li><a onclick="myFunction()" href="AdminUsers.php?view2=<?= $record2['user_id']; ?> ">
+                                <?= $record2['user_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record2['fname']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record2['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
                     </div>
                 </div>
                 <div class="container_right" id="view_more">
-                    <h3> Blog <?= $inst_user_id ?>:   <?= $inst_first_name ?></h3>
+                    <h3> User <?= $inst_user_id ?>:   <?= $inst_first_name ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="Accept">Accept</button>
-                        <button type="button" id="delete">Delete</button>
+                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
+                        <button type="button" id="delete">Deactivate</button>
                     </div>
                     <div class="details_container">
                         <table>
                             
                             <tr>
-                                <th>Blog ID</th>
+                                <th>User ID</th>
                                 <td>:</td>
                                 <td><?=$inst_user_id ?></td>
                             </tr>
                             <tr>
-                                <th>Title </th>
+                                <th>Name </th>
                                 <td>:</td>
                                 <td><?=$inst_first_name ?></td>
                             </tr>
                         
                             <tr>
-                                <th>Date created </th>
+                                <th>Email </th>
                                 <td>:</td>
                                 <td><?=$inst_email ?></td>
                             </tr>
@@ -132,44 +141,49 @@ include "../public/includes/header.view.php";
 
            </div>
 
-           <!-- Courses -->
+           <!-- Agriculturalist -->
            <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>New Courses</p>
+                    <p>Agriculturalist</p>
                     <div class="card_left">
                         <ul>
+
+                        <li><a style="color: gray;">
+                        UserID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Role&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </a></li>
+
                             <?php while($record3=mysqli_fetch_assoc($resultagriculturalist)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record3['user_id']; ?> ">
-                                Courses <?= $record3['user_id']?> - <?=$record3['fname']?>  <?=$record3['role']?></a></li>
+                                <li><a onclick="myFunction()" href="AdminUsers.php?view3=<?= $record3['user_id']; ?> ">
+                                <?= $record3['user_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record3['fname']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record3['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
                     </div>
                 </div>
                 <div class="container_right" id="view_more">
-                    <h3> Courses <?= $agri_user_id ?>:   <?= $agri_first_name ?></h3>
+                    <h3> User <?= $agri_user_id ?>:   <?= $agri_first_name ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="Accept">Accept</button>
-                        <button type="button" id="delete">Delete</button>
+                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
+                        <button type="button" id="delete">Deactivate</button>
                     </div>
                     <div class="details_container">
                         <table>
                             
                             <tr>
-                                <th>Courses ID</th>
+                                <th>User ID</th>
                                 <td>:</td>
                                 <td><?=$agri_user_id ?></td>
                             </tr>
                             <tr>
-                                <th>Title </th>
+                                <th>Name </th>
                                 <td>:</td>
                                 <td><?=$agri_first_name ?></td>
                             </tr>
                         
                             <tr>
-                                <th>Date created </th>
+                                <th>Email</th>
                                 <td>:</td>
                                 <td><?=$agri_email ?></td>
                             </tr>
@@ -182,44 +196,49 @@ include "../public/includes/header.view.php";
            </div>
 
            
-           <!-- Orders -->
+           <!-- Delivery Agent -->
            <div class="box">
                 <div class="container_left">
                     <div class="main_card">
-                    <p>New Orders</p>
+                    <p>Delivery Agent</p>
                     <div class="card_left">
                         <ul>
+
+                        <li><a style="color: gray;">
+                        UserID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Role&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </a></li>
+
                             <?php while($record4=mysqli_fetch_assoc($resultdelivery)){?>
-                                <li><a onclick="myFunction()" href="AdminNotification.php?view=<?= $record4['user_id']; ?> ">
-                                Orders <?= $record4['user_id']?> - <?=$record4['fname']?>  <?=$record4['role']?></a></li>
+                                <li><a onclick="myFunction()" href="AdminUsers.php?view4=<?= $record4['user_id']; ?> ">
+                                <?= $record4['user_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['fname']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['role']?></a></li>
                             <?php }?>
                         </ul>
                     </div>
                     </div>
                 </div>
                 <div class="container_right" id="view_more">
-                    <h3> Orders <?= $del_user_id ?>:   <?= $del_first_name ?></h3>
+                    <h3> Users <?= $del_user_id ?>:   <?= $del_first_name ?></h3>
                 <!-- <button class="close-button">&times;</button>-->
                     <div class="container_button">
-                        <button onclick="location.href=''" type="button" id="Accept">Accept</button> 
-                        <button type="button" id="delete">Delete</button>
+                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
+                        <button type="button" id="delete">Deactivate</button>
                     </div>
                     <div class="details_container">
                         <table>
                             
                             <tr>
-                                <th>Orders ID</th>
+                                <th>Users ID</th>
                                 <td>:</td>
                                 <td><?=$del_user_id ?></td>
                             </tr>
                             <tr>
-                                <th>Title </th>
+                                <th>Name </th>
                                 <td>:</td>
                                 <td><?=$del_first_name ?></td>
                             </tr>
                         
                             <tr>
-                                <th>Date created </th>
+                                <th>Email</th>
                                 <td>:</td>
                                 <td><?=$del_email ?></td>
                             </tr>

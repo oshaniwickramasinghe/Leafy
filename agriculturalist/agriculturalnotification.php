@@ -3,8 +3,8 @@
 
 require "../public/Auth.php";
 include "../public/includes/header.view.php";
-// include "database.php";
 
+// include "database.php";
 
 ?>
 
@@ -21,88 +21,54 @@ include "../public/includes/header.view.php";
     <title>Agriculturalist Notification page</title>
 </head>
 <body>
-    <?php include 'agrinotificationback.php';?>
-    <?php include "agri_menu.view.php"?>
 
-<div class = "loggedhome_body">
-<div class = "home_body">
-    <div class="instructor_wrapper">
+    <?php
+
+    $user_id =$_SESSION["USER_DATA"]["user_id"];
+   
+
+    $sql  =  "SELECT * FROM post WHERE user_id='$user_id' ";
+   
+    $result = mysqli_query($conn , $sql);
+
+      // $query = "SELECT * FROM post ORDER BY post_id ASC";
+      // //execute mysql query and store data in result
+      // $result = mysqli_query($conn, $query);
+
+      if (mysqli_num_rows($result) > 0) {
+
+        while ($res = mysqli_fetch_array($result)) {
+    ?>
+    <div class="notification-row">
+      <div class="notification-text">
+        <p>Item Name -<?php echo $res['item_name'] ?></p>
+        <p>Address - <?php echo $res['location'] ?></p>
+        <p>Mobile Number -<?php echo $res['contact_no'] ?></p>
         
-        <div class="content">
-            <br><br>
-            <h2>Notifications</h2>
+      </div>
+      <div class="notification-buttons">
+      <input  type="hidden" name="id1" value="1"> <!-- the ID of the record you want to update -->
+      <input  type="submit" name="accept" value="Accept">
 
-        <section id='customer'>;
-            <!-- User-->
-            <div class="box">
-                <div class="container_left">
-                    <div class="main_card">
-                    <p>New orders</p>
-                    <div class="card_left">
-                        <ul>
-
-                            <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
-                                <li><a onclick="myFunction()" href="agriculturalnotification.php ?view=<?= $record1['user_id']; ?> ">
-                                User <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
-                            <?php }?>
-                        </ul>
-                    </div>
-                    </div>
-                    <!-- <button onclick="location.href='createblog.php'" type="button" id="create">create</button> -->
-                </div>
-                <div class="container_right" id="view_more">
-                    <h3> New Order <?= $cust_user_id ?>:   <?= $cust_first_name ?></h3>
-                <!-- <button class="close-button">&times;</button>-->
-                    <div class="container_button">
-                        <!-- <button onclick="location.href=''" type="button" id="edit">Edit</button> -->
-                        <button type="button" id="delete">Delete</button>
-                    </div>
-                    <div class="details_container">
-                    <table>
-                            
-                            <tr>
-                                <th>Order ID</th>
-                                <td>:</td>
-                                <td><?=$inst_user_id ?></td>
-                            </tr>
-                            <tr>
-                                <th>Category </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                            <tr>
-                                <th>Quantity </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                            <tr>
-                                <th>Customer Address </th>
-                                <td>:</td>
-                                <td><?=$inst_first_name ?></td>
-                            </tr>
-                        
-                            <tr>
-                                <th>Date created </th>
-                                <td>:</td>
-                                <td><?=$inst_email ?></td>
-                            </tr>
-                            
-                        </table>
-                    </div>
-                    
-                </div>
-
-           </div>
-        </section>
-
-           <!-- Blog -->
-           
+      <input type="hidden" name="id0" value="1"> <!-- the ID of the record you want to update -->
+      <input type="submit" name="Delete" value="Delete">
+      </div>
     </div>
-</div>    
+    
+   
 
-        <script src="agri_notification.js"></script>
+    <?php
+ 
+}
+}
+?>
+
+    <footer>
+
+<img src = "photos/Footer.svg"  height= "121.3px" style =  " margin-top:15%">
+</footer>
+    
 </body>
-<div style="margin-left: -25.5%;">
-<?php include  '../includes/footer.view.php' ?>
-</div>
+
+
 </html>

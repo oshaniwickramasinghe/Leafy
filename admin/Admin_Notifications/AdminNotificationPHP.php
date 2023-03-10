@@ -2,10 +2,10 @@
 
 error_reporting(0);
 
-include 'connect.php';
+require "../../database/database.php";
 
-//customer
-$sqlcustomer="SELECT * FROM user where role='customer'";
+//user
+$sqlcustomer="SELECT * FROM user where approved=0";
 
 // make query & get resultcustomer
 $resultcustomer= mysqli_query($conn,$sqlcustomer);
@@ -13,7 +13,7 @@ $resultcustomer= mysqli_query($conn,$sqlcustomer);
     if(isset($_GET['view']))
     {
         $cust_user_id = $_GET['view'];
-        $sql1 = "SELECT * FROM user WHERE user_id=$cust_user_id and role='customer'";
+        $sql1 = "SELECT * FROM user WHERE user_id=$cust_user_id";
         $result1=mysqli_query($conn,$sql1);
         
         if($result1)
@@ -31,59 +31,59 @@ $resultcustomer= mysqli_query($conn,$sqlcustomer);
         }
     }
 
-//instructor
-$sqlinstructor="SELECT * FROM user where role='instructor'";
+//blog
+$sqlblog="SELECT * FROM blog where verified=0";
 
-// make query & get resultcustomer
-$resultinstructor= mysqli_query($conn,$sqlinstructor);
+// make query & get blogs
+$resultblog= mysqli_query($conn,$sqlblog);
 
-    if(isset($_GET['view']))
+    if(isset($_GET['viewblog']))
     {
-        $inst_user_id = $_GET['view'];
-        $sql2 = "SELECT * FROM user WHERE user_id=$inst_user_id and role='instructor'";
+        $blog_id = $_GET['viewblog'];
+        $sql2 = "SELECT * FROM blog WHERE blog_id=$blog_id and verified=0";
         $result2=mysqli_query($conn,$sql2);
         
         if($result2)
         { 
                        
-            while($recordinstructor = mysqli_fetch_assoc($result2))
+            while($recordblog = mysqli_fetch_assoc($result2))
             {
-                $inst_user_id=$recordinstructor['user_id'];
-                $inst_first_name=$recordinstructor['fname'];
-                $inst_email=$recordinstructor['email'];
-                $inst_role=$recordinstructor['role'];
+                $blog_id=$recordblog['blog_id'];
+                $blog_title=$recordblog['title'];
+                $created_date=$recordblog['date'];
    
             }
             
         }
     }
 
-//Agriculturalist
-$sqlagriculturalist="SELECT * FROM user where role='agriculturalist'";
+//course
+$sqlcourse="SELECT * FROM course where verified=0";
 
 // make query & get resultcustomer
-$resultagriculturalist= mysqli_query($conn,$sqlagriculturalist);
+$resultcourse= mysqli_query($conn,$sqlcourse);
 
-    if(isset($_GET['view']))
+    if(isset($_GET['viewcourse']))
     {
-        $agri_user_id = $_GET['view'];
-        $sql3 = "SELECT * FROM user WHERE user_id=$agri_user_id and role='agriculturalist'";
+        $course_user_id = $_GET['viewcourse'];
+        $sql3 = "SELECT * FROM course WHERE course_id=$course_user_id and verified=0";
         $result3=mysqli_query($conn,$sql3);
         
         if($result3)
         { 
                        
-            while($recordagriculturalist = mysqli_fetch_assoc($result3))
+            while($recordcourse = mysqli_fetch_assoc($result3))
             {
-                $agri_user_id=$recordagriculturalist['user_id'];
-                $agri_first_name=$recordagriculturalist['fname'];
-                $agri_email=$recordagriculturalist['email'];
-                $agri_role=$recordagriculturalist['role'];
+                $course_id=$recordcourse['course_id'];
+                $course_name=$recordcourse['title'];
+                
    
             }
             
         }
     }
+
+
 
 //Delivery person
 $sqldelivery="SELECT * FROM user where role='delivery_person'";

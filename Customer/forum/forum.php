@@ -6,54 +6,89 @@ include '../includes/header.php';
 
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-   integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" 
-    referrerpolicy="no-referrer" />
-    <title>Forum</title>
+<link rel="icon" href="./images/favicon.png" type="image/png" sizes="16x16">
+<title>forum</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" href="https://kit.fontawesome.com/6b34f3c462.css" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="main.js"></script>
 </head>
-<body>
+<?php include '../includes/menu.view.php'?>
+<!-- Modal for the reply -->
 
 <div  class  =  "forum_body">
-    <h2> Forum</h2>
-    <form  method  = "post">
-  <div class  = "question">
-    <b><p>What climate is needed for Mediterranean agriculture?</p></b>
+  <div  class  = "R">
+<div id="id01" class="modal" style="display: none;">
+<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+<div id="ReplyModal" class="modal fade" role="dialog">
+        <h4 class="modal-title">Reply Question</h4>
+      </div>
+      <div class="modal-body">
+        <form name="frm1" method="post">
+            <input type="hidden" id="commentid" name="Rcommentid">
+        	<!-- <div class="form-group">
+        	  <label for="usr">Write your name:</label>
+        	  <input type="text" class="form-control" name="Rname" required>
+        	</div> -->
+            <div class="form-group">
+              <label for="comment">Write your reply:</label>
+              <textarea class="form-control" rows="5" name="Rmsg" required></textarea>
+            </div>
+<!-- after click on reply button modal will be hidden -->
+        	 <input type="button" id="btnreply" onclick="hideModal();" name="btnreply" class="btn btn-primary" value="Reply">
+      </form>
+      </div>
+    </div>
+</div>
 
-  </div>
+
+<!-- reply fo the question -->
+
 <div class="reply">
-  <span>The Mediterranean climate is the climate that is needed for Mediterranean agriculture.
- The Mediterranean climate is characterized by summers 
-that are hot and relatively dry while its winters are cool and wet.</span>
-<i class="fa fa-reply" aria-hidden="true"> </i><p>Reply</p>
+  <div class="reply_body">
+    <h4>Recent questions</h4>
+	<table class="table" id="MyTable" style="background-color: #ffff; border:0px;border-radius:10px">
+	  <tbody id="record">
 
-</div>
-<div class="add_question">
-
-<input type  = "text"  name  =  "question"  value  = "Write your question here......" >
-</div>
- <button>Add question</button>
-   </form>
-   <div class  =  "backk">
-   <a href = "../post/vegetable.php"><button> <b><<</b> back</button>
-</div>
+	  </tbody>
+	</table>
+  </div>
 </div>
 
 
+ <!-- question forum -->
+
+<div class="forum">
+<div class="question">
+
+<h3>Forum</h3>
+
+    <form name="frm" method="post">
+      <input type="hidden" id="commentid" name="Pcommentid" value="0">
+
+      <div class="form-group">
+      <label for="comment">Write your question:</label><br>
+      <textarea class="form-control" rows="5" name="msg" required></textarea>
+     </div>
+
+	    <input type="button" id="butsave" name="save" class="btn btn-primary" value="Send">
+  </form>
+
+</div>
+</div>
+
+<!-- end of the forum body -->
+</div>
 </body>
 
 
 <footer>
-<!-- <div class="footer-copyright">
-            <p>copyright @2022 Leafy All Rights Reserved</p>
-        </div> -->
 <img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">
 </footer>
 </html>

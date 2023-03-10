@@ -12,6 +12,7 @@
  $comment="";
  $time="";
  $image1="";
+ $description="";
  
 
  if(isset($_POST['submit']))
@@ -19,6 +20,7 @@
    /* $blog_ID=mysqli_real_escape_string($conn,$_POST['blog_ID']); */
     $title=mysqli_real_escape_string($conn,$_POST['title']);
     $content1=mysqli_real_escape_string($conn,$_POST['content1']);
+    $description=mysqli_real_escape_string($conn,$_POST['description']);
     $image1=$_FILES['image1']['name'];
     $image1_size=$_FILES['image1']['size'];
     $image1_tmp_name=$_FILES['image1']['tmp_name'];
@@ -41,7 +43,7 @@
     
 
 
-    $sql1=" INSERT INTO blog(title,content1,image1,user_id) Values ('$title','$content1','$image1','$user_ID')";
+    $sql1=" INSERT INTO blog(title,content1,image1,user_id,description) Values ('$title','$content1','$image1','$user_id','$description')";
    
     $result1=mysqli_query($conn,$sql1);
     if($result1){
@@ -77,6 +79,7 @@
              $title=$record3['title'];
              $date=$record3['date'];
              $content1=$record3['content1'];
+             $description=$record3['description'];
           /* $content2=$record3['content2'];
              $content3=$record3['content3'];
              $content4=$record3['content4'];*/
@@ -88,16 +91,18 @@
          }
         
      }else{
-         echo "<script>alert('Failed to delete from database')</script>";
+         echo "<script>alert('Failed to edit data in database')</script>";
      }
 
      $update = true;
- //}
+ }
 
  if(isset($_POST['update'])){
+
     $title=$_POST['title'];
     $date=$_POST['date'];
     $content1=$_POST['content1'];
+    $description=$_POST['description'];
  /* $content2=$_POST['content2'];
     $content3=$_POST['content3'];
     $content4=$_POST['content4'];*/
@@ -158,9 +163,10 @@
     else{
         $newimage4 = $image4;
     } */
+ 
 
     $query =  mysqli_query($conn,"UPDATE blog SET blog_id='$blog_ID', title='$title', 
-    content1='$content1', image1='$newimage1' WHERE blog_id='$blog_ID'");
+    content1='$content1', description='$description', image1='$newimage1' WHERE blog_id='$blog_ID'");
 
     if($query)
     {
@@ -172,9 +178,9 @@
         $message[]="registered failed!";
     }
     
-
- }
 }
+ 
+
 
 ?> 
 
@@ -236,6 +242,10 @@
             <div>
                 <label for="title">Title</label><br>
                 <input type="text" id="title" name="title" placeholder="Title of the Blog..." class="text_input" value="<?= $title; ?>" required><br>
+            </div>
+            <div class="description">
+                <label for="description">Description</label><br><br>
+                <textarea for="description" id="description" placeholder="Short description about the blog..." name="description" class="text_input"  value=""  required><?= $description; ?></textarea><br>
             </div>
             <div class="content">
                 <label for="content">Content</label><br><br>

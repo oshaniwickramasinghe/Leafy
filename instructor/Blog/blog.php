@@ -103,21 +103,7 @@ $result2= mysqli_query($conn,$sql2);
         <h1><?php echo $fetch['role'];?></h1>
     </div>
     <div class="instructor_wrapper">
-        
-        <div class="left_menu_bar">
-           <div id="menu">
-            <a><i class="fa-solid fa-bars" style="font-size:20px;color:#43562B;"></i></a>
-            <div class="image"><img src="images/badge.svg" alt=""></div>
-            <h3>Leafy</h3>
-           </div>
-            <ul>
-                <li><a href="../home/home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
-                <li><a href="../dashboard/Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
-                <li><a href="../notification/Insnotification.php"><i class="fa-solid fa-comments" style="font-size:16px;color:#43562B;"></i>Notifications</a></li>
-                <li><a href="blog.php"><i class="fa-brands fa-blogger" style="font-size:20px;color:#43562B;"></i>Blogs</a></li>
-                <li><a href="../course/course.php"><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>Courses</a></li>
-            </ul>
-        </div>
+        <?php include "../includes/instructorMenu.php"; ?>
         <div class="content">
             
             <h2>Blog</h2>
@@ -138,7 +124,7 @@ $result2= mysqli_query($conn,$sql2);
             <div class="container_right" id="view_more">
                 <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
-                <div class="container_button">
+                <div align="right" class="container_button">
                     <a href="userblog.php?view_blog=<?=$blog_ID; ?>" type="button" id="view">View</a>
                     <a href="create blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>

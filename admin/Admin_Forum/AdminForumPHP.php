@@ -2,7 +2,7 @@
 
 error_reporting(0);
 
-include 'connect.php';
+include '../connect.php';
 
 //customer
 $GetQuestions="SELECT * FROM question";

@@ -1,7 +1,7 @@
 <?php
-include "../Auth.php";
-include "../database.php";
-include '../includes/header.php';
+include "../../Auth.php";
+include "../../database.php";
+include '../../includes/header.php';
 
 
 ?>
@@ -42,7 +42,7 @@ that are hot and relatively dry while its winters are cool and wet.</span>
  <button>Add question</button>
    </form>
    <div class  =  "backk">
-   <a href = "../post/vegetable.php"><button> <b><<</b> back</button>
+   <a href = "../../post/vegetable.php"><button> <b><<</b> back</button>
 </div>
 </div>
 

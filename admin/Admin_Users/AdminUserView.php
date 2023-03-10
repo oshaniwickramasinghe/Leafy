@@ -63,7 +63,45 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
 
 ?>
 
+<?php   
 
+  if(isset($_GET['deleteUID']))
+  {
+      
+      $user_id = $_GET['deleteUID'];
+      $sql2 = "UPDATE user SET approved=2 WHERE user_id=$user_id";
+      $result2=mysqli_query($conn,$sql2);
+
+      echo 'deleted';
+
+  }
+
+
+  if(isset($_GET['acceptUID']))
+  {
+
+      $user_id = $_GET['acceptUID'];
+      $sql2 = "UPDATE user SET approved=1 WHERE user_id=$user_id";
+      $result2=mysqli_query($conn,$sql2);
+
+      echo 'updated';
+
+  }
+
+?>
+
+<?php
+    if(isset($_GET['UID']))
+    {?>
+    <div align="right">
+        <a class="delete" href="AdminUserView.php ?deleteUID=<?=$_GET['UID'] ?>" >Deactivate</a>
+        <a class="accept" href="AdminUserView.php ?acceptUID=<?=$_GET['UID'] ?>" >Accept</a>
+
+    </div>
+      
+      <?php 
+    }
+?>
 
 
 <!DOCTYPE html>
@@ -72,6 +110,7 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="notification.css">
     <link rel="stylesheet" href="../public/CSS/style.css"> 
     <!-- <link rel="stylesheet" href="profile.css"> -->
     <title>User Details</title>
@@ -130,7 +169,7 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
                         <div class="view-div" id="view-div">
                             <form action="" method="post" enctype="multipart/form-data">
                                         <span>User ID :</span>
-                                        <input type="text" name="user_ID" value="<?=$user_id ?>" class="box"  readonly><br>
+                                        <input type="text" name="user_ID" value="<?=$user_id ?>" class="box" readonly><br>
                                         <span>First Name :</span>
                                         <input type="text" name="first_name" value="<?=$first_name ?>" class="box"  readonly><br>
                                         <span>Last Name :</span>
