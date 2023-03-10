@@ -1,9 +1,5 @@
 <?php 
 
-// //require "connect.php";
-// include 'connect.php';
-// require "../public/Auth.php";
-// include "../public/includes/header.view.php";
 require "../../database/database.php";
 require "../../public/Auth.php";
 include "../../public/includes/header.view.php";
@@ -39,13 +35,6 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
    
             }
 
-        
-            // while($recordcustomer = mysqli_fetch_assoc($result1))
-            // {
-            //     $fetch= mysqli_fetch_assoc($result1); 
-   
-            // }
-            
         }
 
         $sql2 = "SELECT * FROM customer WHERE user_id=$cust_user_id ";
