@@ -127,23 +127,7 @@ if(isset($_POST['change_password'])){
 </head>
 <body>
     <div class="container">
-    <div class="left_menu_bar">
-            <div id="menu">
-                <a><i class="fa-solid fa-bars" style="font-size:20px;color:#43562B;"></i></a>
-                <div class="image"><img src="images/badge.svg" alt=""></div>
-                <h3>Leafy</h3>
-            </div>
-            <ul>
-                <li><a href="../dashboard/Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
-                <li><a href="../home/home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
-                <li><a href="../notification/Insnotification.php"><i class="fa-solid fa-comments" style="font-size:17px;color:#43562B;"></i>Notifications</a></li>
-                <li><a href="../Blog/blog.php"><i class="fa-brands fa-blogger" style="font-size:20px;color:#43562B;"></i>Blogs</a></li>
-                <li><a href="../course/course.php"><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>Courses</a></li>
- 
-
-            </ul>
-
-    </div>
+        <?php include "../includes/instructorMenu.php"; ?>
         <div class="profile">
             <div class="profile-text">
                 <h1>Profile</h1>

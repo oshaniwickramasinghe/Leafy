@@ -36,6 +36,8 @@ if(isset($_GET['view_blog']))
         $fetch= mysqli_fetch_assoc($result);
     }
 
+   
+
 
 
  ?>

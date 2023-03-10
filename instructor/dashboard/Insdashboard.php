@@ -127,21 +127,7 @@ if(isset($_POST['change_password'])){
 </head>
 <body>
     <div class="main-container">
-        <div class="left_menu_bar">
-            <div id="menu">
-                <a><i class="fa-solid fa-bars" style="font-size:20px;color:#43562B;"></i></a>
-                <div class="image"><img src="../images/badge.svg" alt=""></div>
-                <h3>Leafy</h3>
-            </div>
-            <ul>
-                <!--<li><a href="home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li> -->
-                <li><a href="Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
-                <li><a href="../profile/InstructorProfile.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>My Profile</a></li>
-                <li><a href="../notification/Insnotification.php"><i class="fa-solid fa-comments" style="font-size:17px;color:#43562B;"></i>Notifications</a></li>
-                <li><a href="../blog/blog.php"><i class="fa-brands fa-blogger" style="font-size:20px;color:#43562B;"></i>My Blogs</a></li>
-                <li><a href="../course/course.php"><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>My Courses</a></li>
-            </ul>
-        </div>
+        <?php include "../includes/instructorMenu.php";  ?>
         <div class="details-container">
             <div class="first-part">
                 <h1>Dashboard</h1S>

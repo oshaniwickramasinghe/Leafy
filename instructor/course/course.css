@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+    box-sizing:inherit;
+    font-family:'Lato', sans-serif;  
+}
+
+.role_name  {
+    margin:0px;
+    padding-left: 190px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: calc(100%-100px);
+    text-transform:capitalize;
+    font-size: 17px;
+    color:rgba(0, 0, 0, 0.751);
+    
+}
+
+
+.body{
+
+    margin: 0% 1%; 
+    height: 60%; 
+  }
+  
+  .role_name .right{
+      flex:1.5;
+  }
+  
+  .instructor_wrapper{
+      display: flex;
+      height: 40%;
+      
+      
+      
+  }
+  
+  .instructor_wrapper .left_menu_bar{
+      flex:1.5;
+      background: #8f918b29;
+      display: block;
+      border-radius:20px;
+      height: auto;
+      box-shadow: var(--box-shadow);
+      
+  }
+  
+  #menu{
+      display: flex;
+      align-items: center;
+      padding-top: 5px;
+      
+  
+  }
+  
+  .left_menu_bar i{
+      display: inline-block;
+      margin-right: 1em;
+      
+    }
+  
+    .left_menu_bar #menu .image{
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+  
+    }
+  
+  .left_menu_bar #menu i{
+      display: inline-block;
+      margin-left: 1em;
+      margin-right: 1em;
+  }
+  
+  
+  
+  
+  .instructor_wrapper .left_menu_bar ul{
+      list-style: none;
+      margin: 10px;
+      padding: 0px;
+  
+  }
+  
+  .instructor_wrapper .left_menu_bar ul li a{
+      text-decoration: none;
+      padding: 11px;
+      margin: 4px;
+      display: block;
+      color: #43562B;
+      background:#fff;
+      border-radius:4px;
+  
+      
+  }
+  
+  .instructor_wrapper .left_menu_bar ul li a:hover{
+      background: rgba(217, 217, 217);
+     
+  }
+  
+  .instructor_wrapper .left_menu_bar h3{
+      color:rgba(67, 86, 43);
+      margin-left: 0px;
+      padding-left:0px;
+     
+  }
+  
+  
+  .instructor_wrapper .content{
+      flex:8.5;
+      padding: 10px 20px;
+      background: #8d8f8c46;
+      border-radius: 20px;
+      margin-left: 1%;
+      margin-bottom: 5px;
+      
+      
+     
+  
+  }
+  
+  .instructor_wrapper .content h2{
+      color:rgba(0, 0, 0, 0.669);
+      
+  }
+
+  .container{
+    height: 100%;
+    
+  }
+
+  .container .table{
+    height: auto;
+  }
+
+  .container .table h3{
+	text-align: center;
+	margin-top: 5px;
+	color: #313d22;
+  }
+
+  .create-button
+  {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  #create{
+    border:none;
+    width:50%;
+    height:30px;
+    color:#FCFEF9;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #5A713D;
+    border-radius: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    
+  }
+
+  #create:hover{
+    background: #323929;
+  }
+
+ .content-table{
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 400px;
+	  margin-bottom: 20px;
+	  margin-top: 20px;
+  }
+
+  .content-table thead tr{
+    background-color: rgba(128, 168, 126, 0.634);
+    color: black;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .content-table th, td{
+    padding: 12px 15px;
+    
+  }
+
+  .content-table tbody tr{
+    border-bottom: 10px soild white;
+	background-color:rgba(242, 244, 242, 0.467);
+  }
+
+  .content-table tbody tr:nth-of-type(even){
+    background-color: #fff;
+  }
+
+
+ .container_button{
+    display: flex;
+    margin-right: 20px;
+    margin-top: 0;
+
+}
+
+ .container_button #view {
+    border:none;
+    color: #314063;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 58, 144, 0.425);
+    border-radius: 20px;
+    margin-right: 5px;
+}
+
+ .container_button #edit{
+    border:none;
+    color: #43562B;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 144, 76, 0.334);
+    border-radius: 20px;
+    margin-right: 5px;
+}
+
+#submit-btn{
+    border:none;
+    color: #43562B;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 144, 76, 0.334);
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+
+ .container_button #answer-btn{
+    border:none;
+    color: #43562B;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(39, 144, 76, 0.334);
+    border-radius: 20px;
+}
+
+ .container_button #delete{
+    border:none;
+    color:#531614;
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(206, 91, 91, 0.2);
+    border-radius: 20px;
+}
+
+ .container_button #edit:hover{
+    background: rgba(39, 144, 75, 0.5);
+}
+
+ .container_button #answer-btn:hover{
+    background: rgba(39, 144, 75, 0.5);
+}
+
+ #submit-btn:hover{
+    background: rgba(39, 144, 75, 0.5);
+}
+
+ .container_button #delete:hover{
+    background-color: rgba(206, 91, 91, 0.5);
+}
+
+.cancelbtn, .deletebtn {
+    float: left;
+    
+  }
+  
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
+
+  #id01 button{
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 10px;
+    
+  }
+
+  #id01 a{
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  
+  /* Add a color to the delete button */
+  .deletebtn {
+    background-color: #f44336;
+    color: black;
+  }
+  
+  /* Add padding and center-align text to the container */
+  #id01 .container {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  #id01 .container p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: #070708a4;
+        padding-top: 50px;
+      }
+      
+      /* Modal Content/Box */
+      .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 40%; /* Could be more or less, depending on screen size */
+        border-radius: 10px;
+        text-align: center;
+      }
+      
+      /* Style the horizontal ruler */
+      hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+      }
+      
+      /* The Modal Close Button (x) */
+      .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #f44336;
+        cursor: pointer;
+      }
+      
+      /* Clear floats */
+      .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
