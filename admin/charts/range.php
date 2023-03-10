@@ -38,9 +38,7 @@
     </style>
   </head>
   <body>
-    <div class="chartMenu">
-      <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
-    </div>
+    
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>

@@ -45,148 +45,35 @@
 
   <body>
 
-        <?php
-            try{
-
-                $sql = "SELECT * FROM leafy.user_count ";
-                $result = $pdo->query($sql);
-                if($result->rowCount()>0){
-                    
-                     $count = array();
-                    
-                    while($row=$result->fetch()){
-                        $count[]=$row["count"];
-                        
-                        echo $row["count"];
-                    }
-                    unset($result);
-                }
-                else{
-                    echo "no records found from user";
-                }
-            }catch(PDOException $e){
-                die ("Error: unable to excecute $sql.".$e->getMessage());
-            }
-
-            try{
-
-                $sql = "SELECT * FROM leafy.duplicate_user_count ";
-                $result = $pdo->query($sql);
-                if($result->rowCount()>0){
-                    
-                     $colour = array();
-                    
-                    while($row=$result->fetch()){
-                        $colour[]=$row["count"];
-                        
-                        echo $row["count"];
-                    }
-                    unset($result);
-                }
-                else{
-                    echo "no records found";
-                }
-            }catch(PDOException $e){
-                die ("Error: unable to excecute $sql.".$e->getMessage());
-            }
-            unset($pdo);
-
-            
-        ?>
-
-    <div class="chartCard">
-      <div class="chartBox">
-        <canvas id="myChart"></canvas>
-      </div>
-    
-      <div class="chartBox">
-        <canvas id="ABC"></canvas>
-      </div>
+  <div class="chartCard">
+    <div class="chartBox">
+    <?php include 'charts/users_report.php';?>
     </div>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-
-    <script>
-    // setup 
-    //setup block
-    const count = <?php echo json_encode($count);?>;
-           
-
-           const data = { 
-           labels: ['customer', 'agriculturalist', 'instructor', 'delivery_person'],
-               datasets: [{
-                   label: '# of Votes',
-                   data: count,
-                   backgroundColor: [
-                       'rgba(54, 162, 235, 0.2)',
-                       
-                   ],
-                   borderColor: [
-                       'rgba(54, 162, 235, 1)',
-                       
-                   ],
-                   borderWidth: 1
-               }]
-           };
-           //config block
-           const config ={
-                   type: 'bar',
-               data:data,
-               options: {
-                   scales: {
-                       y: {
-                           beginAtZero: true
-                       }
-                   }
-               }
-           };
-
-           //render block
-           const myChart = new Chart(
-               document.getElementById('myChart'),
-               config
-           );  
+  </div>
 
 
-    /////chart 2
-    
-    const colour = <?php echo json_encode($colour);?>;
-    // setup 
-    const theta = { 
-            labels: ['red', 'blue', 'yellow', 'green'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: colour,
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
-                        
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        
-                    ],
-                    borderWidth: 1
-                }]
-            };
-            //config block
-            const config2 ={
-                    type: 'bar',
-                data:theta,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            };
-            //render block
-            const ABC = new Chart(
-                document.getElementById('ABC'),
-                config2
-            );
-    /////end chart 2
-    </script>
+  <div class="chartCard">
+    <div class="chartBox">
+    <?php include 'charts/blog_report.php';?>
+    </div>
+  </div>
+
+  <div class="chartCard">
+    <div class="chartBox">
+    <?php include 'charts/course_report.php';?>
+    </div>
+  </div>
+
+
+
+  
+  
+  
+
+  <?php include 'testbarchart.php';?>
+  <?php include 'testpiechart.php';?> 
+
+      
 
   </body>
 </html>

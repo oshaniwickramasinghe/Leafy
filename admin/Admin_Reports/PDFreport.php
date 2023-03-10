@@ -32,6 +32,10 @@ include "../../Customer/includes/header.php";
           
     <title>Admin Report page</title>
 
+    <!-- pdf -->
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js">
+      </script>
+
     <style>
       * {
         margin: 0;
@@ -55,12 +59,41 @@ include "../../Customer/includes/header.php";
         border: solid 3px rgba(54, 162, 235, 1);
         background: white;
       }
+
+
+      /* pdf css */
+      .pdfcontainer {
+         position: fixed;
+         top: 20%;
+         left: 28%;
+         border-radius: 7px;
+      }
+      #generatePdf {
+         /* box-sizing: content-box; */
+         width: 300px;
+         height: 100px;
+         padding: 30px;
+         border: 1px solid black;
+         font-style: sans-serif;
+         background-color: #f0f0f0;
+      }
+      #pdfButton {
+         background-color: #4caf50;
+         border-radius: 5px;
+         margin-left: 300px;
+         margin-bottom: 5px;
+         color: white;
+      }
     </style>
 </head>
 
 <body>
     <?php include 'AdminReportPHP.php';?>
     <?php include "../admin_menu.view.php"?>
+
+<div class="pdfcontainer">
+<button id="pdfButton">Generate PDF</button>
+<div id="generatePdf">
 
 <div class = "loggedhome_body">
 <div class = "home_body">
@@ -116,7 +149,7 @@ include "../../Customer/includes/header.php";
            <div class="box">
                 <div class="container_left">
 
-                <form class="search" method="POST" action="AdminReport.php" >
+                <form class="search" method="POST" action="PDFreport.php" >
                     <input type="text" id="start1" placeholder="search by role..." name="start1" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"/> 
 
 					<span >
@@ -164,7 +197,7 @@ include "../../Customer/includes/header.php";
                 <div class="container_left">
 
 
-                <form class="search" method="POST" action="AdminReport.php" >
+                <form class="search" method="POST" action="PDFreport.php" >
                     <input type="month" id="start2" placeholder="date..." name="start2" min="2023-01" value="2023-05" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"/> 
 
 					<span >
@@ -211,7 +244,7 @@ include "../../Customer/includes/header.php";
            <div class="box">
                 <div class="container_left"> 
                     
-                <form class="search" method="POST" action="AdminReport.php" >
+                <form class="search" method="POST" action="PDFreport.php" >
                     <input type="text" id="start3" placeholder="instructor id..." name="start3"  value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"/> 
 
 					<span >
@@ -257,8 +290,25 @@ include "../../Customer/includes/header.php";
 
     </div>
 </div> 
-</div>    
+</div> 
+
+</div> <!-- pdf -->
+</div> <!-- pdf -->
 
         <script src="notification.js"></script>
+
+
+        <!-- pdf -->
+        <script>
+            var button = document.getElementById("pdfButton");
+            button.addEventListener("click", function () {
+                var doc = new jsPDF("p", "mm", [300, 300]);
+                var makePDF = document.querySelector("#generatePdf");
+                // fromHTML Method
+                doc.fromHTML(makePDF);
+                doc.save("output.pdf");
+            });
+        </script>
+        <!-- pdf -->
 </body>
 </html>

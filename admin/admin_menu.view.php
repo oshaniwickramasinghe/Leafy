@@ -39,9 +39,10 @@
             <ul>
                 <li><a href="AdminHome.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <!-- <li><a href="AdminDashboard.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Dashboard</a></li> -->
-                <li><a href="Admin_Reports/AdminReport.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Reports</a></li>
+                <li><a href=".Admin_Reports/AdminReport.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Reports</a></li>
                 <li><a href="Admin_Notifications/AdminNotification.php"><i class="fa-brands fa-blogger"  style="font-size:16px;color:black;"></i>Notifications</a></li>
                 <li><a href="Admin_Forum/AdminForum.php"><i class="fa-brands fa-readme" style="font-size:16px;color:black;"></i>Forum</a></li>
+                <li><a href="../../item/itemview.php"><i class="fa-brands fa-readme" style="font-size:16px;color:black;"></i>Item</a></li>
             </ul>
 
         </div>

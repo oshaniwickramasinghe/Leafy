@@ -4,20 +4,7 @@ require "../../database/database.php";
 require "../../public/Auth.php";
 include "../../Customer/includes/header.php";
 
-?>
 
-<?php 
-    $username= "root";
-    $password= "";
-    $database = "leafy";
-
-    try{
-        $pdo = new PDO("mysql:host=localhost;database=$database",$username,$password);
-
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }catch(PDOException $e){
-        die("Error: not connected.".$e->getMessage());
-    }
 ?>
 
 <!DOCTYPE html>
@@ -31,36 +18,10 @@ include "../../Customer/includes/header.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
           
     <title>Admin Report page</title>
-
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      
-      .chartCard {
-        /* width: 100vw; */
-        width: 500px;
-        /* height: calc(100vh - 40px); */
-        height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 500px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(54, 162, 235, 1);
-        background: white;
-      }
-    </style>
 </head>
-
 <body>
     <?php include 'AdminReportPHP.php';?>
-    <?php include "../admin_menu.view.php"?>
+    <?php include "../../public/includes/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
@@ -69,6 +30,7 @@ include "../../Customer/includes/header.php";
         <div class="content">
             <h2>Reports</h2>
 
+        <section id='customer'>;
             <!-- not delivered orders-->
             <div class="box">
                 <div class="container_left">
@@ -90,7 +52,6 @@ include "../../Customer/includes/header.php";
                     </div>
                 </div>
 
-                <!-- delivered orders-->
                 <div class="container_left">
                     <div class="main_card">
                     <p>Delivered orders</p>
@@ -111,6 +72,36 @@ include "../../Customer/includes/header.php";
                 </div>
 
            </div>
+        </section>
+
+           <!-- delivered orders
+           <div class="box">
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Delivered orders</p>
+                    <div class="card_left">
+                        <ul>
+
+                        <li><a style="color: gray;">
+                        OrderID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;CustomerID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Payment method
+                        </a></li>
+
+                            <?php while($record2=mysqli_fetch_assoc($resultnonorder)){?>
+                                <li><a>
+                                <?= $record2['order_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?= $record2['customer_id']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?= $record2['payment_method']?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="container_right" id="view_more">
+                    <div class="center">
+                    <?php include '../charts/users.php';?>
+                    </div>
+                    
+                </div>
+
+           </div> -->
 
            <!-- search Users by role-->
            <div class="box">
@@ -144,20 +135,44 @@ include "../../Customer/includes/header.php";
                     </div>
                 </div>
                 <div class="container_right" id="view_more">
-                    <!-- <div class="center"> -->
-                    <div align="center">
-                    <div class="chartCard">
-                        <div class="chartBox">
-                        <?php include '../../admin/charts/users_report.php';?>
-                        
-                        </div>
+                    <div class="center">
+                    <?php include '../charts/user.php';?>
                     </div>
-                    </div>
-                    <!-- </div> -->
                     
                 </div>
 
            </div>
+
+
+           <!-- All Blogs
+           <div class="box">
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Blogs</p>
+                    <div class="card_left">
+                        <ul>
+
+                        <li><a style="color: gray;">
+                        BlogID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Blog Title&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Date created
+                        </a></li>
+
+                            <?php while($record4=mysqli_fetch_assoc($resultblog)){?>
+                                <li><a >
+                                <?= $record4['blog_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['title']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['date']?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="container_right" id="view_more">
+                    <div class="center">
+                    <?php include '../charts/blog.php';?>
+                    </div>
+                    
+                </div>
+
+           </div> -->
+
 
            <!-- select blog by month-->
            <div class="box">
@@ -193,14 +208,8 @@ include "../../Customer/includes/header.php";
                     </div>
                 </div>
                 <div class="container_right" id="view_more">
-                    <!-- <div class="center"> -->
-                    <div align="center">
-                    <div class="chartCard">
-                        <div class="chartBox">
-                        <?php include '../../admin/charts/blog_report.php';?>
-                        </div>
-                    <!-- </div> -->
-                    </div>
+                    <div class="center">
+                        <?php include '../charts/blog.php';?>
                     </div>
                     
                 </div>
@@ -239,14 +248,9 @@ include "../../Customer/includes/header.php";
                     </div>
                 </div>
                 <div class="container_right" id="view_more">
-                    <!-- <div class="center"> -->
-                    <div align="center">
-                    <div class="chartCard">
-                        <div class="chartBox">
-                        <?php include '../../admin/charts/course_report.php';?>
-                        </div>
-                        </div>
-                    <!-- </div> -->
+                    <div class="center">
+                        <?php include '../charts/user.php';?>
+                    </div>
                     
                 </div>
 
@@ -256,7 +260,6 @@ include "../../Customer/includes/header.php";
         </div>
 
     </div>
-</div> 
 </div>    
 
         <script src="notification.js"></script>

@@ -1,9 +1,8 @@
 <?php 
 
-//require "connect.php";
-include 'connect.php';
-require "../public/Auth.php";
-include "../public/includes/header.view.php";
+require "../../database/database.php";
+require "../../public/Auth.php";
+include "../../public/includes/header.view.php";
 
 
 //customer
@@ -36,13 +35,6 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
    
             }
 
-        
-            // while($recordcustomer = mysqli_fetch_assoc($result1))
-            // {
-            //     $fetch= mysqli_fetch_assoc($result1); 
-   
-            // }
-            
         }
 
         $sql2 = "SELECT * FROM customer WHERE user_id=$cust_user_id ";
@@ -110,8 +102,8 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="notification.css">
-    <link rel="stylesheet" href="../public/CSS/style.css"> 
+    <link rel="stylesheet" href="../notification.css">
+    <link rel="stylesheet" href="../../public/CSS/style.css"> 
     <!-- <link rel="stylesheet" href="profile.css"> -->
     <title>User Details</title>
     
@@ -119,7 +111,7 @@ $resultcustomer2= mysqli_query($conn,$sqlcustomer2);
 </head>
 <body>
 
-<?php include "../public/includes/admin_menu.view.php"?>
+<?php include "../admin_menu.view.php"?>
 <?php //include "../public/includes/admin_menu.view.php"?>
 
 
