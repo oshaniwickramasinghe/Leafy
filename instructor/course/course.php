@@ -138,7 +138,7 @@ $result2= mysqli_query($conn,$sql2);
                             <td>
                                 <div class="container_button">
                                     <a href="userCourse.php?view_blog=<?=$fetch['course_id']; ?>" type="button" id="view">View</a>
-                                    <a href="create course.php?edit=<?=$fetch['course_id']; ?>" type="button" id="edit" >Edit</a>
+                                    <a href="createCourse.php?edit=<?=$fetch['course_id']; ?>" type="button" id="edit" >Edit</a>
                                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
                                 </div>
                                 <div id="id01" class="modal" style="display: none;">
@@ -174,7 +174,7 @@ $result2= mysqli_query($conn,$sql2);
 
             </div>
             <div class="create-button">
-                <button onclick="location.href='create course.php'" type="button" id="create"><i class="fa-solid fa-square-plus"></i> Create New Course</button>
+                <button onclick="location.href='createCourse.php'" type="button" id="create"><i class="fa-solid fa-square-plus"></i> Create New Course</button>
             </div>
             </div>
    </div>

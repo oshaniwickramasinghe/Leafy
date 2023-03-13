@@ -8,15 +8,123 @@
     font-family:'Lato', sans-serif;
 }
 
+body{
+  position: relative;
+  margin: 0%;
+  height: 100%;
+  width: 100;
+}
 
-.create_form_wrapper{
-    height: calc(100%-100px);
-    height:80%;
-    margin:20px 30px 20px 100px;
-    background: rgba(169, 172, 172, 0.377);
-    width: 75%;
-    padding: 20px 50px 5px 100px;
-    border-radius: 30px;
+.container{
+  height: 80%;
+  width: 100%;
+  display: flex;
+  padding-top: 5px;
+}
+
+
+.container .left_menu_bar{
+  flex:1.5;
+  background: #8f918b29;
+  display: block;
+  border-radius:10px;
+  height: auto;
+  box-shadow: var(--box-shadow);
+  margin-top: 1%;
+  margin-left: 1%;
+  
+  
+}
+
+.container .left_menu_bar ul li a{
+  text-decoration: none;
+  padding: 11px;
+  margin: 4px;
+  display: block;
+  color: #43562B;
+  background:#fff;
+  border-radius:4px;
+
+  
+}
+
+.container .left_menu_bar ul li a:hover{
+  background: rgba(217, 217, 217);
+ 
+}
+
+.container .left_menu_bar h3{
+  color:rgba(67, 86, 43);
+  margin-left: 0px;
+  padding-left:0px;
+ 
+}
+
+
+
+.container .left_menu_bar #menu{
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.left_menu_bar i{
+  display: inline-block;
+  margin-right: 1em;
+  
+}
+
+.left_menu_bar #menu .image{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+
+}
+
+.left_menu_bar #menu i{
+  display: inline-block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+
+.container .left_menu_bar ul{
+  list-style: none;
+  margin: 10px;
+  padding: 0px;
+
+}
+
+.container .create_form_wrapper{
+  width: 100%;
+  height: auto;
+  background-color: rgba(239, 239, 239, 0.7);
+  flex: 8.5;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  padding-left: 20px;
+  margin-left: 1%;
+  margin-right: 1%;
+  border-radius: 5px;
+  margin-top: 1%;
+  
+
+
+}
+
+.container .create_form_wrapper .view-wrap {
+  height: auto;
+  margin-right: 5px;
+  width: 98%;
+
+}
+
+.container .create_form_wrapper .view-wrap .view{
+  display:block;
+  height: auto;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  background-color: #fff;
 }
 
 @media screen and (max-width: 767px) {
@@ -31,7 +139,7 @@
 h1{
     color:#5A713D;
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0px;
 }
 
 
@@ -41,15 +149,71 @@ h1{
   }
 }
 
-.create_form_wrapper form .field div label{
+.container .create_form_wrapper .view-wrap .view .view-btn, .update-btn{
+  color: rgb(68, 71, 71);
+  border-color: black;
+  margin-right:0px;
+  margin-left:20%;
+  text-align: center;
+  margin-top: 0.4%;
+  margin-bottom: 0.4%;
+  background-color:white;
+  width: 20%;
+  border-radius: 10px;
+  height: 80%;
+  
+}
+
+.container .create_form_wrapper .view-wrap .view .view-btn:hover, .update-btn:hover{
+  background-color:rgba(169, 172, 172, 0.251);
+}
+
+.btn-section button:active {
+  background-color: #ccc;
+}
+
+.btn-section{
+  background-color: rgba(100, 102, 99, 0.2);
+  height: 30px;
+  box-shadow: #FCFEF9;
+  width: 100%;
+
+}
+
+.view-div{
+  min-height: 40vh;
+  display: block;
+  justify-content: space-between;
+  margin: 30px;
+  width: 90%;
+}
+
+.update-div{
+  min-height: 40vh;
+  display: none;
+  justify-content: space-between;
+  margin: 30px;
+  width: 90%;
+}
+
+form {
+  flex-wrap: wrap;
+  gap: 5px;
+  width:100%;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  height: auto;
+
+}
+
+
+.create_form_wrapper form label{
     color:#5A713D;
-    flex:1.5;
-    
     text-align:left;
 
 }
 
-.create_form_wrapper form .field div input, select, textarea{
+.create_form_wrapper form input, select{
     flex:8.5;
     height:40px;
     padding-top: 3px;
@@ -57,22 +221,22 @@ h1{
     line-height: 2em; 
     border-style: none;
     color:#5A713D;
-    width: 99%;
+    width: 100%;
     margin: 10px 0px 20px 0px;
+    background-color: rgba(169, 172, 172, 0.251);
     
 }
 
-.create_form_wrapper form .field div textarea{
-  flex:8.5;
+.create_form_wrapper form textarea{
   height:100px;
+  margin: 0px 0px 20px 0px;
   padding-top: 3px;
   padding-left: 10px;
   line-height: 2em; 
   border-style: none;
   color:#5A713D;
-  width: 99%;
-  margin: 10px 0px 20px 0px;
-  
+  width: 100%;
+  background-color: rgba(169, 172, 172, 0.251);
 }
 
 
@@ -108,7 +272,7 @@ h1{
 }
 
 
-.btn{
+.block .button-section .btn{
     border:none;
     width:40%;
     height:30px;
@@ -121,6 +285,7 @@ h1{
     background-color: #5A713D;
     border-radius: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
    
 }
 
@@ -190,4 +355,5 @@ h1{
 
   #continue{
     margin-right: 20px;
+
   }

@@ -14,37 +14,34 @@ if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
 }
 
-/*
+
 // make query & get result2
 $result2= mysqli_query($conn,$sql2);
 
     if(isset($_GET['view']))
     {
-        $blog_ID = $_GET['view'];
-        $sql3 = "SELECT * FROM blog WHERE blog_id=$blog_ID";
+        $question_ID = $_GET['view'];
+        $sql3 = "SELECT * FROM course_forum WHERE question_id=$question_ID";
         $result3=mysqli_query($conn,$sql3);
         
         if($result3)
         { 
-            
-           
             while($record2 = mysqli_fetch_assoc($result3))
              {
-                $blog_ID=$record2['blog_id'];
-                $title=$record2['title'];
+                $question_ID=$record2['question_id'];
+                $course_ID=$record2['course_id'];
+                $user_ID=$record2['user_id'];
                 $date=$record2['date'];
-               // $author=$record2['author'];
-                $content=$record2['content'];
-               // $comment=$record2['comment'];
                 $time=$record2['time'];
-                $image=$record2['image'];
+                $reply=$record2['reply'];
+                $answered=$record2['answered'];
    
         }
             
         }
     }
 
-
+/*
     if(isset($_GET['delete']))
     {
         $blog_ID = $_GET['delete'];
@@ -85,7 +82,7 @@ $result2= mysqli_query($conn,$sql2);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../blog/blog.css">
+    <link rel="stylesheet" href="../notification/notification .css">
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
     <title>instructor notification page</title>
 </head>
@@ -101,21 +98,33 @@ $result2= mysqli_query($conn,$sql2);
             
             <h2>Notifications</h2>
             <div class="container">
-            <div class="container_left">
-                <div class="main_card">
-                <p>Notification List</p>
-                <div class="card_left">
-                    <ul>
-                        <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                            <li><a  href="notification.php?view=<?= $record1['blog_id']; ?>">Notification-How to make a paddy Field</a></li>
-                        <?php }?>
-                    </ul>
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Notifications from Admin</p>
+                    <div class="card_left">
+                        <ul>
+                            <?php while($record1=mysqli_fetch_assoc($result2)){?>
+                                <li><a  href="notification.php?view=<?= $record1['question_id'] ?>">question from <?= $record1['course_id'] ?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
                 </div>
+                <div class="container_left">
+                    <div class="main_card">
+                    <p>Notification from course forum</p>
+                    <div class="card_left">
+                        <ul>
+                            <?php while($record1=mysqli_fetch_assoc($result2)){?>
+                                <li><a  href="notification.php?view=<?= $record1['question_id'] ?>">question from <?= $record1['course_id'] ?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                    </div>
                 </div>
-            </div>
-            <div class="container_right" id="view_more">
+      <!--      <div class="container_right" id="view_more">
                 <h3> Question<!--<?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?>--></h3>
-               <!-- <button class="close-button">&times;</button>-->
+               <!-- <button class="close-button">&times;</button>
                 <div class="container_button">
                     <button href="notification.php" id="answer-btn"  class="answer-btn" >Answer</button>
                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
@@ -133,7 +142,7 @@ $result2= mysqli_query($conn,$sql2);
                             </div>
                     </form>
                 </div>
-                <div class="details_container">
+            <!--   <div class="details_container">
                     <h4><?php if(isset ($fetch['fname'])){ echo $fetch['fname'];} ?></h4>
                     <p><?php if(isset ($date)){ echo $date;} ?></p>
                     <p><?php if(isset ($time)){ echo $time;} ?></p>
@@ -149,13 +158,13 @@ $result2= mysqli_query($conn,$sql2);
                             <td>:</td>
                             <td><?php if(isset ($title)){ echo $title;} ?></td>
                         </tr>
-                       <!-- <tr>
+                        <tr>
                             <th>Comment </th>
                             <td>:</td>
                             <td><?php if(isset ($commen)){ echo $commen;} ?></td>
-                        </tr>-->
+                        </tr>
                     </table>   
-                </div>
+                </div> -->
                 <div class="answer-container" id="answer-div">
                         <h3>Answer</h3>
                         <p>Ensure that the field is level, well drained, and under shade. Chop compost materials into small pieces (3−5 cm). If possible, build compost heaps in layers consisting of rice crop material, combined with legume or manure wastes, on a 2:1 ratio. Keep compost heaps moist—not to wet and not too dry.</p>
