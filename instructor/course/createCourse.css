@@ -164,6 +164,7 @@ h1{
   
 }
 
+
 .container .create_form_wrapper .view-wrap .view .view-btn:hover, .update-btn:hover{
   background-color:rgba(169, 172, 172, 0.251);
 }
@@ -252,13 +253,22 @@ form {
 .create_form_wrapper form .field .images .image{
     background-color:white;
     margin-bottom: 30px;
+    display: flex;
+    
+}
+
+.create_form_wrapper form .field .images .image input{
+  margin: 0px 50px;
+  margin-top: 0%;
+  
 }
 
 
 
 
 .create_form_wrapper form .field div img{
-    margin-left: 15%;
+    text-align: center;
+    width: 400px;
     
 }
 
@@ -323,7 +333,6 @@ form {
     
     color:rgb(12, 78, 90);
     font-weight: bold;
-    
     font-size: 22px;
     cursor: pointer;
     transition: 0.3s;
@@ -353,7 +362,73 @@ form {
     display: flex;
   }
 
-  #continue{
+  #continue, #add-more{
     margin-right: 20px;
 
+  }
+
+  h2{
+    margin: 20px 0;
+  }
+
+  #instruction{
+    margin-bottom: 10px;
+  }
+
+  #textareas-container{
+    margin-top: 20px;
+  }
+
+  #add-more{
+    border:none;
+    width:15%;
+    height:20px;
+    color:#FCFEF9;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #5A713D;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .sessions{
+    margin-top:20px ;
+  }
+
+  .session{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+  .icon{
+    text-align: center;
+    padding: 11px;
+    border: #323929;
+    cursor: pointer;
+    background-color: #b8bbb3a4;
+    margin: 10px 0px 30px 0px;
+    color: #ee6c41;
+  }
+
+  .save{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .save-btn{
+    background-color:#5A713D;
+    width: 50%;
+    height: 50px;
+    color:whitesmoke;
+    margin:10px 0px 20px 0px;
+    border-radius: 10px;
+    align-content:center;
+    text-align: center;
+    cursor: pointer;
   }

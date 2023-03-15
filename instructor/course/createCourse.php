@@ -141,8 +141,8 @@
             <div class="view-wrap"> 
                 <div class="view">
                    <div class="btn-section">
-                        <button class="view-btn" id="view-btn">overview</button>
-                        <button class="update-btn" id="update-btn">update profile</button>
+                        <button class="view-btn" id="view-btn">Basic Details</button>
+                        <button class="update-btn" id="update-btn">Sessions</button>
                    </div>
                     <div class="block">
                             <?php
@@ -206,20 +206,22 @@
                                         </select><br>
                                     </div>
                                     <div class="images">
-                                        <label for="image">Image for the cover page of course</label><br><br>
+                                        <label for="image" >Image for the cover page of course</label><br><br>
                                     <div class="image">
+                                    <?php 
+                                    if($image == ''){
+                                        echo '<img src="../images/placeholde.png" align="middle" width="60%" border-radius:50%>';
+                                    }else{
+                                        echo '<img src="../images/'.$image.'" align="middle" width="60%" border-radius:50%;>';
+                                    }
+                                    
+                                    ?>
+
+                                    
                                         <input type="hidden" name="oldimage1" value="<?= $image;?>">
                                         <input type="file" name="image" class="text_input" accept="image/jpg, image/jpeg, image/png"><br>
-    
-                                        <?php if($update == true) {?>
-                                        <div>
-                                            <img src="../images/<?= $image; ?>" width ="120" class="img-thumbnail">
-                                        </div>
-                                        <?php } else {?>
-                                        <div>
-                                            <img src="../images/<?= $image; ?>" width ="120" class="img-thumbnail" style="visibility:hidden" >
-                                        </div>
-                                        <?php } ?>
+                                        
+                                    
                                     </div>
                                     </div>
                                 
@@ -228,37 +230,39 @@
                                         <input type="hidden" name="oldimage" value="<?= $image; ?>">
                                         <input type="file" name="image" class="text_input" accept="image/jpg, image/jpeg, image/png"><br>
                                     </div>
-                                    <?php if($update == true) {?>
-                                        <div>
-                                            <img src="./images/<?= $image; ?>" width ="120" class="img-thumbnail">
-                                        </div>
-                                    <?php } else {?>
-                                        <div>
-                                            <img src="./images/<?= $image; ?>" width ="120" class="img-thumbnail" style="visibility:hidden" >
-                                        </div>
-                                    <?php } ?>-->
+                                >-->
                                     </div>
                                     <div class="button-section">
-                                        <button onclick="createTextAreas()" type="submit" class="btn" id="continue">Continue</button>
+                                 <!--   <button onclick="createTextAreas()" type="submit" class="btn" id="continue">Continue</button> -->
                                         <?php if($update == true) {?>
                                             <input type="submit" value="update" name="update" class="btn">
                                         <?php } else {?>     
-                                            <input type="submit" value="save" name="save" class="btn">
+                                            <input type="submit" value="Save" name="save" class="btn" id="save-btn">
                                         <?php } ?>   
                                     </div> 
                                 </form>
                             </div>
                             <div class="update-div" id="update-div">
                                 <form action="" method="post" enctype="multipart/form-data"> 
+                                    <h2><label for="description">Course Session</label><br></h2>
+                                    <label for="instruction" id="instruction"><small>Here is where you can add sessions of your course.
+                                    Please add less than 15 session in to your course.</small></label>   
                                     <div class="sessions">
-                                    <label for="description">Course Description</label><br><br>
-                                        <textarea for="textareas-container" id="textareas-container" placeholder="..." name="textareas-container " class="text_input"  value=""  required></textarea><br>
-                                        <div class="button-section">
-                                        <button onclick="createTextAreas()" type="submit" class="btn" id="continue">Continue</button>
-                                        <input type="submit" value="Save" name="Save" class="btn">
-                                    </div> 
-                                        <!--<a href="InstructorHome.php" class="btn">go back</a> -->
-                                    </div> 
+                                    <div class="session">
+                                        <input type="text" id="session">
+                                        <div class="icon">
+                                        <i class="fa-solid fa-trash" onclick="alert('Are you sure you want to delete?');" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
+                                        <i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i>
+                                        </div>
+                                    </div>
+                                    </div>
+                                            <button onclick="add_session()" type="button" class="btn" id="add-more"><i class="fa-solid fa-square-plus"></i> Add more session</button>
+                                            <textarea for="textareas-container" id="textareas-container" placeholder="..." name="textareas-container " class="text_input"  value=""  required></textarea><br>
+                                            <div class="save">
+                                                <button  onclick="save_sessions()" class="save-btn">Save</button>
+                                            </div>
+                                            <!--<a href="InstructorHome.php" class="btn">go back</a> -->
+                                        </div> 
                                 </form>
                             </div>
 
@@ -282,6 +286,8 @@
         var update_div = document.getElementById("update-div");
         var view_btn = document.getElementById("view-btn");
         var update_btn = document.getElementById("update-btn");
+        var save_btn = document.getElementById("save-btn");
+        var sessions = [];
 
         view_btn.addEventListener('click', ()=>{
             view_div.style.display ='block';
@@ -294,6 +300,49 @@
             view_div.style.display ='none';
             
         });
+
+        function add_session()
+        {
+            var sessions_div = document.querySelector(".sessions");
+            var session_html = `
+            <div class="session">
+                <input type="text" id="session">
+                <div class="icon">
+                <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
+                <i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i>
+                </div>
+            </div>
+            `;
+            sessions_div.insertAdjacentHTML("beforeend", session_html);
+
+            var delete_icon = sessions_div.lastElementChild.querySelector(".fa-trash");
+            delete_icon.addEventListener("click", () => {
+            if(!confirm('Are you sure you want to delete ?')){
+
+                return;
+            }
+            sessions_div.removeChild(delete_icon.parentNode.parentNode);
+            });
+        }
+
+        function save_sessions() {
+            var session_inputs = document.querySelectorAll(".session input");
+
+            // Loop through all the input elements and add their values to the sessions array
+            for (var i = 0; i < session_inputs.length; i++) {
+            sessions.push(session_inputs[i].value);
+            }
+
+            // Perform any necessary action with the sessions array
+            console.log(sessions);
+
+            // Clear the sessions array and reset the input fields
+            sessions = [];
+            var session_div = document.querySelector(".sessions");
+            session_div.innerHTML = "";
+        }
+
+
 
         function createTextAreas() {
             var numSteps = document.getElementById("steps").value;

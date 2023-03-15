@@ -43,7 +43,7 @@ $result2= mysqli_query($conn,$sql2);
 
     if(isset($_GET['delete']))
     {
-        $blog_ID = $_GET['delete'];
+        $course_ID = $_GET['delete'];
 
         /*$query1 = "SELECT image FROM instructor WHERE blog_ID=$blog_ID";
         $stmt1 = mysqli_query($conn,$query1);
@@ -52,7 +52,7 @@ $result2= mysqli_query($conn,$sql2);
 
         unlink($imagepath);*/
 
-        $query2 = "DELETE FROM blog WHERE blog_ID=$blog_ID";
+        $query2 = "DELETE FROM course WHERE course_id=$course_ID";
         $stmt2 = mysqli_query($conn,$query2);
         
 
@@ -60,7 +60,7 @@ $result2= mysqli_query($conn,$sql2);
         if($stmt2){
             echo"<script>alert('Record Deleted from database')</script>";
             ?>
-            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course.php">
+            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
         <?php
         }else{
             echo "<script>alert('Failed to delete from database')</script>";
@@ -148,7 +148,7 @@ $result2= mysqli_query($conn,$sql2);
                                         <h1>Delete this course</h1>
                                         <p>Are you sure you want to delete the course?</p>
                                     <div class="clearfix">
-                                    <a href="blog.php?delete=<?=$blog_ID; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
+                                    <a href="course.php?delete=<?=$fetch['course_id']; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
                                     <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
                                 </div>
                                 </div>
@@ -186,6 +186,7 @@ $result2= mysqli_query($conn,$sql2);
 
     <script>
         function showModal() {
+            
             document.getElementById("id01").style.display = "flex";
         }
 
