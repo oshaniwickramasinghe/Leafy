@@ -14,8 +14,6 @@ include '../includes/header.php';
 
 
 
-  
-
   if(isset($_GET["delete"]))
   {
                   
@@ -63,10 +61,8 @@ if(isset($_POST['update'])){
           // var_dump( $result );
 
           if(isset($_POST['wishlist'])){
-
             $id = $_POST['post_id'];
                $sql = "SELECT * FROM post WHERE post_id = $id ";
-               
               $result = mysqli_query($conn,$sql);
               $res =  mysqli_fetch_array($result);
               $id =$res['post_id'];
@@ -74,19 +70,25 @@ if(isset($_POST['update'])){
               $query  = "SELECT * FROM wishlist WHERE user_id = $user && post_id =$id";
               $result = mysqli_query($conn,$query);
               if(mysqli_num_rows($result)>0){
-                echo '<script>alert("Item already added")</script>';
-               echo '<script>window.location ="cart.view.php?post_id=</script>'.$id;
+               ?>
+               <script>
+               window.location.href ="cart.view.php?post_id=<?php echo $id?>";
+               alert("Item already added");
+             </script>
+             <?php
               }else{
               $sql = "INSERT INTO wishlist (post_id, user_id) VALUES ($id,$user)";
               $result = mysqli_query($conn,$sql);
-              echo '<script>alert("Item added to the wishlist")</script>';
-               echo '<script>window.location ="cart.view.php?post_id=</script>'.$id;
-              }
-        }
+               ?>
+               <script>
+                window.location.href ="cart.view.php?post_id=<?php echo $id?>";
+                alert("Item added to the wishlist");
+              </script>
+               <?php
 
-       
-     
-          
+              }
+          }
+
 
 ?>
 
@@ -335,17 +337,14 @@ if(mysqli_num_rows($result)>0){
         }
 
         function deleteDetails() {
+
          <?php if(isset($_POST["delete"]))
-{
-                
-   
-          foreach($_SESSION["cart"] as $keys => $values)
+          {
+       foreach($_SESSION["cart"] as $keys => $values)
           {
                if($values["item_name"] == $_POST["item_name"])
                {
-                
                     unset($_SESSION["cart"][$keys]);
-                    
                }
           }
      }
@@ -362,6 +361,7 @@ if(mysqli_num_rows($result)>0){
 </html>
 
 <?php
+
 
 
 

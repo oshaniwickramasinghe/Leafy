@@ -20,8 +20,9 @@ if(isset($_POST['delete'])){
       $id  = $_POST['post_id'];
       $sql = "DELETE FROM wishlist WHERE post_id =$id";
       $result = mysqli_query($conn , $sql);
-      echo '<script>"Item removed from the wishlist"</script>';
-      header("location:wishlist.php");
+      echo '<script>alert("Item removed from the wishlist")</script>';
+      echo '<script>window.location ="wishlist.php"</script>';
+     
 }
 
 ?>
