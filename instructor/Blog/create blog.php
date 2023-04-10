@@ -187,7 +187,6 @@
 
            <div class="content">
                 <label for="content">Content</label><br><br>
-                <input type="hidden" name="content1">
                 <div for="content1" class="content1" id="content1" name="content1"><?= $content1; ?></div>
             </div>
             <div class="images">
@@ -255,20 +254,24 @@
                 theme: 'snow'  // or 'bubble'
             });
             
-           
-            var form = document.querySelector('form');
-            form.onsubmit = function() {
-            // Populate hidden form on submit
-            var content = document.querySelector('input[name=content1]');
-            content.value = JSON.stringify(quill.getContents());
-            
-            console.log("Submitted", $(form).serialize(), $(form).serializeArray());
-            
-            // No back end to actually submit to!
-            alert('Open the console to see the submit data!')
-            return false;
 
-            }      
+            // Send the data to the server using AJAX
+            $('#submit').click(function(){
+            var content = quill.root.innerHTML;
+                $.ajax({
+                    url: 'create blog.php',
+                    type: 'POST',
+                    data: { content: content },
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error: ' + error);
+                    }
+            });
+            });
+
+                    
     </script>
 </body>
 </html>
