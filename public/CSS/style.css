@@ -18,15 +18,12 @@
        
     }
     
-    
-    
     .header .center_wrapper{
         width: 95%;
         margin: 0 auto;
         display: flex;
         padding: 0px 0;
         flex-wrap: wrap;
-    
     
     }
     
@@ -131,10 +128,6 @@
     }
     
     
-    
-    
-    
-    
     .header .center_wrapper .right_part .profile_icon a p{
     
         text-decoration: none;
@@ -153,10 +146,7 @@
         max-width: 35%;
         height: 35%;
         padding-top: 2px;
-        align-items: center;
-        
-        
-        
+        align-items: center;   
         
     }
     .user_details p{
@@ -182,11 +172,7 @@
         display: none;
        
     }
-     /* .lan a{
-        margin-left: 2%;
-        }
-         */
-    
+   
     .sub-menu{
         background: #f6f7f5c1;
         padding : 20px;
@@ -273,7 +259,6 @@
     .profile_icon span{
         float: right;
         margin-top: -62%;
-        /* line-height: 35px; */
         font-size: 15px;
         color:#EDF3E5;
     }
@@ -323,16 +308,9 @@ footer{
     margin-left: 5%;
  }
 
- /* .home_body .resposive{
-    height:auto;
- } */
-
  .loggedhome_body{
 min-height: 50vh;
 min-width: 20vh;
-  
-
-
    
  }
  
@@ -398,7 +376,7 @@ form{
 }
 
 input[type= text] , input[type= password],input[type= email]{
-  width: 80%;
+  width: 90%;
   display:inline-block;
   padding: 12px 20px;
   margin: 8px 0;
@@ -412,7 +390,6 @@ input[type= text] , input[type= password],input[type= email]{
   -ms-border-radius:40px ;
   -o-border-radius:40px ;
 }
-
 
 .cvv  input[type= text]{
     width: 30%;
@@ -478,15 +455,6 @@ h1{
    margin-top: 8%;
 }
 
-/* .error{
-    background: #ff613d;
-     
-     width: 80%;
-     display:inline-block;
-     padding: 12px 20px;
-   margin: 8px 0;
-
-} */
 
 a{
   color: rgb(34, 63, 36);
@@ -850,10 +818,6 @@ h2{
 
   }
   
-  /* .cards:hover{
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  } */
-  
   .card_body{
       padding: 4px 16px;
   }
@@ -1172,3 +1136,7 @@ background-color:rgb(159, 159, 159);
     margin-top: -45%;
 }
 
+td{
+    width: 300px;
+    text-align: left;
+}
