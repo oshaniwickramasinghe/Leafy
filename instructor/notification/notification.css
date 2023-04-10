@@ -135,35 +135,40 @@
     
 }
 
+h3{
+
+  text-align: center;
+  margin-top: 5px;
+  color: #313d22;
+  
+}
+
 /*.instructor_wrapper .content .container{
     height:500px;
 }*/
 
 
 .instructor_wrapper .content .container{
-    height:400px;
+    height:auto;
     margin:20px;
 
 }
 
 
-.instructor_wrapper .content .container .container_left{
-    width:90%
-
-}
-
-
-.instructor_wrapper .content .container .container_left .main_card{
+.instructor_wrapper .content .container .main_card{
     
     display:block;
-    background:#4e4e4e75;
-    overflow-y: scroll;
+    background:white;
     border-radius: 20px;
-    height: 300px;
+    min-height: 400px;
+    width: 100%;
+    margin: 30px 0px 50px 0px;
+    padding: 10px 0px 0px 10px;
+    text-align: center;
     
 }
 
-.instructor_wrapper .content .container .container_left .main_card p{
+.instructor_wrapper .content .container .main_card p{
     color: black;
     font-size: 17px;
     margin:10px 0 5px 20px;
@@ -171,24 +176,50 @@
 
 }
 
-.instructor_wrapper .content .container .container_left .main_card .card_left ul{
+.instructor_wrapper .content .container  .main_card .card_left {
+  margin: 10px;
+  padding: 10px;
+  overflow-y: scroll;
+  width: 93%;
+  height: 300px;
+
+}
+
+.instructor_wrapper .content .container  .main_card .card_left ul{
     list-style: none;
-    margin: 10px;
+    margin: 0px;
     padding: 0px;
 
 }
 
-.instructor_wrapper .content .container .container_left .main_card .card_left ul li a{
+.instructor_wrapper .content .container .main_card .card_left ul li a{
     text-decoration: none;
+    display:inline-flex;
+    color: black;
+    text-align: left;
+    width: 95%;
+    height: 25px;
+    border-radius:5px;
     padding: 12px;
-    margin: 11px;
-    display: block;
-    color: #43562B;
-    background:white;
-    border-radius:25px;
+    margin: 6px 0px;
+    position: relative;
 }
 
-.instructor_wrapper .content .container .container_left .main_card .card_left  ul li a:focus {
+.message.opened {
+  background-color: lightgray;
+}
+
+.message.unopened {
+  background-color:rgba(128, 168, 126, 0.634);
+}
+
+
+.instructor_wrapper .content .container .main_card .card_left ul li a img{
+  text-align: center;
+  margin: 0px 20px 0px 5px;
+}
+
+.instructor_wrapper .content .container .main_card .card_left  ul li a:focus {
    background: rgba(255, 255, 255, 0.39);
    
 }
@@ -323,4 +354,6 @@
 /*.hide{
     display: none;
 }*/
-
+#date{
+  position: absolute;
+}

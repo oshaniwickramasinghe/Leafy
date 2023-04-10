@@ -135,6 +135,7 @@
 
   .container .table{
     height: auto;
+    min-width: 100%;
   }
 
   .container .table h3{
@@ -174,7 +175,7 @@
  .content-table{
     border-collapse: collapse;
     font-size: 0.9em;
-    min-width: 400px;
+    min-width: 100%;
 	  margin-bottom: 20px;
 	  margin-top: 20px;
   }
@@ -245,6 +246,7 @@
     background-color: rgba(39, 144, 76, 0.334);
     border-radius: 20px;
     margin-top: 15px;
+    width: 30px;
 }
 
 

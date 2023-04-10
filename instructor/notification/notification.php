@@ -6,7 +6,13 @@ if(!isset($user_ID)){
     header('location:../login/login.view.php');
 }
 
-$sql2="SELECT * FROM course_forum ORDER BY question_id DESC";
+$sql2 = "SELECT course_forum.*, user.image, user.fname, user.lname, course.title
+        FROM course_forum
+        JOIN user ON course_forum.user_id = user.user_id
+        JOIN course ON course_forum.course_id = course.course_id  
+        WHERE course.user_id=$user_ID
+        ORDER BY question_id DESC";
+
 $select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
 
 
@@ -21,26 +27,18 @@ $result2= mysqli_query($conn,$sql2);
     if(isset($_GET['view']))
     {
         $question_ID = $_GET['view'];
+
+
         $sql3 = "SELECT * FROM course_forum WHERE question_id=$question_ID";
+        $sql1 = "UPDATE course_forum SET is_read = 1 WHERE question_id = '$question_ID'";
         $result3=mysqli_query($conn,$sql3);
-        
-        if($result3)
-        { 
-            while($record2 = mysqli_fetch_assoc($result3))
-             {
-                $question_ID=$record2['question_id'];
-                $course_ID=$record2['course_id'];
-                $user_ID=$record2['user_id'];
-                $date=$record2['date'];
-                $time=$record2['time'];
-                $reply=$record2['reply'];
-                $answered=$record2['answered'];
-   
-        }
-            
-        }
+        mysqli_query($conn,$sql1);
+
     }
 
+
+    $sql4 = "SELECT * from user WHERE user_id= $user_ID";
+    $result4=mysqli_query($conn,$sql4);
 /*
     if(isset($_GET['delete']))
     {
@@ -82,7 +80,7 @@ $result2= mysqli_query($conn,$sql2);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../notification/notification .css">
+    <link rel="stylesheet" href="notification.css">
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
     <title>instructor notification page</title>
 </head>
@@ -94,13 +92,42 @@ $result2= mysqli_query($conn,$sql2);
     </div>
     <div class="instructor_wrapper">
         <?php include "../includes/instructorMenu.php"; ?>
-        <div class="content">
-            
+        <div class="content"> 
             <h2>Notifications</h2>
             <div class="container">
-                <div class="container_left">
-                    <div class="main_card">
-                    <p>Notifications from Admin</p>
+                <div class="main_card">
+                    <h3>Notifications from Admin</h3>
+                    <div class="card_left">
+                        <ul>
+                            <?php  if(mysqli_num_rows($result2)>0){
+                                        while($record1=mysqli_fetch_assoc($result2)){?>
+                                <li><a  href="notification.php?view=<?= $record1['question_id'] ?>" class="message <?= $record1['is_read'] == 1 ? 'opened' : 'unopened' ?>">
+                                    <?php
+                                    if($record1['image'] == ''){
+                                        echo '<img src="../images/profilepic_icon.svg"  height= "30px" border-radius:50%>';
+                                    }else{
+                                        echo '<img src="../images/'.$record1['image'].'"  height= "30px" border-radius:50%;>';
+                                    }
+                                    ?>
+                                    
+                                    (<?= $record1['question_id'] ?>) Question &nbsp; &nbsp;
+                                    <small>
+                                        "<?php if(isset ($record1['content'])){ echo substr($record1['content'],0,25,).'...';} ?>" &nbsp;
+                                        from course -<?= $record1['course_id'] ?> &nbsp;<?= $record1['title'] ?>course
+                                    <br>1<?= $record1['date'] ?></small>
+                                </a></li>
+                            <?php }
+                                } else{
+                            ?>
+                            <p>You haven't any notification from admin</p>
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main_card">
+                    <h3>Notification from course forum</h3>
                     <div class="card_left">
                         <ul>
                             <?php while($record1=mysqli_fetch_assoc($result2)){?>
@@ -108,20 +135,8 @@ $result2= mysqli_query($conn,$sql2);
                             <?php }?>
                         </ul>
                     </div>
-                    </div>
                 </div>
-                <div class="container_left">
-                    <div class="main_card">
-                    <p>Notification from course forum</p>
-                    <div class="card_left">
-                        <ul>
-                            <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                                <li><a  href="notification.php?view=<?= $record1['question_id'] ?>">question from <?= $record1['course_id'] ?></a></li>
-                            <?php }?>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
+                
       <!--      <div class="container_right" id="view_more">
                 <h3> Question<!--<?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?>--></h3>
                <!-- <button class="close-button">&times;</button>
@@ -210,6 +225,13 @@ $result2= mysqli_query($conn,$sql2);
         function deleteDetails() {
 
         hideModal();
+        }
+
+        var messages = document.getElementsByClassName('message');
+        for (var i = 0; i < messages.length; i++) {
+        messages[i].addEventListener('click', function() {
+            this.classList.add('opened');
+        });
         }
     </script>
 </body>

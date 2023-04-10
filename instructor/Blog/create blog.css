@@ -77,8 +77,29 @@ h1{
     margin-bottom: 30px;
 }
 
+.create_form_wrapper form .field .content1
+{
+  background-color:white;
+  margin-bottom: 30px;
+  min-height: 500px;
+}
 
+.create_form_wrapper form .field .content1 p,
+.create_form_wrapper form .field .content1 ul,
+.create_form_wrapper form .field .content1 ol{
+  font-size: 1.2rem;
+  line-height: 2rem;
+  
+}
 
+.create_form_wrapper form .field .content1 ul,
+.create_form_wrapper form .field .content1 ol{
+  padding-left:1rem;
+}
+
+.create_form_wrapper form .field .content1 p{
+  margin-bottom: 25px;
+}
 
 .create_form_wrapper form .field div img{
     margin-left: 15%;
@@ -156,20 +177,19 @@ h1{
     color: black;
   }
   
-.goback-btn {
-    background-color: #505250;
-    color: white;
-    padding: 10px 60px;
+  .goback-btn {
+    color:#323929;
+    padding: 10px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 10px 18px;
+    font-size: 12px;
+    margin: 20px 10px;
     cursor: pointer;
-    border-radius: 20px;
     font-weight: 1000;
+    background-color: #d7d8d65c;
+    border-radius: 10px;
     
   }
-
   
    

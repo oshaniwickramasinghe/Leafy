@@ -36,7 +36,6 @@ if(isset($_POST['update_profile'])){
 
     $update_fname = mysqli_real_escape_string($conn, $_POST['update_first_name']);
     $update_lname = mysqli_real_escape_string($conn, $_POST['update_last_name']);
-    $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
     $update_cnumber = mysqli_real_escape_string($conn, $_POST['update_cnumber']);
     $update_occupation = mysqli_real_escape_string($conn, $_POST['update_occupation']);
     $update_specialized_area = mysqli_real_escape_string($conn, $_POST['update_specialized_area']);
@@ -44,12 +43,12 @@ if(isset($_POST['update_profile'])){
     $update_image=$_FILES['update_image']['name'];
     $image_size=$_FILES['update_image']['size'];
     $image_tmp_name=$_FILES['update_image']['tmp_name'];
-    $image_folder="images/".$update_image;
+    $image_folder="../images/".$update_image;
 
 
 // update the user table
     $sql1 = mysqli_query($conn, "UPDATE `user` SET fname='$update_fname' , lname='$update_lname', 
-    email='$update_email' , image='$update_image' WHERE user_id='$user_ID'") or die('query failed');
+     image='$update_image' WHERE user_id='$user_ID'") or die('query failed');
 
 //update the instructor table
     $sql2 = mysqli_query($conn, "UPDATE `instructor` SET contact_number='$update_cnumber', occupation='$update_occupation', 

@@ -147,14 +147,12 @@ $result2= mysqli_query($conn,$sql2);
                                     <div class="container">
                                         <h1>Delete this course</h1>
                                         <p>Are you sure you want to delete the course?</p>
-                                    <div class="clearfix">
-                                    <a href="course.php?delete=<?=$fetch['course_id']; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
-                                    <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
-                                </div>
-                                </div>
-                                </form>
-
-
+                                        <div class="clearfix">
+                                            <a href="course.php?delete=<?=$fetch['course_id']; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
+                                            <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
+                                        </div>
+                                    </div>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

@@ -127,6 +127,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include stylesheet -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
     <link rel="stylesheet" href="../course/createCourse.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>create course</title>
@@ -192,7 +195,7 @@
                                     </div> 
                                     <div>
                                         <label for="steps">Number of steps</label>
-                                        <input type="number" id="steps" name="steps"placeholder="Enter the number of steps course will included..." min="1" value="<?= $steps; ?>" required><br>
+                                        <input type="number" id="steps" name="steps"placeholder="Enter the number of steps course will included..." min="4" max="15" value="<?= $steps; ?>" required><br>
                                     </div>
                                     <div>
                                         <label for="duration">Course Duration</label>
@@ -235,9 +238,9 @@
                                     <div class="button-section">
                                  <!--   <button onclick="createTextAreas()" type="submit" class="btn" id="continue">Continue</button> -->
                                         <?php if($update == true) {?>
-                                            <input type="submit" value="update" name="update" class="btn">
+                                            <button type="submit" value="update" name="update" class="btn">Update</button>
                                         <?php } else {?>     
-                                            <input type="submit" value="Save" name="save" class="btn" id="save-btn">
+                                            <button type="submit" value="Save" name="save" class="btn" id="save-btn">Save</button>
                                         <?php } ?>   
                                     </div> 
                                 </form>
@@ -248,13 +251,6 @@
                                     <label for="instruction" id="instruction"><small>Here is where you can add sessions of your course.
                                     Please add less than 15 session in to your course.</small></label>   
                                     <div class="sessions">
-                                    <div class="session">
-                                        <input type="text" id="session">
-                                        <div class="icon">
-                                        <i class="fa-solid fa-trash" onclick="alert('Are you sure you want to delete?');" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
-                                        <i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i>
-                                        </div>
-                                    </div>
                                     </div>
                                             <button onclick="add_session()" type="button" class="btn" id="add-more"><i class="fa-solid fa-square-plus"></i> Add more session</button>
                                             <textarea for="textareas-container" id="textareas-container" placeholder="..." name="textareas-container " class="text_input"  value=""  required></textarea><br>
@@ -273,20 +269,23 @@
             </div>
     </div>
     <div align="right">
-        <a href="course.php" class="goback-btn">go back >></a> 
+        <a href="course.php" class="goback-btn">Back to courses page >></a> 
     </div>    
 
     <footer>
            <?php include "../includes/footer.php";?>
     </footer>
+<!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
-    
     <script>
         var view_div = document.getElementById("view-div");
         var update_div = document.getElementById("update-div");
         var view_btn = document.getElementById("view-btn");
         var update_btn = document.getElementById("update-btn");
         var save_btn = document.getElementById("save-btn");
+        var steps = document.getElementById("steps");
         var sessions = [];
 
         view_btn.addEventListener('click', ()=>{
@@ -303,6 +302,13 @@
 
         function add_session()
         {
+            // Check if the maximum number of sessions has been reached
+        //    if (sessions.length >= steps.value) {
+        //        alert("You already created sessions that you need.");
+        //        return;
+          //  }
+
+
             var sessions_div = document.querySelector(".sessions");
             var session_html = `
             <div class="session">
@@ -315,14 +321,29 @@
             `;
             sessions_div.insertAdjacentHTML("beforeend", session_html);
 
-            var delete_icon = sessions_div.lastElementChild.querySelector(".fa-trash");
-            delete_icon.addEventListener("click", () => {
-            if(!confirm('Are you sure you want to delete ?')){
+            // Disable the delete button for the first four input areas
+            var delete_icons = sessions_div.querySelectorAll(".fa-trash");
+            for (var i = 0; i < delete_icons.length; i++) {
+                if (i < 4) {
+                delete_icons[i].disabled = true;
+                } else {
+                delete_icons[i].addEventListener("click", () => {
+                    if (!confirm('Are you sure you want to delete?')) {
+                    return;
+                    }
+                    sessions_div.removeChild(delete_icons[i].parentNode.parentNode);
+                });
+                }
+            }  
+            // Add the new session to the sessions array
+            sessions.push("");
+        }
 
-                return;
-            }
-            sessions_div.removeChild(delete_icon.parentNode.parentNode);
-            });
+        // Add the minimum number of input areas to the DOM when the page loads
+        window.onload = function() {
+        for (var i = 0; i < 4; i++) {
+            add_session();
+        }
         }
 
         function save_sessions() {

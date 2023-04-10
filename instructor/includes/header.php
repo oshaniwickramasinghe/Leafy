@@ -64,7 +64,13 @@ if(mysqli_num_rows($select)>0){
                 <div class="profile_icon">
                     <div  class="user-pic" >
                         <div class="user_details">
-                            <img src="../images/profilepic_icon.svg" alt="" height= "21.42px">
+                            <?php
+                                if($fetch['image'] == ''){
+                                    echo '<img src="../images/profilepic_icon.svg"  height= "21.42px">';
+                                }else{
+                                    echo '<img src="../images/'.$fetch['image'].'"  height= "21.42px" >';
+                                }
+                            ?>
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <button onclick="toggleMenu()">
@@ -76,12 +82,12 @@ if(mysqli_num_rows($select)>0){
                     <div class="sub-menu">
                         <div class="user-info">
                         <?php
-                                if($fetch['image'] == ''){
-                                    echo '<img src="../images/profilepic_icon.svg" >';
-                                }else{
-                                    echo '<img src="../images/'.$fetch['image'].'>';
-                                }
-                                ?>
+                            if($fetch['image'] == ''){
+                                echo '<img src="../images/profilepic_icon.svg" >';
+                            }else{
+                                echo '<img src="../images/'.$fetch['image'].'" >';
+                            }
+                        ?>
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <hr>
@@ -94,11 +100,8 @@ if(mysqli_num_rows($select)>0){
                             <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>
-                        </a>
-                
-                        
-                    </div>
-                    
+                        </a>   
+                    </div>   
                 </div>
 
                
