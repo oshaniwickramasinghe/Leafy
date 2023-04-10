@@ -20,7 +20,7 @@ $id  = $_SESSION['wishlist_id'];
 <body>
 <div class  = "view_body">
 <?php
-    $sql  =  "SELECT * FROM post WHERE post_id  = $id";
+    $sql  =  "SELECT * FROM post WHERE post_id  = $id ";
     $result = mysqli_query($conn , $sql);
 
     if(mysqli_num_rows($result)>0){

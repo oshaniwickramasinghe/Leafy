@@ -51,8 +51,7 @@ if(empty($errors)){
 
         <div class = "body">
 
-     <label  for="">province</label><br>
-    <input type="text" placeholder="Enter your province" name="province" required><br>
+     
     <label for="">District</label><br>
     <select name="district"  class = "select">
                         <option value="Ampara">Ampara</option>
@@ -84,4 +83,3 @@ if(empty($errors)){
 </body>
 </html>
 
-<?php include '../includes/footer.view.php'?>

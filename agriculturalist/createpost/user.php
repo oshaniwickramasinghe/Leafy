@@ -1,6 +1,6 @@
 <?php
-include "../public/Auth.php";
-include "database.php";
+// include "../public/Auth.php";
+// include "database.php";
 
 
 
@@ -18,7 +18,7 @@ $user_id =$_SESSION['USER_DATA']['user_id'];
 // die;
 
 $file_tmp1 = $_FILES['images']['tmp_name']; 
-$file_name1 = "A"."$user_id".rand(1,1000).$_FILES['images']['name'];
+$file_name = "A"."$user_id".rand(1,1000).$_FILES['images']['name'];
 $target_file1 = "images/".$file_name1;
 if($file_tmp1!="")
 { move_uploaded_file($file_tmp1,$target_file1); }
@@ -33,8 +33,8 @@ else { $file_name1=""; }
 
   
 
-$sql = "INSERT  INTO post (item_name,agriculturalist_name,location, quantity, minimum_quantity,unit_price ,expire_date,category,image,user_id )
-VALUES ('$fname','$name', '$flocation', '$quantity','$miniquantiy','$price', '$exdate', '$category','$file_name1',$user_id )";
+$sql = "INSERT  INTO post (item_name,agriculturalist_name,location, quantity, minimum_quantity,unit_price ,expire_date,category,user_id )
+VALUES ('$fname','$name', '$flocation', '$quantity','$miniquantiy','$price', '$exdate', '$category','$user_id' )";
 
 if ($conn->query($sql) === TRUE) {
 

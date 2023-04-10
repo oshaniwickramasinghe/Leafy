@@ -1,7 +1,15 @@
 <?php
+$id  =  $_SESSION['USER_DATA']['user_id'];
+// $sql  = "SELECT district FROM customer WHERE  user_id = $id";
+// $result = mysqli_query($conn,$sql);
+// $re = mysqli_fetch_array($result);
+// $district = $re ['district'];
+
+// AND  district = '$district'
+
 $result_per_page  = 6;
 
-$query  = "SELECT * FROM post ORDER BY post_id ASC";
+$query  = "SELECT * FROM post WHERE category = 'Vegetable' ORDER BY post_id ASC";
 
 $result = mysqli_query($conn,$query);
 
@@ -24,6 +32,5 @@ if(!(isset($_GET['page']))){
 
 $page_first_result= ($page-1)* $result_per_page;
 
-$query = "SELECT * FROM post  LIMIT  ".$page_first_result. ','.$result_per_page; 
 
- 
+
