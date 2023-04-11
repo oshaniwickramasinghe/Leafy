@@ -24,7 +24,7 @@
     <?php include "../public/includes/deli_menu.view.php"?>
 
 <div class = "loggedhome_body">
-    <div class="instructor_wrapper">
+    <div class="main_wrapper">
         
         <div class="content">
             <h2>Completed Orders History</h2>

@@ -38,7 +38,7 @@ if($result2)
 </head>
 <body>
     <header></header>
-    <div class="instructor_wrapper">
+    <div class="main_wrapper">
         <div class="left_menu_bar">
             <ul>
                 <li><a href="">Questions</a></li>

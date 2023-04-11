@@ -25,7 +25,7 @@ include "../../Customer/includes/header.php";
 
 <div class = "loggedhome_body">
 <div class = "home_body">
-    <div class="instructor_wrapper">
+    <div class="main_wrapper">
         
         <div class="content">
             <h2>Reports</h2>

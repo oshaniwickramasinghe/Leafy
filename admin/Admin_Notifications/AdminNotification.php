@@ -19,11 +19,11 @@ include "../../public/includes/header.view.php";
 </head>
 <body>
     <?php include 'AdminNotificationPHP.php';?>
-    <?php include "../admin_menu.view.php"?>
+    <?php include "../menu/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
-    <div class="instructor_wrapper">
+    <div class="main_wrapper">
         
         <div class="content">
             <h2>Notifications</h2>
