@@ -22,7 +22,7 @@ if(isset($_POST['delete'])){
       $result = mysqli_query($conn , $sql);
       echo '<script>alert("Item removed from the wishlist")</script>';
       echo '<script>window.location ="wishlist.php"</script>';
-     
+
 }
 
 ?>
@@ -111,7 +111,7 @@ $sql = "SELECT * FROM  post JOIN (SELECT * FROM wishlist WHERE user_id=$id) wish
 ?>
 </script>
 
-<br><br><br><a href  = "../customerhome.php"> <button name  = "back" style = "margin-left:25%; border: none;">Back </button></a>
+<br><br><br><a href  = "../customerhome.php"> <button name  = "back" style = "margin-left:20%; border: none;">Back </button></a>
 
 <footer>
 <img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
