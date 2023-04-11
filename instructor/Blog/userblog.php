@@ -24,6 +24,8 @@ if(isset($_GET['view_blog']))
            // $comment=$record2['comment'];
             $time=$record2['time'];
             $image1=$record2['image1'];
+            $selected_color=$record2['color'];
+
         }
         
     }
@@ -53,13 +55,14 @@ if(isset($_GET['view_blog']))
     <title>userblog</title>
     <link rel="stylesheet" href="userblog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
         
         <div class="begin" style="background:url(../images/<?php if(isset ($image1)){ echo $image1;} ?>) no-repeat center center / cover;">
         </div>
-        <div class="main">
+        <div class="main" id="main">
             <h2><?php if(isset ($title)){ echo $title;} ?></h2> 
             <div class="profile-container">
                 <div class="profile">
@@ -140,6 +143,16 @@ if(isset($_GET['view_blog']))
 <footer>
     <?php include '../includes/footer.php'; ?>
 </footer>
+<script>
+
+    // get the php value to JS variable
+    const savedColor = "<?php echo $selected_color ?>";
     
+
+    // Set the background color of a div to the saved color
+    const div = document.getElementById('main');
+    div.style.backgroundColor = savedColor;
+
+</script>
 </body>
 </html>

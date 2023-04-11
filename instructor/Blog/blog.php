@@ -119,14 +119,14 @@ $result2= mysqli_query($conn,$sql2);
                     </ul>
                 </div>
                 </div>
-                <button onclick="location.href='create blog.php'" type="button" id="create">create</button>
+                <button onclick="location.href='create_blog.php'" type="button" id="create">create</button>
             </div>
             <div class="container_right" id="view_more">
                 <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
                <!-- <button class="close-button">&times;</button>-->
                 <div align="right" class="container_button">
                     <a href="userblog.php?view_blog=<?=$blog_ID; ?>" type="button" id="view">View</a>
-                    <a href="create blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
+                    <a href="create_blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
                     <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
                 </div>
                 <div id="id01" class="modal" style="display: none;">
