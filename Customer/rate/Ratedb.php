@@ -2,40 +2,45 @@
 require "../Auth.php";
 include "../database.php";
 
-$host = "localhost";
-$uname = "root";
-$password = "";
-$db_name = "leafy";
-
-var_dump($_SESSION['cart']['post_id']);
-
-$conn = mysqli_connect($host,$uname,$password,$db_name);
-
+$date = date("Y-m-d");
 
 $userId = $_SESSION['USER_DATA']['user_id'];
+$rating = $_POST['rating'];
+$review = $_POST['comment'];
+
+$query = "SELECT order_id ,agriculturalist_id FROM deals WHERE customer_id  = $userId && Date = '$date' ORDER BY  order_id DESC ";
+
+$result = mysqli_query($conn, $query);
+$r  = mysqli_fetch_array($result);
+$order_id = $r['order_id'];
+$id  = $r['agriculturalist_id'];
+
+// Insert the review into the database
+// $sql = "INSERT INTO  order_rate (rate, comment, user_id ,order_id, agri_id) VALUES ( $rating ,'$review', $userId,$order_id,$id )";
+// if ($conn->query($sql) === TRUE) {
+//   ?>
+
+   <!-- edit of rate and review -->
+<html>
+<link rel="stylesheet" href="../CSS/style.css">
+
+<div class  = "post">
+	<div class  = "text"><b>Thank you for rating Us </b></div><br>
+		<a href = "../customerhome.php"><input type  = "submit" value  = "Go Back" style = "margin-left:-5% ; margin-top:2%"></a>
+</div>
+
+</html>
+  <?php
+// } else {
+//   echo "Error: " . $sql . "<br>" . $conn->error;
+// }
+
+// // Close the database connection
+// $conn->close();
 
 
-$jd = json_decode(file_get_contents('php://input'),true);
+?>
 
-$var = $jd['rate']+1;
-echo json_encode($var);
-
-$sql  =  "INSERT INTO rate(rate, user_id ,order_id) VALUES ($var,$userId,1)";
-$result = mysqli_query($conn,$sql);
-
-
-
-try {
-    if(0) {
-        throw "error";
-    }
-    echo json_encode("success");
-}
-catch(Exception $e) {
-    echo json_encode("error");
-}
-
-
-// $json = json_decode($jd, true);
-// echo $json;
+<!-- $json = json_decode($jd, true);
+echo $json; -->
 
