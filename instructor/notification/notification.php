@@ -1,6 +1,7 @@
 <?php
 include '../includes/header.php'; 
-$user_ID=$_SESSION['USER_DATA']['user_id'];
+$user_ID=7;
+//$_SESSION['USER_DATA']['user_id'];
 
 if(!isset($user_ID)){
     header('location:../login/login.view.php');
@@ -19,6 +20,40 @@ $select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or d
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
 }
+
+//make query for getting admin notifocations
+
+$query1= "SELECT blog_id,title,image1,topic,is_read,date 
+          FROM blog
+          WHERE user_id=$user_ID AND Verified=1
+          ORDER BY blog_id DESC";
+
+$query2= "SELECT course_id,title,image,topic,is_read 
+          FROM course
+          WHERE user_id=$user_ID AND verified=1
+          ORDER BY course_id DESC";
+
+
+$post1= mysqli_query($conn,$query1);
+
+// open the notification from Admin
+if(isset($_GET['open']))
+{
+    $blog_ID = $_GET['open'];
+
+
+    $query3 = "SELECT * FROM course_forum WHERE question_id=$question_ID";
+    $query4 = "UPDATE blog SET is_read = 1 WHERE blog_id='$blog_ID'";
+    $result3=mysqli_query($conn,$query3);
+    mysqli_query($conn,$query4);
+
+}
+
+
+$post2= mysqli_query($conn,$query2);
+
+
+
 
 
 // make query & get result2
@@ -39,6 +74,10 @@ $result2= mysqli_query($conn,$sql2);
 
     $sql4 = "SELECT * from user WHERE user_id= $user_ID";
     $result4=mysqli_query($conn,$sql4);
+
+
+
+    
 /*
     if(isset($_GET['delete']))
     {
@@ -96,7 +135,7 @@ $result2= mysqli_query($conn,$sql2);
             <h2>Notifications</h2>
             <div class="container">
                 <div class="main_card">
-                    <h3>Notifications from Admin</h3>
+                    <h3>Notification from course forum</h3>
                     <div class="card_left">
                         <ul>
                             <?php  if(mysqli_num_rows($result2)>0){
@@ -119,7 +158,7 @@ $result2= mysqli_query($conn,$sql2);
                             <?php }
                                 } else{
                             ?>
-                            <p>You haven't any notification from admin</p>
+                            <p>You haven't any notification from course forum</p>
                             <?php
                             }
                             ?>
@@ -127,12 +166,52 @@ $result2= mysqli_query($conn,$sql2);
                     </div>
                 </div>
                 <div class="main_card">
-                    <h3>Notification from course forum</h3>
+                    <h3>Notifications from Admin</h3>
                     <div class="card_left">
-                        <ul>
-                            <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                                <li><a  href="notification.php?view=<?= $record1['question_id'] ?>">question from <?= $record1['course_id'] ?></a></li>
-                            <?php }?>
+                    <ul>
+                        <h4>About your blogs</h4>
+                            <?php  if(mysqli_num_rows($post1)>0){
+                                        while($mark1=mysqli_fetch_assoc($post1)){?>
+                                <li><a  href="notification.php?open=<?= $mark1['blog_id'] ?>" class="message <?= $mark1['is_read'] == 1 ? 'opened' : 'unopened' ?>">
+                                    <?php
+                                    if($mark1['image1'] == ''){
+                                        echo '<img src="../images/profilepic_icon.svg"  height= "30px" border-radius:50%>';
+                                    }else{
+                                        echo '<img src="../images/'.$mark1['image1'].'"  height= "30px" width="30px" style=border-radius:50%;>';
+                                    }
+                                    ?>
+                                    
+                                    Admin Accept the blog-<?= $mark1['blog_id'] ?>- "<?=$mark1['title'] ?>"  &nbsp; which is created on <?= $mark1['date'] ?> by you.
+                                </a></li>
+                            <?php }
+                                } else{
+                            ?>
+                            <p>You haven't any notification from Admin about your blogs</p>
+                            <?php
+                            }
+                            ?>
+
+                        <h4>About your courses</h4>
+                            <?php  if(mysqli_num_rows($post2)>0){
+                                        while($mark2=mysqli_fetch_assoc($post2)){?>
+                                <li><a  href="notification.php?open=<?= $mark2['course_id'] ?>" class="message <?= $mark2['is_read'] == 1 ? 'opened' : 'unopened' ?>">
+                                    <?php
+                                    if($mark2['image'] == ''){
+                                        echo '<img src="../images/profilepic_icon.svg"  height= "30px" border-radius:50%>';
+                                    }else{
+                                        echo '<img src="../images/'.$mark2['image'].'"  height= "30px" width="30px" style=border-radius:50%;>';
+                                    }
+                                    ?>
+                                    
+                                    Admin Accept the blog-<?= $mark2['course_id'] ?>- "<?=$mark2['title'] ?>"  &nbsp; which is created on <?= $mark2['date'] ?> by you.
+                                </a></li>
+                            <?php }
+                                } else{
+                            ?>
+                            <p>You haven't any notification from Admin about your courses</p>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
