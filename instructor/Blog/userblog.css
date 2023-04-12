@@ -82,9 +82,13 @@ body {
   text-decoration: capitalize;
   font-size: 1.2rem;
   padding:0.3rem 1.5rem;
-  background-color: rgba(255, 60, 0, 0.341);
+  background-color: rgba(255, 60, 0, 0.426);
   border-radius: 0.2rem;
   color: aliceblue;
+}
+
+.btn:hover{
+  background-color: rgba(255, 60, 0, 0.749);
 }
 
 
@@ -112,6 +116,8 @@ body {
   background-color:azure;
   margin-top: 5rem ;
   padding-top: 5rem 0;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
  
 }
 
@@ -148,6 +154,33 @@ body {
   gap: 5rem;
   margin-left: 2rem;
   margin-right: 2rem;
+  position:relative;
+  z-index: 1;
+  padding: 0px 10px;
+}
+
+.cards .next{
+  position:absolute;
+  top:40%;
+  right: 0px;
+  font-size: 2em;
+  color: rgba(46, 45, 45, 0.803);
+  cursor: pointer;
+  z-index: 1;
+  
+
+}
+
+.cards .prev{
+  position:absolute;
+  top:40%;
+  left: 0px;
+  font-size: 2em;
+  color: rgba(46, 45, 45, 0.803);
+  cursor: pointer;
+  z-index: 1;
+  margin-right: 10px;
+
 }
 
 .cards-container{
@@ -157,15 +190,28 @@ body {
   justify-content: space-between;
   margin: 4rem auto;
   gap: 5rem;
-  
+  height: 400px;
+ 
 
+}
+
+.cards-container-one{
+  margin-right: 30px;
+  margin-left: 30px;
+  box-shadow: 0 0 0.3rem grey;
 }
 
 .cards-container .img-holder{
   max-width:100%;
-  height: 24rem;
+  height: 20rem;
   position: relative;
-  background:url(../images/gardener.jpg) no-repeat center center / cover;
+}
+
+.cards-container .img-holder img{
+  width:100%;
+  height:100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
  .cards-container .img-holder a{
@@ -185,7 +231,7 @@ body {
   transform: translateY(-1rem);
 }
 
- .cards-container:hover a{
+ .cards-container .img-holder:hover a{
   background-color: #db7474;
   color:white;
   
@@ -194,7 +240,7 @@ body {
  .cards-container .card-text{
   background-color: white;
   padding: 2rem;
-  box-shadow: 0 0 0.3rem grey;
+  height: 100px;
 }
 
  .cards-container .card-text h4{
@@ -204,7 +250,14 @@ body {
 }
 
  .cards-container .card-text p{
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+
+.cards-container .card-text .post-info{
+  font-size:1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .articles .buttons{

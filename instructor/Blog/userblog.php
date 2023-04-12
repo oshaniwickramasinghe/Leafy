@@ -19,7 +19,7 @@ if(isset($_GET['view_blog']))
             $blog_ID=$record2['blog_id'];
             $title=$record2['title'];
             $date=$record2['date'];
-           // $author=$record2['author'];
+            $user_id=$record2['user_id'];
             $content1=$record2['content1'];
            // $comment=$record2['comment'];
             $time=$record2['time'];
@@ -31,7 +31,7 @@ if(isset($_GET['view_blog']))
     }
 }
 
-    $sql="SELECT * from user WHERE user_id=$user_ID";
+    $sql="SELECT * from user WHERE user_id=$user_id";
     $result=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($result)>0){
@@ -39,8 +39,12 @@ if(isset($_GET['view_blog']))
     }
 
    
+    $query="SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
+    FROM blog
+    INNER JOIN user ON blog.user_id=user.user_id ";
+    /*  where blog.Verified=1";*/
 
-
+    $result2= mysqli_query($conn, $query);
 
  ?>
 
@@ -53,9 +57,12 @@ if(isset($_GET['view_blog']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>userblog</title>
+    <!--slick carousel-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="userblog.css">
+    <!--font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
 </head>
 <body>
     <div class="container">
@@ -70,7 +77,7 @@ if(isset($_GET['view_blog']))
                         <?php if($fetch['image'] == ''){
                                     echo '<img src="../images/profilepic_icon.svg" >';
                                 }else{
-                                    echo '<img src="../images/'.$fetch['image'].'>';
+                                    echo '<img src="../images/'.$fetch['image'].'" align="middle" width="100%" style="border-radius:100%;">';
                                 }
                         ?>
                     </div>
@@ -106,43 +113,42 @@ if(isset($_GET['view_blog']))
             <h6>recent blog</h6>
         </div>
     <div class="cards">
+            <i class="fa-solid fa-chevron-left prev"></i>
+            <i class="fa-solid fa-chevron-right next "></i>
         <div class="cards-container">
+
+            <?php while($record=mysqli_fetch_assoc($result2)){?>
             <div class="cards-container-one">
                 <div class="img-holder">
-                    <a href="#">passion</a>
+                    <img src="../images/<?php if(isset ($record['image1'])){ echo $record['image1'];} ?>" class="slider-image">
+                    <a href="userblog.php?view_blog=<?=$record['blog_id']; ?>" class="show_more">show more</a>
                 </div>
                 <div class="card-text">
-                    <h4>8 Startups that are Revolutionizing AgTech</h4>
-                    <p>Agriculture is changing rapidly in the modern age. The global population is rising at an alarming rate and consumer preferences are shifting towards organic and sustainably produced goods. To keep up with these demands, the traditional agriculture industry must adopt new technologies to make farms more efficient and automate production</p>
+                    <h4><?php if(isset ($record['title'])){ echo $record['title'];} ?></h4>
+                    <p><?php if(isset ($record['description'])){ echo substr($record['description'],0,70,).'....';} ?></p>
+                        <div class="post-info">
+                            <i class="fa-solid fa-user"></i>&nbsp;<?php if(isset ($record['author'])){ echo $record['author'];} ?></i> &nbsp; &nbsp;
+                            <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;<?php if(isset ($record['date'])){ echo $record['date'];} ?></i>
+                        </div>
                 </div>
+            </div> 
+            <?php }?>
             </div>
-            <div class="cards-container-two">
-                <div class="img-holder">
-                    <a href="#">passion</a>
-                </div>
-                <div class="card-text">
-                    <h4>Indoor Vertical Farming: The New Era of Agriculture</h4>
-                    <p>As the world's population grows exponentially, our total supply of fruits and vegetables is falling 22% short of global nutritional needs. Traditional farming methods are having difficulties meeting this demand as it faces increasing problems such as water shortage, land scarcity, and an aging farming population with decreased interest from newer generations. In recent years,</p>
-                </div>
-            </div>
-            <div class="cards-container-three">
-                <div class="img-holder">
-                    <a href="#">passion</a>
-                </div>
-                <div class="card-text">
-                    <h4>New Agriculture Technology in Modern Farming</h4>
-                    <p>As the world's population grows exponentially, our total supply of fruits and vegetables is falling 22% short of global nutritional needs. Traditional farming methods are having difficulties meeting this demand as it faces increasing problems such as water shortage, land scarcity, and an aging farming population with decreased interest from newer generations. In recent years,</p>
-                </div>
-            </div>
-        </div>
         <div class="button">
-            <a href="#" class="btn">view more</a>
+            <a href="theBlog.php" class="btn">view more</a>
         </div>
-    </div>
 </div> 
+</div>
 <footer>
     <?php include '../includes/footer.php'; ?>
 </footer>
+
+<!--jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!--slick carousel-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
 
     // get the php value to JS variable
@@ -152,6 +158,16 @@ if(isset($_GET['view_blog']))
     // Set the background color of a div to the saved color
     const div = document.getElementById('main');
     div.style.backgroundColor = savedColor;
+
+    //slick carousel
+    $('.cards-container').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        nextArrow: $('.next'),
+        prevArrow: $('.prev'),
+    });
 
 </script>
 </body>
