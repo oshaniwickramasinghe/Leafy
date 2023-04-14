@@ -36,9 +36,9 @@ $data = mysqli_query($conn, $sql);
 
             <table>
                 <tr>
-                    <th width="200px">Item ID</th>
-                    <th width="200px">Item Name</th>
-                    <th width="200px">Item Category</th>
+                    <th width="100px">Item ID</th>
+                    <th width="100px">Item Name</th>
+                    <th width="100px">Item Category</th>
                     <th width="600px">Image</th>
                 </tr>
                 <!-- PHP CODE TO FETCH DATA FROM ROWS -->

@@ -28,7 +28,6 @@ include "../../public/includes/header.view.php";
         <div class="content">
             <h2>Notifications</h2>
 
-        <section id='customer'>;
             <!-- users-->
             <div class="box">
                 <div class="container_left">
@@ -49,7 +48,6 @@ include "../../public/includes/header.view.php";
                             <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
                                 <li><a onclick="myFunction()" href="../Admin_Users/AdminUserView.php ?UID=<?= $record1['user_id']; ?> ">
                                 <table>
-                                <!-- <?= $record1['user_id'   ]?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record1['fname']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <?=$record1['role']?></a></li> -->
                                 <td><?= $record1['user_id']?></td><td> <?=$record1['fname']?></td> <td><?=$record1['role']?></td></a>
                             </table>
                             </li>
@@ -62,7 +60,6 @@ include "../../public/includes/header.view.php";
                 
 
            </div>
-        </section>
 
            <!-- Blog -->
            <div class="box">

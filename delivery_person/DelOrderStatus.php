@@ -24,6 +24,7 @@
     <?php include "../public/includes/deli_menu.view.php"?>
 
 <div class = "loggedhome_body">
+<div class = "home_body">
     <div class="main_wrapper">
         
         <div class="content">
@@ -39,7 +40,7 @@
                         <ul>
 
                             <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
-                                <li><a onclick="myFunction()" href="DelOrderHistory.php ?view=<?= $record1['user_id']; ?> ">
+                                <li><a onclick="myFunction()" href="DelOrderStatus.php ?view=<?= $record1['user_id']; ?> ">
                                 Customer order <?= $record1['user_id']?> - <?=$record1['fname']?>  <?=$record1['role']?></a></li>
                             <?php }?>
                         </ul>
@@ -92,6 +93,7 @@
             
         </div>
 
+    </div>
     </div>
 </div>    
 

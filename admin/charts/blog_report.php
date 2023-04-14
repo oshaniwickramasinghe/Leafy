@@ -1,19 +1,3 @@
-<?php 
-    // $username= "root";
-    // $password= "";
-    // $database = "leafy";
-
-    // try{
-    //     $pdo = new PDO("mysql:host=localhost;database=$database",$username,$password);
-
-    //     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    //     echo "connection succefull";
-    // }catch(PDOException $e){
-    //     die("Error: not connected.".$e->getMessage());
-    // }
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,36 +6,14 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
 
     <title>blogs report</title>
-    <!-- <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgba(54, 162, 235, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 700px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(54, 162, 235, 1);
-        background: white;
-      }
-    </style> -->
+    
   </head>
   <body>
 
         <?php
             try{
 
-                //$sql = "SELECT * FROM leafy.user_count ";
-                $sql = "SELECT COUNT(blog_id) AS count, Month(Date) as month FROM leafy.blog GROUP BY month ORDER BY COUNT(blog_id)";
+                $sql = "SELECT COUNT(blog_id) AS count, Month(Date) as month FROM leafy.blog GROUP BY month ORDER BY month";
                 
                 $result = $pdo->query($sql);
 

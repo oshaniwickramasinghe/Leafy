@@ -33,11 +33,11 @@ include "../../Customer/includes/header.php";
     <title>Admin Report page</title>
 
     <style>
-      * {
+      /* * {
         margin: 0;
         padding: 0;
         font-family: sans-serif;
-      }
+      } */
       
       .chartCard {
         /* width: 100vw; */

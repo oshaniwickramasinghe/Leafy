@@ -10,15 +10,6 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-   
-  <div class  =  "search">
-       <input  type = "search" placeholder = "Search for items.."  name= "search">
-      <a  class = "search_button" href="#" aria-label="search">
-       <div class = "icon">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        </div>
-       </a>
- </div>
 
  <div class="containerr">
         <div class="left_menu_bar">
@@ -28,7 +19,7 @@
                 <h3>Leafy</h3>
             </div>
             <ul>
-                <li><a href="DelOrderHistory.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Delivered orders</a></li>
+                <li><a href="DelOrderStatus.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>Order status</a></li>
                 <li><a href="DeliNotification.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Notifications</a></li>
                 <li><a href="DeliDashboard.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Reports</a></li>
                 

@@ -40,7 +40,16 @@ table {
     table-layout: auto;
     width: 100%; 
     margin-right: -100%;
+    margin-left: 10%;
+
+    width: 80%;
+    text-align: left;
+    border-collapse: collapse;
     /* margin-left: 10cm; */
+}
+
+tr:nth-child(even) {
+    background-color: #809D5B;
 }
 
 td {

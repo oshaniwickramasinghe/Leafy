@@ -142,9 +142,17 @@
     color:#43562B ;
 }
 
+table{
+    width: 80%;
+    text-align: left;
+    border-collapse: collapse;
+}
 .main_wrapper .content .box .container_right .details_container table tr{
     vertical-align: top;
-    
+}
+
+.main_wrapper .content .box .container_right .details_container table tr:hover {
+    background-color: #809D5B;
 }
 
 .main_wrapper .content .box .container_right .details_container table th, td{
@@ -194,13 +202,3 @@
     background:#fff;
     border-radius:25px;
 }
-
-.main_wrapper .content .box .container_left .main_card .card_left  ul li a:focus {
-   background: rgba(255, 255, 255, 0.39);
-   
-}
-
-/*.hide{
-    display: none;
-}*/
-
