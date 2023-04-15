@@ -65,6 +65,7 @@ $result = mysqli_query($conn,$sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>checkout</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../Customer/CSS/delivery.css">
 </head>
 <body class = "check_body">
 <div  class  =  "grid_4">
@@ -125,6 +126,14 @@ $result = mysqli_query($conn,$sql);
 
 <!-- entering all the details into the deals table -->
 <?php
+$sql = "SELECT address1,address2,district FROM `customer` WHERE user_id = $uid";
+$ad = $result = mysqli_query($conn,$sql);
+$address = mysqli_fetch_assoc($result);
+
+$ad_1 =  $address['address1'];
+$ad_2 =  $address['address2'];
+$ad_3 =  $address['district'];
+
 
 $id =$_SESSION['cart']['0']['post_id']; 
 $sql = "SELECT user_id FROM `post` WHERE post_id = $id";
@@ -141,8 +150,9 @@ if(isset($_POST['cash'])){
   $pay  = "card";
 }
 
-$query = "INSERT INTO  `checkout`(`agriculturalist_id`) VALUES ($agriculturalist)";
+$query = "INSERT INTO  `checkout`(`agriculturalist_id`,address1,address2,address3) VALUES ($agriculturalist,'$ad_1' ,'$ad_2','$ad_3')";
 $result = mysqli_query($conn,$query );
+var_dump($result);
 $select = "SELECT orderId FROM checkout WHERE agriculturalist_id = $agriculturalist && date = '$date' ";
 $result = mysqli_query($conn,$select);
 
@@ -157,14 +167,14 @@ foreach($_SESSION['cart'] as $keys => $values){
   $quan  = $values['quantity'];
 
  $sql  = "INSERT INTO `deals`(`order_id`,`customer_id`, `payment_method`, `delivery`,`item_name`,`total_cost`, `quantity`, `agriculturalist_id`, `post_id`) VALUES ($oid ,$customer,'$pay',$delivery,' $item_name' ,$total_cost, $quan ,$agriculturalist,$id)";
-
+var_dump( $sql);
  $result = mysqli_query($conn,$sql);
 
 }
  }
 
  if(isset($_POST['payment'])){
- header("Location:../order/orderPending.php");
+ header("Location:../location/location.php");
 
  }
 

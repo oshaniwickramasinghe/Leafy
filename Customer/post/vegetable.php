@@ -1,3 +1,4 @@
+
 <?php
 
 require "../Auth.php";
@@ -13,6 +14,7 @@ include "search.php";
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,9 +26,9 @@ include "search.php";
     
 <body>
 <div class  = "menu">
+  
 <?php include '../includes/menu.view.php'?>
 </div>
-
 <div class = "vegetable_body">
  
 <div class = "row">
@@ -74,8 +76,7 @@ if(mysqli_num_rows($result)>0){
     $count = $count+1;
     // if($count==4){
     //   echo "hi";
-    
- 
+
 ?>
 
 
@@ -87,7 +88,7 @@ if(mysqli_num_rows($result)>0){
                     <div class = "card_body">
 
                     <img src="../images/<?php echo $row["image"];?>" width = "180" height="150">
-                    <div class="detail"> 
+                    <div class="detail">
                     <h5 class= "text_info">Name:<?php echo $row['item_name'];?></h5>
                     <h5>Location:<?=$row['district'];?></h5>
                     <h5>Quantity : <?php echo $row['quantity']?>kg </h5>
@@ -115,16 +116,15 @@ if(mysqli_num_rows($result)>0){
   }
   }else{
     ?>
-  
     <h3> Item not found .. </h3>
-  
+
   <?php
     }
   ?>
 
-
-  </div>
 </div>
+  </div>
+
 
 
 <div class  = "pagination">

@@ -38,8 +38,8 @@ $result = json_decode($response, true);
 $lat = $result['results'][0]['geometry']['location']['lat'];
 $lng = $result['results'][0]['geometry']['location']['lng'];
 
-//save the latitude and longitude of the location of customer
-$sql  = "UPDATE `customer` SET `lat`='$lat',`lon`=' $lng ' WHERE user_id  = $id ";
+// save the latitude and longitude of the location of customer
+$sql  = "UPDATE `checkout` SET `lat`='$lat',`lon`=' $lng ' WHERE user_id  = $id ";
 $result_1 = mysqli_query($conn,$sql);
 
 ?>
@@ -50,6 +50,7 @@ $result_1 = mysqli_query($conn,$sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/delivery.css">
   <head>
     <title>Location</title>
 
@@ -58,11 +59,10 @@ $result_1 = mysqli_query($conn,$sql);
   <body>
 
 
-    <div class  =  "row_2">
-      <div class  = "colum lef">
-
+  
+  <div class  =  "location_body">
   <!-- menu for the location -->
-  <div class="containerr " style  = "width:45%">
+ 
         <div class="left_menu_bar">
             <div id="menu">
                 <a><i class="fa-solid fa-bars"></i></a>
@@ -77,13 +77,13 @@ $result_1 = mysqli_query($conn,$sql);
                 <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>                 
                </ul>
         </div>
-</div>
-</div>
+
+
 
 
 <!-- right side of the grid -->
-<div class  =  "colum righ">
-  <form  method  = "post">
+
+  <form  method  = "post"  action  = "../order/orderPending.php">
   <h3>Delivery Location </h3>
 <input type="text" placeholder="<?=$ad1?>" name="address1"><br>
 <input type="text" placeholder=" <?=$ad2?>" name="address2"><br>
@@ -92,7 +92,7 @@ $result_1 = mysqli_query($conn,$sql);
 </form>
 </div>
 
-</div>
+
 
   <!-- google map -->
 <h3>Your Current Location</h3>
@@ -129,12 +129,12 @@ window.initMap = initMap;
   defer
 ></script>
 <div class  =  "location"></div>
-
+<div class="footer">
+<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+</div>
   </body>
 
 
-<footer>
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
-</footer>
+
 
 </html>

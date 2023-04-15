@@ -5,7 +5,7 @@ include "database.php";
 <html>
 <link rel="stylesheet" href="../CSS/style.css">
 
-
+<header>
 <div class="header">
         <div class="center_wrapper">
             <div class="left_part">
@@ -107,8 +107,8 @@ if(mysqli_num_rows($select)>0){
           
         </div>          
 </div>
-
-
+            
+            </header>
 
 <script>
         

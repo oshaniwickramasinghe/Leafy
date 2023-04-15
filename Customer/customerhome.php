@@ -1,9 +1,12 @@
+
+<link rel="stylesheet" href="../Customer/CSS/delivery.css">
 <?php 
 error_reporting(0);
 
 require "Auth.php";
 
 include 'includes/header.view.php';
+
 
 $id  = $_SESSION['USER_DATA']['user_id'];
 $count = 0;
@@ -26,6 +29,7 @@ $row  = mysqli_fetch_array($result);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Customer/CSS/style.css">
+    <link rel="stylesheet" href="../Customer/CSS/delivery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" 
  referrerpolicy="no-referrer" />
@@ -45,8 +49,14 @@ $row  = mysqli_fetch_array($result);
        </a>
  </div> -->
 
- <div class="containerr">
-        <div class="left_menu_bar">
+
+       
+
+<body>
+
+
+<div class = "loggedhome_body">
+<div class="left_menu_bar">
             <div id="menu">
                 <a><i class="fa-solid fa-bars"></i></a>
                 <div class="image"><img src="images/badge.svg" alt=""></div>
@@ -55,18 +65,14 @@ $row  = mysqli_fetch_array($result);
             <ul>
                 <li><a href="../Customer/customerhome.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../Customer/wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
-                <li><a href="../Customer/notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;">
-               </i>Notifications <div class  = "count"><?php echo $row[0]?></div></a></li>
+                <li ><a href="../Customer/notification/notification.php" style  =  "height:10%"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;">
+               </i>Notifications<div class  = "count"><?php echo $row[0]?></div> </a></li>
                 <li><a href="../Customer/forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
                 <li><a href="../Customer/history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
                 <li><a href="../Customer/location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
             </ul>
 
-        </div>
 </div>
-
-<body>
-<div class = "loggedhome_body">
 
 <div class = "home_body">
 <div class = "shopping">
@@ -81,15 +87,14 @@ $row  = mysqli_fetch_array($result);
 <li><div class  = "container "><a href="courses" ><Button class = "btn">Courses </Button></a><img src = "images/c.png" width = "200px" height = "300px"></div></li>
 </ul>
 </div>
+
 </div>
 
 
-
+<div class="footer">
+<img src = "images/Footer.svg"  height= "121.42px">
+</div>
 
 </body>
 
-
-
 </html>
-
-<?php include 'includes/footer.view.php'?>

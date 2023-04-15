@@ -1,17 +1,18 @@
 
 
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>
      Login
    </title>
   
 <body>
    <link rel="stylesheet" href="../Customer/CSS/start.css">
-    <link rel="stylesheet" href="../Customer/CSS/style.css">
-
+    <link rel="stylesheet" href="../Customer/CSS/responsive.css">
+    
      
 
-    <div class = "body">
+    <div class = "login_body">
 
     <form action = "login.php" method="post">
     
@@ -39,7 +40,7 @@
 
 
     </form>
-
+    </div>
 
 </body>
 

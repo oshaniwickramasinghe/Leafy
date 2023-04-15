@@ -94,7 +94,7 @@ if($res['status'] == 1 &&  $row['payment_method'] === "cash"){
  <div class ='card'>
  <div class ='upper-side'>
 
-<h2>Successfully Orded </h2>
+<h2>Successfully Ordered </h2>
 
 </div>
 <div class='lower-side'>
