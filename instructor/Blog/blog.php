@@ -43,10 +43,10 @@ $result2= mysqli_query($conn,$sql2);
                // $comment=$record2['comment'];
                 $time=$record2['time'];
                 $image1=$record2['image1'];
-   
-        }
-            
-        }
+
+    }
+        
+    }
     }
 
 
