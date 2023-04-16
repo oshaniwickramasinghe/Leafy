@@ -13,7 +13,11 @@
         <?php
             try{
 
-                $sql = "SELECT COUNT(blog_id) AS count, Month(Date) as month FROM leafy.blog GROUP BY month ORDER BY month";
+                $sql = "SELECT COUNT(blog_id) AS count, Month(Date) as month 
+                        FROM leafy.blog 
+                        WHERE DATE_SUB(NOW(), INTERVAL 12 MONTH)
+                        GROUP BY month 
+                        ORDER BY month";
                 
                 $result = $pdo->query($sql);
 

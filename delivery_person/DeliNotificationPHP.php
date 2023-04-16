@@ -73,7 +73,7 @@ $resultorder0= mysqli_query($conn,$sqlorder0);
     if(isset($_GET['orderid']))
     {
         $orderid = $_GET['orderid'];
-        $sql1 = "SELECT * FROM deals WHERE order_id=$orderid and order_status=0";
+        $sql1 = "SELECT * FROM deals WHERE order_id=$orderid";
         $result1=mysqli_query($conn,$sql1);
         
         if($result1)
@@ -100,7 +100,7 @@ $resultorder1= mysqli_query($conn,$sqlorder1);
     if(isset($_GET['viewedorder']))
     {
         $VWorderid = $_GET['viewedorder'];
-        $sql2 = "SELECT * FROM deals WHERE order_id=$VWorderid and order_status=0";
+        $sql2 = "SELECT * FROM deals WHERE order_id=$VWorderid ";
         $result2=mysqli_query($conn,$sql2);
 
         $sql3 = "SELECT status FROM accepted_orders WHERE order_id=$VWorderid and sent_deli_id=3";

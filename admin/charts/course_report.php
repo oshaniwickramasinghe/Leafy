@@ -13,7 +13,11 @@
         <?php
             try{
 
-                $sql = "SELECT COUNT(course_id) AS count, Month(date) as month FROM leafy.course GROUP BY month ORDER BY month";
+                $sql = "SELECT COUNT(course_id) AS count, Month(date) as month 
+                FROM leafy.course 
+                WHERE DATE_SUB(NOW(), INTERVAL 12 MONTH)
+                GROUP BY month 
+                ORDER BY month";
                 
                 $result = $pdo->query($sql);
 
