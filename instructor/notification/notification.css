@@ -138,10 +138,11 @@
 h3{
 
   text-align: center;
-  margin-top: 5px;
+  margin: 10px;
   color: #313d22;
   
 }
+
 
 /*.instructor_wrapper .content .container{
     height:500px;
@@ -168,31 +169,78 @@ h3{
     
 }
 
-.instructor_wrapper .content .container .main_card p{
-    color: black;
-    font-size: 17px;
-    margin:10px 0 5px 20px;
+.instructor_wrapper .content .container .main_card_admin_notification{
+    
+  display:block;
+  background:white;
+  border-radius: 20px;
+  min-height: 740px;
+  width: 100%;
+  margin: 30px 0px 50px 0px;
+  padding: 10px 0px 0px 10px;
+  text-align: center;
+  
+}
+
+.instructor_wrapper .content .container .main_card p,
+.instructor_wrapper .content .container .main_card_admin_notification p
+{
+    color: rgba(0, 0, 0, 0.71);
+    font-size: 16px;
+    margin:110px 0 5px 20px;
     font-weight: 1000;
 
 }
 
-.instructor_wrapper .content .container  .main_card .card_left {
+.instructor_wrapper .content .container  .main_card .card_left
+{
   margin: 10px;
   padding: 10px;
   overflow-y: scroll;
   width: 93%;
   height: 300px;
+  box-shadow: 0 0 0.2rem grey;
 
 }
 
-.instructor_wrapper .content .container  .main_card .card_left ul{
+.instructor_wrapper .content .container .main_card_admin_notification .card_left .blog_notifications
+{
+  margin: 20px 10px ;
+  padding: 10px;
+  overflow-y: scroll;
+  width: 93%;
+  height: 300px;
+  background-color: white;
+  box-shadow: 0 0 0.2rem grey;
+  
+}
+
+.instructor_wrapper .content .container .main_card_admin_notification .card_left .course_notifications
+{
+  margin: 20px 10px;
+  padding: 10px;
+  overflow-y: scroll;
+  width: 93%;
+  height: 300px;
+  background-color: white;
+  box-shadow: 0 0 0.2rem grey;
+  
+
+}
+
+
+.instructor_wrapper .content .container  .main_card .card_left ul,
+.instructor_wrapper .content .container .main_card_admin_notification .card_left ul
+{
     list-style: none;
     margin: 0px;
     padding: 0px;
 
 }
 
-.instructor_wrapper .content .container .main_card .card_left ul li a{
+.instructor_wrapper .content .container .main_card .card_left ul li a,
+.instructor_wrapper .content .container .main_card_admin_notification .card_left ul li a
+{
     text-decoration: none;
     display:inline-flex;
     color: black;
@@ -203,30 +251,56 @@ h3{
     padding: 12px;
     margin: 6px 0px;
     position: relative;
+    font-size: 14px;
 }
 
-.message.opened {
+
+
+.message.opened,
+.messageForum.opened
+ {
   background-color: lightgray;
 }
 
-.message.unopened {
-  background-color:rgba(128, 168, 126, 0.634);
+.message.opened.reject
+{
+  background-color: rgba(227, 195, 195, 0.756);
 }
 
 
-.instructor_wrapper .content .container .main_card .card_left ul li a img{
+.message.unopened.accept,
+.messageForum.unopened
+{
+  background-color:rgba(128, 168, 126, 0.634);
+}
+
+.message.unopened.reject{
+  background-color:rgba(219, 115, 89, 0.921);
+}
+
+.message .date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.instructor_wrapper .content .container .main_card .card_left ul li a img,
+.instructor_wrapper .content .container .main_card_admin_notification .card_left ul li a img
+{
   text-align: center;
   margin: 0px 20px 0px 5px;
 }
 
-.instructor_wrapper .content .container .main_card .card_left  ul li a:focus {
+.instructor_wrapper .content .container .main_card .card_left  ul li a:focus,
+.instructor_wrapper .content .container .main_card_admin_notification .card_left ul li a:focus
+ {
    background: rgba(255, 255, 255, 0.39);
    
 }
 
   
   /* Float cancel and delete buttons and add an equal width */
-  .cancelbtn, .deletebtn {
+  .cancelbtn, .okbtn {
     float: left;
     
   }
@@ -237,7 +311,8 @@ h3{
     color: black;
   }
 
-  #id01 button{
+  .clearfix button
+  {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -246,10 +321,12 @@ h3{
     opacity: 0.9;
     margin-right: 8px;
     margin-top: 10px;
+    border-radius: 10px;
     
   }
 
-  #id01 a{
+  .clearfix a
+  {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -259,12 +336,15 @@ h3{
     margin-right: 8px;
     margin-top: 10px;
     text-decoration: none;
+    margin-left: 15px;
+    border-radius: 10px;
   }
-  
+
   /* Add a color to the delete button */
-  .deletebtn {
-    background-color: #f44336;
-    color: black;
+  .okbtn {
+    background-color:#78968d;
+    color:black;
+    
   }
   
   /* Add padding and center-align text to the container */
@@ -289,25 +369,98 @@ h3{
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow-y: scroll; /* Enable scroll if needed */
     background-color: #070708a4;
-    padding-top: 50px;
+    padding-top: 0px;
   }
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    background-color: white;
+    margin: 4% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
+    width: 65%; /* Could be more or less, depending on screen size */
     border-radius: 10px;
     text-align: center;
+    height: 85%;
   }
+
+  .modal-content h1{
+    margin: 20px 0px;
+    color: #313d22;
+  }
+
+  .modal-content h4{
+    color: #43562B;
+    margin-bottom: 0px;
+  }
+
+   .details_container,
+   .details_container .accept
+   {
+    text-align:left;
+    margin-left: 15px;
+    margin-right: 10px;
+    margin-top:15px ;
+    padding:20px 10px;
+    font-size: 14px;
+    background-color: #b8c4ab5b;
+    border-radius: 8px;
+    
+  }
+
+  .details_container .reject
+  {
+   text-align:left;
+   margin-left: 15px;
+   margin-right: 10px;
+   margin-top:15px ;
+   padding:20px 10px;
+   font-size: 14px;
+   background-color: #c5abab5b;
+   border-radius: 8px;
+   
+}
+
+
+
+ .details_container table tr{
+    vertical-align: top;
+    
+}
+
+ .details_container table th, td{
+    
+    padding: 10px;
+    
+
+} 
+
+.question_author{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.question_author .sending_date{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.question_author .sender_info{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
   
   /* Style the horizontal ruler */
   hr {
     border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
   }
   
   /* The Modal Close Button (x) */
@@ -320,6 +473,9 @@ h3{
     color: #f1f1f1;
   }
   
+  .clearfix{
+    display: flex;
+  }
   .close:hover,
   .close:focus {
     color: #f44336;
@@ -347,7 +503,7 @@ h3{
   
   /* Change styles for cancel button and delete button on extra small screens */
   @media screen and (max-width: 300px) {
-    .cancelbtn, .deletebtn {
+    .cancelbtn, .okbtn {
       width: 100%;
     }
   }

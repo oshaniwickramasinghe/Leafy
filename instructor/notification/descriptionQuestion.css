@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+    box-sizing:inherit;
+    font-family:'Lato', sans-serif;
+    
+    
+   
+}
+
+.role_name  {
+    margin:0px;
+    padding-left: 190px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: calc(100%-100px);
+    text-transform:capitalize;
+    font-size: 17px;
+    color:rgba(0, 0, 0, 0.751);
+    
+}
+
+.body{
+
+  margin: 0% 1%; 
+  height: 60%; 
+}
+
+.role_name .right{
+    flex:1.5;
+}
+
+.instructor_wrapper{
+    display: flex;
+    height: 40%;
+    
+    
+    
+}
+
+.instructor_wrapper .left_menu_bar{
+    flex:1.5;
+    background: #8f918b29;
+    display: block;
+    border-radius:20px;
+    height: auto;
+    box-shadow: var(--box-shadow);
+    
+}
+
+#menu{
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    
+
+
+
+}
+
+.left_menu_bar i{
+    display: inline-block;
+    margin-right: 1em;
+    
+  }
+
+  .left_menu_bar #menu .image{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+
+  }
+
+.left_menu_bar #menu i{
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+
+
+.instructor_wrapper .left_menu_bar ul{
+    list-style: none;
+    margin: 10px;
+    padding: 0px;
+
+}
+
+.instructor_wrapper .left_menu_bar ul li a{
+    text-decoration: none;
+    padding: 11px;
+    margin: 4px;
+    display: block;
+    color: #43562B;
+    background:#fff;
+    border-radius:4px;
+
+    
+}
+
+.instructor_wrapper .left_menu_bar ul li a:hover{
+    background: rgba(217, 217, 217);
+   
+}
+
+.instructor_wrapper .left_menu_bar h3{
+    color:rgba(67, 86, 43);
+    margin-left: 0px;
+    padding-left:0px;
+   
+}
+
+
+.instructor_wrapper .content{
+    flex:8.5;
+    height: 100%;
+    padding: 10px 20px;
+    background: #8d8f8c46;
+    border-radius: 20px;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    
+    
+   
+
+}
+
+.icon{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin-left: 45%;
+}
+
+.instructor_wrapper .content h2{
+    color:rgba(0, 0, 0, 0.669);
+    
+}
+
+h3{
+
+  text-align: center;
+  margin: 10px;
+  color: #313d22;
+  
+}
+
+
+/*.instructor_wrapper .content .container{
+    height:500px;
+}*/
+
+
+.instructor_wrapper .content .container{
+    height:auto;
+    margin:20px;
+
+}
+
+  /* Add padding and center-align text to the container */
+  #id01 .container {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  #id01 .container p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+  
+  /* The Modal (background) */
+
+   /* Modal Content/Box */
+   .modal-content {
+    background-color: white;
+    margin: 4% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 65%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+    height: 85%;
+  }
+
+  .modal-content h1{
+    margin: 20px 0px;
+    color: #313d22;
+  }
+
+  .modal-content h4{
+    color: #43562B;
+    margin-bottom: 0px;
+  }
+
+   .details_container,
+   .details_container .accept
+   {
+    text-align:left;
+    margin-left: 15px;
+    margin-right: 10px;
+    margin-top:15px ;
+    padding:20px 10px;
+    font-size: 14px;
+    background-color: #b8c4ab5b;
+    border-radius: 8px;
+    
+  }
+
+  .question_author{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .question_author .sending_date{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 15px;
+    margin-right: 10px;
+  }
+  
+  .question_author .sender_info{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .details_container table tr{
+    vertical-align: top;
+    
+}
+
+ .details_container table th, td{
+    
+    padding: 10px;
+    
+
+}
+
+.clearfix a
+{
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+  margin-right: 8px;
+  margin-top: 10px;
+  text-decoration: none;
+  margin-left: 15px;
+  border-radius: 10px;
+}
+
+
+.clearfix button
+{
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+  margin-right: 8px;
+  margin-top: 10px;
+  border-radius: 10px;
+  
+}
+
+ /* Add a color to the delete button */
+ .okbtn {
+    background-color:#78968d;
+    color:black;
+    
+  }
+
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
+
+  .clearfix{
+    display: flex;
+  }
+
+  
+
+
+   /* Float cancel and delete buttons and add an equal width */
+   .clearfix_delete .cancelbtn,
+   .clearfix_delete .deletebtn {
+    float: left;
+    
+  }
+  
+  /* Add a color to the cancel button */
+  .clearfix_delete.cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
+
+  #id01 button{
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    opacity: 0.9;
+    margin-left:50px;
+    margin-top: 8px;
+
+    
+  }
+
+  #id01 a{
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 30px;
+    text-decoration: none;
+    margin-left:50px;
+  }
+  
+  /* Add a color to the delete button */
+ .deletebtn {
+    background-color: #d5544bea;
+    color: black;
+  }
+  
+  /* Add padding and center-align text to the container_delete*/
+  #id01 .container_delete {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  #id01 .container_delete p{
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+  }
+  
+  /* The Modal (background) */
+  .modal_delete {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #070708a4;
+    padding-top: 50px;
+  }
+  
+  /* Modal Content/Box */
+  .modal_content_delete {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

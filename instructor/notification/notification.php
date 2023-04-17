@@ -11,7 +11,7 @@ $sql2 = "SELECT course_forum.*, user.image, user.fname, user.lname, course.title
         FROM course_forum
         JOIN user ON course_forum.user_id = user.user_id
         JOIN course ON course_forum.course_id = course.course_id  
-        WHERE course.user_id=$user_ID
+        WHERE course.user_id=$user_ID AND course_forum.visible = 0 
         ORDER BY question_id DESC";
 
 $select=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
@@ -23,14 +23,14 @@ if(mysqli_num_rows($select)>0){
 
 //make query for getting admin notifocations
 
-$query1= "SELECT blog_id,title,image1,topic,is_read,date 
+$query1= "SELECT blog_id,title,image1,topic,is_read,date,Verified,description
           FROM blog
-          WHERE user_id=$user_ID AND Verified=1
+          WHERE user_id=$user_ID AND (Verified=1 OR Verified=2) AND visible=0
           ORDER BY blog_id DESC";
 
-$query2= "SELECT course_id,title,image,topic,is_read 
+$query2= "SELECT course_id,title,image,topic,is_read ,verified,date,description
           FROM course
-          WHERE user_id=$user_ID AND verified=1
+          WHERE user_id=$user_ID AND (verified=1 OR verified=2) AND visible=0
           ORDER BY course_id DESC";
 
 
@@ -42,9 +42,9 @@ if(isset($_GET['open']))
     $blog_ID = $_GET['open'];
 
 
-    $query3 = "SELECT * FROM course_forum WHERE question_id=$question_ID";
+    //$query3 = "SELECT * FROM course_forum WHERE question_id=$question_ID";
     $query4 = "UPDATE blog SET is_read = 1 WHERE blog_id='$blog_ID'";
-    $result3=mysqli_query($conn,$query3);
+    //$result3=mysqli_query($conn,$query3);
     mysqli_query($conn,$query4);
 
 }
@@ -62,14 +62,67 @@ $result2= mysqli_query($conn,$sql2);
     if(isset($_GET['view']))
     {
         $question_ID = $_GET['view'];
-
-
         $sql3 = "SELECT * FROM course_forum WHERE question_id=$question_ID";
-        $sql1 = "UPDATE course_forum SET is_read = 1 WHERE question_id = '$question_ID'";
         $result3=mysqli_query($conn,$sql3);
-        mysqli_query($conn,$sql1);
+        
 
     }
+
+    //when question notification read
+    if(isset($_GET['ok']))
+    {
+        $question_ID = $_GET['ok'];
+        $sql1 = "UPDATE course_forum SET is_read = 1 WHERE question_id = '$question_ID'";
+        mysqli_query($conn,$sql1);
+    }
+
+    //when blog notification read
+    if(isset($_GET['read1']))
+    {
+        $blog_ID = $_GET['read1'];
+        $sql_read1 = "UPDATE blog SET is_read = 1 WHERE blog_id = '$blog_ID'";
+        mysqli_query($conn,$sql_read1);
+    }
+
+    //when course notification read
+    if(isset($_GET['read2']))
+    {
+        $course_ID = $_GET['read2'];
+        $sql_read2 = "UPDATE course SET is_read = 1 WHERE course_id = '$course_ID'";
+        mysqli_query($conn,$sql_read2);
+    }
+
+    //when  delete the notification from course_forum
+    if(isset($_GET['delete1']))
+    {
+        $question_id = $_GET['delete1'];
+        $sql1_delete = "UPDATE course_forum SET visible = 1 WHERE question_id = '$question_id'";
+        mysqli_query($conn,$sql1_delete);
+
+    }
+
+     //when  delete the notification from blogs
+     if(isset($_GET['delete2']))
+     {
+         $blog_id = $_GET['delete2'];
+         $sql2_delete = "UPDATE blog SET visible = 1 WHERE blog_id = '$blog_id'";
+         mysqli_query($conn,$sql2_delete);
+ 
+     }
+
+     
+     //when  delete the notification from courses
+     if(isset($_GET['delete3']))
+     {
+         $course_id = $_GET['delete3'];
+         $sql3_delete = "UPDATE course SET visible = 1 WHERE course_id = '$course_id'";
+         mysqli_query($conn,$sql3_delete);
+ 
+     }
+ 
+ 
+
+
 
 
     $sql4 = "SELECT * from user WHERE user_id= $user_ID";
@@ -140,7 +193,9 @@ $result2= mysqli_query($conn,$sql2);
                         <ul>
                             <?php  if(mysqli_num_rows($result2)>0){
                                         while($record1=mysqli_fetch_assoc($result2)){?>
-                                <li><a  href="notification.php?view=<?= $record1['question_id'] ?>" class="message <?= $record1['is_read'] == 1 ? 'opened' : 'unopened' ?>">
+                                <li><a 
+                                    href="descriptionQuestion.php?view=<?= $record1['question_id'] ?>" 
+                                    class="messageForum <?= $record1['is_read'] == 1 ? 'opened' : 'unopened' ?>">
                                     <?php
                                     if($record1['image'] == ''){
                                         echo '<img src="../images/profilepic_icon.svg"  height= "30px" border-radius:50%>';
@@ -149,12 +204,21 @@ $result2= mysqli_query($conn,$sql2);
                                     }
                                     ?>
                                     
-                                    (<?= $record1['question_id'] ?>) Question &nbsp; &nbsp;
+                                    <?= $record1['question_id'] ?>. Question &nbsp; &nbsp;
+                                    
+                                    <b>"<?php if(isset ($record1['content'])){ echo substr($record1['content'],0,25,).'...';} ?>"</b> 
+                                    &nbsp; &nbsp;
                                     <small>
-                                        "<?php if(isset ($record1['content'])){ echo substr($record1['content'],0,25,).'...';} ?>" &nbsp;
-                                        from course -<?= $record1['course_id'] ?> &nbsp;<?= $record1['title'] ?>course
-                                    <br>1<?= $record1['date'] ?></small>
-                                </a></li>
+                                        from
+                                        &nbsp; &nbsp;
+                                        <b> course -<?= $record1['course_id'] ?> &nbsp;<?= $record1['title'] ?></b>
+                                        on <?= $record1['date'] ?>
+                                        
+                                    </small>
+                                
+                                </a>
+                                
+                                </li>
                             <?php }
                                 } else{
                             ?>
@@ -165,36 +229,66 @@ $result2= mysqli_query($conn,$sql2);
                         </ul>
                     </div>
                 </div>
-                <div class="main_card">
+                <div class="main_card_admin_notification">
                     <h3>Notifications from Admin</h3>
                     <div class="card_left">
-                    <ul>
-                        <h4>About your blogs</h4>
-                            <?php  if(mysqli_num_rows($post1)>0){
-                                        while($mark1=mysqli_fetch_assoc($post1)){?>
-                                <li><a  href="notification.php?open=<?= $mark1['blog_id'] ?>" class="message <?= $mark1['is_read'] == 1 ? 'opened' : 'unopened' ?>">
-                                    <?php
-                                    if($mark1['image1'] == ''){
-                                        echo '<img src="../images/profilepic_icon.svg"  height= "30px" border-radius:50%>';
-                                    }else{
-                                        echo '<img src="../images/'.$mark1['image1'].'"  height= "30px" width="30px" style=border-radius:50%;>';
-                                    }
-                                    ?>
-                                    
-                                    Admin Accept the blog-<?= $mark1['blog_id'] ?>- "<?=$mark1['title'] ?>"  &nbsp; which is created on <?= $mark1['date'] ?> by you.
-                                </a></li>
-                            <?php }
-                                } else{
-                            ?>
-                            <p>You haven't any notification from Admin about your blogs</p>
-                            <?php
-                            }
-                            ?>
+                    
+                        <div class="blog_notifications">
+                            <h3>About your blogs</h3>
+                            <ul>
+                                <?php  if(mysqli_num_rows($post1)>0){
+                                            while($mark1=mysqli_fetch_assoc($post1)){?>
+                                    <li><a  
+                                        href="blogNotification.php?open=<?= $mark1['blog_id'] ?>" 
+                                        class="message <?= $mark1['is_read'] == 1 ? 'opened' : 'unopened' ?> <?= $mark1['Verified'] == 1 ? 'accept' : 'reject' ?>" 
+                                        onclick="showModal2(); return false;">
 
-                        <h4>About your courses</h4>
+                                        <?php
+                                        if($mark1['image1'] == ''){
+                                            echo '<img src="../images/profilepic_icon.svg"  height= "30px" border-radius:50%>';
+                                        }else{
+                                            echo '<img src="../images/'.$mark1['image1'].'"  height= "30px" width="30px" style=border-radius:50%;>';
+                                        }
+                                        ?>
+                                        
+                                        Admin 
+                                        &nbsp;
+                                        <!--check whether accept or reject the blog-->
+                                        <b>
+                                        <?php
+                                        if($mark1['Verified'] == 1){
+                                            echo 'Accept';
+                                        }else{
+                                            echo 'Reject';
+                                        }
+                                        ?>
+                                        </b>
+                                        &nbsp;
+                                        the blog-<?= $mark1['blog_id'] ?>- "<?=$mark1['title'] ?>"  &nbsp; 
+                                        <small>which is created on <?= $mark1['date'] ?> by you.</small>
+                                    </a></li>
+       
+                                <?php }
+                                    } else{
+                                ?>
+                                <p>You haven't any notification from Admin about your blogs</p>
+                                <?php
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                           
+                            
+                        <div class="course_notifications">
+                            <h3>About your courses</h3>
+                            <ul>
                             <?php  if(mysqli_num_rows($post2)>0){
                                         while($mark2=mysqli_fetch_assoc($post2)){?>
-                                <li><a  href="notification.php?open=<?= $mark2['course_id'] ?>" class="message <?= $mark2['is_read'] == 1 ? 'opened' : 'unopened' ?>">
+                                <li><a 
+                                    href="courseNotification.php?click=<?= $mark2['course_id'] ?>" 
+                                    class="message <?= $mark2['is_read'] == 1 ? 'opened' : 'unopened' ?> <?= $mark2['verified'] == 1 ? 'accept' : 'reject' ?>" 
+                                    onclick="showModal3(); return false;">
+
                                     <?php
                                     if($mark2['image'] == ''){
                                         echo '<img src="../images/profilepic_icon.svg"  height= "30px" border-radius:50%>';
@@ -203,7 +297,21 @@ $result2= mysqli_query($conn,$sql2);
                                     }
                                     ?>
                                     
-                                    Admin Accept the blog-<?= $mark2['course_id'] ?>- "<?=$mark2['title'] ?>"  &nbsp; which is created on <?= $mark2['date'] ?> by you.
+                                    Admin
+                                    &nbsp;
+                                    <!--check whether accept or reject the course-->
+                                    <b>
+                                    <?php
+                                    if($mark2['verified'] == 1){
+                                        echo 'Accept';
+                                    }else{
+                                        echo 'Reject';
+                                    }
+                                    ?>
+                                    </b>
+                                    &nbsp;
+                                    the course-<?= $mark2['course_id'] ?>- "<?=$mark2['title'] ?>"  &nbsp;
+                                    <small> which is created on <?= $mark2['date'] ?> by you.</small>
                                 </a></li>
                             <?php }
                                 } else{
@@ -212,64 +320,26 @@ $result2= mysqli_query($conn,$sql2);
                             <?php
                             }
                             ?>
-                        </ul>
+                            </ul>
+                        </div>
+                        <!--popup div for more details about the blog notification from admin-->
+                        <div id="id03" class="modal" style="display: none;">
+                            <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <form class="modal-content" action="/action_page.php">
+                                <div class="container">
+                                    <h1>Delete this blog</h1>
+                                    <p>Are you sure you want to delete the blog?</p>
+                                    <div class="clearfix">
+                                        <a href="blog.php?delete=<?=$blog_ID; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
+                                        <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
+                                    </div>
+                                    </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                
-      <!--      <div class="container_right" id="view_more">
-                <h3> Question<!--<?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?>--></h3>
-               <!-- <button class="close-button">&times;</button>
-                <div class="container_button">
-                    <button href="notification.php" id="answer-btn"  class="answer-btn" >Answer</button>
-                    <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
-                </div>
-                <div id="id01" class="modal" style="display: none;">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                    <form class="modal-content" action="/action_page.php">
-                        <div class="container">
-                            <h1>Delete this blog</h1>
-                            <p>Are you sure you want to delete the blog?</p>
-                            <div class="clearfix">
-                                <a href="blog.php?delete=<?=$blog_ID; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
-                                <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
-                            </div>
-                            </div>
-                    </form>
-                </div>
-            <!--   <div class="details_container">
-                    <h4><?php if(isset ($fetch['fname'])){ echo $fetch['fname'];} ?></h4>
-                    <p><?php if(isset ($date)){ echo $date;} ?></p>
-                    <p><?php if(isset ($time)){ echo $time;} ?></p>
-                    <table>
-                        
-                        <tr>
-                            <th>Question ID</th>
-                            <td>:</td>
-                            <td><?php if(isset ($blog_ID)){ echo $blog_ID;} ?></td>      
-                        </tr>
-                        <tr>
-                            <th>Question </th>
-                            <td>:</td>
-                            <td><?php if(isset ($title)){ echo $title;} ?></td>
-                        </tr>
-                        <tr>
-                            <th>Comment </th>
-                            <td>:</td>
-                            <td><?php if(isset ($commen)){ echo $commen;} ?></td>
-                        </tr>
-                    </table>   
-                </div> -->
-                <div class="answer-container" id="answer-div">
-                        <h3>Answer</h3>
-                        <p>Ensure that the field is level, well drained, and under shade. Chop compost materials into small pieces (3−5 cm). If possible, build compost heaps in layers consisting of rice crop material, combined with legume or manure wastes, on a 2:1 ratio. Keep compost heaps moist—not to wet and not too dry.</p>
-                        <a href="#" type="button" class="submit-btn" id="submit-btn">Submit</a>
-                </div>
-                
             </div>
-
-           </div>
-            
-            
+        </div>   
         </div>
 
     </div>
@@ -279,9 +349,9 @@ $result2= mysqli_query($conn,$sql2);
     </footer>
 
     <script>
-         var answer_div = document.getElementById("answer-div");
-         var answer_btn = document.getElementById("answer-btn");
-         var submit_btn = document.getElementById("submit-btn");
+        /* var answer_div = document.getElementById("answer-div");
+        // var answer_btn = document.getElementById("answer-btn");
+        //var submit_btn = document.getElementById("submit-btn");
 
          answer_btn.addEventListener('click', ()=>{
             answer_div.style.display ='block';
@@ -290,16 +360,8 @@ $result2= mysqli_query($conn,$sql2);
         submit_btn.addEventListener('click', ()=>{
             answer_div.style.display ='none';
         });
+        */
 
-
-
-        function showModal() {
-            document.getElementById("id01").style.display = "flex";
-        }
-
-        function hideModal() {
-            document.getElementById("id01").style.display = "none";
-        }
 
         function deleteDetails() {
 
