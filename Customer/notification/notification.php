@@ -95,8 +95,9 @@ include '../includes/header.php';
 
          </div>
          <br><br><br> <a href="../post/vegetable.php" type="button"><button name  = "back" style = "margin-left:25%; border: none;">Back </button></a>
-
-
+ <div class="footer">
+<img src = "../images/Footer.svg"  height= "120px" style = "margin-top:auto">
+</div>
 </body>
 
 
@@ -138,10 +139,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-<footer>
+
 <!-- <div class="footer-copyright">
             <p>copyright @2022 Leafy All Rights Reserved</p>
-        </div> -->
-<img src = "../images/Footer.svg"  height= "120px" style = "margin-top:auto">
-</footer>
+          </div> -->
+        
 </html>

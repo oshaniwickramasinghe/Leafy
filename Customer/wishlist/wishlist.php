@@ -68,6 +68,7 @@ $sql = "SELECT * FROM  post JOIN (SELECT * FROM wishlist WHERE user_id=$id) wish
       <img src="../images/<?php echo $res["image"];?>" width = "150" height="150">
       </div>
 
+   <!-- display item in wishlist -->
       <div class  = "flex-item-center">
                    <p><b> Name :   <?php echo $res['item_name']?> </p></b>
                    <p><b>Price: Rs  <?php echo $res['unit_price'];?>.00  per Kg</p></b>
@@ -114,9 +115,9 @@ $sql = "SELECT * FROM  post JOIN (SELECT * FROM wishlist WHERE user_id=$id) wish
 
 <br><br><br><a href  = "../customerhome.php"> <button name  = "back" style = "margin-left:20%; border: none;">Back </button></a>
 
-<footer>
+<div class = "footer">
 <img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
-</footer>
+</div>
 
 </body>
 </html>

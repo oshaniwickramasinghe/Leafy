@@ -507,12 +507,64 @@ footer{
     }
      
    }
+   @media screen and (max-width:700px) {
+    .backk{
+     margin-left: 15%;
+    }
+     
+   }
  
 
   .complete form{
     width:90%;
     margin-left: 1%;
     background-color:transparent;
+    padding-bottom: 2%;
   
   }
 
+.complete button{
+  background-color: #33ca93;
+  color: #EDF3E5;
+}
+
+.completed  button{
+  background: #e27157;
+  color: #EDF3E5;
+}
+
+.Back_del input[type = submit]{
+  
+  width:30%;
+ 
+
+}
+.Back_del{
+  margin-left: -8%;
+width:20%;
+  padding-bottom: 5%;
+}
+.complete_boby{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width:800px){ 
+  .complete  {
+  
+   overflow-x: auto;
+  }
+  .Back_del{
+  
+ width:30%;
+  
+ }
+ .Back_del input[type = submit]{
+   
+   width:60%;
+  
+ 
+ }
+ }
+ 

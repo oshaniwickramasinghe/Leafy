@@ -12,7 +12,7 @@ include '../includes/header.php';
 <link rel="icon" href="./images/favicon.png" type="image/png" sizes="16x16">
 <title>forum</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <link rel="stylesheet" href="https://kit.fontawesome.com/6b34f3c462.css" crossorigin="anonymous">
@@ -21,11 +21,14 @@ include '../includes/header.php';
 <link rel="stylesheet" href="../CSS/style.css">
 <script src="main.js"></script>
 </head>
-<?php include '../includes/menu.view.php'?>
+
 <!-- Modal for the reply -->
 
 <div  class  =  "forum_body">
-  <div  class  = "R">
+<?php include '../includes/menu.view.php'?>
+
+
+<div  class  = "R">
 <div id="id01" class="modal" style="display: none;">
 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 <div id="ReplyModal" class="modal fade" role="dialog">
@@ -34,10 +37,6 @@ include '../includes/header.php';
       <div class="modal-body">
         <form name="frm1" method="post">
             <input type="hidden" id="commentid" name="Rcommentid">
-        	<!-- <div class="form-group">
-        	  <label for="usr">Write your name:</label>
-        	  <input type="text" class="form-control" name="Rname" required>
-        	</div> -->
             <div class="form-group">
               <label for="comment">Write your reply:</label>
               <textarea class="form-control" rows="5" name="Rmsg" required></textarea>
@@ -87,10 +86,9 @@ include '../includes/header.php';
 
 <!-- end of the forum body -->
 </div>
-</body>
 
-
-<footer>
+<div class="footer">
 <img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">
-</footer>
+</div>
+</body>
 </html>

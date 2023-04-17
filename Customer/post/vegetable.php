@@ -25,12 +25,9 @@ include "search.php";
     <title>Vegetables</title>
     
 <body>
-<div class  = "menu">
-  
-<?php include '../includes/menu.view.php'?>
-</div>
+
 <div class = "vegetable_body">
- 
+<?php include '../includes/menu.view.php'?>
 <div class = "row">
 <?php
 $count= 0;
@@ -164,8 +161,8 @@ echo "<a class  =  'next' href ='vegetable.php?page=".($page)."'> Next page </a>
 </div>
 
 </head>
+<div class  = "footer">
+<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+</div>
 </body>
 </html>
-<footer>
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
-</footer>

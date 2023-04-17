@@ -72,20 +72,20 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
 ?>
 
 </table>
-    </form>
-
-
-<div class  = "backk">
+ </form>
+ <div class  = "backk">
 <a href  = "../customerhome.php" ><input type  = "submit" name  =  "back" value  =  "Back" ></a>
 </div>
-</div>
 
+
+</div>
+<div class="footer">
+<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+</div>
 
 </body>
 </html>
-<footer>
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
-</footer>
+
 
 
 

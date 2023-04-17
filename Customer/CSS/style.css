@@ -1,4 +1,6 @@
-
+body{
+    overflow-x:hidden;
+}
 
 
 
@@ -794,7 +796,7 @@ small{
 table{
   
     align-content: center;
-    
+    width:100%;
 }
 
 th{
@@ -1270,7 +1272,7 @@ background-color:rgb(159, 159, 159);
     background-color:transparent;
     width: 70%;
     margin-left: 15%;
-    margin-top: -36%;
+    margin-top: -16%;
     
    flex-wrap: wrap;
    height: 60%;
@@ -1545,15 +1547,20 @@ a.next{
     height: 110vh;
     display: flex;
     flex-direction: column;
-    margin-top: -40%;
+    
   
 
   }
   
+  .history{
+    overflow-x: auto;
+    width:100%;
+  }
   .history_body{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    
   
 
   }
@@ -2094,7 +2101,7 @@ td{
 
 .backk {
     width: 30%;
-    margin-left: 1%;
+   margin-left: -4.5%;
     
 }
 
@@ -2262,8 +2269,8 @@ td{
     width:100%;
     height: 30%;
     padding-bottom:1% ;
-    margin-top: 1%;
-    margin-left: 10%;
+    margin-top: -25%;
+   
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -2318,7 +2325,7 @@ td{
 .reply{
     overflow-y:scroll;
     width: 60%;
-    margin-left:24%;
+    margin-left:20%;
     height: 60%;
 }
 .table{
@@ -2334,7 +2341,7 @@ td{
 .forum form{
     width:50%;
     background-color: #e5dede;
-    margin-left: 30%;
+    margin-left: 26%;
     margin-top: -5%;
    height: 70%;
 }

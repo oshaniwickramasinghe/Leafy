@@ -35,12 +35,12 @@ $row  = mysqli_fetch_array($result);
                 <h3>Leafy</h3>
             </div>
             <ul>
-                <li><a href="../customerhome.php"><i class="fa-solid fa-house"  style="font-size:16vw;color:black;"></i>Home</a></li>
+                <li><a href="../customerhome.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
                 <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count"><?php echo $row[0]?></div></a></li>
-                <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16vw;color:black;"></i>Forum</a></li>
-                <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16vw;color:black;"></i>History</a></li>
-                <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16vw;color:black;"></i>Location</a></li>
+                <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
+                <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
+                <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
                
             </ul>
 

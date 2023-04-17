@@ -150,7 +150,7 @@ if(isset($_POST['cash'])){
   $pay  = "card";
 }
 
-$query = "INSERT INTO  `checkout`(`agriculturalist_id`,address1,address2,address3) VALUES ($agriculturalist,'$ad_1' ,'$ad_2','$ad_3')";
+$query = "INSERT INTO  `checkout`(`agriculturalist_id`,address1,address2,district) VALUES ($agriculturalist,'$ad_1' ,'$ad_2','$ad_3')";
 $result = mysqli_query($conn,$query );
 var_dump($result);
 $select = "SELECT orderId FROM checkout WHERE agriculturalist_id = $agriculturalist && date = '$date' ";
