@@ -10,6 +10,12 @@ body {
     box-sizing: border-box;
   }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
 .clearfix::after{
     content: '';
     display: block;
@@ -49,9 +55,9 @@ body {
 
   .main{
     width: 100%;
-    background-color:rgb(240, 255, 249);
+    background-color:rgb(240, 255, 243);
     margin-top: 5rem ;
-    padding-top: 5rem;
+    padding: 40px 0px 10px 0px;
     
    
    
@@ -63,7 +69,7 @@ body {
     font-weight: 600;
     letter-spacing: 3px;
     position: relative;
-    color: rgba(99, 98, 98, 0.5);
+    color: rgba(99, 98, 98, 0.993);
     text-transform: capitalize;
     text-align: center;
 
@@ -75,72 +81,100 @@ body {
     display: flex;
     margin: 30px auto 30px;
     background-color: white;
+    padding: 10px;
   }
 
   .main .content .card_section{
     flex: 7.5;
-    background-color: rgb(129, 126, 123);
+    background-color: rgba(239, 239, 239);
+    margin: 10px;
+    padding: 10px;
+    
   }
  
-  .main .content .slidbar{
-    flex:2.5;
+  .content .slidbar{
+    width: 25%;
     float:right;
-    height:auto;
-    margin-left: 20px;
+    height:100%;
+    margin: 10px;
 
-  }
+}
 
-  .content .slidbar .section-search{
+.content .slidbar .section-search{
     background-color:rgba(239, 239, 239);
-    padding: 20px 10px 10px 10px;
+    padding: 20px 20px 10px 10px;
     border-radius: 5px;
     margin-bottom: 20px;
     
 }
 
-.content .slidbar .section-topics{
-  background-color:rgba(239, 239, 239);
-  margin-top: 10px;
-  padding-top: 20px;
-  margin-bottom: 10px;
-  height: 87.5%;
-  border-radius: 5px;
+
+.content .slidbar .section-search h2{
+  margin: 10px;
 }
 
-.content .slidbar .section-topics ul{
-  margin:10px;
-  padding:5px;
-  list-style: none;
-  border: 10px soild red;
-}
-
-.content .slidbar .section-topics ul li a{
-  border-bottom: 1px solid rgb(109, 104, 104);
+.text-input{
+  padding: .7rem 1rem;
   display: block;
-  padding: 15px 0px 15px 10px;
-  text-decoration: none;
-  
+  width: 90%;
+  border-radius: 5px;
+  outline: none;
+  color:#43562b;
+  line-height: 1.5rem;
+  border: 1px solid #43562b;
+  font-size: .9rem;
+
 }
 
-.content .slidbar .section-topics ul li a:hover{
-  padding-left:10px;
-  transition: all 0.3s;
+.content .slidbar .section-topics{
+    background-color:rgba(239, 239, 239);
+    margin-top: 10px;
+    padding: 20px 10px 20px 10px;
+    height:700px;
+    border-radius: 5px;
 }
 
+.content .slidbar .section-topics h2{
+  margin: 10px;
+}
+
+ .content .slidbar .section-topics ul{
+    margin:10px;
+    padding:5px;
+    list-style: none;
+
+    
+
+ }
+
+ .content .slidbar .section-topics ul li a{
+    border-bottom: 1px solid rgb(109, 104, 104);
+    display: block;
+    padding: 15px 0px 15px 10px;
+    
+ }
+
+ .content .slidbar .section-topics ul li a:hover{
+    padding-left:10px;
+    transition: all 0.3s;
+ }
   
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
+  box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.2);
+  height: 400px;
+  background-color: white;
   margin: 20px 0px;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+
+.card:hover{
+  box-shadow: 0px 10px 10px 0px rgba(11, 11, 11, 0.2); /* this adds the "card" effect */
 }
 
 .column {
   float: left;
   width: 31%;
-  padding: 0 10px;
+  padding: 0 9px;
 }
 
 .row {margin: 0 -5px;}
@@ -151,13 +185,32 @@ body {
   clear: both;
 }
 
-.card .img-holder{
-  max-width:100%;
+.card .img-holder img{
+  width:100%;
   height: 10rem;
   position: relative;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   background:url(../images/gardener.jpg) no-repeat center center / cover;
 }
 
+.card .card-text{
+  max-width:100%;
+  position: relative;
+  padding: 20px;
+  display: block;
+}
+
+.card .card-text p
+{
+  font-size: 13px;
+  margin:10px 0px ;
+}
+
+.card .card-text .instructor_details,.rating,.course_session{
+  font-size: 12px;
+
+}
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;

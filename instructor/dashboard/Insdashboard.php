@@ -201,11 +201,11 @@ $sql_getdata = "SELECT DATE_FORMAT(ac.date_enrolled, '%Y-%m') AS month,
                    </div>
                     <div class="graph-div">
                         <div class="course-graph" id="course-graph">
-                            <h2>Reports about course follwers</h2>
+                            <h2>Graph about course follwers</h2>
                             <div id="bar_graph"></div>
                         </div>
                         <div class="question-graph" id="question-graph">
-                            <h2>Report recieved questions</h2>
+                            <h2>Graph about recieved questions</h2>
                             <div id="horizantal_bar_graph"></div>
                         </div>
                     </div>

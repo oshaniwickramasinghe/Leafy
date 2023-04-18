@@ -1,5 +1,78 @@
 <?php
 include "../includes/header.php";
+
+$posts = array();
+$postsTitle ="Recent Posts";
+
+
+function getPublishedPosts()
+{
+	global $conn;
+
+	$sql1= "SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author , course.date, course.title, course.Topic, course.image, course.description
+           FROM course
+           INNER JOIN user ON course.user_id=user.user_id";
+		   /*  where course.verified=1"; */
+
+    $stmt = $conn -> prepare($sql1);
+    $stmt -> execute();
+    $records = $stmt -> get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+
+}
+
+function search($term)
+{
+    global $conn;
+
+    $match = '%'. $term .'%';
+
+    $sql2="SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author , course.date, course.title, course.Topic, course.image, course.description
+           FROM course
+           INNER JOIN user ON course.user_id=user.user_id /* where blog.Verified=1*/
+           AND (course.title LIKE ? OR course.description LIKE ? OR course.Topic LIKE ?)";
+
+    $stmt = $conn -> prepare($sql2);
+    $stmt->bind_param('sss', $match, $match, $match);
+    $stmt -> execute();
+    $records = $stmt -> get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+function getPostByTopic($topic)
+{
+    global $conn;
+
+    $sql3="SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author , course.date, course.title, course.Topic, course.image, course.description
+            FROM course
+            INNER JOIN user ON course.user_id=user.user_id /* where blog.Verified=1*/
+            WHERE course.topic=?";
+
+    $stmt = $conn -> prepare($sql3);
+    $stmt->bind_param('s', $topic);
+    $stmt -> execute();
+    $records = $stmt -> get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+
+
+}
+
+
+ if(isset($_POST['search-term']))
+ {
+    $postsTitle = "You searched for '" . $_POST['search-term'] ."'";
+    $posts = search($_POST['search-term']);
+
+ }else if(isset($_GET['view'])){
+
+    $postsTitle = "You searched for '" . $_GET['view'] ."'";
+    $posts = getPostByTopic($_GET['view']);
+
+}else{
+ $posts = getPublishedPosts();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,98 +101,50 @@ include "../includes/header.php";
             <div class="content clearfix">
               <div class="card_section">
                 <div class="row">
+                <?php foreach ($posts as $post): ?>
                     <div class="column">
+                    <a href="userCourse.php?view=<?=$post['course_id']?>">
                         <div class="card">
                           <div class="img-holder">
-                            <a href="#">passion</a>
-                          </div>
-                        <div class="card-text">
-                          <h4>8 Startups that are Revolutionizing AgTech</h4>
-                          <p>Agriculture is changing rapidly in the modern age. The global population is rising at an alarming rate and consumer preferences are shifting towards organic and sustainably produced goods. </p>
-                         </div>
-                        </div>
-                    </div>
-
-                    <div class="column">
-                       <div class="card">
-                          <div class="img-holder">
-                            <a href="#">passion</a>
+                            <img src="../images/<?php if(isset ($post['image'])){ echo $post['image'];} ?>">
                           </div>
                           <div class="card-text">
-                              <h4>8 Startups that are Revolutionizing AgTech</h4>
-                              <p>Agriculture is changing rapidly in the modern age. The global population is rising at an alarming rate and consumer preferences are shifting towards organic and sustainably produced goods. </p>
-                          </div>
+                            <h4><?php if(isset ($post['title'])){ echo $post['title'];} ?></h4>
+                            <p><?php if(isset ($post['description'])){ echo substr($post['description'],0,150,).'....';} ?></p>
+                            <div class="instructor_details">
+                              <i class="fa-solid fa-user"></i>&nbsp;<b><?php if(isset ($post['author'])){ echo $post['author'];} ?></b></i> &nbsp; &nbsp;
+                            </div>
+                            <div class="rating">rating</div>
+                            <div class="course_session">number of sessions</div>
+                         </div> 
                         </div>
+                    </a>
                     </div>
-  
-                    <div class="column">
-                      <div class="card">
-                        <div class="img-holder">
-                          <a href="#">passion</a>
-                        </div>
-                        <div class="card-text">
-                          <h4>8 Startups that are Revolutionizing AgTech</h4>
-                          <p>Agriculture is changing rapidly in the modern age. The global population is rising at an alarming rate and consumer preferences are shifting towards organic and sustainably produced goods. </p>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div class="column">
-                      <div class="card">
-                        <div class="img-holder">
-                          <a href="#">passion</a>
-                        </div>
-                        <div class="card-text">
-                          <h4>8 Startups that are Revolutionizing AgTech</h4>
-                          <p>Agriculture is changing rapidly in the modern age. The global population is rising at an alarming rate and consumer preferences are shifting towards organic and sustainably produced goods. </p>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div class="column">
-                      <div class="card">
-                        <div class="img-holder">
-                          <a href="#">passion</a>
-                        </div>
-                        <div class="card-text">
-                          <h4>8 Startups that are Revolutionizing AgTech</h4>
-                          <p>Agriculture is changing rapidly in the modern age. The global population is rising at an alarming rate and consumer preferences are shifting towards organic and sustainably produced goods.</p>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div class="column">
-                      <div class="card">
-                        <div class="img-holder">
-                          <a href="#">passion</a>
-                        </div>
-                        <div class="card-text">
-                          <h4>8 Startups that are Revolutionizing AgTech</h4>
-                          <p>Agriculture is changing rapidly in the modern age. The global population is rising at an alarming rate and consumer preferences are shifting towards organic and sustainably produced goods. To keep up with these demands, the traditional agriculture industry must adopt new technologies to make farms more efficient and automate production</p>
-                        </div>
-                      </div>
-                    </div>
+                    <?php endforeach; ?>
                   </div>
               </div> 
-                <div class="slidbar">
-                  <div class="section-search">
+              <div class="slidbar">
+                <div class="section-search">
                     <h2 class="section-title">search</h2>
-                    <form action="userblog.php" method="post">
+                    <form action="theCourse.php" method="post">
                         <input type="text" name="search-term" class="text-input" placeholder="search...">
                     </form>        
-                  </div>
-                  <div class="section-topics">
+                </div>
+                <div class="section-topics">
                     <h2 class="section-title">Topics</h2>
                     <ul>
-                         <li><a href="#">Poems</a></li>
-                         <li><a href="#">Quotes</a></li>
-                         <li><a href="#">Fictions</a></li>
-                         <li><a href="#">Poem</a></li>
-                         <li><a href="#">Biography</a></li>
-                         <li><a href="#">Farming</a></li>
+                         <li><a href="theBlog.php?view=Agronomy">Agronomy</a></li>
+                         <li><a href="theBlog.php?view=Horticulture">Horticulture</a></li>
+                         <li><a href="theBlog.php?view=Soil Science">Soil Science</a></li>
+                         <li><a href="theBlog.php?view=Plant Pathology">Plant Pathology</a></li>
+                         <li><a href="theBlog.php?view=Entomology">Entomology</a></li>
+                         <li><a href="theBlog.php?view=Agricultural Engineering">Agricultural Engineering</a></li>
+                         <li><a href="theBlog.php?view=Agricultural EconomicsHorticulture">Agricultural Economics</a></li>
+                         <li><a href="theBlog.php?view=Agricultural Extension">Agricultural Extension</a></li>
+                         <li><a href="theBlog.php?view=Agroforestry">Agroforestry</a></li>
                     </ul>
-                  </div>
                 </div>
+            </div>
               </div>
         </div>
     </div>
