@@ -10,101 +10,84 @@ if(!isset($user_ID)){
     header('location:../login/login.php');
 };
 
+// get the total number of blogs in blog section
+$sql_1="SELECT blog_id FROM blog";
+$result_1= mysqli_query($conn,$sql_1);
+$num_1 = mysqli_num_rows($result_1);
 
-// when click on overview button then get the data from database
-/*if(isset($_GET['overview']))
-{
-   $select1=mysqli_query($conn,"SELECT * FROM `user` WHERE user_id='$user_ID'") or die('query failed');
-   if(mysqli_num_rows($select1)>0){
-
-    $fetch= mysqli_fetch_assoc($select1); 
-    }
-
-$select2=mysqli_query($conn,"SELECT * FROM `instructor` WHERE user_id='$user_ID'") or die('query failed');
-
-   if(mysqli_num_rows($select2)>0){
-
-    $result= mysqli_fetch_assoc($select2); 
-    }
+// get the total number of blogs which you created
+$query_1="SELECT blog_id FROM blog WHERE user_id=$user_ID";
+$record_1= mysqli_query($conn,$query_1);
+$num_4 = mysqli_num_rows($record_1);
 
 
-}
+// get the total number of courses in course section
+$sql_2="SELECT course_id FROM course";
+$result_2= mysqli_query($conn,$sql_2);
+$num_2 = mysqli_num_rows($result_2);
 
-//when click on update profile button to update database columns
+// get the total number of courses which you created
+$query_2="SELECT course_id FROM course WHERE user_id=$user_ID";
+$record_2= mysqli_query($conn,$query_2);
+$num_5 = mysqli_num_rows($record_2);
 
-if(isset($_POST['update_profile'])){
+// get the total number of questions from your courses
+$sql_3="SELECT course_forum.question_id 
+        FROM course_forum
+        JOIN course ON course.course_id = course_forum.course_id
+        WHERE course.user_id=$user_ID";
 
-    $update_fname = mysqli_real_escape_string($conn, $_POST['update_first_name']);
-    $update_lname = mysqli_real_escape_string($conn, $_POST['update_last_name']);
-    $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
-    $update_cnumber = mysqli_real_escape_string($conn, $_POST['update_cnumber']);
-    $update_occupation = mysqli_real_escape_string($conn, $_POST['update_occupation']);
-    $update_specialized_area = mysqli_real_escape_string($conn, $_POST['update_specialized_area']);
-    $update_education_level = mysqli_real_escape_string($conn, $_POST['update_education_level']);
-    $update_image=$_FILES['update_image']['name'];
-    $image_size=$_FILES['update_image']['size'];
-    $image_tmp_name=$_FILES['update_image']['tmp_name'];
-    $image_folder="images/".$update_image;
+$result_3= mysqli_query($conn,$sql_3);
+$num_3 = mysqli_num_rows($result_3);
+
+// get the total number of courses which you created
+$query_3="SELECT course_forum.question_id 
+            FROM course_forum
+            JOIN course ON course.course_id = course_forum.course_id
+            WHERE course.user_id=$user_ID AND course_forum.answered=1";
+$record_3= mysqli_query($conn,$query_3);
+$num_6 = mysqli_num_rows($record_3);
+
+$num_7=$num_3-$num_6;
+
+//course followers graph
 
 
-// update the user table
-    $sql1 = mysqli_query($conn, "UPDATE `user` SET fname='$update_fname' , lname='$update_lname', 
-    email='$update_email' , image='$update_image' WHERE user_id='$user_ID'") or die('query failed');
+$sql_getdata = "SELECT DATE_FORMAT(ac.date_enrolled, '%Y-%m') AS month, 
+                COUNT(*) AS followers, 
+                COUNT(CASE WHEN ac.date_complete IS NOT NULL THEN 1 END) AS completions, 
+                COUNT(CASE WHEN MONTH(ac.date_enrolled) = MONTH(NOW()) AND YEAR(ac.date_enrolled) = YEAR(NOW()) THEN 1 END) AS new_enrollments 
+                FROM agriculturalist_course as ac 
+                JOIN course ON course.course_id = ac.course_id
+                WHERE course.user_id=7 
+                AND ac.date_enrolled >= DATE_SUB(NOW(), INTERVAL 12 MONTH) 
+                GROUP BY month";
 
-//update the instructor table
-    $sql2 = mysqli_query($conn, "UPDATE `instructor` SET contact_number='$update_cnumber', occupation='$update_occupation', 
-    specialized_area='$update_specialized_area', education_level='$update_education_level' WHERE user_id='$user_ID'") or die('query failed');
 
-// when choose the image to update
-    if(!empty($update_image)){
-        //check the image size
-        if($image_size > 2000000){
-            $message[] = 'image is too large';
-        }else{
-            // move the uploaded image to images file
-            move_uploaded_file($image_tmp_name, $image_folder);
-        }
-// when did not choose image to update
-    }else{
-        $update_image = $image;
-    }
-// when data pass to database tables(user and instructor)
-    if($sql1 && $sql2){
-            
-        $message[]='update your details successfully!';
-    }else{
-        $message[]="registered failed!";
-    }
+// Format the data for Morris.js
+    $data = array();
+    $result_getdata = mysqli_query($conn,$sql_getdata);
+
+
+    while ($row = mysqli_fetch_assoc($result_getdata)) {
         
+    $month = $row['month'];
+    $followers = intval($row['followers']);
+    $completions = intval($row['completions']);
+    $new_enrollments = intval($row['new_enrollments']);
+    $data[] = array(
+        'month' => $month,
+        'followers' => $followers,
+        'completions' => $completions,
+        'new_enrollments' => $new_enrollments
+    );
     
-   
-}
-
-// when click to change password
-if(isset($_POST['change_password'])){
-
-    $old_pass = $_POST['old_pass'];
-    $update_pass = mysqli_real_escape_string($conn,md5($_POST['update_pass']));
-    $new_pass = mysqli_real_escape_string($conn,md5($_POST['new_pass']));
-    $confirm_pass = mysqli_real_escape_string($conn,md5($_POST['confirm_pass']));
-
-    if(!empty($update_pass) || !empty($new_pass) || !empty($confirm_pass))
-    {
-        if($update_pass != $old_pass){
-            $message[]="old password not matched!";
-           
-        }elseif($new_pass != $confirm_pass){
-            $message[]="confirm password is not matched!";
-            echo"<script>alert('confirm password is not matched!')</script>";
-        }else{
-            mysqli_query($conn, "UPDATE `instructor` SET password='$confirm_pass' WHERE user_id='$user_ID'") or die ('query failed');
-            $message[]="password updated successfully!";
-            echo"<script>alert('password updated successfully!');</script>";
-        }
     }
 
-}
-*/
+// get the data for create donut chart
+    $sql_donut = "SELECT COUNT(*) AS total, SUM(answered) AS answered, SUM(is_read) AS is_read FROM course_forum";
+    $result = $conn->query($sql_donut);
+    $data_1 = $result->fetch_assoc();
 
 
 ?>
@@ -120,9 +103,12 @@ if(isset($_POST['change_password'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--morris.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" integrity="sha512-fjy4e481VEA/OTVR4+WHMlZ4wcX/+ohNWKpVfb7q+YNnOCS++4ZDn3Vi6EaA2HJ89VXARJt7VvuAKaQ/gs1CbQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Insdashboard.css">
     <title>Instructor Home</title>
     
+
     
 </head>
 <body>
@@ -136,69 +122,91 @@ if(isset($_POST['change_password'])){
             <div class="view-wrap"> 
                    <div class="card-section">
                         <div class="num-course">
-                            <h2>Courses</h2>
-                            <table>
-                                <tr>
-                                <th>Total</th>
-                                <td>:</td>
-                                <td>25</td>  
-                                </tr>
+                            <div class="wrapper">
+                                <h2>Courses</h2>
+                                <div class="icon_course">
+                                    <i class="fa-brands fa-readme" style="font-size:40px;color:black;"></i>
+                                </div>
+                            </div> 
+                                <div class="table">
+                                    <table>
+                                        <tr>
+                                        <th>Total</th>
+                                        <td>:</td>
+                                        <td><?=$num_2;?></td>  
+                                        </tr>
 
-                                <tr>
-                                <th>My courses</th>
-                                <td>:</td>
-                                <td>5</td>  
-                                </tr>
-                            </table>
+                                        <tr>
+                                        <th>My courses</th>
+                                        <td>:</td>
+                                        <td><?=$num_5;?></td>  
+                                        </tr>
+                                    </table>
+                                </div>
+                                
                         </div>
                         <div class="num-blog">
-                            <h2>Blogs</h2>
-                            <table>
-                                <tr>
-                                <th>Total</th>
-                                <td>:</td>
-                                <td>25</td>  
-                                </tr>
+                            <div class="wrapper">
+                                <h2>Blogs</h2>
+                                <div class="icon_blog">
+                                    <i class="fa-brands fa-blogger" style="font-size:45px;color:black;"></i>
+                                </div>
+                            </div>    
+                                <div class="table">
+                                    <table>
+                                        <tr>
+                                        <th>Total</th>
+                                        <td>:</td>
+                                        <td><?=$num_1;?></td>  
+                                        </tr>
 
-                                <tr>
-                                <th>My courses</th>
-                                <td>:</td>
-                                <td>5</td>  
-                                </tr>
-                            </table>
+                                        <tr>
+                                        <th>My blogs</th>
+                                        <td>:</td>
+                                        <td><?=$num_4;?></td>  
+                                        </tr>
+                                    </table>
+                                </div>
                         </div>
-                        <div class="num-question">
-                            <h2>Questions</h2>
-                            <table>
-                                <tr>
-                                <th>Total</th>
-                                <td>:</td>
-                                <td>25</td>  
-                                </tr>
+                        <div class="num-question"> 
+                            <div class="wrapper">
+                                <h2>Questions</h2>
 
-                                <tr>
-                                <th>Answered </th>
-                                <td>:</td>
-                                <td>5</td>  
-                                </tr>
+                                <div class="icon_question">
+                                <i class="fa-solid fa-circle-question" style="font-size:40px;color:black;"></i>
+                                </div>
+                            </div>    
+                                <div class="table">
+                                    <table>
+                                        <tr>
+                                        <th>Total</th>
+                                        <td>:</td>
+                                        <td><?=$num_3;?></td>  
+                                        </tr>
 
-                                <tr>
-                                <th>Ignored</th>
-                                <td>:</td>
-                                <td>5</td>  
-                                </tr>
-                            </table>
+                                        <tr>
+                                        <th>Answered </th>
+                                        <td>:</td>
+                                        <td><?=$num_6;?></td>  
+                                        </tr>
+
+                                        <tr>
+                                        <th>Remaning</th>
+                                        <td>:</td>
+                                        <td><?=$num_7;?></td>  
+                                        </tr>
+                                    </table>
+                                </div>        
                         </div>
                    </div>
                     <div class="graph-div">
                         <div class="course-graph" id="course-graph">
                             <h2>Reports about course follwers</h2>
-                            <img src="../images/bar_gart_01.png " align="middle" width="50%"  border-radius:5%>
-
+                            <div id="bar_graph"></div>
                         </div>
                         <div class="question-graph" id="question-graph">
                             <h2>Report recieved questions</h2>
-                            <img src="../images/bar-chart-06.jpg" align="middle" width="50%" border-radius:5%>
+                            <div id="horizantal_bar_graph"></div>
                         </div>
                     </div>
             </div>
@@ -208,34 +216,32 @@ if(isset($_POST['change_password'])){
     <footer>
            <?php include "../includes/footer.php";?>
     </footer>
+    <!--Jquery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js" integrity="sha512-6Cwk0kyyPu8pyO9DdwyN+jcGzvZQbUzQNLI0PadCY3ikWFXW9Jkat+yrnloE63dzAKmJ1WNeryPd1yszfj7kqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js" integrity="sha512-tBzZQxySO5q5lqwLWfu8Q+o4VkTcRGOeQGVQ0ueJga4A1RKuzmAu5HXDOXLEjpbKyV7ow9ympVoa6wZLEzRzDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        var view_div = document.getElementById("view-div");
-        var edit_profile = document.getElementById("edit-profile");
-        var change_password = document.getElementById("change-password");
-        var view_btn = document.getElementById("view-btn");
-        var update_btn = document.getElementById("update-btn");
-        var password_btn = document.getElementById("password-btn");
+        Morris.Bar({
+            element: 'bar_graph',
+            data: <?php echo json_encode($data); ?>,
+            xkey: 'month',
+            ykeys: ['followers', 'completions', 'new_enrollments'],
+            labels: ['Followers', 'Completions', 'New Enrollments'],
+            barColors: ['#6FB1FC', '#FFCE54', '#4ECDC4'],
+            hideHover: 'auto',
+            resize: true
+            
+        });  
 
-        view_btn.addEventListener('click', ()=>{
-            view_div.style.display ='block';
-            edit_profile.style.display ='none';
-            change_password.style.display ='none';
-        });
-
-        update_btn.addEventListener('click', ()=>{
-            edit_profile.style.display ='block';
-            view_div.style.display ='none';
-            change_password.style.display ='none';
-        });
-
-        password_btn.addEventListener('click', ()=>{
-            change_password.style.display ='block';
-            view_div.style.display ='none';
-            edit_profile.style.display ='none';
-        });
-    
-    
-    
+        Morris.Donut({
+        element: 'horizantal_bar_graph',
+        data: [
+        { label: "Answered", value: <?php echo $data_1['answered']; ?> },
+        { label: "Not Answered", value: <?php echo $data_1['total'] - $data_1['answered']; ?> },
+        { label: "Read", value: <?php echo $data_1['is_read']; ?> },
+        { label: "Not Read", value: <?php echo $data_1['total'] - $data_1['is_read']; ?> }
+        ]
+     });
     </script>
 </body>
 </html>
