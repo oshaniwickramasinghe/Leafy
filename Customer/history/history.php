@@ -38,6 +38,7 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
 
     <?php
 
+  // get order history of the customer from the database
     $sql   = "SELECT * FROM deals WHERE customer_id  =$uid";
     $result = mysqli_query($conn , $sql);
 
@@ -57,6 +58,7 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
         ?>
         <tr>
 
+   <!-- Table data -->
     <td><?=$res['item_name']?></td>
     <td><?=$res['Date']?></td>
     <td><?=$res['payment_method']?></td>
@@ -67,6 +69,7 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
      </tr>
    <?php
 
+ //closing the php part  retrieve of database
   }
     }
 ?>
@@ -79,6 +82,7 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
 
 
 </div>
+   <!-- footer -->
 <div class="footer">
 <img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
 </div>

@@ -1,16 +1,20 @@
 
 <?php
-
 require "../Auth.php";
-
 include '../database.php';
 include '../includes/header.php';
 include "pagination.php";
 include "search.php";
 
+
+$id  = $_SESSION['USER_DATA']['user_id'];
+//to get the count of the notification
+$sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $id  ";
+$result = mysqli_query($conn,$sql);
+$row  = mysqli_fetch_array($result);
 ?>
 
-  
+
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="../CSS/style.css">
@@ -25,16 +29,33 @@ include "search.php";
     <title>Vegetables</title>
     
 <body>
+ <!-- menu bar -->
+<div class="menu_margin">
+<div class="left_menu_bar">
+            <div id="menu">
+                <a><i class="fa-solid fa-bars"></i></a>
+                <div class="image"><img src="images/badge.svg" alt=""></div>
+                <h3>Leafy</h3>
+            </div>
+            <ul>
+                <li><a href="../customerhome.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
+                <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
+                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count" style = "margin-top:5%"><?php echo $row[0]?></div></a></li>
+                <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
+                <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
+                <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
+               
+            </ul>
 
+        </div>
+
+</div>
 <div class = "vegetable_body">
-<?php include '../includes/menu.view.php'?>
+
 <div class = "row">
 <?php
 $count= 0;
-//AND district ='$district'
-
-
-
+//adding item for the wishlist whn button click
 if(isset($_POST['wishlist'])){
 
   $id = $_POST['post_id'];
@@ -57,18 +78,15 @@ if(isset($_POST['wishlist'])){
     }
 }
 
-
+ //search result
 if($search){
 $query = "SELECT * FROM post WHERE  district LIKE '{$find}%' AND  (category = 'Vegetable' OR category  = 'fruit')   LIMIT  ".$page_first_result. ','.$result_per_page ;
 }else{
   $query = "SELECT * FROM post WHERE  (category = 'Vegetable' OR category  = 'fruit')   LIMIT  ".$page_first_result. ','.$result_per_page ;
 }
-
 $result = mysqli_query($conn,$query);
-
-
 if(mysqli_num_rows($result)>0){
- 
+
     while($row =$result->fetch_assoc()){
     $count = $count+1;
     // if($count==4){
@@ -77,8 +95,7 @@ if(mysqli_num_rows($result)>0){
 ?>
 
 
-
-
+<!-- pagination -->
 <div class = "column_2" >
 <form method  = "Post " action  =  "../shopping_cart/cart.view.php" >  
                 <div class = "cards" >
@@ -134,7 +151,6 @@ if($page>= 2 ){
   echo "<a class  =  'prev' href='vegetable.php?page=".($page)."'> Previous page </a>";
 }
 
-
 for($i = 1; $i<= $number_of_page; $i++){
   if($i== $page){
   $pagLink= "<a class ='active' href='vegetable.php?page=".$i."'>$i</a>";
@@ -146,18 +162,12 @@ for($i = 1; $i<= $number_of_page; $i++){
 
 };
 
-
-
 if($page < $number_of_page){
    echo "<a class  =  'next' href ='vegetable.php?page=".($page+1)."'> Next page </a>";   
 
 }else{
-
 echo "<a class  =  'next' href ='vegetable.php?page=".($page)."'> Next page </a>"; 
-}
-
-?>
-
+}?>
 </div>
 
 </head>

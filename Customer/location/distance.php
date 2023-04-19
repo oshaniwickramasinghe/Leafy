@@ -3,10 +3,11 @@
 include "../Auth.php";
 
 
+//function to calculate the delivery fee of the customer using distance
 
 function delivery(){
 
-    $host = "localhost";
+$host = "localhost";
 $uname = "root";
 $password = "";
 $db_name = "leafy";
@@ -33,12 +34,12 @@ $agriculturalist =  $rows['user_id'];
 $query = "SELECT lat ,lng FROM agriculturalist WHERE user_id  =$agriculturalist ";
 $result_2 =  mysqli_query($conn , $query );
 $getResult_1  = mysqli_fetch_array($result_2);
-   
+
     $id = $_SESSION['USER_DATA']['user_id'];
     $sql  = "SELECT * FROM customer WHERE  user_id = $id";
     $result  =  mysqli_query($conn , $sql);
     $getResult  = mysqli_fetch_array(  $result);
-   
+
     $lat  = $getResult['lat'];
     $lng = $getResult['lon'];
 
@@ -59,6 +60,7 @@ $duration = $result['rows'][0]['elements'][0]['duration']['text'];
 
 // var_dump($distance);
 
+//initial delivery fee is 100 then for every  0.1 km it added a 2 rupee
 $delivery_fee  = 100;
 
 

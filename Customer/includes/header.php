@@ -72,7 +72,7 @@ if(mysqli_num_rows($select)>0){
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                         <div class="user-info">
-                            <img src="images/profilepic_icon.svg" alt=""  height= "100.42px">
+                            <img src="../images/profilepic_icon.svg" alt=""  height= "100.42px">
                             <p><?php echo $fetch['fname']; ?></p>
                         </div>
                         <hr>
@@ -81,38 +81,34 @@ if(mysqli_num_rows($select)>0){
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "../Customer/Logout.php" class="sub-menu-link">
+                        <a href = "../Logout.php" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:16px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>
                         </a>
-                
-                        
+
                     </div>
-                   
+
                 </div> 
                 <div class  = "lan">
             <a href="" class="">Languages (EN)</a>
             </div>
 
             <?php }else{ ?>
-                
+
                 <div class="login">
-                <li><a href="../Customer/Login.view.php">Login</a></li>
+                <li><a href="Login.view.php">Login</a></li>
                 </div>
                 <div class  = "language">
             <a href="" class="">Languages (EN)</a>
             </div>
-          
+
             <?php } ?>
-          
-            
+
             <!-- <li><a href="../Customer/Login.view.php" class="">Login</a></li> -->
-           
-       
-                
+
            </ul>
-           
+
            </div>
         </div>          
 </div>

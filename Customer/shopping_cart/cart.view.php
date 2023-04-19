@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+// error_reporting(0);
 
 require "../Auth.php";
 require "cart.php";
@@ -8,25 +8,7 @@ include '../includes/header.php';
 // unset($_SESSION['wishlist']);
 // unset($_SESSION['cart']);
 
-
-
-  if(isset($_GET["delete"]))
-  {
-            foreach($_SESSION["cart"] as $keys => $values)
-            {
-                 if($values["post_id"] == $_GET["delete"])
-                 {
-                      unset($_SESSION["cart"][$keys]);
-                      ?>
-                       <META http-equiv="Refresh" content="5; URL=http://localhost/leafy-1/Customer/shopping_cart/cart.view.php">
-                      <?php
-                 }
-            }
-       }
-
-
-
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if(isset($_POST['update'])){
  foreach($_SESSION['cart'] as $keys => $values)
           { 
@@ -40,44 +22,7 @@ if(isset($_POST['update'])){
   }
  }
 }
-
-          // $name= $_POST['item_name'];
-          // $quan = $_POST['quantity'];
-          // $id = $_SESSION['USER_DATA']['user_id'];
-          // $sub =$_POST['quantity']*$_POST['price'];
-          // $sql = "INSERT INTO shopping_cart_product_details (item_name,quantity, total, user_id) VALUES ('$name','$quan','$sub','$id')";
-          // $result = mysqli_query($conn, $sql);
-          // var_dump( $result );
-
-          if(isset($_POST['wishlist'])){
-            $id = $_POST['post_id'];
-               $sql = "SELECT * FROM post WHERE post_id = $id ";
-              $result = mysqli_query($conn,$sql);
-              $res =  mysqli_fetch_array($result);
-              $id =$res['post_id'];
-              $user = $_SESSION['USER_DATA']['user_id'];
-              $query  = "SELECT * FROM wishlist WHERE user_id = $user && post_id =$id";
-              $result = mysqli_query($conn,$query);
-              if(mysqli_num_rows($result)>0){
-               ?>
-               <script>
-               window.location.href ="cart.view.php?post_id=<?php echo $id?>";
-               alert("Item already added");
-             </script>
-             <?php
-              }else{
-              $sql = "INSERT INTO wishlist (post_id, user_id) VALUES ($id,$user)";
-              $result = mysqli_query($conn,$sql);
-               ?>
-               <script>
-                window.location.href ="cart.view.php?post_id=<?php echo $id?>";
-                alert("Item added to the wishlist");
-              </script>
-               <?php
-
-              }
-          }
-
+}
 
 ?>
 
@@ -92,7 +37,7 @@ if(isset($_POST['update'])){
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Shopping cart</title>
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../Customer/CSS/delivery.css">
+    <link rel="stylesheet" href="../CSS/delivery.css">
 </head>
 
 <body>
@@ -184,15 +129,14 @@ if(isset($_POST['update'])){
 
 
   <?php
+   $total = 0;
      if(!empty($_SESSION['cart'])){
-
-       $total = 0;
        $val = 0;
-       $val =  $_SESSION['cart']['quantity'];
+       if(isset( $_SESSION['cart']['quantity'])){
+        $val =  $_SESSION['cart']['quantity'];
+       }
        foreach($_SESSION['cart'] as $keys=>$values)
        {
-
-
         ?>
         <tr>
       <form  method  = "post" action = "">
@@ -201,7 +145,7 @@ if(isset($_POST['update'])){
       <input type = "number"  name = "quantity" style  = "width:50px" min = "<?= $res['minimum_quantity']?>"  max  = "<?= $res['quantity']?>" step=".1">
       <button class = "update" name = "update" style  = "width:50px">Add</button>
       </td>
-
+      
       <!-- getting the quantity input by the customer -->
       <td> <?php  echo $values['quantity'] ?>Kg</td>
       <td> Rs <input type = "text" value = "<?php  echo $values["price"] ?>"  name  ="price"  style = "width :65px; background-color:transparent; border-color:transparent;" readonly></td>
@@ -320,13 +264,11 @@ if(mysqli_num_rows($result)>0){
         }
 </script>
 
-
+<div class  = "footer">
+<img src = "../images/Footer.svg"  height= "117px"  style = "margin-top:auto">
+</div>
 
 </body>
-    <footer>
-<img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">
-</footer>
-
 </html>
 
 

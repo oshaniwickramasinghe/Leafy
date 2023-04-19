@@ -2,8 +2,9 @@
 include "../Auth.php";
 include "../database.php";
 
- $customerId  = $_SESSION['USER_DATA']['user_id'];
+$customerId  = $_SESSION['USER_DATA']['user_id'];
 
+// getting current date
 $date = date("Y-m-d");
 
 $sql  = "SELECT order_id,payment_method FROM `deals` WHERE customer_id  = $customerId  && Date = '$date' ORDER BY order_id DESC";
@@ -33,18 +34,20 @@ var_dump($sql);
 </head>
 <body>
    <?php
-   
-if($res['status'] == 0){
-  
-    ?>
-    <div class  =  "msg_body">
+
+//check the status of the order is it accepted(1) or not (0)
+// and send the message accordingly
+
+if($res['status'] == 0){?>
+
+<div class  =  "msg_body">
     <div class ='card'>
   <div class ='upper-side'>
   <i class="fa fa-check-circle-o fa-5x" aria-hidden="true"></i>
   <h2  style = "margin-left:-10px">Pending <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
-<span class="sr-only">Loading...</span></h2>
-   
+  <span class="sr-only">Loading...</span></h2>
   </div>
+
   <div class='lower-side'>
     <p>
       Your order  request has been sent to the agriculturalist.<br>
@@ -54,12 +57,11 @@ if($res['status'] == 0){
   </div>
 </div>
 </div>
-
-<?php }?>
-
-<?php   
+<?php }
 
 if($res['status'] == 1 && $row['payment_method'] === "card"){
+  
+  //after order is accepted or decline  clear the cart by unset the session
 unset($_SESSION['cart']);
 
 ?>
@@ -67,13 +69,11 @@ unset($_SESSION['cart']);
 <div class  =  "msg_body">
  <div class ='card'>
  <div class ='upper-side'>
+ <h2>Successfully Ordered </h2>
+ </div>
 
-<h2>Successfully Orded </h2>
-
-</div>
 <div class='lower-side'>
-<p>
-  Your order has been accept by the agriculturalist<br>
+<p> Your order has been accept by the agriculturalist<br>
   <b>Please click on continue to proceed with the payment </b> </p>
  <a href="../shopping_cart/payment.php" class="contBtn">Continue</a>
  </div>
@@ -93,13 +93,11 @@ if($res['status'] == 1 &&  $row['payment_method'] === "cash"){
 <div class  =  "msg_body">
  <div class ='card'>
  <div class ='upper-side'>
+ <h2>Successfully Ordered </h2>
+ </div>
 
-<h2>Successfully Ordered </h2>
-
-</div>
 <div class='lower-side'>
-<p>
-  Your order has been accept by the agriculturalist<br>
+<p>Your order has been accept by the agriculturalist<br>
   <b>Please do the necessary payment to complete the order </b> </p>
  <a href="../customerhome.php" class="contBtn">Continue</a>
  </div>

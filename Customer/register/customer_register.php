@@ -1,8 +1,5 @@
 <?php
-
 include "email_verification.php";
-
-
 ?>
 
 
@@ -18,8 +15,10 @@ include "email_verification.php";
 </head>
 <body>
 
-<div  class  = "register_body">
+<!-- second register form for  the customer to fill about the location and Contact
+   after signup to the web page -->
 
+<div  class  = "register_body">
 <form method  = "post" action = "email_verification.php " >
 <img src="../images/logo.svg" alt="logo" width = "120px" height = "120px" class = "Logo">
     <h2>Location Information </h2>
@@ -35,12 +34,7 @@ include "email_verification.php";
     <input type="submit" class="btn btn-primary w-100 " value="Save" name=""></input>
 
 </form>
-
-
-
-
 </body>
-
 </html>
 
 

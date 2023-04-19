@@ -5,6 +5,8 @@ require "../Auth.php";
 include '../includes/header.php';
 
 
+//save location of the customer
+
 $id  = $_SESSION['USER_DATA']['user_id'];
 
 $sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $id ";
@@ -62,7 +64,7 @@ $result_1 = mysqli_query($conn,$sql);
   
   <div class  =  "location_body">
   <!-- menu for the location -->
- 
+
         <div class="left_menu_bar">
             <div id="menu">
                 <a><i class="fa-solid fa-bars"></i></a>
@@ -118,7 +120,7 @@ window.initMap = initMap;
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
    <div id="map"></div>
 
-<!-- 
+<!--
   The `defer` attribute causes the callback to execute after the full HTML
   document has been parsed. For non-blocking uses, avoiding race conditions,
   and consistent behavior across browsers, consider loading using Promises

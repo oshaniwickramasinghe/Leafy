@@ -93,7 +93,9 @@ if(mysqli_num_rows($select)>0){
             <a href="" class="">Languages (EN)</a>
             </div>
             <?php }else{ ?>
-                <li><a href="../Customer/Login.view.php" class="">Login</a></li>
+                <div class="login">
+                <li><a href="Login.view.php">Login</a></li>
+                </div>
                 <div class  = "language">
             <a href="" class="">Languages (EN)</a>
             </div>

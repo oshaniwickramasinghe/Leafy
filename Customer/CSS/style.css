@@ -1,5 +1,5 @@
 body{
-    overflow-x:hidden;
+    /* overflow-x:hidden; */
 }
 
 
@@ -338,7 +338,7 @@ nav .user-pic{
  .home_body .resposive{
     height:auto;
  }
-
+ 
 
  .home_body ul {
     list-style: none;
@@ -348,6 +348,28 @@ nav .user-pic{
  }
 
  .home_body ul li {
+    padding: 0 25px;
+}
+.home_view_body{
+    margin-left: 12%;
+
+ }
+.home_view_body ul {
+    list-style: none;
+    display: flex;
+    padding: 35px 65px;
+
+ }
+
+
+ @media screen and (max-width: 800px) {
+    .home_view_body ul {
+     display: block;
+     margin-left: -25%;
+    }
+}
+
+ .home_view_body ul li {
     padding: 0 25px;
 }
 .home_text{
@@ -912,13 +934,13 @@ tr:nth-child(odd){
 .left_1 img{
     margin-top: 30px;
     margin-left: 25px;
-    
+    margin-right: 25px;
 }
 
 .continue {
 
     /* margin-top: 10%; */
-    margin-right: 90%;
+    margin-right: 75%;
    
 }
 .right_1{
@@ -956,6 +978,7 @@ input[type=submit] {
     border: none;
     cursor: pointer;
     width: 40%;
+    float:none;
 }
 td form{
     width: 85%;
@@ -1098,8 +1121,8 @@ h2{
 
 
 .check {
-    margin-left:55%;
-    margin-top: -4%;
+    margin-left:100%;
+   
 }
 .checkout {
     width: 80%;
@@ -1260,6 +1283,11 @@ background-color:rgb(159, 159, 159);
 
 }
 
+.menu_margin{
+    margin-top: -4%;
+}
+
+
 /* .row{
     margin-left: 10%;
     margin-top: -30%;
@@ -1270,15 +1298,16 @@ background-color:rgb(159, 159, 159);
     display: flex;
     /* flex-direction: row; */
     background-color:transparent;
-    width: 70%;
-    margin-left: 15%;
-    margin-top: -16%;
-    
+    width: 80%;
+    margin-left: 5%;
+    margin-top: 10%;
+
    flex-wrap: wrap;
    height: 60%;
 
 
 }
+
 
 .rowone{
     display: flex;
@@ -1409,11 +1438,12 @@ a.next{
  }
 
  .wishlist{
+    margin-top: -8%;
     margin-left: -30%;
  }
 
 .wishlist form{
-    width:40%;
+    width:50%;
   height: 10%;
     margin-left: 38%;
     border-radius:35px;
@@ -1544,7 +1574,7 @@ a.next{
   }
 
 .forum_body{
-    height: 110vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     
@@ -1602,11 +1632,22 @@ a.next{
    
 }
 
+
 .pagination{
     margin-left:56%;
     margin-top: auto;
 }
+@media screen and (max-width:600px){ 
+    .row{
+        margin-top: 400px;
+        margin-left: -450px;
+        
+    }
 
+    .pagination{
+        margin-left: 42%;
+    }
+}
 .break {
     flex-basis: 100%;
     height: 0px;
@@ -1904,6 +1945,9 @@ margin-left:-10%;
 
   }
   
+  .cart_body p{
+    margin-left:2%;
+  }
   /* The Modal (background) */
   .modal {
     display: none; /* Hidden by default */
@@ -2025,7 +2069,7 @@ margin-left:-10%;
    
 }
 .modal form {
-    height: 40%;
+    height: 50%;
 }
 .modal form h1{
     margin-left:-35%;
@@ -2194,7 +2238,7 @@ td{
         height: 150px;
         margin-top: 2%;
     }
-
+    
 
     .count{
         background-color: #d34545;
@@ -2258,18 +2302,20 @@ td{
 
 
 .forum_body form input[type=button]{
-    margin-left: 52%;
+    margin-left: 60%;
     width:20%
 }
+
+
 
    .reply{
     background-color: white;
     padding-left:2% ;
     padding-top:1% ;
     width:100%;
-    height: 30%;
+    height: 50%;
     padding-bottom:1% ;
-    margin-top: -25%;
+    margin-top: 2%;
    
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -2277,6 +2323,7 @@ td{
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
+
 
     .reply i {
         /* margin-left: 85%; */
@@ -2325,9 +2372,11 @@ td{
 .reply{
     overflow-y:scroll;
     width: 60%;
-    margin-left:20%;
-    height: 60%;
+    margin-left:15%;
+    height: 50%;
 }
+
+
 .table{
     width:90%;
     margin-left:8%;
@@ -2341,13 +2390,13 @@ td{
 .forum form{
     width:50%;
     background-color: #e5dede;
-    margin-left: 26%;
+    margin-left: 22%;
     margin-top: -5%;
-   height: 70%;
+  
 }
 
 .forum{
-    padding-bottom: 5%;
+    padding-bottom: 2%;
 }
 
 .form-group{
@@ -2356,12 +2405,36 @@ td{
 }
 
 textarea{
-    margin-left: 20%;
+    margin-left: 5%;
     margin-top: -10px;
-    width:48%;
-    height: 50%;
+    width: 80%;
+    height: 40%;
     resize: none;
 }
+
+@media only screen and (max-width: 650px) {
+    .reply {
+        margin-top: 10%;
+        width:100%;
+        margin-left: -4%;
+        
+     }
+.table{
+    overflow-x: auto;
+}
+     .forum_body{
+        margin-top:100%;
+     }
+
+     .forum form{
+        width: 90%;
+        margin-left: 5%;
+     }
+
+     .reply_body tr{
+        font-size: 12px;
+     }
+ }
 .modal-body{
     width:70%; 
     margin-top: 10%; 
@@ -2448,7 +2521,13 @@ textarea{
  .search form{
     background-color: none;
  }
- 
+ @media only screen and (max-width: 1000px) {
+    .search form{
+        background-color: none;
+        width: 80%;
+    margin-left: 10%;
+     }
+ }
  .search-box button[type="submit"] {
     text-indent: -999px;
     overflow: hidden;
@@ -2469,3 +2548,4 @@ textarea{
       width: 100%;
     }
   }
+
