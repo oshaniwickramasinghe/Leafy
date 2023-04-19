@@ -42,7 +42,8 @@
                <div class="profile_icon">
                     <div  class="user-pic" >
                         <div class="user_details">
-                        <?php if(logged_in()){
+                            
+                            <?php if(logged_in()){
 $user_ID = $_SESSION['USER_DATA']['user_id'];
 // if(!isset($user_ID)){
 //     header('location:login.php');
@@ -97,7 +98,7 @@ if(mysqli_num_rows($select)>0){
             <?php }else{ ?>
 
                 <div class="login">
-                <li><a href="Login.view.php">Login</a></li>
+                <li><a href="../Login.view.php">Login</a></li>
                 </div>
                 <div class  = "language">
             <a href="" class="">Languages (EN)</a>

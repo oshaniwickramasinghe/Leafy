@@ -54,7 +54,7 @@ a{
   }
   
   .logo{
-      margin-top: -90%;
+      margin-top: -95%;
       margin-left: 25%;
       display: inline-flex;
       height:auto
@@ -117,4 +117,14 @@ a{
 
       
        
+    }
+
+    small{
+        font-family: 'Lato';
+        color: red;
+        font-size: 18px;
+        margin-left: 5px;
+        margin-top: -3px;
+        background-color:rgba(255, 0, 0, 0.233) ;
+    
     }

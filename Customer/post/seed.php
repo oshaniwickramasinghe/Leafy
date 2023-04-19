@@ -5,6 +5,11 @@ include '../includes/header.php';
 include "paginationseed.php";
 include "search.php";
 
+if(logged_in()){
+  $uid  = $_SESSION['USER_DATA']['user_id'];
+  }else{
+    $uid =0;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,9 +90,20 @@ if(mysqli_num_rows($result)>0){
                    </div>
                 <?php $id =$row["post_id"] ;?>
                   <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
-                  <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/>
-                  
-                  <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
+                  <?php $id =$row["post_id"] ;?>
+                  <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
+                  <?php if($uid != 0){
+                    
+                    ?>
+                   
+                    <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/> 
+                    <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
+                 <?php } else{ ?>
+                  <a href="#" onclick="showModal(); return false;" style = "background-color:transparent; margin-left: -7%;border: none;" >
+                  <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true" style = "width: 105%;"/></a>
+                  <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"   style ="margin-top: 5%;"/>
+                 
+                  <?php } ?>
 
                   </div>
                 </div>
@@ -115,6 +131,22 @@ if(mysqli_num_rows($result)>0){
 
   </div>
 </div>
+
+
+
+     <!-- ask user to login -->
+     <div id="id01" class="modal" style="display: none;">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <form class="modal-content" method = "post"  action="">
+                        <div class="container">
+                           
+                            <h1>Please Login to add item in to cart</h1>
+                            <div class="clearfix">
+                                <a href="" type="button" class="cancelbtn" onclick="hideModal();">Cancel</a>
+                            </div>
+                            </div>
+                    </form>
+  </div>
 
 
 <div class  = "pagination">
@@ -155,3 +187,14 @@ echo "<a class  =  'next' href ='seed.php?page=".($page)."'> Next page </a>";
 </div>
 </body>
 </html>
+
+<!-- pop functions -->
+<script>
+function showModal() {
+            document.getElementById("id01").style.display = "flex";
+        }
+
+        function hideModal() {
+            document.getElementById("id01").style.display = "none";
+        }
+</script>

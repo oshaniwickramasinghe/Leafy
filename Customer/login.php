@@ -17,7 +17,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
 $email= validate($_POST['email']);
      
-    $row  = "SELECT password FROM user WHERE email = '$email'";
+    $row  = "SELECT password FROM user WHERE email = '$email' && is_active =1";
     $result = mysqli_query($conn,$row);
     $res =  mysqli_fetch_array($result);
    

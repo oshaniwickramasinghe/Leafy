@@ -1,5 +1,5 @@
 <?php
-$id  =  $_SESSION['USER_DATA']['user_id'];
+// $id  =  $_SESSION['USER_DATA']['user_id'];
 
 
 $result_per_page  = 6;

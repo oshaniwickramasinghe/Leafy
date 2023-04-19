@@ -28,8 +28,8 @@ sell and by products.</p>
 </div>
 <div class = "home_view_body">
 <ul>
-<li><div class  = "container "><Button class = "btn">Vegetables & Fruits </Button><img src = "images/v.png" width = "200px" height = "300px" class = "responsive"></div></li>
-<li><div class  = "container "><Button class = "btn">Seeds </Button><img src = "images/s.png" width = "200px" height = "300px" class  = "responsive"></div></li>
+<li><a href="post/Vegetable.php?page=1" ><div class  = "container "><Button class = "btn">Vegetables & Fruits </Button><img src = "images/v.png" width = "200px" height = "300px" class = "responsive"></div></a></li>
+<li><a href="post/seed.php?page=1" ><div class  = "container "><Button class = "btn">Seeds </Button><img src = "images/s.png" width = "200px" height = "300px" class  = "responsive"></a></div></li>
 <li><div class  = "container "><Button class = "btn">Blog </Button><img src = "images/b.png" width = "200px" height = "300px" class = "responsive"></div></li>
 <li><div class  = "container "><Button class = "btn">Courses </Button><img src = "images/c.png" width = "200px" height = "300px"></div></li>
 

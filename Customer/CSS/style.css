@@ -186,12 +186,13 @@ body{
     overflow: hidden;
     transition: max-height 0.5s;
     display: none;
+    background: rgb(255, 255, 255);
    
 }
 
 
 .sub-menu{
-    background: #f6f7f5c1;
+    background: #f6f7f5cf;
     padding : 20px;
     margin: 10px;
     border-radius: 5px;
@@ -328,6 +329,7 @@ nav .user-pic{
 }
  .home_body{
     margin-left: 20%;
+    margin-top: 4%;
  
  }
  .loggedhome_body{
@@ -1076,13 +1078,12 @@ h2{
    .card_body input[type=submit] {
     background-color: #33ca93;
     color: white;
-    padding: 10px 14px;
-    margin-left: 0.5%;
+    padding: 10px 10px;
+    margin-left: 0%;
     border-radius: 40px;
     border: none;
     cursor: pointer;
-    width: 48%;
-
+    width: 50%;
 }
 
 

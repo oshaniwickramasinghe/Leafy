@@ -31,12 +31,12 @@
        $errors['lname'] = 'A last name is required';
      }
 
-     //checking if already existing email
+     //checking if already existing email and validate it
      $email= $_POST['email'];
      $row  = "SELECT * FROM user WHERE email = '$email'";
      $result = mysqli_query($conn,$row);
      $res =  mysqli_fetch_array($result);
-   
+    
 
      if (!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
      {
@@ -45,7 +45,7 @@
 
          $errors['email'] = 'Email already exists';
       }
- 
+
 
 
      if (empty($_POST['password']))
@@ -56,8 +56,8 @@
      {
        $errors['password'] = 'Passwords do not matched';
      }
-  
-  
+
+
   }
 
   if(empty($errors))
