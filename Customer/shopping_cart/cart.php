@@ -56,12 +56,6 @@ if(isset($_POST['quantity'])){
 //add item to the cart
 if(isset($_POST['cart'])){
   if(isset ($_SESSION['cart'])){
-    // $name= $_POST['item_name'];
-    // $quan = $_POST['quantity'];
-    // $id = $_SESSION['USER_DATA']['user_id'];
-    // $sub =$_POST['quantity']*$_POST['price'];
-    
-
     $item_array_id = array_column($_SESSION['cart'] , 'post_id');
     if(!in_array($_POST['post_id'],$item_array_id)){
 
@@ -77,29 +71,30 @@ if(isset($_POST['cart'])){
        $_SESSION['cart'][$count]= $item_array;
      
        header("location:cart.view.php?post_id=$product_id");
-
+     
     }else{
            echo '<script>alert("Item already added")</script>';
            echo '<script>window.location ="cart.view.php?post_id=</script>'.$product_id;
     }
-
+  
   }else{
       $item_array = array(
         'post_id' =>$product_id,
         'item_name' =>$product_name,
         'price'=>$product_price,
          'quantity'=>$product_quantity,
-       
 
       );
 
       $_SESSION['cart'][ '0'] = $item_array;
-   
+
       header("location:cart.view.php?post_id= $product_id");
   }
 
 
+
 }
+ 
 
 //add item to wishlist
 if(isset($_POST['wishlist'])){
@@ -138,13 +133,15 @@ if(isset($_GET["delete"]))
                if($values["post_id"] == $_GET["delete"])
                {
                     unset($_SESSION["cart"][$keys]);
+
+                    $sql = "DELETE"
                     ?>
                      <META http-equiv="Refresh" content="5; URL=http://localhost/leafy_final/Customer/shopping_cart/cart.view.php">
                     <?php
                }
           }
      }
-
+  
 
 
 ?>

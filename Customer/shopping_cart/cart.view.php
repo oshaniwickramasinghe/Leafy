@@ -1,19 +1,18 @@
 <?php
 // error_reporting(0);
-
 require "../Auth.php";
 require "cart.php";
 include '../includes/header.php';
 
 // unset($_SESSION['wishlist']);
 // unset($_SESSION['cart']);
-
+$uid = $_SESSION['USER_DATA']['user_id'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if(isset($_POST['update'])){
  foreach($_SESSION['cart'] as $keys => $values)
-          { 
+          {
   if($values['item_name'] == $_POST['item_name']){
-    $_SESSION['cart'][$keys] =array( 
+    $_SESSION['cart'][$keys] =array(
       'post_id'=>$_GET['post_id'],
       'item_name' =>$_POST['item_name'],
       'price'=>$_POST['price'],
@@ -22,6 +21,19 @@ if(isset($_POST['update'])){
   }
  }
 }
+}
+
+
+foreach($_SESSION["cart"] as $keys => $values)
+{
+
+  $item_name = $_SESSION['cart'][$keys]['item_name'];
+  $quantity  = $_SESSION['cart'][$keys]['quantity'];
+  $post_id  = $_SESSION['cart'][$keys]['quantity'];
+
+   $sql  = "INSERT INTO shopping_cart(item_name, quantity, post_id, customer_id) VALUES ('$item_name',$quantity, $post_id,$uid)";
+   $result  = mysqli_query($conn, $sql);
+
 }
 
 ?>
