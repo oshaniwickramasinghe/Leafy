@@ -1,11 +1,11 @@
 <?php
-include '../../authentication/Auth.php';
-include '../../database/database.php';
+include 'Auth.php';
+include 'database.php';
 
 $user_ID = $_SESSION['USER_DATA']['user_id'];
 //$user_ID = $_SESSION['user_ID'];
 if(!isset($user_ID)){
-   header('location:../../authentication/Login.view.php');
+   header('location:../../login/login.view.php');
    //header('location:../')
 };
 

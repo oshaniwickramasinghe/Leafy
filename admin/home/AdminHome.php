@@ -1,8 +1,9 @@
 
 <?php 
-//require "../database/database.php";
-require "../../public/Auth.php";
-include '../../public/includes/header.view.php';
+// require "../../public/Auth.php";
+//include '../../public/includes/header.view.php';
+include '../../includes/header.view.php';
+
 ?>
 
 <html>
@@ -11,8 +12,38 @@ include '../../public/includes/header.view.php';
  referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../public/CSS/style.css">
 
-   <title>Home
+<title>Home
 </title> 
+<head>
+   <style>
+      /* For screens smaller than 600px */
+      @media screen and (max-width: 600px) {
+      /* Adjust the width and height of the images */
+      .responsive {
+         width: 100%;
+         height: auto;
+      }
+
+      /* Adjust the layout of the menu links */
+      .home_text {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+      }
+
+      /* For screens larger than 600px */
+      @media screen and (min-width: 600px) {
+      /* Adjust the layout of the menu links */
+      .home_text {
+         display: flex;
+         justify-content: center;
+      }
+      }
+
+   </style>
+
+</head>
 <body>
 
    
