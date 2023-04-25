@@ -65,11 +65,11 @@ include "../../Customer/includes/header.php";
 </head>
 <body>
     <?php include 'AdminForumPHP.php';?>
-    <?php include "../admin_menu.view.php"?>
+    <?php include "../menu/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
-    <div class="instructor_wrapper">
+    <div class="main_wrapper">
         
         <div class="content">
             <h2>Questions</h2>
@@ -84,7 +84,10 @@ include "../../Customer/includes/header.php";
 
                             <?php while($record1=mysqli_fetch_assoc($result)){?>
                                 <li><a onclick="myFunction()" href="AdminForum.php ?view=<?= $record1['question_id']; ?> ">
-                                Question ID <?= $record1['question_id']?></a></li><br>
+                                <table>
+                                <td>Question ID <?= $record1['question_id']?></td>
+                                </table>
+                            </a></li><br>
                             <?php }?>
                         </ul>
                     </div>

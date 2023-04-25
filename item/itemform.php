@@ -15,11 +15,11 @@
         
 	</head>
 <body>
-    <?php include "../admin/admin_menu.view.php"?>
+    <?php include "../admin/menu/admin_menu.view.php"?>
 		
     <div class = "loggedhome_body">
         <div class = "home_body">
-            <div class="instructor_wrapper">
+            <div class="main_wrapper">
             
             <form action="insertitem.php" method="post" id="form" enctype="multipart/form-data">
 			
@@ -30,7 +30,7 @@
 
                 
                 <p>
-                <label for="category">Item Scientific Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                <label for="category">Item catogary:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
                 <input type="text" name="category" id="category">
                 </p>
 

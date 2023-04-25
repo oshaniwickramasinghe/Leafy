@@ -21,7 +21,7 @@ include "../public/includes/header.view.php";
 </head>
 <body>
     <?php include 'AdminUsersPHP.php';?>
-    <?php include "../admin_menu.view.php"?>
+    <?php include "../menu/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
