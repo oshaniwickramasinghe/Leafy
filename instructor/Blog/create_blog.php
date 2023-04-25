@@ -92,6 +92,7 @@ if(isset($_POST['update'])){
    $title=$_POST['title'];
    $date=$_POST['date'];
    if(isset($_POST['content1'])) {
+    var_dump(isset($_POST['content1']));
         $content1 = $_POST['content1'];
     //rest of the code that uses $content variable
     } else {

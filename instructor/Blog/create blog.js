@@ -41,5 +41,6 @@
                         console.log('Error: ' + error);
                     }
             });
+            console.log(data.content1);
             });
  
