@@ -1,6 +1,6 @@
 <?php
-
 require "../../Customer/database.php";
+
 $host = "localhost";
 $uname = "root";
 $password = "";
@@ -11,6 +11,7 @@ $conn = mysqli_connect($host,$uname,$password,$db_name);
 
 //display items in the database
 function display(){
+
 $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 if(isset($_GET['post_id'])){
 $id = $_GET['post_id'];
@@ -90,9 +91,6 @@ if(isset($_POST['cart'])){
 
       header("location:cart.view.php?post_id= $product_id");
   }
-
-
-
 }
  
 
@@ -128,13 +126,17 @@ if(isset($_POST['wishlist'])){
 
 if(isset($_GET["delete"]))
 {
+  $uid = $_SESSION['USER_DATA']['user_id'];
           foreach($_SESSION["cart"] as $keys => $values)
           {
                if($values["post_id"] == $_GET["delete"])
                {
                     unset($_SESSION["cart"][$keys]);
+                    $id = $values["post_id"] ;
+                    $sql = "DELETE FROM `shopping_cart` WHERE customer_id  = $uid && post_id = $id";
+                    $result  =  mysqli_query($sql , $conn);
+                    var_dump($sql);
 
-                    $sql = "DELETE"
                     ?>
                      <META http-equiv="Refresh" content="5; URL=http://localhost/leafy_final/Customer/shopping_cart/cart.view.php">
                     <?php
