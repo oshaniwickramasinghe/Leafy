@@ -115,8 +115,8 @@
                 <div class="container_right" id="view_more">
                     <h3> Order <?= $VWorderid ?></h3>
                     <div class="container_button">
-                        <button onclick="location.href='DeliNotificationPHP.php?deleteID=<?= $orderid ?>'" type="button" id="Delete">Delete</button>
-                        <button onclick="location.href='DeliNotificationPHP.php?acceptID=<?= $orderid ?>'" type="button" id="Accept">Accept</button>
+                        <button onclick="location.href='DeliNotificationPHP.php? deleteID=<?= $orderid ?>'" type="button" id="Delete">Delete</button>
+                        <button onclick="location.href='DeliNotificationPHP.php? acceptID=<?= $orderid ?>'" type="button" id="Accept">Accept</button>
                     </div>
                     <div class="details_container">
                         <table>

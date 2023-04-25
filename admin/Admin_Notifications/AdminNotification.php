@@ -1,7 +1,9 @@
 <?php 
 
-require "../../public/Auth.php";
-include "../../public/includes/header.view.php";
+//require "../../public/Auth.php";
+// include "../../public/includes/header.view.php";
+include '../../includes/header.view.php';
+
 
 ?>
 

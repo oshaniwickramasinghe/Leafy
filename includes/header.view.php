@@ -1,5 +1,5 @@
 <?php
-include '../../authentication/Auth.php';
+include '../../public/Auth.php';
 include '../../database/database.php';
 
 $user_ID = $_SESSION['USER_DATA']['user_id'];
@@ -12,7 +12,7 @@ if(!isset($user_ID)){
 if(isset($_GET['logout'])){
      unset($user_ID);
      session_destroy();
-     header('location:../login/login.view.php');
+     header('location:../../authentication/Login.view.php');
 }
 
 $select=mysqli_query($conn,"SELECT * FROM user WHERE user_ID='$user_ID'") or die('query failed');

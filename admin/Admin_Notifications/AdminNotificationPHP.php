@@ -5,7 +5,7 @@
 require "../../database/database.php";
 
 //user
-$sqlcustomer="SELECT * FROM user where approved=0";
+$sqlcustomer="SELECT * FROM user where is_active=0";
 
 // make query & get resultcustomer
 $resultcustomer= mysqli_query($conn,$sqlcustomer);

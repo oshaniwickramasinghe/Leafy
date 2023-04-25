@@ -2,7 +2,7 @@
 
 require "../database/database.php";
 require "../public/Auth.php";
-include "../Customer/includes/header.php";
+include '../includes/header.view.php';
 
 ?>
 
