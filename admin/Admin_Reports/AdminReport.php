@@ -1,8 +1,10 @@
 <?php 
 
 require "../../database/database.php";
-require "../../public/Auth.php";
-include "../../Customer/includes/header.php";
+// require "../../public/Auth.php";
+// include "../../Customer/includes/header.php";
+include '../../includes/header.view.php';
+
 
 ?>
 
@@ -33,11 +35,11 @@ include "../../Customer/includes/header.php";
     <title>Admin Report page</title>
 
     <style>
-      * {
+      /* * {
         margin: 0;
         padding: 0;
         font-family: sans-serif;
-      }
+      } */
       
       .chartCard {
         /* width: 100vw; */
@@ -60,11 +62,11 @@ include "../../Customer/includes/header.php";
 
 <body>
     <?php include 'AdminReportPHP.php';?>
-    <?php include "../admin_menu.view.php"?>
+    <?php include "../menu/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
-    <div class="instructor_wrapper">
+    <div class="main_wrapper">
         
         <div class="content">
             <h2>Reports</h2>
@@ -77,13 +79,18 @@ include "../../Customer/includes/header.php";
                     <div class="card_left">
                         <ul>
 
-                        <li><a style="color: gray;">
-                        OrderID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;CustomerID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Payment method
+                        <li><a>
+                        <table>
+                        <td>OrderID</td><td>CustomerID</td><td>Payment method</td>
+                        </table>
                         </a></li>
 
                             <?php while($record1=mysqli_fetch_assoc($resultorder)){?>
                                 <li><a >
-                                <?= $record1['order_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;<?= $record1['customer_id']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?= $record1['payment_method']?></a></li>
+                                    <table>
+                                    <td><?= $record1['order_id']?> </td><td><?= $record1['customer_id']?></td><td><?= $record1['payment_method']?></td>
+                                    </table>
+                            </a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -97,13 +104,18 @@ include "../../Customer/includes/header.php";
                     <div class="card_left">
                         <ul>
 
-                        <li><a style="color: gray;">
-                        OrderID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;CustomerID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Payment method
+                        <li><a>
+                        <table>
+                        <td>OrderID</td><td>CustomerID</td><td>Payment method<td>
+                        </table>
                         </a></li>
 
                             <?php while($record2=mysqli_fetch_assoc($resultnonorder)){?>
                                 <li><a>
-                                <?= $record2['order_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?= $record2['customer_id']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?= $record2['payment_method']?></a></li>
+                                    <table>
+                                    <td><?= $record2['order_id']?> </td><td><?= $record2['customer_id']?></td><td><?= $record2['payment_method']?></td>
+                                    </table>
+                            </a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -131,13 +143,18 @@ include "../../Customer/includes/header.php";
                     <div class="card_left">
                         <ul>
 
-                        <li><a style="color: gray;">
-                        UserID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Role
+                        <li><a>
+                        <table>
+                        <td>UserID</td><td>First name</td><td>Role<td>
+                        </table>
                         </a></li>
 
                             <?php while($record3=mysqli_fetch_assoc($queryusers)){?>
                                 <li><a >
-                                <?= $record3['user_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record3['fname']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record3['role']?></a></li>
+                                    <table>
+                                    <td><?= $record3['user_id']?> </td><td><?=$record3['fname']?></td><td><?=$record3['role']?></td>
+                                    </table>
+                            </a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -180,13 +197,18 @@ include "../../Customer/includes/header.php";
                     <div class="card_left">
                         <ul>
 
-                        <li><a style="color: gray;">
-                        BlogID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Blog Title&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Date created
+                        <li><a>
+                        <table>
+                        <td>BlogID</td><td>Blog Title</td><td>Date created<td>
+                        </table>
                         </a></li>
 
                             <?php while($record4=mysqli_fetch_assoc($query)){?>
                                 <li><a >
-                                <?= $record4['blog_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['title']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['date']?></a></li>
+                                    <table>
+                                    <td><?= $record4['blog_id']?> </td><td><?=$record4['title']?></td><td><?=$record4['date']?></td>
+                                    </table>
+                            </a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -226,13 +248,18 @@ include "../../Customer/includes/header.php";
                     <div class="card_left">
                         <ul>
 
-                            <li><a style="color: gray;">
-                            CoursesID &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Courses Title
+                            <li><a>
+                            <table>
+                            <td>CoursesID </td><td> Courses Title</td>
+                            </table>
                             </a></li>                      
 
                             <?php while($record4=mysqli_fetch_assoc($querycourse)){?>
                                 <li><a >
-                                <?= $record4['course_id']?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?=$record4['title']?>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</a></li>
+                                    <table>
+                                    <td><?= $record4['course_id']?> </td><td><?=$record4['title']?></td>
+                                    </table>
+                            </a></li>
                             <?php }?>
                         </ul>
                     </div>

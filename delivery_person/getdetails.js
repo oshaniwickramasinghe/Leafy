@@ -1,7 +1,7 @@
 let viewMore=document.querySelector(".container_right");
 let isShow = true;
 
-function myFunction() {
+function displayRight() {
   
     if (isShow === "none") {
       viewMore.style.display= "none"; 
@@ -15,4 +15,4 @@ function myFunction() {
 
 
 
-  
+  displayRight

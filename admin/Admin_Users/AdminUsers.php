@@ -1,8 +1,10 @@
 <?php 
 
 //require "connect.php";
-require "../public/Auth.php";
-include "../public/includes/header.view.php";
+// require "../public/Auth.php";
+// include "../public/includes/header.view.php";
+include '../../includes/header.view.php';
+
 
 
 ?>
@@ -21,7 +23,7 @@ include "../public/includes/header.view.php";
 </head>
 <body>
     <?php include 'AdminUsersPHP.php';?>
-    <?php include "../admin_menu.view.php"?>
+    <?php include "../menu/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">

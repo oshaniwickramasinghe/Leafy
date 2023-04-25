@@ -1,12 +1,12 @@
 
 
-.instructor_wrapper{
+.main_wrapper{
     display: flex;
     height: calc(100%-100px);
     
 }
 
-.instructor_wrapper .content{
+.main_wrapper .content{
     flex:8;
     height: 100%;
     padding: 10px 20px;
@@ -16,12 +16,12 @@
 
 }
 
-.instructor_wrapper .content h2{
+.main_wrapper .content h2{
     color:rgba(67, 86, 43, 0.62);
 }
 
 
-.instructor_wrapper .content .box .container_left button{
+.main_wrapper .content .box .container_left button{
     border:none;
     color:#FCFEF9;
     padding: 10px 40px;
@@ -34,18 +34,18 @@
     margin-top: 20px;
 }
 
-.instructor_wrapper .content .box .container_left button:hover{
+.main_wrapper .content .box .container_left button:hover{
     background: #323929;
 }
 
-.instructor_wrapper .content .box{
+.main_wrapper .content .box{
     display:flex;
     height:80%;
     margin:80px;
 
 }
 
-.instructor_wrapper .content .box .container_right{
+.main_wrapper .content .box .container_right{
     flex: 5.5;
 
     background: rgba(128, 157, 91, 0.3);
@@ -84,7 +84,7 @@
 
 
  
-.instructor_wrapper .content .box .container_right h3{
+.main_wrapper .content .box .container_right h3{
     color: #43562B;
     margin:10px 0 5px 20px;
     font-size: 17px;
@@ -92,14 +92,14 @@
 
 }
 
-.instructor_wrapper .content .box .container_right .container_button{
+.main_wrapper .content .box .container_right .container_button{
     float: right;
     margin-right: 20px;
     margin-top: 0;
 
 }
 
-.instructor_wrapper .content .box .container_right .container_button #edit {
+.main_wrapper .content .box .container_right .container_button #edit {
     border:none;
     color: #43562B;
     padding: 10px 40px;
@@ -111,7 +111,7 @@
     border-radius: 20px;
 }
 
-.instructor_wrapper .content .box .container_right .container_button #delete{
+.main_wrapper .content .box .container_right .container_button #delete{
     border:none;
     color:#43562B;
     padding: 10px 35px;
@@ -123,31 +123,39 @@
     border-radius: 20px;
 }
 
-.instructor_wrapper .content .box .container_right .container_button #edit:hover{
+.main_wrapper .content .box .container_right .container_button #edit:hover{
     background: rgba(39, 144, 75, 0.5);
 }
 
-.instructor_wrapper .content .box .container_right .container_button #delete:hover{
+.main_wrapper .content .box .container_right .container_button #delete:hover{
     background-color: rgba(206, 91, 91, 0.5);
 }
 
-.instructor_wrapper .content .box .container_right .details_container{
+.main_wrapper .content .box .container_right .details_container{
     text-align:left;
     margin-left: 75px;
     padding:30px 10px;
     
 }
 
-.instructor_wrapper .content .box .container_right .details_container h4{
+.main_wrapper .content .box .container_right .details_container h4{
     color:#43562B ;
 }
 
-.instructor_wrapper .content .box .container_right .details_container table tr{
+table{
+    width: 80%;
+    text-align: left;
+    border-collapse: collapse;
+}
+.main_wrapper .content .box .container_right .details_container table tr{
     vertical-align: top;
-    
 }
 
-.instructor_wrapper .content .box .container_right .details_container table th, td{
+.main_wrapper .content .box .container_right .details_container table tr:hover {
+    background-color: #809D5B;
+}
+
+.main_wrapper .content .box .container_right .details_container table th, td{
     
     padding: 5px;
     
@@ -155,13 +163,13 @@
 } 
 
 
-.instructor_wrapper .content .box .container_left{
+.main_wrapper .content .box .container_left{
     flex: 4.5;
 
 }
 
 
-.instructor_wrapper .content .box .container_left .main_card{
+.main_wrapper .content .box .container_left .main_card{
     
     display:block;
     background: #809D5B;
@@ -171,21 +179,21 @@
     
 }
 
-.instructor_wrapper .content .box .container_left .main_card p{
+.main_wrapper .content .box .container_left .main_card p{
     color: #FCFEF9;
     font-size: 17px;
     margin:10px 0 5px 20px;
 
 }
 
-.instructor_wrapper .content .box .container_left .main_card .card_left ul{
+.main_wrapper .content .box .container_left .main_card .card_left ul{
     list-style: none;
     margin: 10px;
     padding: 0px;
 
 }
 
-.instructor_wrapper .content .box .container_left .main_card .card_left ul li a{
+.main_wrapper .content .box .container_left .main_card .card_left ul li a{
     text-decoration: none;
     padding: 12px;
     margin: 11px;
@@ -194,13 +202,3 @@
     background:#fff;
     border-radius:25px;
 }
-
-.instructor_wrapper .content .box .container_left .main_card .card_left  ul li a:focus {
-   background: rgba(255, 255, 255, 0.39);
-   
-}
-
-/*.hide{
-    display: none;
-}*/
-

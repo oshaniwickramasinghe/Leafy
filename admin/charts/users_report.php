@@ -1,59 +1,18 @@
-<?php 
-    // $username= "root";
-    // $password= "";
-    // $database = "leafy";
-
-    // try{
-    //     $pdo = new PDO("mysql:host=localhost;database=$database",$username,$password);
-
-    //     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-    // }catch(PDOException $e){
-    //     die("Error: not connected.".$e->getMessage());
-    // }
-    // unset($pdo);
-
-?>
-
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
 
-    <title>users report</title>
-    <!-- <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        /* background: rgba(54, 162, 235, 0.2); */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 700px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(54, 162, 235, 1);
-        background: white;
-      }
-    </style> -->
+    <title>user report</title>
+    
   </head>
   <body>
 
         <?php
              try{
 
-            //     //$sql = "SELECT * FROM leafy.user_count ";
                 $sql = "SELECT COUNT(user_id) AS count, role FROM leafy.user GROUP BY role ORDER BY COUNT(user_id)";
                 
                 $result = $pdo->query($sql);
@@ -63,9 +22,9 @@
                 $count = [];
                 $role = [];
 
-                foreach ($usercount as $element) {
-                    array_push($count, (int) $element['count']);
-                    array_push($role, $element['role']);
+                foreach ($usercount as $uelement) {
+                    array_push($count, (int) $uelement['count']);
+                    array_push($role, $uelement['role']);
                 }
 
             //     // if($result->rowCount()>0){
@@ -90,11 +49,9 @@
             
         ?>
 
-
-    
     
         <canvas id="userchart"></canvas>
-        <input oninput="updateuserChart(this)" type="range" id="userpoints" value="5" min="2" max="5">
+        <input oninput="updateuserChart(this)" type="range" id="userpoints" value="5" min="1" max="5">
      
     <script>
     // setup 
@@ -136,8 +93,8 @@
     {
         console.log(range);
         const rangeValue= role.slice(0,range.value);
-        myChart.config.data.labels=rangeValue;
-        myChart.update()
+        userchart.config.data.labels=rangeValue;
+        userchart.update()
 
     };
     // Instantly assign Chart.js version

@@ -1,111 +1,130 @@
 <?php
+    error_reporting(0);
 
-error_reporting(0);
+    include 'connect.php';
+?>
+<?php   
 
-include 'connect.php';
+  if(isset($_GET['deleteID']))
+  {
+     
+      $order_id = $_GET['deleteID'];
+      echo $order_id;
+      $sql2 = "UPDATE accepted_orders SET status=2,order_viewed = 1 WHERE order_id=$order_id AND sent_deli_id=3";
+      $result2=mysqli_query($conn,$sql2);
 
-//customer
-$sqlcustomer="SELECT * FROM user where role='customer'";
+      header("Location:/Leafy/delivery_person/DeliNotification.php");
+      exit;
 
-// make query & get resultcustomer
-$resultcustomer= mysqli_query($conn,$sqlcustomer);
+  }
 
-    if(isset($_GET['view']))
+
+  if(isset($_GET['acceptID']))
+  {
+
+      $order_id = $_GET['acceptID'];
+      $sql2 = "UPDATE accepted_orders SET status=1,order_viewed = 1 WHERE order_id=$order_id AND sent_deli_id=3";
+      $result2=mysqli_query($conn,$sql2);
+
+      $sql3 = "UPDATE checkout SET delivery_status=1 WHERE orderid=$order_id ";
+      //UPDATE `checkout` SET `delivery_status`=1 WHERE 'orderId'=$order_id
+      $result3=mysqli_query($conn,$sql3);
+
+      header("Location:/Leafy/delivery_person/DeliNotification.php");
+      exit;
+
+  }
+
+?>
+
+
+<?php
+//update viewed order notifications
+    if(isset($_GET['readID']))
     {
-        $cust_user_id = $_GET['view'];
-        $sql1 = "SELECT * FROM user WHERE user_id=$cust_user_id and role='customer'";
+        $orderid = $_GET['readID'];
+        $update_query = "UPDATE accepted_orders SET order_viewed = 1 WHERE order_id =$orderid AND sent_deli_id=3";
+        mysqli_query($conn, $update_query);
+
+        header("Location:/Leafy/delivery_person/DeliNotification.php");
+        exit;
+    }
+?>
+
+
+<?php
+
+
+
+//not delivered orders
+//$sqlorder0="SELECT * FROM deals,accepted_orders WHERE deals.order_status=0 AND accepted_orders.sent_deli_id=$deli_id";
+//$sqlorder0="SELECT * FROM accepted_orders WHERE status=0 AND sent_deli_id=3 AND order_viewed=0";
+$sqlorder0="SELECT *
+            FROM accepted_orders AS ao
+            JOIN checkout AS co ON ao.order_id = co.orderid
+            JOIN deals AS d ON co.orderid = d.order_id
+            WHERE ao.sent_deli_id = 3
+            AND ao.order_viewed = 0
+            AND co.delivery_status = 0";
+
+// make query & get resultorder0
+$resultorder0= mysqli_query($conn,$sqlorder0);
+
+    if(isset($_GET['orderid']))
+    {
+        $orderid = $_GET['orderid'];
+        $sql1 = "SELECT * FROM deals WHERE order_id=$orderid";
         $result1=mysqli_query($conn,$sql1);
         
         if($result1)
         { 
-                       
-            while($recordcustomer = mysqli_fetch_assoc($result1))
+            while($recordorder0 = mysqli_fetch_assoc($result1))
             {
-                $cust_user_id=$recordcustomer['user_id'];
-                $cust_first_name=$recordcustomer['fname'];
-                $cust_email=$recordcustomer['email'];
-                $cust_role=$recordcustomer['role'];
+                
+                $orderid=$recordorder0['order_id'];
+                $customer_id=$recordorder0['customer_id'];
+                $payment_method=$recordorder0['payment_method'];
+                $agriculturalist_id=$recordorder0['agriculturalist_id'];
    
             }
-            
+
         }
     }
 
-//instructor
-$sqlinstructor="SELECT * FROM user where role='instructor'";
+//viewed orders
+$sqlorder1="SELECT * FROM accepted_orders WHERE sent_deli_id=3 AND order_viewed=1";
 
 // make query & get resultcustomer
-$resultinstructor= mysqli_query($conn,$sqlinstructor);
+$resultorder1= mysqli_query($conn,$sqlorder1);
 
-    if(isset($_GET['view']))
+    if(isset($_GET['viewedorder']))
     {
-        $inst_user_id = $_GET['view'];
-        $sql2 = "SELECT * FROM user WHERE user_id=$inst_user_id and role='instructor'";
+        $VWorderid = $_GET['viewedorder'];
+        $sql2 = "SELECT * FROM deals WHERE order_id=$VWorderid ";
         $result2=mysqli_query($conn,$sql2);
-        
+
+        $sql3 = "SELECT status FROM accepted_orders WHERE order_id=$VWorderid and sent_deli_id=3";
+        $result3=mysqli_query($conn,$sql3);
+
         if($result2)
         { 
                        
-            while($recordinstructor = mysqli_fetch_assoc($result2))
+            while($recordorder1 = mysqli_fetch_assoc($result2))
             {
-                $inst_user_id=$recordinstructor['user_id'];
-                $inst_first_name=$recordinstructor['fname'];
-                $inst_email=$recordinstructor['email'];
-                $inst_role=$recordinstructor['role'];
+                $VWorderid=$recordorder1['order_id'];
+                $VWcustomer_id=$recordorder1['customer_id'];
+                $VWpayment_method=$recordorder1['payment_method'];
+                $VWagriculturalist_id=$recordorder1['agriculturalist_id'];
    
             }
             
         }
-    }
-
-//Agriculturalist
-$sqlagriculturalist="SELECT * FROM user where role='agriculturalist'";
-
-// make query & get resultcustomer
-$resultagriculturalist= mysqli_query($conn,$sqlagriculturalist);
-
-    if(isset($_GET['view']))
-    {
-        $agri_user_id = $_GET['view'];
-        $sql3 = "SELECT * FROM user WHERE user_id=$agri_user_id and role='agriculturalist'";
-        $result3=mysqli_query($conn,$sql3);
-        
         if($result3)
         { 
                        
-            while($recordagriculturalist = mysqli_fetch_assoc($result3))
+            while($recordorder2 = mysqli_fetch_assoc($result3))
             {
-                $agri_user_id=$recordagriculturalist['user_id'];
-                $agri_first_name=$recordagriculturalist['fname'];
-                $agri_email=$recordagriculturalist['email'];
-                $agri_role=$recordagriculturalist['role'];
-   
-            }
-            
-        }
-    }
-
-//Delivery person
-$sqldelivery="SELECT * FROM user where role='delivery_person'";
-
-// make query & get resultcustomer
-$resultdelivery= mysqli_query($conn,$sqldelivery);
-
-    if(isset($_GET['view']))
-    {
-        $del_user_id = $_GET['view'];
-        $sql4 = "SELECT * FROM user WHERE user_id=$del_user_id and role='delivery_person'";
-        $result4=mysqli_query($conn,$sql4);
-        
-        if($result4)
-        { 
-                       
-            while($recorddelivery = mysqli_fetch_assoc($result4))
-            {
-                $del_user_id=$recorddelivery['user_id'];
-                $del_first_name=$recorddelivery['fname'];
-                $del_email=$recorddelivery['email'];
-                $del_role=$recorddelivery['role'];
+                $VWstatus=$recordorder2['status'];
    
             }
             

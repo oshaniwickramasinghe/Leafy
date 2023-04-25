@@ -1,8 +1,10 @@
 <!-- PHP code to establish connection with the localserver -->
 <?php
 require "../database/database.php";
-require "../public/Auth.php";
-include "../Customer/includes/header.php";
+// require "../public/Auth.php";
+// include "../Customer/includes/header.php";
+include '../includes/header.view.php';
+
 
 // SQL query to select data from database
 $sql = " SELECT * FROM available_item ORDER BY item_id DESC ";
@@ -17,7 +19,7 @@ $data = mysqli_query($conn, $sql);
 <head>
 	<meta charset="UTF-8">
 	<title>User Details</title>
-	<link rel = "stylesheet" type = "text/css" href = "itemstyle.css">
+	<link rel="stylesheet" type = "text/css" href = "itemstyle.css">
     <link rel="stylesheet" href="../admin/notification.css">
     <link rel="stylesheet" href="../public/CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
@@ -26,7 +28,7 @@ $data = mysqli_query($conn, $sql);
 
 <body>
 
-<?php include "../admin/admin_menu.view.php"?>
+<?php include "../admin/menu/admin_menu.view.php"?>
 	<section>
 		
     <div class = "loggedhome_body">
@@ -36,9 +38,9 @@ $data = mysqli_query($conn, $sql);
 
             <table>
                 <tr>
-                    <th width="200px">Item ID</th>
-                    <th width="200px">Item Name</th>
-                    <th width="200px">Item Category</th>
+                    <th width="100px">Item ID</th>
+                    <th width="100px">Item Name</th>
+                    <th width="100px">Item Category</th>
                     <th width="600px">Image</th>
                 </tr>
                 <!-- PHP CODE TO FETCH DATA FROM ROWS -->
