@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form{
+    background: rgba(128, 156, 91, 0.578);
+    font-family: 'Lato';
+    margin-left: 32%;
+    margin-right: 33%;
+    padding-left: 5%;
+    margin-top: 10%;
+    padding-top: 2%;
+    padding-bottom: 3%;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+   
+}
+
+
+input[type= text] , input[type= password],input[type= email]{
+  width: 80%;
+  display:inline-block;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  opacity: 0.8;
+  box-sizing: border-box;
+  border-radius:40px ;
+  -webkit-border-radius:40px ;
+  -moz-border-radius:40px ;
+  -ms-border-radius:40px ;
+  -o-border-radius:40px ;
+  font-size: 16px;
+}
+a{
+    color: rgb(34, 63, 36);
+    text-decoration:none;
+  }
+  .body{
+      margin-top: 10%;
+  }
+  
+  .body p{
+    
+      text-decoration: none;
+      font-family: 'Lato';
+      font-size: 16px;
+      font-weight: 400;
+      color:#000000;
+      font-size: 16px;
+  }
+  
+  .logo{
+      margin-top: -90%;
+      margin-left: 25%;
+      display: inline-flex;
+      height:auto
+     
+    
+  }
+  input[type=submit] {
+    background-color: #33ca93;
+    color: white;
+    padding: 10px 14px;
+    margin-left: 50%;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 700px) {
+
+    .login_body{
+        height: 50%;
+    }
+    
+    form{
+        height: 100%;
+    width: 80%;
+    margin-left: 10%;
+    font-size: 16px;
+    margin-top: 25%;
+}
+    
+    
+
+  
+
+    .form_body{
+        margin-top: 10%;
+        margin-left: 2%;
+    }
+
+    .form_body input[type= text] , input[type= password],input[type= email]{
+        font-size: 16px;
+    }
+
+    label{
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .logo img{
+       display: none;
+       }
+    }
