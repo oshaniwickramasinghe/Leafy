@@ -3,6 +3,7 @@
 include "database.php";
 require "Auth.php";
 
+// $sql = "SELECT stats"
 
 if(isset($_POST['email']) && isset($_POST['password'])){
     function validate($data){
@@ -16,7 +17,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
 $email= validate($_POST['email']);
      
-    $row  = "SELECT password FROM user WHERE email = '$email'";
+    $row  = "SELECT password FROM user WHERE email = '$email' && is_active =1";
     $result = mysqli_query($conn,$row);
     $res =  mysqli_fetch_array($result);
    
@@ -34,9 +35,12 @@ $email= validate($_POST['email']);
        }else if(is_agriculturalist()){
         header("Location:../agriculturalist/landing.php");
        }else if(is_instructor()){
-        header("Location:../instructor/blog.php");
+        header("Location:../instructor/Insdashboard.php");
+       }else if(is_deliveryAgent()){
+        header("Location:../delivery_person/DeliDashboard.php");
+       
        }else{
-        header("Location:../admin/AdminHome.php");
+        header("Location:home.php");
           
         } // exit();
 

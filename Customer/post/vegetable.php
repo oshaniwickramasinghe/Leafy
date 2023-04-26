@@ -1,18 +1,27 @@
+
 <?php
-
 require "../Auth.php";
-
 include '../database.php';
 include '../includes/header.php';
 include "pagination.php";
 include "search.php";
 
+if(logged_in()){
+$uid  = $_SESSION['USER_DATA']['user_id'];
+}else{
+  $uid =0;
+}
+//to get the count of the notification
+$sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $uid  ";
+$result = mysqli_query($conn,$sql);
+$row  = mysqli_fetch_array($result);
 ?>
 
-  
+
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,19 +32,33 @@ include "search.php";
     <title>Vegetables</title>
     
 <body>
-<div class  = "menu">
-<?php include '../includes/menu.view.php'?>
-</div>
+ <!-- menu bar -->
+<div class="menu_margin">
+<div class="left_menu_bar">
+            <div id="menu">
+                <a><i class="fa-solid fa-bars"></i></a>
+                <div class="image"><img src="images/badge.svg" alt=""></div>
+                <h3>Leafy</h3>
+            </div>
+            <ul>
+                <li><?php if($uid!=0){?><a href="../customerhome.php"><?php }else{?> <a href="../home.view.php"><?php }?><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
+                <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
+                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count" style = "margin-top:5%"><?php echo $row[0]?></div></a></li>
+                <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
+                <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
+                <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
+               
+            </ul>
 
+        </div>
+
+</div>
 <div class = "vegetable_body">
- 
+
 <div class = "row">
 <?php
 $count= 0;
-//AND district ='$district'
-
-
-
+//adding item for the wishlist whn button click
 if(isset($_POST['wishlist'])){
 
   $id = $_POST['post_id'];
@@ -58,36 +81,31 @@ if(isset($_POST['wishlist'])){
     }
 }
 
-
+ //search result
 if($search){
 $query = "SELECT * FROM post WHERE  district LIKE '{$find}%' AND  (category = 'Vegetable' OR category  = 'fruit')   LIMIT  ".$page_first_result. ','.$result_per_page ;
 }else{
   $query = "SELECT * FROM post WHERE  (category = 'Vegetable' OR category  = 'fruit')   LIMIT  ".$page_first_result. ','.$result_per_page ;
 }
-
 $result = mysqli_query($conn,$query);
-
-
 if(mysqli_num_rows($result)>0){
- 
+
     while($row =$result->fetch_assoc()){
     $count = $count+1;
     // if($count==4){
     //   echo "hi";
-    
- 
+
 ?>
 
 
-
-
+<!-- pagination -->
 <div class = "column_2" >
 <form method  = "Post " action  =  "../shopping_cart/cart.view.php" >  
                 <div class = "cards" >
                     <div class = "card_body">
 
                     <img src="../images/<?php echo $row["image"];?>" width = "180" height="150">
-                    <div class="detail"> 
+                    <div class="detail">
                     <h5 class= "text_info">Name:<?php echo $row['item_name'];?></h5>
                     <h5>Location:<?=$row['district'];?></h5>
                     <h5>Quantity : <?php echo $row['quantity']?>kg </h5>
@@ -95,11 +113,20 @@ if(mysqli_num_rows($result)>0){
                    </div>
                 <?php $id =$row["post_id"] ;?>
                   <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
-                  <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/>
-
-                  <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
-
-                  </div>
+                  <?php if($uid != 0){
+                    
+                    ?>
+                   
+                    <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/> 
+                    <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
+                 <?php } else{ ?>
+                  <a href="#" onclick="showModal(); return false;" style = "background-color:transparent; margin-left: -7%;border: none;" >
+                  <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true" style = "width: 105%;"/></a>
+                  <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"   style ="margin-top: 5%;"/>
+                 
+                  <?php } ?>
+                  
+                </div>
                 </div>
              </form> 
 
@@ -115,16 +142,28 @@ if(mysqli_num_rows($result)>0){
   }
   }else{
     ?>
-  
     <h3> Item not found .. </h3>
-  
+
   <?php
     }
   ?>
 
-
-  </div>
 </div>
+  </div>
+
+     <!-- ask user to login -->
+  <div id="id01" class="modal" style="display: none;">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <form class="modal-content" method = "post"  action="">
+                        <div class="container">
+                            <h1>Alert</h1>
+                            <p>Please Login to add item in to cart</p>
+                            <div class="clearfix">
+                                <a href="" type="button" class="cancelbtn" onclick="hideModal();">Cancel</a>
+                            </div>
+                            </div>
+                    </form>
+  </div>
 
 
 <div class  = "pagination">
@@ -137,7 +176,6 @@ if($page>= 2 ){
   echo "<a class  =  'prev' href='vegetable.php?page=".($page)."'> Previous page </a>";
 }
 
-
 for($i = 1; $i<= $number_of_page; $i++){
   if($i== $page){
   $pagLink= "<a class ='active' href='vegetable.php?page=".$i."'>$i</a>";
@@ -149,23 +187,30 @@ for($i = 1; $i<= $number_of_page; $i++){
 
 };
 
-
-
 if($page < $number_of_page){
    echo "<a class  =  'next' href ='vegetable.php?page=".($page+1)."'> Next page </a>";   
 
 }else{
-
 echo "<a class  =  'next' href ='vegetable.php?page=".($page)."'> Next page </a>"; 
-}
-
-?>
-
+}?>
 </div>
 
 </head>
+<div class  = "footer">
+<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+</div>
 </body>
 </html>
-<footer>
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
-</footer>
+
+
+
+<!-- pop functions -->
+<script>
+function showModal() {
+            document.getElementById("id01").style.display = "flex";
+        }
+
+        function hideModal() {
+            document.getElementById("id01").style.display = "none";
+        }
+</script>

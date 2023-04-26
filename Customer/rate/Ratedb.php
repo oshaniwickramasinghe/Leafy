@@ -4,6 +4,7 @@ include "../database.php";
 
 $date = date("Y-m-d");
 
+//store rate and and review in the database
 $userId = $_SESSION['USER_DATA']['user_id'];
 $rating = $_POST['rating'];
 $review = $_POST['comment'];
@@ -20,7 +21,7 @@ $id  = $r['agriculturalist_id'];
 // if ($conn->query($sql) === TRUE) {
 //   ?>
 
-   <!-- edit of rate and review -->
+<!-- edit of rate and review -->
 <html>
 <link rel="stylesheet" href="../CSS/style.css">
 
@@ -31,16 +32,6 @@ $id  = $r['agriculturalist_id'];
 
 </html>
   <?php
-// } else {
-//   echo "Error: " . $sql . "<br>" . $conn->error;
-// }
-
-// // Close the database connection
-// $conn->close();
-
-
 ?>
 
-<!-- $json = json_decode($jd, true);
-echo $json; -->
 

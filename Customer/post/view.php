@@ -4,8 +4,8 @@ require "../Auth.php";
 include "../database.php";
 include '../includes/header.php';
 
+//view items  selected item in the wishlist using this page
 $id  = $_SESSION['wishlist_id'];
-
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +15,7 @@ $id  = $_SESSION['wishlist_id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/delivery.css">
     <title>View</title>
 </head>
 <body>
@@ -54,20 +55,16 @@ $id  = $_SESSION['wishlist_id'];
 </div>
 
 <a href  = "../wishlist/wishlist.php"> <button class="text-danger" name  = "back">Back </button></a>
-
-
-
 <?php
         }
     }
-
 ?>
+</div>
 
+<div class  = "footer">
+<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
 </div>
 </body>
-<footer>
-<img src = "../images/Footer.svg"  height= "121.3px" style  = "margin-top:auto" >
-</footer>
 </html>
 
 

@@ -31,7 +31,7 @@ if(mysqli_num_rows($select)>0){
     <title>Home</title>
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../images/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="../CSS/header.css">
+    <!-- <link rel="stylesheet" href="../CSS/header.css"> -->
     
 </head>
 <body>

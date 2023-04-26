@@ -1,21 +1,21 @@
 <?php
-    require "../database/database.php";
-    require "../public/Auth.php";
-    include "../Customer/includes/header.php";
-?>
+    require "../../database/database.php";
+    // require "../../public/Auth.php";
+    include '../../includes/header.view.php';
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>interim list</title>
-    <link rel = "stylesheet" type = "text/css" href = "itemstyle.css">
-    <link rel="stylesheet" href="../admin/notification.css">
-    <link rel="stylesheet" href="../public/CSS/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "../itemstyle.css">
+    <link rel="stylesheet" href="../../admin/notification.css">
+    <link rel="stylesheet" href="../../public/CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
         
 	</head>
 <body>
-    <?php include "../admin/menu/admin_menu.view.php"?>
+    <?php include "../../includes/admin_menu.view.php"?>
 		
     <div class = "loggedhome_body">
         <div class = "home_body">
@@ -47,6 +47,5 @@
         </div>
     </div>
         
-	</center>
 </body>
 </html>

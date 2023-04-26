@@ -1,7 +1,6 @@
 
 <?php 
-// require "../../public/Auth.php";
-//include '../../public/includes/header.view.php';
+
 include '../../includes/header.view.php';
 
 ?>
@@ -11,42 +10,13 @@ include '../../includes/header.view.php';
  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" 
  referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../public/CSS/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <title>Home
 </title> 
-<head>
-   <style>
-      /* For screens smaller than 600px */
-      @media screen and (max-width: 600px) {
-      /* Adjust the width and height of the images */
-      .responsive {
-         width: 100%;
-         height: auto;
-      }
-
-      /* Adjust the layout of the menu links */
-      .home_text {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-      }
-      }
-
-      /* For screens larger than 600px */
-      @media screen and (min-width: 600px) {
-      /* Adjust the layout of the menu links */
-      .home_text {
-         display: flex;
-         justify-content: center;
-      }
-      }
-
-   </style>
-
-</head>
 <body>
 
-   
 <?php include "../menu/admin_menu.view.php"?>
 
 
@@ -65,7 +35,7 @@ include '../../includes/header.view.php';
 
    <div class = "home_text">
       <xul>
-         <li><a href="items" ><Button>Items </Button></a></li>
+         <li><a href="../../item/view/itemview.php" ><Button>Items </Button></a></li>
          <li><a href="posts" ><Button>  Posts </Button></a></li>
          <li><a href="courses" ><Button>  Courses</Button></a></li>
          <li><a href="blogs" ><Button>  Blogs </Button></a></li>
@@ -77,5 +47,4 @@ include '../../includes/header.view.php';
 </body>
 
 
-<?php include '../../public/includes/footer.view.php'?>
-
+<?php include '../../includes/footer.view.php'?>

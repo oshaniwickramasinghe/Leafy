@@ -212,7 +212,7 @@ footer{
 }
  .home_body{
     padding-left: 180px;
-    margin-top: -38%;
+    margin-top: -20%;
     margin-left: 5%;
  }
 
@@ -233,7 +233,7 @@ min-width: 20vh;
     padding: 0 25px;
 }
 .home_text{
-    padding-left: 300px;
+    padding-left: 350px;
     margin-top: -15px;
     margin-left: -30px;
 }
@@ -585,3 +585,10 @@ td{
     width: 300px;
     text-align: left;
 }
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+    .responsive {
+      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }
