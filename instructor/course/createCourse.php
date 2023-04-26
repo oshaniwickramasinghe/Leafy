@@ -51,21 +51,30 @@
  }
 
 
- // Process the form data
-if (isset($_POST['pass'])) {
+ if (isset($_POST['pass'])) {
     $session_ids = $_POST['sessions'];
     $id= $_SESSION['course_id'];
 
-    // Loop through the session data and insert it into the database
+    // Retrieve the existing session IDs from the database
+    $sql_select = "SELECT session_id FROM course_session WHERE course_id='$id'";
+    $result_select = mysqli_query($conn, $sql_select);
+    $existing_session_ids = array();
+    while ($row = mysqli_fetch_assoc($result_select)) {
+        $existing_session_ids[] = $row['session_id'];
+    }
+
+    // Loop through the new session IDs and insert only the ones that haven't been saved yet
     for ($i = 0; $i < count($session_ids); $i++) {
         $session_id = mysqli_real_escape_string($conn, $session_ids[$i]);
 
-        $sql = "INSERT INTO course_session (course_id, session_id) VALUES ( '$id','$session_id')";
-        if (!mysqli_query($conn, $sql)) {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        if (!in_array($session_id, $existing_session_ids)) {
+            // The session ID doesn't exist in the database, so insert it
+            $sql_insert = "INSERT INTO course_session (course_id, session_id) VALUES ('$id','$session_id')";
+            if (!mysqli_query($conn, $sql_insert)) {
+                echo "Error: " . $sql_insert . "<br>" . mysqli_error($conn);
+            }
         }
     }
-
 }
 
 
@@ -98,7 +107,47 @@ if (isset($_POST['pass'])) {
          echo "<script>alert('Failed to edit data in database')</script>";
      }
 
+     $query4 = "SELECT * FROM course_session WHERE course_id=$course_ID";
+     $stmt4 = mysqli_query($conn,$query4);
+
+     if($stmt4){
+        while($record4 = mysqli_fetch_assoc($stmt4))
+        {
+            $course_id=$record4['course_id'];
+            $session_id=$record4['session_id'];
+        }
+       
+    }else{
+        echo "<script>alert('Failed to edit data in database')</script>";
+    }
+
      $update = true;
+
+     if (isset($_POST['updateSession'])) {
+        $session_ids = $_POST['sessions'];
+        $id= $course_ID;
+    
+        // Retrieve the existing session IDs from the database
+        $sql_select = "SELECT session_id FROM course_session WHERE course_id='$id'";
+        $result_select = mysqli_query($conn, $sql_select);
+        $existing_session_ids = array();
+        while ($row = mysqli_fetch_assoc($result_select)) {
+            $existing_session_ids[] = $row['session_id'];
+        }
+    
+        // Loop through the new session IDs and insert only the ones that haven't been saved yet
+        for ($i = 0; $i < count($session_ids); $i++) {
+            $session_id = mysqli_real_escape_string($conn, $session_ids[$i]);
+    
+            if (!in_array($session_id, $existing_session_ids)) {
+                // The session ID doesn't exist in the database, so insert it
+                $sql_insert = "INSERT INTO course_session (course_id, session_id) VALUES ('$id','$session_id')";
+                if (!mysqli_query($conn, $sql_insert)) {
+                    echo "Error: " . $sql_insert . "<br>" . mysqli_error($conn);
+                }
+            }
+        }
+    }
  }
 
  if(isset($_POST['update'])){
@@ -136,6 +185,8 @@ if (isset($_POST['pass'])) {
     
 
  }
+
+
 
 
 
@@ -280,7 +331,11 @@ if (isset($_POST['pass'])) {
                                             <button onclick="add_session()" type="button" class="btn" id="add-more"><i class="fa-solid fa-square-plus"></i> Add more session</button>
                                           <!--  <textarea for="textareas-container" id="textareas-container" placeholder="..." name="textareas-container " class="text_input"  value=""  required></textarea><br>-->
                                             <div class="save">
-                                                <button  type="submit" value="pass" name="pass" class="save-btn">Save</button>
+                                                <?php if($update == true) {?>
+                                                    <button type="submit" value="updateSession" name="updateSession" class="save-btn">Update</button>
+                                                <?php } else {?>     
+                                                    <button  type="submit" value="pass" name="pass" class="save-btn">Save</button>
+                                                <?php } ?> 
                                             </div>
                                             <!--<a href="InstructorHome.php" class="btn">go back</a> -->
                                 </form>
@@ -382,33 +437,16 @@ if (isset($_POST['pass'])) {
             // Return the unique ID
             return session_id;
         }
-
-        // Add the minimum number of input areas to the DOM when the page loads
+        
+        // Add the minimum number of input areas to the DOM when the page loads, if not in update mode
+        <?php if($update == false) { ?>
         window.onload = function() {
-        for (var i = 0; i < 4; i++) {
-            add_session();
-        }
-
-        JSON.stringify(session)
-
-        }
-
-        function save_sessions() {
-            var session_inputs = document.querySelectorAll(".session input");
-
-            // Loop through all the input elements and add their values to the sessions array
-            for (var i = 0; i < session_inputs.length; i++) {
-            sessions.push(session_inputs[i].value);
+            for (var i = 0; i < 4; i++) {
+                add_session();
             }
+        };
+        <?php } ?>
 
-            // Perform any necessary action with the sessions array
-            console.log(sessions);
-
-            // Clear the sessions array and reset the input fields
-            sessions = [];
-            var session_div = document.querySelector(".sessions");
-            session_div.innerHTML = "";
-        }
 
 
 
