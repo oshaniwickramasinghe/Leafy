@@ -47,13 +47,19 @@ if(isset($_POST['complete'])){
     
     if(mysqli_num_rows($result)>0){
         while($row  = mysqli_fetch_assoc($result )){
+         
+$customer_id  = $row['user_id'];
+$sql = "SELECT fname FROM user WHERE user_id = $customer_id";
+$res  = mysqli_query($conn, $sql);
+$name  =  mysqli_fetch_array($res);
+
            
             ?>
       
     <tr>
         
       <td>#00<?=$row['orderId']?> </td>
-      <td>Govindani</td>
+      <td><?=$name['fname']?></td>
       <td><?=$row['date']?></td>
       <td><?=$row['payment_method']?></td>
       <td><?=$row['address1']?> , <?=$row['address2']?> , <?=$row['district']?></td>
@@ -91,13 +97,17 @@ if(isset($_POST['complete'])){
     
     if(mysqli_num_rows($result_1 )>0){
         while($row  = mysqli_fetch_assoc($result_1  )){
-           
+
+$customer_id  = $row['user_id'];
+$sql = "SELECT fname FROM user WHERE user_id = $customer_id";
+$res  = mysqli_query($conn, $sql);
+$name  =  mysqli_fetch_array($res);
             ?>
-      
+
     <tr>
-        
+
       <td>#00<?=$row['orderId']?> </td>
-      <td>Govindani</td>
+      <td><?=$name['fname']?></td>
       <td><?=$row['date']?></td>
       <td><?=$row['payment_method']?></td>
       <td><?=$row['address1']?> , <?=$row['address2']?> , <?=$row['district']?></td>

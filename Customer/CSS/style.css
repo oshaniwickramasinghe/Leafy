@@ -181,7 +181,10 @@
     transition: max-height 0.5s;
     display: none;
     background: rgb(255, 255, 255);
-   
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    -ms-transition: max-height 0.5s;
+    -o-transition: max-height 0.5s;
 }
 
 
