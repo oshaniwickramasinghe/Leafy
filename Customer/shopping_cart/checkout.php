@@ -152,7 +152,6 @@ if(isset($_POST['cash'])){
 
 $query = "INSERT INTO  `checkout`(`agriculturalist_id`,address1,address2,district) VALUES ($agriculturalist,'$ad_1' ,'$ad_2','$ad_3')";
 $result = mysqli_query($conn,$query );
-var_dump($result);
 $select = "SELECT orderId FROM checkout WHERE agriculturalist_id = $agriculturalist && date = '$date' ";
 $result = mysqli_query($conn,$select);
 

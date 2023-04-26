@@ -16,7 +16,7 @@ $query ="SELECT status FROM checkout WHERE orderId = $orderId";
 $Rlt  = mysqli_query($conn,$query);
 $res = mysqli_fetch_array($Rlt);
 
-var_dump($sql);
+
 ?>
 
 <!DOCTYPE html>
