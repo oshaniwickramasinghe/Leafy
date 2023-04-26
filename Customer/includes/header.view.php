@@ -5,7 +5,7 @@ include "database.php";
 <html>
 <link rel="stylesheet" href="../CSS/style.css">
 
-
+<header>
 <div class="header">
         <div class="center_wrapper">
             <div class="left_part">
@@ -27,7 +27,7 @@ include "database.php";
                             <a href="#courses" class="">Courses</a>
                         </li>
                         <li>
-                            <a href="#contact" class="">Contact</a>
+                            <a href="contact.php" class="">Contact</a>
                         </li>
                     </ul> 
                 </div>
@@ -74,7 +74,7 @@ if(mysqli_num_rows($select)>0){
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <hr>
-                        <a href = "InstructorHome.php" class="sub-menu-link">
+                        <a href = "../instructor/InstructorHome.php" class="sub-menu-link">
                             <i class="fa-solid fa-circle-user" style="font-size:18px;color:#43562B;"></i>
                             <p>My Profile</p>
                             <span>></span>
@@ -93,7 +93,9 @@ if(mysqli_num_rows($select)>0){
             <a href="" class="">Languages (EN)</a>
             </div>
             <?php }else{ ?>
-                <li><a href="../Customer/Login.view.php" class="">Login</a></li>
+                <div class="login">
+                <li><a href="Login.view.php">Login</a></li>
+                </div>
                 <div class  = "language">
             <a href="" class="">Languages (EN)</a>
             </div>
@@ -107,8 +109,8 @@ if(mysqli_num_rows($select)>0){
           
         </div>          
 </div>
-
-
+            
+            </header>
 
 <script>
         

@@ -16,9 +16,11 @@
  $steps="";
  $status="";
 
+
+ 
+
  if(isset($_POST['save']))
  {
-   /* $blog_ID=mysqli_real_escape_string($conn,$_POST['blog_ID']); */
     $title=mysqli_real_escape_string($conn,$_POST['title']);
     $Topic=mysqli_real_escape_string($conn,$_POST['Topic']);
     $description=mysqli_real_escape_string($conn,$_POST['description']);
@@ -33,18 +35,38 @@
 
 
     $sql1=" INSERT INTO course(title,Topic,image,user_id,description,duration,status,steps) Values ('$title',' $Topic','$image','$user_ID','$description','$duration','$status','$steps')";
+    
+    
    
     $result1=mysqli_query($conn,$sql1);
     if($result1){
         move_uploaded_file($image_tmp_name, $image_folder);
+        $course_id = mysqli_insert_id($conn); 
+        $_SESSION['course_id'] =  $course_id;
        echo"<script>alert('Details added');</script>";
     }else{
         echo"Error: " . $sql1 . "<br>" . mysqli_error($conn);
     }
-
-
     
  }
+
+
+ // Process the form data
+if (isset($_POST['pass'])) {
+    $session_ids = $_POST['sessions'];
+    $id= $_SESSION['course_id'];
+
+    // Loop through the session data and insert it into the database
+    for ($i = 0; $i < count($session_ids); $i++) {
+        $session_id = mysqli_real_escape_string($conn, $session_ids[$i]);
+
+        $sql = "INSERT INTO course_session (course_id, session_id) VALUES ( '$id','$session_id')";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    }
+
+}
 
 
 
@@ -114,6 +136,9 @@
     
 
  }
+
+
+
 
 ?> 
 
@@ -253,21 +278,19 @@
                                     <div class="sessions">
                                     </div>
                                             <button onclick="add_session()" type="button" class="btn" id="add-more"><i class="fa-solid fa-square-plus"></i> Add more session</button>
-                                            <textarea for="textareas-container" id="textareas-container" placeholder="..." name="textareas-container " class="text_input"  value=""  required></textarea><br>
+                                          <!--  <textarea for="textareas-container" id="textareas-container" placeholder="..." name="textareas-container " class="text_input"  value=""  required></textarea><br>-->
                                             <div class="save">
-                                                <button  onclick="save_sessions()" class="save-btn">Save</button>
+                                                <button  type="submit" value="pass" name="pass" class="save-btn">Save</button>
                                             </div>
                                             <!--<a href="InstructorHome.php" class="btn">go back</a> -->
-                                        </div> 
                                 </form>
                             </div>
 
-
+                    </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
     <div align="right">
         <a href="course.php" class="goback-btn">Back to courses page >></a> 
     </div>    
@@ -286,6 +309,7 @@
         var update_btn = document.getElementById("update-btn");
         var save_btn = document.getElementById("save-btn");
         var steps = document.getElementById("steps");
+        var sessions_div = document.querySelector(".sessions");
         var sessions = [];
 
         view_btn.addEventListener('click', ()=>{
@@ -299,23 +323,31 @@
             view_div.style.display ='none';
             
         });
+        
+
+        // Define a counter variable outside of the function
+        var session_counter = 0;
 
         function add_session()
         {
+         
+            // Increment the counter variable
+            session_counter++;
+            
+            // Generate the ID using the counter variable
+            var session_id = "session_" + session_counter;
             // Check if the maximum number of sessions has been reached
         //    if (sessions.length >= steps.value) {
         //        alert("You already created sessions that you need.");
         //        return;
           //  }
-
-
-            var sessions_div = document.querySelector(".sessions");
             var session_html = `
-            <div class="session">
-                <input type="text" id="session">
+            <div id="${session_id}" draggable="true" class="session">
+                <label for="index" id="${session_counter}">Lecture-${session_id}</label>
+                <input type="hidden" name="sessions[]" value="${session_counter}">
                 <div class="icon">
                 <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
-                <i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i>
+                <a href="session.php?id=${session_counter}"><i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i></a>
                 </div>
             </div>
             `;
@@ -323,20 +355,32 @@
 
             // Disable the delete button for the first four input areas
             var delete_icons = sessions_div.querySelectorAll(".fa-trash");
+            var icons_to_delete = [];
+
+            // create a new array containing only the icons to delete
             for (var i = 0; i < delete_icons.length; i++) {
-                if (i < 4) {
-                delete_icons[i].disabled = true;
-                } else {
-                delete_icons[i].addEventListener("click", () => {
-                    if (!confirm('Are you sure you want to delete?')) {
-                    return;
-                    }
-                    sessions_div.removeChild(delete_icons[i].parentNode.parentNode);
-                });
+                if (i >= 4) {
+                    icons_to_delete.push(delete_icons[i]);
                 }
-            }  
+            }
+
+            // loop through the new array and add click event listeners
+            for (var i = 0; i < icons_to_delete.length; i++) {
+
+                icons_to_delete[i].addEventListener("click", function() {
+                    
+                        if (!confirm("Are you sure you want to delete?")) {
+                            return;
+                        }
+                        this.parentNode.parentNode.remove();
+                    }
+                );
+            } 
             // Add the new session to the sessions array
             sessions.push("");
+
+            // Return the unique ID
+            return session_id;
         }
 
         // Add the minimum number of input areas to the DOM when the page loads
@@ -344,6 +388,9 @@
         for (var i = 0; i < 4; i++) {
             add_session();
         }
+
+        JSON.stringify(session)
+
         }
 
         function save_sessions() {

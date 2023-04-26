@@ -1,12 +1,17 @@
 <?php
 
-$id  =  $_SESSION['USER_DATA']['user_id'];
-$result_per_page  = 6;
-
-$sql  = "SELECT district FROM customer WHERE  user_id = $id";
+if(logged_in()){
+    $uid  = $_SESSION['USER_DATA']['user_id'];
+    $sql  = "SELECT district FROM customer WHERE  user_id = $uid";
 $result = mysqli_query($conn,$sql);
 $re = mysqli_fetch_array($result);
 $district = $re ['district'];
+
+    }else{
+      $uid =0;
+    }
+$result_per_page  = 6;
+
 
 //AND district = '$district'
 $query  = "SELECT * FROM post WHERE category = 'Vegetable'  ORDER BY post_id ASC";

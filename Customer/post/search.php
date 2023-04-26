@@ -23,7 +23,7 @@ if(isset($_GET['search'])){
 <div class = "search">
 <form method = "get" style  = "background: none;">
 <div class="search-box">
-        <input type="text" autocomplete="off" placeholder="Search  for and item location .."  name  = "search"/>
+        <input type="search" autocomplete="off" placeholder="Search  for and item location .."  name  = "search"/>
         <button type="submit">Search</button>
     </div>
 </form>

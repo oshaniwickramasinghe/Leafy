@@ -26,6 +26,7 @@
                 <li><a href=""><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Questions</a></li>
                 <li><a href="blog.php"><i class="fa-brands fa-blogger"  style="font-size:16px;color:black;"></i>Blogs</a></li>
                 <li><a href=""><i class="fa-brands fa-readme" style="font-size:16px;color:black;"></i>Courses</a></li>
+                <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
             </ul>
 
         </div>
