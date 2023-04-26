@@ -1,9 +1,9 @@
 <!-- PHP code to establish connection with the localserver -->
 <?php
-require "../database/database.php";
+require "../../database/database.php";
 // require "../public/Auth.php";
 // include "../Customer/includes/header.php";
-include '../includes/header.view.php';
+include '../../includes/header.view.php';
 
 
 // SQL query to select data from database
@@ -19,22 +19,22 @@ $data = mysqli_query($conn, $sql);
 <head>
 	<meta charset="UTF-8">
 	<title>User Details</title>
-	<link rel="stylesheet" type = "text/css" href = "itemstyle.css">
-    <link rel="stylesheet" href="../admin/notification.css">
-    <link rel="stylesheet" href="../public/CSS/style.css">
+	<link rel="stylesheet" type = "text/css" href = "../itemstyle.css">
+    <link rel="stylesheet" href="../../admin/notification.css">
+    <link rel="stylesheet" href="../../public/CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
         
 </head>
 
 <body>
 
-<?php include "../admin/menu/admin_menu.view.php"?>
+<?php include "../../includes/admin_menu.view.php"?>
 	<section>
 		
     <div class = "loggedhome_body">
         <div class = "home_body">
             
-            <a class="add" href="itemform.php " >Add new item</a>
+            <a class="add" href="../insert/itemform.php " >Add new item</a>
 
             <table>
                 <tr>
@@ -56,7 +56,7 @@ $data = mysqli_query($conn, $sql);
                     <td><?php echo $rows['item_name'];?></td>
                     <td><?php echo $rows['category'];?></td>
                     <!-- <td><?php echo $rows['item_image'];?></td> -->
-                    <td> <img src="./uploads/<?php echo $rows["item_image"];?>"></td>				
+                    <td> <img src="../uploads/<?php echo $rows["item_image"];?>"></td>				
                     
                 </tr>
                 <?php

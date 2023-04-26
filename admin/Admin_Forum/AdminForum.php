@@ -64,7 +64,12 @@ include '../../includes/header.view.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
           
     <title>Admin Forum</title>
+
+    <style>
+      
+   </style>
 </head>
+
 <body>
     <?php include 'AdminForumPHP.php';?>
     <?php include "../menu/admin_menu.view.php"?>
@@ -144,5 +149,7 @@ include '../../includes/header.view.php';
 </div>    
 
         <script src="notification.js"></script>
+
+        <?php include '../../includes/footer.view.php';?>
 </body>
 </html>

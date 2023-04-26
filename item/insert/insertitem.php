@@ -1,19 +1,9 @@
-<!-- <!DOCTYPE html>
-<html>
 
-<head>
-	<title>Insert Item Page</title>
-</head>
-
-<body>
-	<center> -->
     <?php 
 
-        require "../database/database.php";
-        require "../public/Auth.php";
-        // include "../Customer/includes/header.php";
-
-    
+        require "../../database/database.php";
+        require "../../public/Auth.php";
+   
 
 		$item_name = $_REQUEST['item_name'];
 		$category = $_REQUEST['category'];
@@ -33,7 +23,7 @@
 
 			$file_tmp1=$_FILES['image']['tmp_name'];
 			$file_name1= "A"."$item_name".rand(1,1000).$_FILES['image']['name'];
-			$target_file1="uploads/".$file_name1;
+			$target_file1="../uploads/".$file_name1;
 			if($file_tmp1!="")
 			{
 				move_uploaded_file($file_tmp1,$target_file1);
@@ -47,7 +37,7 @@
 			
 			if(mysqli_query($conn, $sql)){
 					
-					header("Location:itemview.php");
+					header("Location:../../itemview.php");
 					
 			} else{
 				echo "data not stored in database. $sql. "
@@ -59,7 +49,3 @@
 		// Close connection
 		mysqli_close($conn);
 		?>
-	<!-- </center>
-</body>
-
-</html> -->
