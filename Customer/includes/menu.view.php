@@ -1,58 +1,142 @@
 <?php
-
-
-
-
-if(logged_in()){
-    $id  = $_SESSION['USER_DATA']['user_id'];
-    }else{
-      $id =0;
-    }
-
-$sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $id  ";
-$result = mysqli_query($conn,$sql);
-$row  = mysqli_fetch_array($result);
-
-
-
+include "database.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-   
-    <link rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-   
+<html>
+<link rel="stylesheet" href="../CSS/style.css">
 
-
-        <div class="left_menu_bar">
-            <div id="menu">
-                <a><i class="fa-solid fa-bars"></i></a>
-                <div class="image"><img src="images/badge.svg" alt=""></div>
-                <h3>Leafy</h3>
+<header>
+<div class="header">
+        <div class="center_wrapper">
+            <div class="left_part">
+                <div class="logo_1">
+                    
+                        <img src="images/logo.svg"  height= "95.42px" >
+                      
+                   
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="customerhome.php" class="">Home</a>
+                        </li>
+                        <li>
+                            <a href="#blogs" class="">Blogs</a>
+                        </li>
+                        <li>
+                            <a href="#courses" class="">Courses</a>
+                        </li>
+                        <li>
+                            <a href="contact.php" class="">Contact</a>
+                        </li>
+                    </ul> 
+                </div>
             </div>
-            <ul>
-                <li><?php if($uid!=0){?><a href="../customerhome.php"><?php }else{?> <a href="../home.view.php"><?php }?><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
-                <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
-                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count" style = "margin-top:8%"><?php echo $row[0]?></div></a></li>
-                <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
-                <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
-                <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
-               
-            </ul>
+            
+            <div class="right_part">
+            <ul> 
+           
 
-        </div>
+               <div class="profile_icon">
+                    <div  class="user-pic" >
+                        <div class="user_details">
+                        <?php if(logged_in()){
+$user_ID = $_SESSION['USER_DATA']['user_id'];
+// if(!isset($user_ID)){
+//     header('location:login.php');
+// };
+
+// if(isset($_GET['logout'])){
+//      unset($user_ID);
+//      session_destroy();
+//      header('location:../Customer/home.view.php');
+// }
 
 
+$select=mysqli_query($conn,"SELECT * FROM user WHERE user_ID='$user_ID'") or die('query failed');
 
-</body>
+if(mysqli_num_rows($select)>0){
+    $fetch= mysqli_fetch_assoc($select);
+}
+?>  
+                            <img src="images/profilepic_icon.svg"  >
+                            <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
+                        </div>
+                        <button onclick="toggleMenu()">
+                        <span class="fa-solid fa-circle-chevron-down" ></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="images/profilepic_icon.svg" alt=""  height= "100.42px">
+                            <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
+                        </div>
+                        <hr>
+                        <a href = "../instructor/InstructorHome.php" class="sub-menu-link">
+                            <i class="fa-solid fa-circle-user" style="font-size:18px;color:#43562B;"></i>
+                            <p>My Profile</p>
+                            <span>></span>
+                        </a>
+                        <a href = "../Customer/Logout.php" class="sub-menu-link">
+                            <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
+                            <p>Logout</p>
+                            <span>></span>
+                        </a>
+                      
+                        
+                    </div>
+                   
+                </div> 
+  <div class  = "lan">
+<div class="translate">
+            <div id="google_translate_element"></div></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en' , includedLanguages : 'si,en,EN'}, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+           
+            </div>
+            <?php }else{ ?>
+                <div class="login">
+                <li><a href="Login.view.php">Login</a></li>
+                </div>
+                <div class  = "language">
+            <a href="" class="">Languages
 
-</html>
+            </a>
+            
+
+ 
+            </div>
+            <?php } ?>
+          
+            
+            <!-- <li><a href="../Customer/Login.view.php" class="">Login</a></li> -->      
+           </ul> 
+          
+           </div> 
+          
+        </div>          
+</div>
+            
+            </header>
+
+<script>
+        
+        function toggleMenu()
+        {
+            var subMenu = document.getElementById("subMenu");
+            if(subMenu.style.display == "none")
+            {
+                subMenu.style.display = "block";
+            }else{
+                subMenu.style.display = "none";
+            }
+        }
+    </script>
+<html>
