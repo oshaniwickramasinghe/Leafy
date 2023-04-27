@@ -29,13 +29,7 @@ if(isset($_POST['submit']))
    $image1_tmp_name =$_FILES['image1']['tmp_name'];
    $image_folder ="../images/".$image1;
    $selected_color = $_POST['color-picker'];
-   if(isset($_POST['content1'])) {
-    $content = $_POST['content1'];
-    //rest of the code that uses $content variable
-    } else {
-        echo "Error: Content data is not set in the AJAX request.";
-    }
-    $content1 = mysqli_real_escape_string($conn, $content);
+   $content1 = mysqli_real_escape_string($conn, $_POST['content1']);
 
 
 
@@ -91,13 +85,7 @@ if(isset($_POST['update'])){
 
    $title=$_POST['title'];
    $date=$_POST['date'];
-   if(isset($_POST['content1'])) {
-    var_dump(isset($_POST['content1']));
-        $content1 = $_POST['content1'];
-    //rest of the code that uses $content variable
-    } else {
-       echo "Error: Content data is not set in the AJAX request.";
-    }
+   $content1 = $_POST['content1'];
    $description=$_POST['description'];
    $time=$_POST['time'];
    $image1=$_POST['oldimage1'];
@@ -117,7 +105,7 @@ if(isset($_POST['update'])){
    }
 
 
-   $query =  mysqli_query($conn,"UPDATE blog SET  title='$title', 
+   $query =  mysqli_query($conn,"UPDATE blog SET  title='$title',content1='$content1',
     description='$description', image1='$newimage1', color='$selected_color' WHERE blog_id='$blog_ID'");
 
    if($query)
@@ -143,11 +131,17 @@ if(isset($_POST['update'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/quill-video-resize-module/dist/QuillVideoResize.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/quill-image-resize-module/dist/QuillImageResize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="create blog.css">
     <title>create blog</title>
-        <!-- Include the Quill library -->
+    <!-- Include the Quill library -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <!-- ImageResize plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module/dist/QuillImageResize.min.js"></script>
+    <!-- VideoResize plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/quill-video-resize-module/dist/QuillVideoResize.min.js"></script>
     <!--<script src="../includes/ckeditor/ckeditor.js"></script>
     <script src="../includes/ckfinder/ckfinder.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -202,9 +196,10 @@ if(isset($_POST['update'])){
                 <textarea for="description" id="description" placeholder="Short description about the blog..." name="description" class="text_input"  value=""  required><?= $description; ?></textarea><br>
             </div>
 
-           <div class="content">
-                <label for="content">Content</label><br><br>
-                <div for="content1" class="content1" id="content1" name="content1"><?= $content1; ?></div>
+           <div class="contents">
+                <label for="content1">Content</label><br><br>
+                <div for="content" class="content" id="content" name="content"><?= $content1; ?></div>
+                <input type="hidden" name="content1" id="content1">
             </div>
             <div class="images">
             <label for="image">Image for the cover page of blog</label><br><br>
@@ -232,9 +227,9 @@ if(isset($_POST['update'])){
         </div>
             <div align="center">
                 <?php if($update == true) {?>
-                    <input type="submit" value="Update Blog" name="update" class="btn" id="submit">
+                    <input type="submit" onclick="sendContent()" value="Update Blog" name="update" class="btn" id="submit">
                 <?php } else {?>     
-                    <input type="submit" value="Submit" name="submit" class="btn" id="submit">
+                    <input type="submit" onclick="sendContent()" value="Submit" name="submit" class="btn" id="submit">
                 <?php } ?>
         </div>
             
@@ -249,6 +244,55 @@ if(isset($_POST['update'])){
            <?php include "../includes/footer.php";?>
     </footer>
 
-    <script src="create blog.js"></script>
+    <script>
+    var quill = new Quill('#content', {
+        modules: {
+            toolbar: {
+                container: [
+                    [{ header: [1, 2, 3, 4, false] }],
+                    [{'font':[]}],
+                    [{'align':[]}],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    ['image', 'code-block', 'blockquote'],
+                    [{'list': 'ordered'}, {'list': 'bullet'}],
+                    [{'script': 'sub'}, {'script': 'super'}],
+                    [{'indent': '-1'}, {'indent': '+1'}],
+                    [{'direction': 'rtl'}],
+                    ['link', 'image', 'video', 'formula'],
+                    [{'color': []}, {'background': []}]
+                ],
+
+                handlers: {
+                    insertVideo: function() {
+                        // handle insert video button click
+                        const url = prompt('Enter video URL');
+                        if (url) {
+                            const range = this.quill.getSelection(true);
+                            this.quill.insertEmbed(range.index, 'video', url, Quill.sources.USER);
+                        }
+                    }
+                }
+            },
+
+            ImageResize: {
+                displaySize: true,
+                modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+            },
+            VideoResize: {
+                displaySize: true,
+                modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+            }
+        },
+        placeholder: 'Create your post...',
+        theme: 'snow'  // or 'bubble'
+    });
+
+        // passing data to input
+        function sendContent(){
+            var addhtml=document.getElementById("content").children[0].innerHTML;
+
+            document.getElementById('content1').value=addhtml;
+        }
+    </script>
 </body>
 </html>
