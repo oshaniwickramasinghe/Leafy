@@ -90,14 +90,28 @@ if(mysqli_num_rows($select)>0){
                    
                 </div> 
   <div class  = "lan">
-            <a href="" class="">Languages (EN)</a>
+<div class="translate">
+            <div id="google_translate_element"></div></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en' , includedLanguages : 'si,en,EN'}, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+           
             </div>
             <?php }else{ ?>
                 <div class="login">
                 <li><a href="Login.view.php">Login</a></li>
                 </div>
                 <div class  = "language">
-            <a href="" class="">Languages (EN)</a>
+            <a href="" class="">Languages
+
+            </a>
+            
+
+ 
             </div>
             <?php } ?>
           

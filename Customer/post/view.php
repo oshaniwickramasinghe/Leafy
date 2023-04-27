@@ -49,7 +49,6 @@ $id  = $_SESSION['wishlist_id'];
                      <input type= "submit" name= "cart" class= "btn" value= "Add to cart" data-inline = "true"/>
                     <input type= "submit" name= "wishlist" class= "btn" value= "Add to wishlist" data-inline = "true"/>
 
-        
         </form>
 </div>
 </div>

@@ -1,11 +1,11 @@
 
-
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="../Customer/CSS/style.css">
 
 <link rel="stylesheet" href="../Customer/CSS/delivery.css">
+
 <?php 
 require "Auth.php";
 include 'includes/header.view.php';
