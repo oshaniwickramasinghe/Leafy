@@ -63,7 +63,7 @@ h1{
 }
 
 
-.create_form_wrapper form .field .content{
+.create_form_wrapper form .field .contents{
  display: block;
 }
 
@@ -77,27 +77,27 @@ h1{
     margin-bottom: 30px;
 }
 
-.create_form_wrapper form .field .content1
+.create_form_wrapper form .field .content
 {
   background-color:white;
   margin-bottom: 30px;
   min-height: 500px;
 }
 
-.create_form_wrapper form .field .content1 p,
-.create_form_wrapper form .field .content1 ul,
-.create_form_wrapper form .field .content1 ol{
+.create_form_wrapper form .field .content p,
+.create_form_wrapper form .field .content ul,
+.create_form_wrapper form .field .content ol{
   font-size: 1.2rem;
   line-height: 2rem;
   
 }
 
-.create_form_wrapper form .field .content1 ul,
-.create_form_wrapper form .field .content1 ol{
+.create_form_wrapper form .field .content ul,
+.create_form_wrapper form .field .content ol{
   padding-left:1rem;
 }
 
-.create_form_wrapper form .field .content1 p{
+.create_form_wrapper form .field .content p{
   margin-bottom: 25px;
 }
 

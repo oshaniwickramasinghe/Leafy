@@ -42,6 +42,5 @@ function selectAll($table, $condition =[])
 
 }
 
-$conditions ={
 
-};
+

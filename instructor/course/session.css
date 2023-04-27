@@ -115,10 +115,10 @@
 .container .create_form_wrapper .view-wrap .view{
   display:block;
   height: auto;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-bottom: 1%;
+  margin: 1%;
   background-color: #fff;
+  border-radius: 5px;
+  padding: 2px 0px;
 }
 
 @media screen and (max-width: 767px) {
@@ -167,6 +167,43 @@ h1{
       text-align:left;
   
   }
+
+  .create_form_wrapper form .options input,
+  .answer input{
+    flex:8.5;
+    height:40px;
+    padding-top: 3px;
+    padding-left: 10px;
+    line-height: 2em; 
+    border-style: none;
+    color:#5A713D;
+    width: 70%;
+    margin: 0px 0px 20px 150px;
+    background-color: rgba(169, 172, 172, 0.251);
+
+    
+}
+
+.create_form_wrapper form .answer input{
+  flex:8.5;
+  height:40px;
+  padding-top: 3px;
+  padding-left: 10px;
+  line-height: 2em; 
+  border-style: none;
+  color:#5A713D;
+  width: 70%;
+  margin: 0px 0px 20px 150px;
+  background-color: rgba(169, 172, 172, 0.251);
+
+  
+}
+
+.quiz{
+  border:solid rgba(0, 0, 0, 0.218) 1px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
   
   .create_form_wrapper form input, select{
       flex:8.5;
@@ -181,6 +218,8 @@ h1{
       background-color: rgba(169, 172, 172, 0.251);
       
   }
+
+
   
   .create_form_wrapper form textarea{
     height:100px;
@@ -194,9 +233,11 @@ h1{
     background-color: rgba(169, 172, 172, 0.251);
   }
   
-  
+
   .create_form_wrapper form .field .content{
    display: block;
+   margin-bottom: 20px;
+   min-height: 400px;
   }
   
   .create_form_wrapper form .field .images{
@@ -223,3 +264,28 @@ h1{
     
 }
 
+.button-section{
+  text-align: center;
+  justify-content: center;
+} 
+
+.block .button-section .btn{
+  border:none;
+  width:50%;
+  height:30px;
+  color:#FCFEF9;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  background-color: #5A713D;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+ 
+}
+
+.btn:hover{
+  background: #323929;
+}

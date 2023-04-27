@@ -82,7 +82,7 @@
  if(isset($_GET['edit']))
  {
      $course_ID = $_GET['edit'];
-
+     $_SESSION['courseId'] =  $course_ID;
 
      $query3 = "SELECT * FROM course WHERE course_id=$course_ID";
      $stmt3 = mysqli_query($conn,$query3);
@@ -109,17 +109,9 @@
 
      $query4 = "SELECT * FROM course_session WHERE course_id=$course_ID";
      $stmt4 = mysqli_query($conn,$query4);
+     
 
-     if($stmt4){
-        while($record4 = mysqli_fetch_assoc($stmt4))
-        {
-            $course_id=$record4['course_id'];
-            $session_id=$record4['session_id'];
-        }
-       
-    }else{
-        echo "<script>alert('Failed to edit data in database')</script>";
-    }
+
 
      $update = true;
 
@@ -130,6 +122,7 @@
         // Retrieve the existing session IDs from the database
         $sql_select = "SELECT session_id FROM course_session WHERE course_id='$id'";
         $result_select = mysqli_query($conn, $sql_select);
+        $already_created_session_count = mysqli_num_rows($result_select);
         $existing_session_ids = array();
         while ($row = mysqli_fetch_assoc($result_select)) {
             $existing_session_ids[] = $row['session_id'];
@@ -327,16 +320,28 @@
                                     <label for="instruction" id="instruction"><small>Here is where you can add sessions of your course.
                                     Please add less than 15 session in to your course.</small></label>   
                                     <div class="sessions">
+                                        <?php if($update == true) {?>
+                                            <?php while($record4 = mysqli_fetch_assoc($stmt4)){?>
+                                                <div id="session_<?=$record4['session_id']?>" draggable="true" class="session">
+                                                    <label for="index" id="<?=$record4['session_id']?>">Lecture-Session_<?=$record4['session_id']?></label>
+                                                    <input type="hidden" name="sessions[]" value="<?=$record4['session_id']?>">
+                                                    <div class="icon">
+                                                    <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
+                                                    <a href="session.php?id=<?=$record4['session_id']?>& course=<?=$record4['course_id']?>"><i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i></a>
+                                                    </div>
+                                                </div>
+                                        <?php } }?>
                                     </div>
-                                            <button onclick="add_session()" type="button" class="btn" id="add-more"><i class="fa-solid fa-square-plus"></i> Add more session</button>
-                                          <!--  <textarea for="textareas-container" id="textareas-container" placeholder="..." name="textareas-container " class="text_input"  value=""  required></textarea><br>-->
-                                            <div class="save">
-                                                <?php if($update == true) {?>
-                                                    <button type="submit" value="updateSession" name="updateSession" class="save-btn">Update</button>
-                                                <?php } else {?>     
-                                                    <button  type="submit" value="pass" name="pass" class="save-btn">Save</button>
-                                                <?php } ?> 
-                                            </div>
+                                    <button onclick="add_session()" type="button" class="btn" id="add-more"><i class="fa-solid fa-square-plus"></i> Add more session</button>
+                                    
+                                    <div class="save">
+                                        <?php if($update == true) {?>
+                                            <button type="submit" value="updateSession" name="updateSession" class="save-btn">Update</button>
+                                        <?php }else {?>
+                                            <button  type="submit" value="pass" name="pass" class="save-btn">Save</button>
+                                        <?php } ?>
+                                    </div>
+
                                             <!--<a href="InstructorHome.php" class="btn">go back</a> -->
                                 </form>
                             </div>
@@ -381,7 +386,25 @@
         
 
         // Define a counter variable outside of the function
-        var session_counter = 0;
+        <?php if($update == false) { ?>
+            // newly creating session list
+            var session_counter = 0;
+        <?php }else{ 
+            // when adding new session to existing session list
+             if(isset($_GET['edit']))
+             {
+                $course_ID = $_GET['edit'];
+
+                // Retrieve the existing session IDs from the database
+                $sql_select = "SELECT session_id FROM course_session WHERE course_id=$course_ID";
+                $result_select = mysqli_query($conn, $sql_select);
+                $already_created_session_count = mysqli_num_rows($result_select);
+             
+         ?>
+               session_counter= <?php echo $already_created_session_count;?>;
+
+         <?php } }?> 
+
 
         function add_session()
         {
@@ -390,19 +413,20 @@
             session_counter++;
             
             // Generate the ID using the counter variable
-            var session_id = "session_" + session_counter;
+            var session_name = "session_" + session_counter;
+            session_id=session_counter;
             // Check if the maximum number of sessions has been reached
         //    if (sessions.length >= steps.value) {
         //        alert("You already created sessions that you need.");
         //        return;
           //  }
             var session_html = `
-            <div id="${session_id}" draggable="true" class="session">
-                <label for="index" id="${session_counter}">Lecture-${session_id}</label>
-                <input type="hidden" name="sessions[]" value="${session_counter}">
+            <div id="${session_name}" draggable="true" class="session">
+                <label for="index" id="${session_id}">Lecture-Session_${session_id}</label>
+                <input type="hidden" name="sessions[]" value="${session_id}">
                 <div class="icon">
                 <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
-                <a href="session.php?id=${session_counter}"><i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i></a>
+                <a href="session.php?id=${session_id}"><i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i></a>
                 </div>
             </div>
             `;
