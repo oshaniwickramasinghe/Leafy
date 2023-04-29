@@ -9,6 +9,7 @@ $update = false;
 $blog_ID="";
 $title="";
 $date="";
+$topic="";
 $author="";
 $content1="";
 $comment="";
@@ -17,6 +18,8 @@ $image1="";
 $description="";
 $selected_color="";
 $content="";
+$opacity="";
+$background_color="";
 
 
 if(isset($_POST['submit']))
@@ -24,16 +27,19 @@ if(isset($_POST['submit']))
   /* $blog_ID=mysqli_real_escape_string($conn,$_POST['blog_ID']); */
    $title = mysqli_real_escape_string($conn,$_POST['title']);
    $description = mysqli_real_escape_string($conn,$_POST['description']);
+   $topic=$_POST['topic'];
    $image1 = $_FILES['image1']['name'];
    $image1_size =$_FILES['image1']['size'];
    $image1_tmp_name =$_FILES['image1']['tmp_name'];
    $image_folder ="../images/".$image1;
    $selected_color = $_POST['color-picker'];
    $content1 = mysqli_real_escape_string($conn, $_POST['content1']);
+   $opacity = $_POST['opacity-slider'];
+   $background_color=$_POST['blog-background'];
 
 
 
-   $sql1=" INSERT INTO blog(title,content1,image1,user_id,description,color) Values ('$title','$content1','$image1','$user_ID ','$description','$selected_color')";
+   $sql1=" INSERT INTO blog(topic,title,content1,image1,user_id,description,color) Values ('$topic',$title','$content1','$image1','$user_ID ','$description','$selected_color')";
   echo($sql1);
    $result1=mysqli_query($conn,$sql1);
    if($result1){
@@ -67,10 +73,12 @@ if(isset($_GET['edit']))
             $blog_ID=$record3['blog_id'];
             $title=$record3['title'];
             $date=$record3['date'];
+            $topic=$record3['topic'];
             $content1=$record3['content1'];
             $description=$record3['description'];
             $time=$record3['time'];
             $image1=$record3['image1'];
+            $opacity = $record3['opacity'];
             $selected_color=$record3['color'];
         }
        
@@ -84,12 +92,15 @@ if(isset($_GET['edit']))
 if(isset($_POST['update'])){
 
    $title=$_POST['title'];
+   $topic=$_POST['topic'];
    $date=$_POST['date'];
    $content1 = $_POST['content1'];
    $description=$_POST['description'];
    $time=$_POST['time'];
    $image1=$_POST['oldimage1'];
    $selected_color =$_POST['color-picker'];
+   $opacity = $_POST['opacity-slider'];
+   $background_color = $_POST['blog-background'];
 
    if(isset($_FILES['image1']['name']) && ($_FILES['image1']['name']!= ""))
    {
@@ -105,8 +116,8 @@ if(isset($_POST['update'])){
    }
 
 
-   $query =  mysqli_query($conn,"UPDATE blog SET  title='$title',content1='$content1',
-    description='$description', image1='$newimage1', color='$selected_color' WHERE blog_id='$blog_ID'");
+   $query =  mysqli_query($conn,"UPDATE blog SET  title='$title',content1='$content1',topic='$topic',
+    description='$description', image1='$newimage1', color='$selected_color', opacity='$opacity', background_color='$background_color' WHERE blog_id='$blog_ID'");
 
    if($query)
    {
@@ -174,8 +185,8 @@ if(isset($_POST['update'])){
                 <input type="hidden" name="time" value="<?= $time;?>">
             </div>
             <div>
-                <label for="title">Topic</label><br>
-                <select id="cars" name="cars">
+                <label for="topic">Topic</label><br>
+                <select id="topic" name="topic" value="$topic">
                     <option value="agronomy">Agronomy</option>
                     <option value="horticulture">Horticulture</option>
                     <option value="soil science">Soil Science</option>
@@ -218,13 +229,27 @@ if(isset($_POST['update'])){
                 <?php } ?>
             </div>
             </div>
-
-            <div>
-                <label for="color-picker">Select a background color for blog:</label>
-                <input type="color" id="color-picker" name="color-picker" value="<?= $selected_color; ?>">
+            <div class="color">
+                <div>
+                    <label for="color-picker">Select a background color for blog:</label>
+                    <input type="color" id="color-picker" name="color-picker" value="<?= $selected_color; ?>">
+                </div>
+                <div>
+                    <label for="opacity-slider">Select opacity:</label>
+                    <input type="range" id="opacity-slider" name="opacity-slider" min="0" max="1" step="0.1" value="<?= $selected_opacity; ?>">
+                </div>
+                <input type="hidden" id="blog-background" name="blog-background">
             </div>
+            
+            <div>
+                                        <label for="status">Status</label><br>
+                                        <select id="status" name="status">
+                                            <option value="Complete">Complete</option>
+                                            <option value="Not Complete">Not Complete</option>
+                                        </select><br>
+                                    </div>
 
-        </div>
+            </div>
             <div align="center">
                 <?php if($update == true) {?>
                     <input type="submit" onclick="sendContent()" value="Update Blog" name="update" class="btn" id="submit">
@@ -245,6 +270,34 @@ if(isset($_POST['update'])){
     </footer>
 
     <script>
+    
+    const colorPicker = document.getElementById("color-picker");
+    const opacitySlider = document.getElementById("opacity-slider");
+    const background = document.getElementById("blog-background");
+
+    function updateBackground() {
+        const color = colorPicker.value;
+        const opacity = opacitySlider.value;
+
+            color.onchange = function(){
+            var hex_code = this.value.split("");
+            var red = parseInt(hex_code[1]+hex_code[2],16);
+            var green = parseInt(hex_code[3]+hex_code[4],16);
+            var blue = parseInt(hex_code[5]+hex_code[6],16);
+            var rgb = red+","+green+","+blue;
+            alert(rgb);
+        }
+
+
+        const backgroundColor = `${color}${Math.round(opacity * 255).toString(16).padStart(2, '0')}`;
+
+        background.value = backgroundColor;
+    }
+
+    //when change the input field in color-picker or opacity-slider call the updateBackground function 
+    colorPicker.addEventListener("input", updateBackground);
+    opacitySlider.addEventListener("input", updateBackground);
+
     var quill = new Quill('#content', {
         modules: {
             toolbar: {
