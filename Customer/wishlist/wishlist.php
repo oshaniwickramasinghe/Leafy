@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="../CSS/delivery.css">
 
 <?php
-require "../../Customer/database.php";
-require "../Auth.php";
+require "../../Customer/database/database.php";
+require "../login/Auth.php";
 include '../includes/header.php';
 
 

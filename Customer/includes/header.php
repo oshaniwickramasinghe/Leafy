@@ -114,8 +114,6 @@ function googleTranslateElementInit() {
 
             <?php } ?>
 
-            <!-- <li><a href="../Customer/Login.view.php" class="">Login</a></li> -->
-
            </ul>
 
            </div>

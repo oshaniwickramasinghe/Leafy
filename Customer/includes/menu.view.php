@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 if(logged_in()){
     $id  = $_SESSION['USER_DATA']['user_id'];
     }else{

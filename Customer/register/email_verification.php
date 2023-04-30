@@ -1,5 +1,5 @@
 <?php
-include "../database.php";
+include "../database/database.php";
 
 use \PHPMailer\PHPMailer\PHPMailer;
 use \PHPMailer\PHPMailer\Exception;
@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	   $mail->isHTML(true);
 	   $mail->Subject = "Email verification";
 	   $mail->Body    = 'Please click the below link to verify you email<b><br>
-	   <a href = "http://localhost/Leafy-1/Customer/verify.php?code='.urldecode($code) .'">http://localhost/Leafy-1/Customer/verify.php?code = '.$code .'</a></b>';
+	   <a href = "http://localhost/Leafy_final/Customer/register/verify.php?code='.urldecode($code) .'">http://localhost/Leafy_final/Customer/register/verify.php?code = '.$code .'</a></b>';
 
 		$mail->send();
         header("Location:../message.view.php");

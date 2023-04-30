@@ -1,6 +1,6 @@
 <?php
-include "../Auth.php";
-include "../database.php";
+include "../login/Auth.php";
+include "../database/database.php";
 
 $customerId  = $_SESSION['USER_DATA']['user_id'];
 

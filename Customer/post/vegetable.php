@@ -3,8 +3,8 @@
 <link rel="stylesheet" href="../CSS/delivery.css">
 
 <?php
-require "../Auth.php";
-include '../database.php';
+require "../login/Auth.php";
+include '../database/database.php';
 include '../includes/header.php';
 include "pagination.php";
 include "search.php";

@@ -3,7 +3,7 @@
 
 <?php
 error_reporting(0);
-require "../Auth.php";
+require "../login/Auth.php";
 require "cart.php";
 include '../includes/header.php';
 

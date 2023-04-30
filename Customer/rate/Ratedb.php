@@ -1,6 +1,6 @@
 <?php
-require "../Auth.php";
-include "../database.php";
+require "../login/Auth.php";
+include "../database/database.php";
 
 $date = date("Y-m-d");
 

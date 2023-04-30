@@ -4,8 +4,8 @@
 
 <?php
 
-require "../Auth.php";
-include "../database.php";
+require "../login/Auth.php";
+include "../database/database.php";
 include '../includes/header.php';
 
 //view items  selected item in the wishlist using this page

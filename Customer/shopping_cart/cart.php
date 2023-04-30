@@ -1,5 +1,5 @@
 <?php
-require "../../Customer/database.php";
+require "../../Customer/database/database.php";
 
 $host = "localhost";
 $uname = "root";

@@ -1530,7 +1530,7 @@ a.next{
     margin-top: 5%;
     margin-left: 15%;
     height: 350px;
-    width: 60%;
+    width: 75%;
     padding-right: 8%;
     background-color:rgba(181, 181, 181, 0.526);
    
@@ -1588,6 +1588,7 @@ a.next{
   }
   
   .history{
+    margin-top: 0%;
     overflow-x: auto;
     width:100%;
   }
