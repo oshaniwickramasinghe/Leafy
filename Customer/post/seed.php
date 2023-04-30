@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
 <?php
 require "../Auth.php";
 include '../database.php';
