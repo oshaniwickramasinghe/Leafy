@@ -1,3 +1,7 @@
+
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
 <?php
 require "../Auth.php";
 include '../database.php';
@@ -13,8 +17,6 @@ if(logged_in()){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../CSS/style.css">
-<link rel="stylesheet" href="../CSS/delivery.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

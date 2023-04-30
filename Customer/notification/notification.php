@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
 <?php
 include "../Auth.php";
 include "../database.php";
 include '../includes/header.php';
-
-
 ?>
 
 
@@ -13,8 +14,6 @@ include '../includes/header.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/delivery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" 
     referrerpolicy="no-referrer" />
@@ -61,12 +60,11 @@ include '../includes/header.php';
                $id  =  $row['n_id'];
                $sql  = "UPDATE `notification` SET status  = 1 WHERE  customer_id  = $uid && n_id  = $id ";
                $res = mysqli_query($conn, $sql);?>
-               
                       <div class  = "model_body">
-                      <img src="../images/logo.svg"  height= "120px" >
+                       <img src="../images/logo.svg"  height= "120px" >
                            <h1><?= $row['n_sub']?></h1>
                            <p> <b>Yor order has been successfully completed</b><br>
-                               Please click on below link to give rate and reviews.<b><a href  = "../rate/rate.php">Click here</a></b>
+                               Please click on below link to give rate and reviews.<b><a href  = "../rate/newRate.php">Click here</a></b>
                                <br>
                            </p>
                            <p><input type = "time"  value = "<?= $row['time'];?>" readonly> </p>
@@ -96,18 +94,7 @@ include '../includes/header.php';
 
   <!-- js function to display the model form -->
 <script>
-// $('.btn').click(function() {
-//    //in here ajax request the data from the server button click and send it to the server
-//     var request = $.ajax({
-//         url: "notification.php",
-//         data: { status: "1" },
-//         method: "POST"
-//     });
 
-//     request.done(function() {
-//         // Do something after its done.
-//     });
-//  });
 
  function showModal() {
             document.getElementById("id01").style.display = "flex";

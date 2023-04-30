@@ -7,12 +7,13 @@ $customerId  = $_SESSION['USER_DATA']['user_id'];
 // getting current date
 $date = date("Y-m-d");
 
-$sql  = "SELECT order_id,payment_method FROM `deals` WHERE customer_id  = $customerId  && Date = '$date' ORDER BY order_id DESC";
+$sql  = "SELECT order_id,payment_method FROM `deals` WHERE customer_id  = $customerId  && Date = '$date' ORDER BY order_id DESC LIMIT 1";
 $result  = mysqli_query($conn,$sql);
 $row  = mysqli_fetch_array($result);
 $orderId = $row['order_id'];
 
-$query ="SELECT status FROM checkout WHERE orderId = $orderId";
+$query ="SELECT status FROM checkout WHERE orderId = $orderId ORDER BY orderId  DESC";
+
 $Rlt  = mysqli_query($conn,$query);
 $res = mysqli_fetch_array($Rlt);
 

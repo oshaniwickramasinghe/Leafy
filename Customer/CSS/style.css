@@ -2589,3 +2589,10 @@ body {
     font-family: Lato;
     font-size:18px;
   }
+
+
+  .not_found{
+    width:60%;
+    background-color: #d3cfcf1c;
+    margin-left: 15%;
+  }

@@ -166,14 +166,14 @@ foreach($_SESSION['cart'] as $keys => $values){
   $quan  = $values['quantity'];
 
  $sql  = "INSERT INTO `deals`(`order_id`,`customer_id`, `payment_method`, `delivery`,`item_name`,`total_cost`, `quantity`, `agriculturalist_id`, `post_id`) VALUES ($oid ,$customer,'$pay',$delivery,' $item_name' ,$total_cost, $quan ,$agriculturalist,$id)";
-var_dump( $sql);
+
  $result = mysqli_query($conn,$sql);
 
 }
  }
 
  if(isset($_POST['payment'])){
- header("Location:../location/location.php");
+ header("Location:../order/orderPending.php");
 
  }
 

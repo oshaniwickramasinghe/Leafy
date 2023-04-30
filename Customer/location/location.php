@@ -1,3 +1,6 @@
+<!-- links for CSS files -->
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
 
 <?php
 require "../../Customer/database.php";
@@ -51,17 +54,12 @@ $result_1 = mysqli_query($conn,$sql);
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/delivery.css">
-  <head>
+   <head>
     <title>Location</title>
-
   </head>
- 
   <body>
 
 
-  
   <div class  =  "location_body">
   <!-- menu for the location -->
 
@@ -85,7 +83,7 @@ $result_1 = mysqli_query($conn,$sql);
 
 <!-- right side of the grid -->
 
-  <form  method  = "post"  action  = "../order/orderPending.php">
+  <form  method  = "post"  action  = "location.php">
   <h3>Delivery Location </h3>
 <input type="text" placeholder="<?=$ad1?>" name="address1"><br>
 <input type="text" placeholder=" <?=$ad2?>" name="address2"><br>

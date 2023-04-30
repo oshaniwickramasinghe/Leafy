@@ -1,4 +1,7 @@
 
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
 <?php
 require "../Auth.php";
 include '../database.php';
@@ -20,8 +23,7 @@ $row  = mysqli_fetch_array($result);
 
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../CSS/style.css">
-<link rel="stylesheet" href="../CSS/delivery.css">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +45,7 @@ $row  = mysqli_fetch_array($result);
             <ul>
                 <li><?php if($uid!=0){?><a href="../customerhome.php"><?php }else{?> <a href="../home.view.php"><?php }?><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
-                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count" style = "margin-top:-15%"><?php echo $row[0]?></div></a></li>
+                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <?php if($search){?><div class  = "count" style = "margin-top:-1%"><?php echo $row[0]?></div> <?php }else{?> <div class  = "count" style = "margin-top:-15%"><?php echo $row[0]?></div><?php } ?></a></li>
                 <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
                 <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
                 <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
@@ -83,7 +85,7 @@ if(isset($_POST['wishlist'])){
 
  //search result
 if($search){
-$query = "SELECT * FROM post WHERE  district LIKE '{$find}%' AND  (category = 'Vegetable' OR category  = 'fruit')   LIMIT  ".$page_first_result. ','.$result_per_page ;
+$query = "SELECT * FROM post WHERE  district LIKE '{$find}%'OR item_name LIKE '{$find}%'  AND  (category = 'Vegetable' OR category  = 'fruit')   LIMIT  ".$page_first_result. ','.$result_per_page ;
 }else{
   $query = "SELECT * FROM post WHERE  (category = 'Vegetable' OR category  = 'fruit')   LIMIT  ".$page_first_result. ','.$result_per_page ;
 }
@@ -142,7 +144,9 @@ if(mysqli_num_rows($result)>0){
   }
   }else{
     ?>
-    <h3> Item not found .. </h3>
+   <div class="not_found">
+
+   <h3> Item not found .. </h3></div>
 
   <?php
     }

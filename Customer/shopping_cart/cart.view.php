@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
 <?php
 error_reporting(0);
 require "../Auth.php";
@@ -48,8 +51,7 @@ foreach($_SESSION["cart"] as $keys => $values)
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Shopping cart</title>
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/delivery.css">
+    
 </head>
 
 <body>
