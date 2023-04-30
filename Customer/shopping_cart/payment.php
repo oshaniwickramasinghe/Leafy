@@ -1,4 +1,5 @@
-
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
 
 
 <!DOCTYPE html>
