@@ -1,3 +1,6 @@
+<!-- links for CSS files -->
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
 
 <?php
 require "../../Customer/database.php";
