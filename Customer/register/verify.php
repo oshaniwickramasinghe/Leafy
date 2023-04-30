@@ -17,7 +17,7 @@
 
             if(mysqli_affected_rows($conn) == 1){
 
-                header("Location:login.view.php");
+                header("Location:../login/login.view.php");
             }else{
                 echo "<script>alert('Invalid verification code.')</script>";
             }

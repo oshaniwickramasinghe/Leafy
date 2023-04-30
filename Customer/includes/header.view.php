@@ -79,7 +79,7 @@ if(mysqli_num_rows($select)>0){
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "../Customer/Logout.php" class="sub-menu-link">
+                        <a href = "../Customer/login/Logout.php" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:18px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>
@@ -103,7 +103,7 @@ function googleTranslateElementInit() {
             </div>
             <?php }else{ ?>
                 <div class="login">
-                <li><a href="Login.view.php">Login</a></li>
+                <li><a href="login/Login.view.php">Login</a></li>
                 </div>
                 <div class  = "language">
             <a href="" class="">Languages

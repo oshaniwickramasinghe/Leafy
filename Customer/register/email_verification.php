@@ -34,8 +34,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	   $mail->isSMTP();
 	   $mail->Host = 'smtp.gmail.com';
 	   $mail->SMTPAuth = true;
-	   $mail->Username = 'companyleafy@gmail.com'; // Your gmail
-	   $mail->Password = 'ugwcwlkvbiubqadi'; // Your gmail app password
+	   $mail->Username = 'leafy2022.2023@gmail.com'; // Your gmail
+	   $mail->Password = 'ddycipvosmnrufhs'; // Your gmail app password
 	   $mail->SMTPSecure ='ssl';
 	   $mail->Port = 465;
 	   $mail->setFrom('Leafycompany2022@gmail.com');
@@ -46,6 +46,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	   <a href = "http://localhost/Leafy_final/Customer/register/verify.php?code='.urldecode($code) .'">http://localhost/Leafy_final/Customer/register/verify.php?code = '.$code .'</a></b>';
 
 		$mail->send();
-        header("Location:../message.view.php");
+        header("Location:../register/message.view.php");
     }
 }

@@ -1077,6 +1077,7 @@ h2{
     color: white;
     padding: 10px 10px;
     margin-left: 0%;
+    margin-right: 0%;
     border-radius: 40px;
     border: none;
     cursor: pointer;
@@ -2077,10 +2078,12 @@ margin-left:-10%;
 
 .modal form .container{
     height: 30%;
-   
+    background-color: #ffffffe0;
 }
 .modal form {
     height: 50%;
+    background-color: #ffffffe0;
+    padding-right: 5%;
 }
 .modal form h1{
     margin-left:-35%;

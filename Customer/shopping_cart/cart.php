@@ -124,26 +124,7 @@ if(isset($_POST['wishlist'])){
     }
 }
 
-if(isset($_GET["delete"]))
-{
-  $uid = $_SESSION['USER_DATA']['user_id'];
-          foreach($_SESSION["cart"] as $keys => $values)
-          {
-               if($values["post_id"] == $_GET["delete"])
-               {
-                    unset($_SESSION["cart"][$keys]);
-                    $id = $values["post_id"] ;
-                    $sql = "DELETE FROM `shopping_cart` WHERE customer_id  = $uid && post_id = $id";
-                    $result  =  mysqli_query($sql , $conn);
-                    var_dump($sql);
 
-                    ?>
-                     <META http-equiv="Refresh" content="5; URL=http://localhost/leafy_final/Customer/shopping_cart/cart.view.php">
-                    <?php
-               }
-          }
-     }
-  
 
 
 ?>

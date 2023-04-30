@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../Customer/CSS/delivery.css">
 
 <?php 
-require "Auth.php";
+require "login/Auth.php";
 include 'includes/header.view.php';
 
 ?>
@@ -46,7 +46,7 @@ sell and by products.</p>
 </div> -->
 
 <div class  = "footer">
-<img src = "images/Footer.svg"  height= "117px"  style = "margin-top:auto">
+<img src = "images/Footer.svg"  height= "121.42px"  style = "margin-top:auto">
 </div>
 
 </body>
