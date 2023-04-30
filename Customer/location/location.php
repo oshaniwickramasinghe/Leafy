@@ -54,17 +54,12 @@ $result_1 = mysqli_query($conn,$sql);
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/delivery.css">
-  <head>
+   <head>
     <title>Location</title>
-
   </head>
- 
   <body>
 
 
-  
   <div class  =  "location_body">
   <!-- menu for the location -->
 
@@ -77,7 +72,7 @@ $result_1 = mysqli_query($conn,$sql);
             <ul>
                 <li><a href="../customerhome.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
-                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count"><?php echo $row[0]?></div></a></li>
+                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count" style = "margin-top: -23%"><?php echo $row[0]?></div></a></li>
                 <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
                 <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>                 
                </ul>
@@ -88,7 +83,7 @@ $result_1 = mysqli_query($conn,$sql);
 
 <!-- right side of the grid -->
 
-  <form  method  = "post"  action  = "../order/orderPending.php">
+  <form  method  = "post"  action  = "location.php">
   <h3>Delivery Location </h3>
 <input type="text" placeholder="<?=$ad1?>" name="address1"><br>
 <input type="text" placeholder=" <?=$ad2?>" name="address2"><br>
