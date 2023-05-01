@@ -152,7 +152,6 @@ if(isset($_POST['cash'])){
 
 $query = "INSERT INTO  `checkout`(`agriculturalist_id`,address1,address2,district) VALUES ($agriculturalist,'$ad_1' ,'$ad_2','$ad_3')";
 $result = mysqli_query($conn,$query );
-var_dump($result);
 $select = "SELECT orderId FROM checkout WHERE agriculturalist_id = $agriculturalist && date = '$date' ";
 $result = mysqli_query($conn,$select);
 
@@ -167,14 +166,14 @@ foreach($_SESSION['cart'] as $keys => $values){
   $quan  = $values['quantity'];
 
  $sql  = "INSERT INTO `deals`(`order_id`,`customer_id`, `payment_method`, `delivery`,`item_name`,`total_cost`, `quantity`, `agriculturalist_id`, `post_id`) VALUES ($oid ,$customer,'$pay',$delivery,' $item_name' ,$total_cost, $quan ,$agriculturalist,$id)";
-var_dump( $sql);
+
  $result = mysqli_query($conn,$sql);
 
 }
  }
 
  if(isset($_POST['payment'])){
- header("Location:../location/location.php");
+ header("Location:../order/orderPending.php");
 
  }
 

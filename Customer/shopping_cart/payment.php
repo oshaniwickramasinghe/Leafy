@@ -1,4 +1,5 @@
-
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
 
 
 <!DOCTYPE html>
@@ -42,7 +43,7 @@
  data-inline = "true" style = "font-size :16px; width:180px" ><br>
     </form>
     <div class = "back">
- <a href = "checkout.php"> <input type= "submit" class= "btn_1" value= "Back"  name = "back"
+ <a href = "../customerhome.view.php"> <input type= "submit" class= "btn_1" value= "Back"  name = "back"
  data-inline = "true" style = "font-size :16px; width:180px" ></a>
 </div>
 </div>

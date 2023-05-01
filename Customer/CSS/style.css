@@ -181,7 +181,10 @@
     transition: max-height 0.5s;
     display: none;
     background: rgb(255, 255, 255);
-   
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    -ms-transition: max-height 0.5s;
+    -o-transition: max-height 0.5s;
 }
 
 
@@ -1497,6 +1500,7 @@ a.next{
     width: 100%;
     margin-top: 30px;
     margin-bottom: 45px;
+    margin-left: 5%;
    
 
   }
@@ -1517,16 +1521,17 @@ a.next{
   
   .right_3{
     height: 95%;
-    width:70%;
-    margin-left: -10%; 
+    width:65%;
+    margin-left: -8%; 
     background-color:rgba(181, 181, 181, 0.307);
 }
 
   .right_3 form{
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 15%;
     height: 350px;
-    width: 70%;
+    width: 60%;
+    padding-right: 8%;
     background-color:rgba(181, 181, 181, 0.526);
    
 
@@ -1534,8 +1539,13 @@ a.next{
   }
 
   .right_3 form .btn{
-    margin-left: 0px;
+    margin-left: 13px;
+  
    
+  }
+
+  .right_3 input[type  = submit]{
+    width:44%;
   }
   
 .wishlist_body{
@@ -1957,6 +1967,11 @@ margin-left:-10%;
     padding-top: 50px;
   }
   
+  .R  modal-body  {
+  padding-top: 10%;
+  margin-left: 20%;
+ 
+  }
   .model {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -1971,7 +1986,7 @@ margin-left:-10%;
   }
   
   /* Modal Content/Box */
-  .modal-content {
+  .modal-content nav{
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
@@ -2257,10 +2272,6 @@ td{
     padding-left: 1%;
     padding-top: 2%;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     margin-top: -20%;
     margin-left: 75%;
 }
@@ -2535,7 +2546,6 @@ textarea{
     cursor: pointer;
     opacity: 0.8;
 
-  
   }
   @media only screen and (max-width: 620px) {
     /* For mobile phones: */
@@ -2544,3 +2554,44 @@ textarea{
     }
   }
 
+#google_translate_element{
+    width:88%;
+    margin-left: 10%;
+  color: #034F06;
+    height:2%;
+    font-family: Lato;
+    font-size:18px;
+}
+
+.translate{
+    margin-top: -10%;
+    height:5%
+    
+}
+
+body > .skiptranslate {
+    display: none;
+
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+#google_translate_element select{
+    background-color:transparent;
+    color:white;
+    border: none;
+    border-radius:3px;
+    padding:6px 8px;
+    font-family: Lato;
+    font-size:18px;
+  }
+
+ .not_found{
+    width:60%;
+    background-color: #d3cfcf1c;
+    margin-left: 15%;
+  }

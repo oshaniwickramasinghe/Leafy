@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/start.css">
+
 <?php
 include "email_verification.php";
 ?>

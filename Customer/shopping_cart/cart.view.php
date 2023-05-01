@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
+
 <?php
 // error_reporting(0);
 require "../Auth.php";
