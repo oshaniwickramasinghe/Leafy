@@ -68,7 +68,7 @@ if(mysqli_num_rows($select)>0){
                                 if($fetch['image'] == ''){
                                     echo '<img src="../images/profilepic_icon.svg"  height= "21.42px">';
                                 }else{
-                                    echo '<img src="../images/'.$fetch['image'].'"  height= "21.42px" >';
+                                    echo '<img src="../images/'.$fetch['image'].'"   width= "60px" >';
                                 }
                             ?>
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>

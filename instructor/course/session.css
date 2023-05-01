@@ -119,6 +119,7 @@
   background-color: #fff;
   border-radius: 5px;
   padding: 2px 0px;
+  box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.2);
 }
 
 @media screen and (max-width: 767px) {
@@ -288,4 +289,44 @@ h1{
 
 .btn:hover{
   background: #323929;
+}
+
+
+.message{
+  width: 90%;
+  height: 25px;
+  border-radius: 5px;
+  padding:10px;
+  text-align: center;
+  background: rgba(98, 152, 162, 0.445);
+  font-size: 20px;
+  display: flex;
+  margin-left: 5%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+
+  
+
+}
+
+.message p{
+  
+  flex: 8;
+  color: rgb(12, 78, 90);
+  font-weight: 1000;
+}
+
+.closebtn {
+  
+  color:rgb(12, 78, 90);
+  font-weight: bold;
+  
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  
+}
+.closebtn:hover {
+  color: black;
 }

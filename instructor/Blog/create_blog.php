@@ -1,25 +1,26 @@
 <?php
 
 // include 'saveUpdateBlog.php';
- include '../includes/header.php';
+include '../includes/header.php';
 $user_ID = $_SESSION['USER_DATA']['user_id'];
 
 $update = false;
 
-$blog_ID="";
-$title="";
-$date="";
-$topic="";
-$author="";
-$content1="";
-$comment="";
-$time="";
-$image1="";
-$description="";
-$selected_color="";
-$content="";
-$opacity="";
-$background_color="";
+$blog_ID           ="";
+$title             ="";
+$date              ="";
+$topic             ="";
+$author            ="";
+$content1          ="";
+$comment           ="";
+$time              ="";
+$image1            ="";
+$description       ="";
+$selected_color    ="";
+$content           ="";
+$opacity           ="";
+$background_color  ="";
+$status            ="";
 
 
 if(isset($_POST['submit']))
@@ -27,20 +28,21 @@ if(isset($_POST['submit']))
   /* $blog_ID=mysqli_real_escape_string($conn,$_POST['blog_ID']); */
    $title = mysqli_real_escape_string($conn,$_POST['title']);
    $description = mysqli_real_escape_string($conn,$_POST['description']);
+   $content1 = mysqli_real_escape_string($conn, $_POST['content1']);
    $topic=$_POST['topic'];
    $image1 = $_FILES['image1']['name'];
    $image1_size =$_FILES['image1']['size'];
    $image1_tmp_name =$_FILES['image1']['tmp_name'];
    $image_folder ="../images/".$image1;
    $selected_color = $_POST['color-picker'];
-   $content1 = mysqli_real_escape_string($conn, $_POST['content1']);
    $opacity = $_POST['opacity-slider'];
    $background_color=$_POST['blog-background'];
+   $status=$_POST['status'];
 
 
 
-   $sql1=" INSERT INTO blog(topic,title,content1,image1,user_id,description,color) Values ('$topic',$title','$content1','$image1','$user_ID ','$description','$selected_color')";
-  echo($sql1);
+   $sql1=" INSERT INTO blog(topic,title,content1,image1,user_id,description,color,status) Values ('$topic',$title','$content1','$image1','$user_ID ','$description','$selected_color','$status')";
+    echo($sql1);
    $result1=mysqli_query($conn,$sql1);
    if($result1){
        move_uploaded_file($image1_tmp_name, $image_folder);
@@ -80,6 +82,7 @@ if(isset($_GET['edit']))
             $image1=$record3['image1'];
             $opacity = $record3['opacity'];
             $selected_color=$record3['color'];
+            $status=$record3['status'];
         }
        
     }else{
@@ -101,6 +104,7 @@ if(isset($_POST['update'])){
    $selected_color =$_POST['color-picker'];
    $opacity = $_POST['opacity-slider'];
    $background_color = $_POST['blog-background'];
+   $status=$_POST['status'];
 
    if(isset($_FILES['image1']['name']) && ($_FILES['image1']['name']!= ""))
    {
@@ -117,7 +121,7 @@ if(isset($_POST['update'])){
 
 
    $query =  mysqli_query($conn,"UPDATE blog SET  title='$title',content1='$content1',topic='$topic',
-    description='$description', image1='$newimage1', color='$selected_color', opacity='$opacity', background_color='$background_color' WHERE blog_id='$blog_ID'");
+    description='$description', image1='$newimage1', color='$selected_color', opacity='$opacity', background_color='$background_color', status='$status' WHERE blog_id='$blog_ID'");
 
    if($query)
    {
@@ -142,17 +146,11 @@ if(isset($_POST['update'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/quill-video-resize-module/dist/QuillVideoResize.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/quill-image-resize-module/dist/QuillImageResize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="create blog.css">
     <title>create blog</title>
     <!-- Include the Quill library -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
-    <!-- ImageResize plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module/dist/QuillImageResize.min.js"></script>
-    <!-- VideoResize plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/quill-video-resize-module/dist/QuillVideoResize.min.js"></script>
     <!--<script src="../includes/ckeditor/ckeditor.js"></script>
     <script src="../includes/ckfinder/ckfinder.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -229,6 +227,15 @@ if(isset($_POST['update'])){
                 <?php } ?>
             </div>
             </div>
+
+            <div>
+                <label for="status">Status</label><br>
+                <select id="status" name="status">
+                    <option value="Complete">Complete</option>
+                    <option value="Not Complete">Not Complete</option>
+                </select><br>
+            </div>
+
             <div class="color">
                 <div>
                     <label for="color-picker">Select a background color for blog:</label>
@@ -241,13 +248,7 @@ if(isset($_POST['update'])){
                 <input type="hidden" id="blog-background" name="blog-background">
             </div>
             
-            <div>
-                                        <label for="status">Status</label><br>
-                                        <select id="status" name="status">
-                                            <option value="Complete">Complete</option>
-                                            <option value="Not Complete">Not Complete</option>
-                                        </select><br>
-                                    </div>
+
 
             </div>
             <div align="center">
@@ -298,47 +299,37 @@ if(isset($_POST['update'])){
     colorPicker.addEventListener("input", updateBackground);
     opacitySlider.addEventListener("input", updateBackground);
 
-    var quill = new Quill('#content', {
-        modules: {
-            toolbar: {
-                container: [
-                    [{ header: [1, 2, 3, 4, false] }],
-                    [{'font':[]}],
-                    [{'align':[]}],
-                    ['bold', 'italic', 'underline', 'strike'],
-                    ['image', 'code-block', 'blockquote'],
-                    [{'list': 'ordered'}, {'list': 'bullet'}],
-                    [{'script': 'sub'}, {'script': 'super'}],
-                    [{'indent': '-1'}, {'indent': '+1'}],
-                    [{'direction': 'rtl'}],
-                    ['link', 'image', 'video', 'formula'],
-                    [{'color': []}, {'background': []}]
-                ],
+    var toolbarOptions = [
+        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        ['blockquote', 'code-block'],
 
-                handlers: {
-                    insertVideo: function() {
-                        // handle insert video button click
-                        const url = prompt('Enter video URL');
-                        if (url) {
-                            const range = this.quill.getSelection(true);
-                            this.quill.insertEmbed(range.index, 'video', url, Quill.sources.USER);
-                        }
-                    }
-                }
-            },
+        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+        [{ 'direction': 'rtl' }],                         // text direction
 
-            ImageResize: {
-                displaySize: true,
-                modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        [{ 'font': [] }],
+        [{ 'align': [] }],
+
+        ['link', 'image', 'video', 'formula'],
+
+        [{'color': []}, {'background': []}],
+
+        ['clean']                                         // remove formatting button
+        ];
+
+        var quill = new Quill('#content', {
+            modules: {
+                toolbar: toolbarOptions  
             },
-            VideoResize: {
-                displaySize: true,
-                modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
-            }
-        },
-        placeholder: 'Create your post...',
-        theme: 'snow'  // or 'bubble'
-    });
+            placeholder: 'Create your post...',
+            theme: 'snow'  // or 'bubble'
+        });
 
         // passing data to input
         function sendContent(){

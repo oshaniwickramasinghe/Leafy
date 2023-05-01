@@ -40,9 +40,9 @@ $result2= mysqli_query($conn,$sql2);
                 $date=$record2['date'];
                 $topic=$record2['topic'];
                 $content1=$record2['content1'];
-               // $comment=$record2['comment'];
                 $time=$record2['time'];
                 $image1=$record2['image1'];
+                $status=$record2['status'];
 
     }
         
@@ -129,7 +129,7 @@ $result2= mysqli_query($conn,$sql2);
                             <td><?php if(isset ($record1['title'])){ echo $record1['title'];} ?></td>
                             <td><?php if(isset ($record1['topic'])){ echo $record1['topic'];} ?></td>
                             <td><?php if(isset ($record1['date'])){ echo $record1['date'];} ?></td>
-                            <td></td>
+                            <td><?php if(isset ($record1['status'])){ echo $record1['status'];} ?></td>
                             <td>
                             <div class="container_button">
                                 <a href="userblog.php?view_blog=<?= $record1['blog_id']; ?>" id="view"><i class="fa-solid fa-desktop" style="font-size:15px;color:#000000;"></i></a>

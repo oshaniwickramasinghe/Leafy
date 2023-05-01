@@ -65,8 +65,7 @@ if(isset($_GET['view_blog']))
     
 </head>
 <body>
-    <div class="container">
-        
+    <div class="container"> 
         <div class="begin" style="background:url(../images/<?php if(isset ($image1)){ echo $image1;} ?>) no-repeat center center / cover;">
         </div>
         <div class="main" id="main">
@@ -86,59 +85,52 @@ if(isset($_GET['view_blog']))
                         <p><?php if(isset ($date)){ echo $date;} ?></p>
                     </div>    
                 </div>
-                    <div class="button">
-                        <a href="#" class="btn">passion</a>
-                    </div>
             </div>
-            <div class="content">
                 <div class="first_para">
-                    <div class="content-img">
                         <div class="text"> 
                             <p><?php if(isset ($content1)){ echo $content1;} ?></p>
                         </div>
-                    </div>
                 </div> 
-            </div>
             <div class="tags">
                 <p>tags:</p>
-                <a href="#">courses</a>
-                <a href="#">work shops</a>
+                <a href="../course/theCourse.php">courses</a>
             </div>
         </div>
-    </div>
-
+    </div>  
+<div> 
     <div class="articles">
         <div class="articles-heading">
-            <h5>ARTICLES</h5>
+            <h5>BLOGS</h5>
             <h6>recent blog</h6>
         </div>
-    <div class="cards">
-            <i class="fa-solid fa-chevron-left prev"></i>
-            <i class="fa-solid fa-chevron-right next "></i>
-        <div class="cards-container">
-
-            <?php while($record=mysqli_fetch_assoc($result2)){?>
-            <div class="cards-container-one">
-                <div class="img-holder">
-                    <img src="../images/<?php if(isset ($record['image1'])){ echo $record['image1'];} ?>" class="slider-image">
-                    <a href="userblog.php?view_blog=<?=$record['blog_id']; ?>" class="show_more">show more</a>
+        <div class="cards">
+                <i class="fa-solid fa-chevron-left prev"></i>
+                <i class="fa-solid fa-chevron-right next "></i>
+            <div class="cards-container">
+                <?php while($record=mysqli_fetch_assoc($result2)){?>
+                <div class="cards-container-one">
+                    <div class="img-holder">
+                        <img src="../images/<?php if(isset ($record['image1'])){ echo $record['image1'];} ?>" class="slider-image">
+                        <a href="userblog.php?view_blog=<?=$record['blog_id']; ?>" class="show_more">show more</a>
+                    </div>
+                    <div class="card-text">
+                        <h4><?php if(isset ($record['title'])){ echo $record['title'];} ?></h4>
+                        <p><?php if(isset ($record['description'])){ echo substr($record['description'],0,70,).'....';} ?></p>
+                            <div class="post-info">
+                                <i class="fa-solid fa-user"></i>&nbsp;<?php if(isset ($record['author'])){ echo $record['author'];} ?></i> &nbsp; &nbsp;
+                                <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;<?php if(isset ($record['date'])){ echo $record['date'];} ?></i>
+                            </div>
+                    </div>
+                </div> 
+                <?php }?>
                 </div>
-                <div class="card-text">
-                    <h4><?php if(isset ($record['title'])){ echo $record['title'];} ?></h4>
-                    <p><?php if(isset ($record['description'])){ echo substr($record['description'],0,70,).'....';} ?></p>
-                        <div class="post-info">
-                            <i class="fa-solid fa-user"></i>&nbsp;<?php if(isset ($record['author'])){ echo $record['author'];} ?></i> &nbsp; &nbsp;
-                            <i class="fa-sharp fa-regular fa-calendar-days"></i>&nbsp;<?php if(isset ($record['date'])){ echo $record['date'];} ?></i>
-                        </div>
-                </div>
-            </div> 
-            <?php }?>
+            <div class="button">
+                <a href="theBlog.php" class="btn">view more</a>
             </div>
-        <div class="button">
-            <a href="theBlog.php" class="btn">view more</a>
-        </div>
-</div> 
+        </div> 
+    </div>
 </div>
+
 <footer>
     <?php include '../includes/footer.php'; ?>
 </footer>
@@ -170,5 +162,6 @@ if(isset($_GET['view_blog']))
     });
 
 </script>
+
 </body>
 </html>
