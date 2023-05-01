@@ -1,10 +1,9 @@
 <link rel="stylesheet" href="../CSS/style.css">
 <link rel="stylesheet" href="../CSS/delivery.css">
 
-
 <?php
-// error_reporting(0);
-require "../Auth.php";
+error_reporting(0);
+require "../login/Auth.php";
 require "cart.php";
 include '../includes/header.php';
 
@@ -40,6 +39,26 @@ foreach($_SESSION["cart"] as $keys => $values)
 
 }
 
+if(isset($_GET["delete"]))
+{
+  $uid = $_SESSION['USER_DATA']['user_id'];
+          foreach($_SESSION["cart"] as $keys => $values)
+          {
+               if($values["post_id"] == $_GET["delete"])
+               {
+                    unset($_SESSION["cart"][$keys]);?>
+                    <META http-equiv="Refresh" content="1; URL=http://localhost/leafy_final/Customer/shopping_cart/cart.view.php">
+                    <?php
+                    $id = $values["post_id"] ;
+                    $sql = "DELETE FROM `shopping_cart` WHERE customer_id  = $uid && post_id = $id";
+                    $result  =  mysqli_query($sql , $conn);
+                  
+
+                   
+               }
+          }
+     }
+  
 ?>
 
 
@@ -49,11 +68,11 @@ foreach($_SESSION["cart"] as $keys => $values)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Shopping cart</title>
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/delivery.css">
+    
 </head>
 
 <body>
@@ -189,7 +208,7 @@ foreach($_SESSION["cart"] as $keys => $values)
                             <h1>Delete this item from the cart</h1>
                             <p>Are you sure you want to delete the item?</p>
                             <div class="clearfix">
-                                <a href="cart.view.php?delete=<?=$values["post_id"]; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
+                                <a href="cart.view.php?delete=<?=$values["post_id"];?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
                                 <a href="" type="button" class="cancelbtn" onclick="hideModal();">Cancel</a>
                             </div>
                             </div>
@@ -281,9 +300,8 @@ if(mysqli_num_rows($result)>0){
 </script>
 
 <div class  = "footer">
-<img src = "../images/Footer.svg"  height= "117px"  style = "margin-top:auto">
-</div>
-
+<?php include "../includes/footer.php"; ?>
+      </div>
 </body>
 </html>
 
