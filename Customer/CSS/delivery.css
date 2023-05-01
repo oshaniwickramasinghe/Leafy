@@ -10,7 +10,8 @@ body{
     background:url(../images/Header4.svg) 50%/100% no-repeat ;
 
   }
-  
+
+
   .header{
     height: 120px;
     background-size: 100% ;
@@ -128,16 +129,7 @@ body{
 
     }
 
-    .footer img{
-      display: none;
-
-    }
-  
-    .footer{
-     
-      background-color: #5A713D;
-      height: 100px;
-    }
+   
    
   .logo_1  img{
         width: 60px;
@@ -392,13 +384,9 @@ nav .user-pic{
     color: #323929;
 } 
 
-.footer-copyright p{
-    margin-top: 6%;
-}
 
-footer{
-   margin-top: auto;
-}
+
+
   input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
