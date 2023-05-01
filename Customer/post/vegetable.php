@@ -45,7 +45,7 @@ $row  = mysqli_fetch_array($result);
             <ul>
                 <li><?php if($uid!=0){?><a href="../customerhome.php"><?php }else{?> <a href="../home.view.php"><?php }?><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
-                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <?php if($search){?><div class  = "count" style = "margin-top:-1%"><?php echo $row[0]?></div> <?php }else{?> <div class  = "count" style = "margin-top:-15%"><?php echo $row[0]?></div><?php } ?></a></li>
+                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <?php if($search){?><div class  = "count" style = "margin-top:-8%"><?php echo $row[0]?></div> <?php }else{?> <div class  = "count" style = "margin-top:-8%"><?php echo $row[0]?></div><?php } ?></a></li>
                 <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
                 <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
                 <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
@@ -116,18 +116,18 @@ if(mysqli_num_rows($result)>0){
                 <?php $id =$row["post_id"] ;?>
                   <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
                   <?php if($uid != 0){
-                    
+
                     ?>
-                   
+
                     <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/> 
                     <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>
                  <?php } else{ ?>
                   <a href="#" onclick="showModal(); return false;" style = "background-color:transparent; margin-left: -7%;border: none;" >
                   <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true" style = "width: 105%;"/></a>
                   <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"   style ="margin-top: 5%;"/>
-                 
+
                   <?php } ?>
-                  
+
                 </div>
                 </div>
              </form> 
@@ -201,7 +201,7 @@ echo "<a class  =  'next' href ='vegetable.php?page=".($page)."'> Next page </a>
 
 </head>
 <div class  = "footer">
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 </body>
 </html>

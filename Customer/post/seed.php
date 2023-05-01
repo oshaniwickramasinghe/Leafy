@@ -185,7 +185,7 @@ echo "<a class  =  'next' href ='seed.php?page=".($page)."'> Next page </a>";
 
 </head>
 <div class  = "footer">
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 </body>
 </html>

@@ -114,10 +114,10 @@ $sql = "SELECT * FROM  post JOIN (SELECT * FROM wishlist WHERE user_id=$id) wish
 ?>
 </script>
 
-<br><br><br><a href  = "../customerhome.php"> <button name  = "back" style = "margin-left:20%; border: none;">Back </button></a>
+<br><br><br><a href  = "../customerhome.php"> <button name  = "back" style = "margin-left:20%; border: none;">Back </button></a><br>
 
 <div class = "footer">
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 
 </body>

@@ -87,7 +87,7 @@ include '../includes/header.php';
 </div>
 <br><br><br> <a href="../post/vegetable.php" type="button"><button name  = "back" style = "margin-left:25%; border: none;">Back </button></a>
 <div class="footer">
-<img src = "../images/Footer.svg"  height= "120px" style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 </body>
 

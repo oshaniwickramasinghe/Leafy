@@ -85,7 +85,7 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
 </div>
    <!-- footer -->
 <div class="footer">
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 
 </body>

@@ -64,7 +64,7 @@ $id  = $_SESSION['wishlist_id'];
 </div>
 
 <div class  = "footer">
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 </body>
 </html>

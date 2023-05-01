@@ -300,9 +300,8 @@ if(mysqli_num_rows($result)>0){
 </script>
 
 <div class  = "footer">
-<img src = "../images/Footer.svg"  height= "121.2px"  style = "margin-top:auto">
-</div>
-
+<?php include "../includes/footer.php"; ?>
+      </div>
 </body>
 </html>
 
