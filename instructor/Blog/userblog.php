@@ -24,7 +24,7 @@ if(isset($_GET['view_blog']))
            // $comment=$record2['comment'];
             $time=$record2['time'];
             $image1=$record2['image1'];
-            $selected_color=$record2['color'];
+            $background_color=$record2['background_color'];
 
         }
         
@@ -152,7 +152,7 @@ if(isset($_GET['view_blog']))
 <script>
 
     // get the php value to JS variable
-    const savedColor = "<?php echo $selected_color ?>";
+    const savedColor = "<?php echo $background_color ?>";
     
 
     // Set the background color of a div to the saved color

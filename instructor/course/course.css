@@ -165,6 +165,7 @@
     border-radius: 10px;
     justify-content: center;
     margin: 20px 0;
+    box-shadow: 0 0 0.3rem grey;
     
   }
 
@@ -178,6 +179,8 @@
     min-width: 100%;
 	  margin-bottom: 20px;
 	  margin-top: 20px;
+    box-shadow: 0 0 0.2rem grey;
+
   }
 
   .content-table thead tr{
@@ -185,6 +188,7 @@
     color: black;
     text-align: left;
     font-weight: bold;
+    box-shadow: 0 0 0.3rem grey;
   }
 
   .content-table th, td{
@@ -209,30 +213,8 @@
 
 }
 
- .container_button #view {
-    border:none;
-    color: #314063;
-    padding: 10px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    background-color: rgba(39, 58, 144, 0.425);
-    border-radius: 20px;
-    margin-right: 5px;
-}
-
- .container_button #edit{
-    border:none;
-    color: #43562B;
-    padding: 10px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    background-color: rgba(39, 144, 76, 0.334);
-    border-radius: 20px;
-    margin-right: 5px;
+.container_button a{
+  margin-left:10px;
 }
 
 #submit-btn{
@@ -247,6 +229,7 @@
     border-radius: 20px;
     margin-top: 15px;
     width: 30px;
+   
 }
 
 
@@ -262,22 +245,6 @@
     border-radius: 20px;
 }
 
- .container_button #delete{
-    border:none;
-    color:#531614;
-    padding: 10px 35px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    background-color: rgba(206, 91, 91, 0.2);
-    border-radius: 20px;
-}
-
- .container_button #edit:hover{
-    background: rgba(39, 144, 75, 0.5);
-}
-
  .container_button #answer-btn:hover{
     background: rgba(39, 144, 75, 0.5);
 }
@@ -286,9 +253,6 @@
     background: rgba(39, 144, 75, 0.5);
 }
 
- .container_button #delete:hover{
-    background-color: rgba(206, 91, 91, 0.5);
-}
 
 .cancelbtn, .deletebtn {
     float: left;

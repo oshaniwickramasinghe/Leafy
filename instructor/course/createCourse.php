@@ -1,7 +1,7 @@
 <?php
  include '../includes/header.php';
  $user_ID = $_SESSION['USER_DATA']['user_id'];
-
+ 
  $update = false;
 
  $course_ID="";
@@ -246,7 +246,7 @@
                                     
                                     <div>
                                         <label for="Topic">Topic</label><br>
-                                        <select id="Topic" name="Topic">
+                                        <select id="Topic" name="Topic" value="$topic">
                                             <option value="agronomy">Agronomy</option>
                                             <option value="horticulture">Horticulture</option>
                                             <option value="soil science">Soil Science</option>
@@ -263,10 +263,6 @@
                                         <textarea for="description" id="description" placeholder="Short description about the blog..." name="description" class="text_input"  value=""  required><?= $description; ?></textarea><br>
                                     </div> 
                                     <div>
-                                        <label for="steps">Number of steps</label>
-                                        <input type="number" id="steps" name="steps"placeholder="Enter the number of steps course will included..." min="4" max="15" value="<?= $steps; ?>" required><br>
-                                    </div>
-                                    <div>
                                         <label for="duration">Course Duration</label>
                                         <input type="text" id="duration" name="duration" placeholder="Duration of the course..." class="text_input" value="<?= $duration; ?>" required><br>
                                     </div>
@@ -279,22 +275,20 @@
                                     </div>
                                     <div class="images">
                                         <label for="image" >Image for the cover page of course</label><br><br>
-                                    <div class="image">
-                                    <?php 
-                                    if($image == ''){
-                                        echo '<img src="../images/placeholde.png" align="middle" width="60%" border-radius:50%>';
-                                    }else{
-                                        echo '<img src="../images/'.$image.'" align="middle" width="60%" border-radius:50%;>';
-                                    }
-                                    
-                                    ?>
-
-                                    
-                                        <input type="hidden" name="oldimage1" value="<?= $image;?>">
-                                        <input type="file" name="image" class="text_input" accept="image/jpg, image/jpeg, image/png"><br>
+                                        <div class="image">
+                                        <?php 
+                                        if($image == ''){
+                                            echo '<img src="../images/placeholde.png" align="middle" width="60%" border-radius:50%>';
+                                        }else{
+                                            echo '<img src="../images/'.$image.'" align="middle" width="60%" border-radius:50%;>';
+                                        }
                                         
-                                    
-                                    </div>
+                                        ?>
+                                            <input type="hidden" name="oldimage1" value="<?= $image;?>">
+                                            <input type="file" name="image" class="text_input" accept="image/jpg, image/jpeg, image/png"><br>
+                                            
+                                        
+                                        </div>
                                     </div>
                                 
                                 <!-- <div>
@@ -318,7 +312,7 @@
                                 <form action="" method="post" enctype="multipart/form-data"> 
                                     <h2><label for="description">Course Session</label><br></h2>
                                     <label for="instruction" id="instruction"><small>Here is where you can add sessions of your course.
-                                    Please add less than 15 session in to your course.</small></label>   
+                                    Please add more than or equal to 4 session in to your course.</small></label>   
                                     <div class="sessions">
                                         <?php if($update == true) {?>
                                             <?php while($record4 = mysqli_fetch_assoc($stmt4)){?>
@@ -326,8 +320,9 @@
                                                     <label for="index" id="<?=$record4['session_id']?>">Lecture-Session_<?=$record4['session_id']?></label>
                                                     <input type="hidden" name="sessions[]" value="<?=$record4['session_id']?>">
                                                     <div class="icon">
-                                                    <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
-                                                    <a href="session.php?id=<?=$record4['session_id']?>& course=<?=$record4['course_id']?>"><i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i></a>
+                                                        <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
+                                                        <a href="session.php?id=<?=$record4['session_id']?>& course=<?=$record4['course_id']?>"><i class="fa-solid fa-square-plus" style="font-size:18px;color:#000000;"></i></a>&nbsp; &nbsp;
+                                                        <a href="session.php?edit_id=<?=$record4['session_id']?>& edit_course=<?=$record4['course_id']?>"><i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i></a> 
                                                     </div>
                                                 </div>
                                         <?php } }?>
@@ -425,8 +420,7 @@
                 <label for="index" id="${session_id}">Lecture-Session_${session_id}</label>
                 <input type="hidden" name="sessions[]" value="${session_id}">
                 <div class="icon">
-                <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
-                <a href="session.php?id=${session_id}"><i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i></a>
+                <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>
                 </div>
             </div>
             `;

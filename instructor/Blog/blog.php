@@ -38,7 +38,7 @@ $result2= mysqli_query($conn,$sql2);
                 $blog_ID=$record2['blog_id'];
                 $title=$record2['title'];
                 $date=$record2['date'];
-               // $author=$record2['author'];
+                $topic=$record2['topic'];
                 $content1=$record2['content1'];
                // $comment=$record2['comment'];
                 $time=$record2['time'];
@@ -91,108 +91,89 @@ $result2= mysqli_query($conn,$sql2);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="../course/course.css">
     <link rel="stylesheet" href="../images/fontawesome/css/all.css" />
     <script src="https://kit.fontawesome.com/e32c8f0742.js" crossorigin="anonymous"></script>
     <title>instructor blog page</title>
 </head>
 <body>
-    
-   <div class="body">
+<div class="body">
    <div class="role_name">
         <h1><?php echo $fetch['role'];?></h1>
     </div>
-    <div class="instructor_wrapper">
-        <?php include "../includes/instructorMenu.php"; ?>
-        <div class="content">
-            
+    <div class="instructor_wrapper">   
+    <?php include "../includes/instructorMenu.php"; ?>
+        <div class="content"> 
             <h2>Blog</h2>
             <div class="container">
-            <div class="container_left">
-                <div class="main_card">
-                <p>Your blog list</p>
-                <div class="card_left">
-                    <ul>
-                        <?php while($record1=mysqli_fetch_assoc($result2)){?>
-                            <li><a  href="blog.php?view=<?= $record1['blog_id']; ?>">Blog <?= $record1['blog_id']?> - <?=$record1['title']?></a></li>
-                        <?php }?>
-                    </ul>
-                </div>
-                </div>
-                <button onclick="location.href='create_blog.php'" type="button" id="create">create</button>
-            </div>
-            <div class="container_right" id="view_more">
-                <h3> Blog <?php if(isset ($blog_ID)){ echo $blog_ID;} ?>:   <?php if(isset ($title)){ echo $title;} ?></h3>
-               <!-- <button class="close-button">&times;</button>-->
-                <div align="right" class="container_button">
-                    <a href="userblog.php?view_blog=<?=$blog_ID; ?>" type="button" id="view">View</a>
-                    <a href="create_blog.php?edit=<?=$blog_ID; ?>" type="button" id="edit" >Edit</a>
-                    <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
-                </div>
-                <div id="id01" class="modal" style="display: none;">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                    <form class="modal-content" action="/action_page.php">
-                        <div class="container">
-                            <h1>Delete this blog</h1>
-                            <p>Are you sure you want to delete the blog?</p>
-                            <div class="clearfix">
-                                <a href="blog.php?delete=<?=$blog_ID; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
-                                <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
-                            </div>
-                            </div>
-                    </form>
-                </div>
-                <div class="details_container">
-                    <h4><?php if(isset ($fetch['fname'])){ echo $fetch['fname'];} ?></h4>
-                    <p><?php if(isset ($time)){ echo $time;} ?></p>
-                    <table>
-                        
+            <div class="table">
+                <h3>Your blog list</h3>
+                <table class="content-table">
+                    <thead>
                         <tr>
                             <th>Blog ID</th>
-                            <td>:</td>
-                            <td><?php if(isset ($blog_ID)){ echo $blog_ID;} ?></td>
-                            
-                                
+                            <th>Title</th>
+                            <th>Topic</th>
+                            <th>Created Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        if(mysqli_num_rows($result2)>0)
+                            while($record1=mysqli_fetch_assoc($result2))
+                    {?>
                         <tr>
-                            <th>Image</th>
-                            <td>:</td>
-                            <td><img src="../images/<?php if(isset ($image1)){ echo $image1;} ?>" align="middle" width="110"></td>
+                            <td><?php if(isset ($record1['blog_id'])){ echo $record1['blog_id'];} ?></td>
+                            <td><?php if(isset ($record1['title'])){ echo $record1['title'];} ?></td>
+                            <td><?php if(isset ($record1['topic'])){ echo $record1['topic'];} ?></td>
+                            <td><?php if(isset ($record1['date'])){ echo $record1['date'];} ?></td>
+                            <td></td>
+                            <td>
+                            <div class="container_button">
+                                <a href="userblog.php?view_blog=<?= $record1['blog_id']; ?>" id="view"><i class="fa-solid fa-desktop" style="font-size:15px;color:#000000;"></i></a>
+                                <a href="create_blog.php?edit=<?= $record1['blog_id']; ?>"  id="edit" ><i class="fa-solid fa-pen-to-square" style="font-size:15px;color:#000000;"></i></a>
+                                <a href="#" id="delete" onclick="showModal(); return false;" ><i class="fa-solid fa-trash" style="font-size:15px;color:#ee6c41;"></i></a>
+                            </div>
+                                <div id="id01" class="modal" style="display: none;">
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                    <form class="modal-content" action="/action_page.php">
+                                    <div class="container">
+                                        <h1>Delete this course</h1>
+                                        <p>Are you sure you want to delete the course?</p>
+                                        <div class="clearfix">
+                                            <a href="course.php?delete=<?=$fetch['course_id']; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
+                                            <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
+                        <?php 
+                        } else{
+                        ?>
                         <tr>
-                            <th>Title </th>
-                            <td>:</td>
-                            <td><?php if(isset ($title)){ echo $title;} ?></td>
+                            <td colspan="6">Your course list is empty</td>
                         </tr>
-                        <tr>
-                            <th>Date </th>
-                            <td>:</td>
-                            <td><?php if(isset ($date)){ echo $date;} ?></td>
-                            
-                        </tr>
-                        <tr>
-                            <th>Content</th>
-                            <td>:</td>
-                            <td><?php if(isset ($content1)){ echo $content1;} ?></td>
-                        </tr>
-                       <!-- <tr>
-                            <th>Comment </th>
-                            <td>:</td>
-                            <td><?php if(isset ($comment)){ echo $comment;} ?></td>
-                        </tr>-->
-                    </table>
-                </div>
-            
-                
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+               
+
             </div>
-
-           </div>
-            
-            
-        </div>
-
-    </div>
+            <div class="create-button">
+                <button onclick="location.href='create_blog.php'" type="button" id="create"><i class="fa-solid fa-square-plus"></i> Create New Blog</button>
+            </div>
+            </div>
    </div>
+   </div>
+   </div>
+
    <footer>
            <?php include "../includes/footer.php";?>
     </footer>
