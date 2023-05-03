@@ -11,7 +11,7 @@
 	<title>Reset password</title>
 </head>
 <body>
-<link rel = "stylesheet" href = "CSS/style.css">
+<link rel = "stylesheet" href = "../CSS/style.css">
 
 	<div class="reset_body">
         <h1  class = "head" >Reset Password</h1>
@@ -34,9 +34,9 @@
 <?php
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;
- require 'phpmailer/src/Exception.php';
- require 'phpmailer/src/PHPMailer.php';
- require 'phpmailer/src/SMTP.php';
+ require '../phpmailer/src/Exception.php';
+ require '../phpmailer/src/PHPMailer.php';
+ require '../phpmailer/src/SMTP.php';
 //  use PHPMailer\PHPMailer\PHPMailer;
 //  use PHPMailer\PHPMailer\Exception;
 //   use PHPMailer\PHPMailer\SMTP;
@@ -44,7 +44,7 @@
 
 $conn = mysqli_connect("localhost","root","","leafy");
 
-error_reporting(0);
+// error_reporting(0);
 
 
 
@@ -71,8 +71,8 @@ if (isset($_POST['sent'])) {
 	   $mail->isSMTP();
 	   $mail->Host = 'smtp.gmail.com';
 	   $mail->SMTPAuth = true;
-	   $mail->Username = 'companyleafy@gmail.com'; // Your gmail
-	   $mail->Password = 'ugwcwlkvbiubqadi'; // Your gmail app password
+	   $mail->Username = 'leafy2022.2023@gmail.com'; // Your gmail
+	   $mail->Password = 'ddycipvosmnrufhs'; // Your gmail app password
 	   $mail->SMTPSecure ='ssl';
 	   $mail->Port = 465;
 

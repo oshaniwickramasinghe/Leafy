@@ -1872,8 +1872,8 @@ margin-left:-10%;
 }
 
 
-.reset_body{
-    margin-top: 10%;
+.reset_body form{
+    margin-top: 0%;
 }
 .reset_body h1{
     margin-left: 2%;
@@ -1881,6 +1881,12 @@ margin-left:-10%;
 
 .newPass_body h1{
     margin-left: 2%;
+}
+.newPass_body form{
+    margin-top: 0%;
+}
+.otp_body form{
+    margin-top: 0%;
 }
 .otp_body h1{
     margin-left: 2%;

@@ -13,7 +13,7 @@ include "Auth.php";
 	<title>Reset password</title>
 </head>
 <body>
-<link rel = "stylesheet" href = "CSS/style.css">
+<link rel = "stylesheet" href = "../CSS/style.css">
 
 	<div class=" otp_body">
     <h1  class = "head" >Reset Password</h1>
@@ -35,7 +35,7 @@ include "Auth.php";
 
 
 <?php 
-    include('database.php');
+    include('../database/database.php');
     if(isset($_POST["verify"])){
         $otp = $_SESSION['otp'];
         $otp_code = $_POST['otp_code'];

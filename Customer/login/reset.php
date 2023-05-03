@@ -12,7 +12,7 @@ include "../database/database.php";
 	<title>Reset password</title>
 </head>
 <body>
-<link rel = "stylesheet" href = "CSS/style.css">
+<link rel = "stylesheet" href = "../CSS/style.css">
 
     <!-- new password creating UIs -->
 	<div class="newPass_body">
