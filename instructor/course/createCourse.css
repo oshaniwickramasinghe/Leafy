@@ -402,8 +402,7 @@ form {
 
   .session{
     display: flex;
-    text-align: center;
-    justify-content: center;
+    margin-left: 30px;
   }
 
   .session label{
@@ -414,6 +413,7 @@ form {
     width: 80%;
     margin: 10px 0px 20px 0px;
     background-color: rgba(169, 172, 172, 0.251);
+    box-shadow: 0 4px 4px 0 rgba(255, 252, 252, 0.2);
    
     
   }

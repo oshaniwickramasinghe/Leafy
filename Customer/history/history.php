@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
 <?php
 include "../Auth.php";
 include "../database.php";
@@ -14,8 +17,6 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/delivery.css">
     <title>History</title>
 </head>
 <body>

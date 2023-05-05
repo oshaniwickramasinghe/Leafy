@@ -1,7 +1,11 @@
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
+
 <?php
 
-require "../Auth.php";
-include "../database.php";
+require "../login/Auth.php";
+include "../database/database.php";
 include '../includes/header.php';
 
 //view items  selected item in the wishlist using this page
@@ -14,8 +18,7 @@ $id  = $_SESSION['wishlist_id'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/delivery.css">
+    
     <title>View</title>
 </head>
 <body>
@@ -49,7 +52,6 @@ $id  = $_SESSION['wishlist_id'];
                      <input type= "submit" name= "cart" class= "btn" value= "Add to cart" data-inline = "true"/>
                     <input type= "submit" name= "wishlist" class= "btn" value= "Add to wishlist" data-inline = "true"/>
 
-        
         </form>
 </div>
 </div>
@@ -62,7 +64,7 @@ $id  = $_SESSION['wishlist_id'];
 </div>
 
 <div class  = "footer">
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 </body>
 </html>

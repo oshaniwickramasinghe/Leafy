@@ -92,22 +92,8 @@ $result2= mysqli_query($conn,$sql2);
    <div class="role_name">
         <h1><?php echo $user_role?></h1>
     </div>
-    <div class="instructor_wrapper">
-        
-        <div class="left_menu_bar">
-           <div id="menu">
-            <a><i class="fa-solid fa-bars" style="font-size:20px;color:#43562B;"></i></a>
-            <div class="image"><img src="../images/badge.svg" alt=""></div>
-            <h3>Leafy</h3>
-           </div>
-            <ul>
-                <li><a href="../home/home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
-                <li><a href="../dashboard/Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
-                <li><a href="../notification/notification.php"><i class="fa-solid fa-comments" style="font-size:16px;color:#43562B;"></i>Notifications</a></li>
-                <li><a href="../blog/blog.php"><i class="fa-brands fa-blogger" style="font-size:20px;color:#43562B;"></i>Blogs</a></li>
-                <li><a href="course.php"><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>Courses</a></li>
-            </ul>
-        </div>
+    <div class="instructor_wrapper">   
+    <?php include "../includes/instructorMenu.php"; ?>
         <div class="content"> 
             <h2>Course</h2>
             <div class="container">
@@ -137,9 +123,9 @@ $result2= mysqli_query($conn,$sql2);
                             <td><?php if(isset ($fetch['status'])){ echo $fetch['status'];} ?></td>
                             <td>
                                 <div class="container_button">
-                                    <a href="userCourse.php?view_blog=<?=$fetch['course_id']; ?>" type="button" id="view">View</a>
-                                    <a href="createCourse.php?edit=<?=$fetch['course_id']; ?>" type="button" id="edit" >Edit</a>
-                                    <a href="#" type="button" id="delete" onclick="showModal(); return false;" >Delete</a>
+                                    <a href="userCourse.php?view_blog=<?=$fetch['course_id']; ?>" id="view"><i class="fa-solid fa-desktop" style="font-size:15px;color:#000000;"></i></a>
+                                    <a href="createCourse.php?edit=<?=$fetch['course_id']; ?>" type="button" id="edit" ><i class="fa-solid fa-pen-to-square" style="font-size:15px;color:#000000;"></i></a>
+                                    <a href="#" type="button" id="delete" onclick="showModal(); return false;" ><i class="fa-solid fa-trash" style="font-size:15px;color:#ee6c41;"></i></a>
                                 </div>
                                 <div id="id01" class="modal" style="display: none;">
                                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>

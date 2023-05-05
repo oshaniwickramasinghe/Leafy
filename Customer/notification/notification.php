@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/delivery.css">
+
 <?php
 include "../Auth.php";
 include "../database.php";
 include '../includes/header.php';
-
-
 ?>
 
 
@@ -96,19 +97,6 @@ include '../includes/header.php';
 
   <!-- js function to display the model form -->
 <script>
-// $('.btn').click(function() {
-//    //in here ajax request the data from the server button click and send it to the server
-//     var request = $.ajax({
-//         url: "notification.php",
-//         data: { status: "1" },
-//         method: "POST"
-//     });
-
-//     request.done(function() {
-//         // Do something after its done.
-//     });
-//  });
-
  function showModal() {
             document.getElementById("id01").style.display = "flex";
         }
@@ -124,8 +112,6 @@ include '../includes/header.php';
   </script>
 
 <?php
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $sql  = "UPDATE `notification` SET status  = 1 WHERE  customer_id  = $uid  ";
   $result = mysqli_query($conn, $sql);

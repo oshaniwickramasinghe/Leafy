@@ -1,10 +1,10 @@
 
-
+body{
+    background-color: #eff2f21d
+}
 
 .header{
 
-    /* background:url(../images/Header4.svg) 50%/100% no-repeat ; */
- 
     height: 120px;
     background-size: 100% ;
     background-attachment: fixed;
@@ -181,7 +181,10 @@
     transition: max-height 0.5s;
     display: none;
     background: rgb(255, 255, 255);
-   
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    -ms-transition: max-height 0.5s;
+    -o-transition: max-height 0.5s;
 }
 
 
@@ -299,14 +302,8 @@ nav .user-pic{
     color: #323929;
 } 
 
-.footer-copyright p{
-    margin-top: 6%;
-}
 
-.footer{
-   margin-top: auto;
-   
-}
+
 .para{
     background-color: #12111110;
     margin: 0px 20px;
@@ -322,13 +319,16 @@ nav .user-pic{
     color:#000000;
 }
  .home_body{
+   
     margin-left: 20%;
-    margin-top: 4%;
+    margin-top: 2%;
+    /* background: #8f918b29; */
  
  }
+
  .loggedhome_body{
     min-height: 80vh;
-    
+   
  }
 
  .home_body .resposive{
@@ -1074,6 +1074,7 @@ h2{
     color: white;
     padding: 10px 10px;
     margin-left: 0%;
+    margin-right: 0%;
     border-radius: 40px;
     border: none;
     cursor: pointer;
@@ -1497,6 +1498,7 @@ a.next{
     width: 100%;
     margin-top: 30px;
     margin-bottom: 45px;
+    margin-left: 5%;
    
 
   }
@@ -1517,16 +1519,17 @@ a.next{
   
   .right_3{
     height: 95%;
-    width:70%;
-    margin-left: -10%; 
+    width:65%;
+    margin-left: -8%; 
     background-color:rgba(181, 181, 181, 0.307);
 }
 
   .right_3 form{
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 15%;
     height: 350px;
-    width: 70%;
+    width: 75%;
+    padding-right: 8%;
     background-color:rgba(181, 181, 181, 0.526);
    
 
@@ -1534,8 +1537,13 @@ a.next{
   }
 
   .right_3 form .btn{
-    margin-left: 0px;
+    margin-left: 13px;
+  
    
+  }
+
+  .right_3 input[type  = submit]{
+    width:44%;
   }
   
 .wishlist_body{
@@ -1578,6 +1586,7 @@ a.next{
   }
   
   .history{
+    margin-top: 0%;
     overflow-x: auto;
     width:100%;
   }
@@ -1631,6 +1640,7 @@ a.next{
 .pagination{
     margin-left:56%;
     margin-top: auto;
+    padding-bottom:5% ;
 }
 @media screen and (max-width:600px){ 
     .row{
@@ -1957,6 +1967,11 @@ margin-left:-10%;
     padding-top: 50px;
   }
   
+  .R  modal-body  {
+  padding-top: 10%;
+  margin-left: 20%;
+ 
+  }
   .model {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -1971,7 +1986,7 @@ margin-left:-10%;
   }
   
   /* Modal Content/Box */
-  .modal-content {
+  .modal-content nav{
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
@@ -2061,10 +2076,12 @@ margin-left:-10%;
 
 .modal form .container{
     height: 30%;
-   
+    background-color: #ffffffe0;
 }
 .modal form {
     height: 50%;
+    background-color: #ffffffe0;
+    padding-right: 5%;
 }
 .modal form h1{
     margin-left:-35%;
@@ -2257,10 +2274,6 @@ td{
     padding-left: 1%;
     padding-top: 2%;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     margin-top: -20%;
     margin-left: 75%;
 }
@@ -2318,12 +2331,6 @@ td{
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
-
-
-    .reply i {
-        /* margin-left: 85%; */
-     
-     }
 
     .reply p{
         margin-left: 0%;
@@ -2535,7 +2542,6 @@ textarea{
     cursor: pointer;
     opacity: 0.8;
 
-  
   }
   @media only screen and (max-width: 620px) {
     /* For mobile phones: */
@@ -2544,3 +2550,165 @@ textarea{
     }
   }
 
+#google_translate_element{
+    width:88%;
+    margin-left: 10%;
+  color: #034F06;
+    height:2%;
+    font-family: Lato;
+    font-size:18px;
+}
+
+.translate{
+    margin-top: -10%;
+    height:5%
+    
+}
+
+body > .skiptranslate {
+    display: none;
+
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+#google_translate_element select{
+    background-color:transparent;
+    color:white;
+    border: none;
+    border-radius:3px;
+    padding:6px 8px;
+    font-family: Lato;
+    font-size:18px;
+  }
+
+
+  .not_found{
+    width:60%;
+    background-color: #d3cfcf1c;
+    margin-left: 15%;
+  }
+
+
+  
+.cont{
+	max-width: 1170px;
+	margin:auto;
+}
+.Roww{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #5A713D;
+    padding: 20px 0;
+    height:40%;
+}
+.footer-col{
+   width: 32%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+    font-family: "Lato";
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #ffffff;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #f5ecec;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col ul li :hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(235, 225, 225, 0.696);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+.footer-col p{
+    color: #f5ecec;
+    font-family: "Lato";
+    font-size: 16px;
+}
+
+.footer-col i {
+    margin-top: 5%;
+}
+.footer-col .social-links i{
+    margin-top: 26%;
+  }
+
+.footer-col {
+color: #ffffff;
+font-family: "Lato";
+    font-size: 16px;
+}
+
+@media(max-width: 767px){
+    .footer-col{
+      width: 50%;
+      margin-bottom: 30px;
+  }
+  }
+  @media(max-width: 574px){
+    .footer{
+        height:100%;
+    }
+    .footer-col{
+      width: 100%;
+     
+  }
+  .footer-col .social-links i{
+    margin-top: 26%;
+  }
+  }
+  
+
+  
