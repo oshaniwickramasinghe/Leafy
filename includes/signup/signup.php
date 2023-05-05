@@ -10,7 +10,7 @@ if(empty($errors)){
 				$lname = $_POST['lname'];
 				$email = $_POST['email'];
 				$password= password_hash($_POST['password'],PASSWORD_DEFAULT);
-				$role = 'admin';
+				$role = $_POST['role'];
 				$code= $verification_code;
 				
 			 

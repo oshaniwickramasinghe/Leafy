@@ -146,6 +146,50 @@ include "../../public/includes/header.view.php";
                             
      <!-- </div>  -->
 <!-- </div>  -->
+    
+
+
+<?php   
+
+  if(isset($_GET['deleteUID']))
+  {
       
+      $user_id = $_GET['deleteUID'];
+      $sql2 = "UPDATE user SET is_active=2 WHERE user_id=$user_id";
+      $result2=mysqli_query($conn,$sql2);
+
+      echo "<script>window.location.href = '../../admin/Admin_Notifications/AdminNotification.php';</script>";
+
+  }
+
+
+  if(isset($_GET['acceptUID']))
+  {
+
+      $user_id = $_GET['acceptUID'];
+      $sql2 = "UPDATE user SET is_active=1 WHERE user_id=$user_id";
+      $result2=mysqli_query($conn,$sql2);
+
+      echo "<script>window.location.href = '../../admin/Admin_Notifications/AdminNotification.php';</script>";
+
+  }
+
+?>
+
+<?php
+    if(isset($_GET['UID']))
+    {?>
+    <div align="center">
+        <a class="delete" href="AdminUserView.php ?deleteUID=<?=$_GET['UID'] ?>" >Deactivate</a>
+        <a class="accept" href="AdminUserView.php ?acceptUID=<?=$_GET['UID'] ?>" >Accept</a>
+
+    </div>
+      
+      <?php 
+    }
+?>
+
 </body>
 </html>
+
+

@@ -1,7 +1,7 @@
 <?php
 
 include "../Customer/database.php";
-require "Auth.php";
+require "../public/Auth.php";
 
 
 if(isset($_POST['email']) && isset($_POST['password'])){
@@ -34,7 +34,9 @@ $email= validate($_POST['email']);
        }else if(is_agriculturalist()){
          header("Location:../agriculturalist/agriD.php");
        }else if(is_admin()){
-        header("Location: ../admin/AdminHome.php");
+        header("Location: ../admin/home/AdminHome.php");
+       }else if(is_deliveryAgent()){
+        header("Location: ../delivery_person/DeliDashboard.php");
        }else{
         header("Location:../Customer/home.view.php");
        }

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../Customer/CSS/style.css">
 
      
+<?php //var_dump($_SESSION['USER_DATA'])?>
 
     <div class = "body">
 

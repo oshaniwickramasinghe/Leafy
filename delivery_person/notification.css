@@ -1,13 +1,12 @@
-
-
 .main_wrapper{
     display: flex;
     height: calc(100%-100px);
+    margin-left: -10%;
     
 }
 
 .main_wrapper .content{
-    flex:8;
+    flex:6;
     height: 100%;
     padding: 10px 20px;
     
@@ -20,24 +19,6 @@
     color:rgba(67, 86, 43, 0.62);
 }
 
-
-.main_wrapper .content .box .container_left button{
-    border:none;
-    color:#FCFEF9;
-    padding: 10px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    background-color: #5A713D;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-.main_wrapper .content .box .container_left button:hover{
-    background: #323929;
-}
-
 .main_wrapper .content .box{
     display:flex;
     height:80%;
@@ -46,7 +27,7 @@
 }
 
 .main_wrapper .content .box .container_right{
-    flex: 5.5;
+    flex: 4.5;
 
     background: rgba(128, 157, 91, 0.3);
    /* overflow-y: scroll;
@@ -56,10 +37,6 @@
     display: block;
     
 }
-
-
-
-
 
 
 .center{
@@ -142,22 +119,17 @@
     color:#43562B ;
 }
 
-table{
-    width: 80%;
-    text-align: left;
-    border-collapse: collapse;
-}
 .main_wrapper .content .box .container_right .details_container table tr{
     vertical-align: top;
-}
-
-.main_wrapper .content .box .container_right .details_container table tr:hover {
-    background-color: #809D5B;
+    
 }
 
 .main_wrapper .content .box .container_right .details_container table th, td{
     
-    padding: 5px;
+    padding: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    text-align: center;
     
 
 } 
@@ -176,6 +148,7 @@ table{
     overflow-y: scroll;
     border-radius: 20px;
     height: 300px;
+    margin-left: 150px;
     
 }
 
@@ -195,10 +168,48 @@ table{
 
 .main_wrapper .content .box .container_left .main_card .card_left ul li a{
     text-decoration: none;
-    padding: 12px;
+    /* padding: 12px; */
     margin: 11px;
     display: block;
     color: #43562B;
     background:#fff;
     border-radius:25px;
+    width: 500px; 
 }
+
+.main_wrapper .content .box .container_left .main_card .card_left  ul li a:focus {
+   background: rgba(255, 255, 255, 0.39);
+   
+}
+
+a.delete {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:25px;
+  }
+
+  a.accept {
+    background-color: #809D5B;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:25px;
+  }
+  
+  #tablet {
+    width: 300px;
+    /* height: 300px; */
+    border: 1px solid black;
+    display: flex;
+  }
+  
+  #tablet space {
+    -ms-flex: 1;  /* IE 10 */  
+    flex: 1;
+  }

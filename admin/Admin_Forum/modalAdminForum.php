@@ -17,6 +17,8 @@ include '../includes/header.php';
 
       echo 'deleted';
 
+      header('location:../model.html');
+
   }
 
 
@@ -94,7 +96,7 @@ include '../includes/header.php';
                         <ul>
 
                             <?php while($record1=mysqli_fetch_assoc($result)){?>
-                                <li><a onclick="myFunction()" href="AdminForum.php?view=<?= $record1['question_id']; ?> ">
+                                <li><a onclick="myFunction()" href="modalAdminForum.php?view=<?= $record1['question_id']; ?> ">
                                 <table>
                                 <td>Question ID <?= $record1['question_id']?></td>
                                 </table>
@@ -111,8 +113,8 @@ include '../includes/header.php';
                     <div class="container_button">
 
                         <div align="right">
-                            <a class="delete" href="AdminForum.php ?deleteUID=<?=$question_id ?>" >Delete</a>
-                            <a class="accept" href="AdminForum.php ?acceptUID=<?=$question_id ?>" >Approve</a>
+                            <a id="myBtn" class="delete" href="modalAdminForum.php ?deleteUID=<?=$question_id ?>" >Delete</a>
+                            <a id="myBtn" class="accept" href="modalAdminForum.php ?acceptUID=<?=$question_id ?>" >Approve</a>
 
                         </div>
 
@@ -149,6 +151,7 @@ include '../includes/header.php';
 
     </div>
 </div>    
+
 
         <script src="notification.js"></script>
 

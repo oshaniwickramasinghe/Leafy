@@ -66,7 +66,7 @@ include "signup.php";
 			<div class="input-group">
             <input type = "submit" class = "btn btn-primary w-100 " value = "Signup" name = ""></input>
 
-			<p class="login-register-text"><b>Have an account? </b><a href="../login/login.view.php"><b>Login Here.</b></a></p>
+			<p class="login-register-text"><b>Have an account? </b><a href="../../authentication/Login.view.php"><b>Login Here.</b></a></p>
           
 
 		</form>

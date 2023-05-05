@@ -3,6 +3,7 @@
 
         require "../../database/database.php";
         require "../../public/Auth.php";
+		include '../includes/header.php';
    
 
 		$item_name = $_REQUEST['item_name'];

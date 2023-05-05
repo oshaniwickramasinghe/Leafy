@@ -1,14 +1,14 @@
 let viewMore=document.querySelector(".container_right");
-let isShow = true;
+let isShows = true;
 
 function myFunction() {
   
-    if (isShow === "none") {
+    if (isShows === "none") {
       viewMore.style.display= "none"; 
-      isShow = false;
+      isShows = false;
     } else {
       viewMore.style.display= "block";
-      isShow = true;
+      isShows = true;
     }
   } 
 
