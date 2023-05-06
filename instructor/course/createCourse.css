@@ -176,7 +176,7 @@ h1{
 .btn-section{
   background-color: rgba(100, 102, 99, 0.2);
   height: 30px;
-  box-shadow: #FCFEF9;
+  box-shadow:solid #FCFEF9;
   width: 100%;
 
 }

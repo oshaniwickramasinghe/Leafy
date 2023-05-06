@@ -55,10 +55,9 @@ a{
 
   .main{
     width: 100%;
-    background-color:rgb(240, 255, 243);
+    background-color:white;
     margin-top: 5rem ;
     padding: 40px 0px 10px 0px;
-    
    
    
   }
@@ -80,7 +79,7 @@ a{
     width: 95%;
     display: flex;
     margin: 30px auto 30px;
-    background-color: white;
+    background-color: rgba(239, 239, 239);
     padding: 10px;
   }
 
@@ -101,7 +100,7 @@ a{
 }
 
 .content .slidbar .section-search{
-    background-color:rgba(239, 239, 239);
+    background-color:white;
     padding: 20px 20px 10px 10px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -127,7 +126,7 @@ a{
 }
 
 .content .slidbar .section-topics{
-    background-color:rgba(239, 239, 239);
+    background-color:white;
     margin-top: 10px;
     padding: 20px 10px 20px 10px;
     height:700px;

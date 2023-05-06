@@ -31,7 +31,11 @@ if(isset($_GET['view_blog']))
     }
 }
 
-    $sql="SELECT * from user WHERE user_id=$user_id";
+    $sql="SELECT user.fname,user.lname,user.image
+          FROM user
+          INNER JOIN blog ON blog.user_id=user.user_id
+          where blog.blog_id=$blog_ID ";
+
     $result=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($result)>0){
@@ -40,9 +44,9 @@ if(isset($_GET['view_blog']))
 
    
     $query="SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
-    FROM blog
-    INNER JOIN user ON blog.user_id=user.user_id ";
-    /*  where blog.Verified=1";*/
+            FROM blog
+            INNER JOIN user ON blog.user_id=user.user_id ";
+            /*  where blog.Verified=1";*/
 
     $result2= mysqli_query($conn, $query);
 
