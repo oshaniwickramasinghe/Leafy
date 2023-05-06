@@ -100,7 +100,7 @@
     
     }
     .right_part .login{
-        margin-left:-5%;
+        margin-right:50%;
     }
     .header .center_wrapper .right_part a{
         padding: 0 0 0 20px;
@@ -125,6 +125,7 @@
     .header .center_wrapper .right_part .profile_icon .user_details{
         justify-content: center;
         display:block;
+        margin-top: 15%;
     }
     
     
@@ -161,6 +162,88 @@
         color:#323929;
     }
     
+#subMenu{
+    position: absolute;
+    top: 61%;
+    right: 10%;
+    width: 250px;
+    max-height: 400px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    display: none;
+    background: rgb(255, 255, 255);
+   
+}
+
+
+.sub-menu{
+    background: #f6f7f5cf;
+    padding : 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.user_details img{
+    height:30px;
+    margin-bottom: -10px;
+}
+.user-info{
+    display : flex;
+    align-items: center;
+}
+
+.user-info p{
+    font-weight: 1000;
+    color: #323929;
+    font-size: 11px;
+    width: 100%;
+
+}
+
+/* .user-info img{
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+
+} */
+
+.sub-menu hr{
+    border:0;
+    height: 1px;
+    width: 100%;
+    background:#ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link{
+    display:flex;
+    align-items: center;
+    text-decoration: none;
+    color: #323929;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+    color: #323929;
+    margin: 0px 15px;
+    text-decoration: none;
+    font-size: 10px;
+
+}
+
+.sub-menu-link span{
+    font-size: 15px;
+    color: #323929;
+    transform: transform 0.5s;
+}
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
     
     nav{
         position:relative;
@@ -212,7 +295,7 @@ footer{
 }
  .home_body{
     padding-left: 180px;
-    margin-top: -20%;
+    margin-top: -40%;
     margin-left: 5%;
  }
 
@@ -233,7 +316,7 @@ min-width: 20vh;
     padding: 0 25px;
 }
 .home_text{
-    padding-left: 350px;
+    padding-left: 0px;
     margin-top: -15px;
     margin-left: -30px;
 }
@@ -248,7 +331,7 @@ min-width: 20vh;
     padding: 0 50px 0  ;
 }
 
-Button{
+button{
     margin-left:5px;
     width: 150px;
     height: 35px;
@@ -279,7 +362,8 @@ form{
     padding-top: 2%;
     padding-bottom: 3%;
     color: rgb(0, 0, 0);
-   
+    border-radius: 25px;
+    
    
 }
 
@@ -365,7 +449,7 @@ a{
     display: block;
     margin: auto;
     text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family:"lato";
   }
   
 .card .card-body{
@@ -384,7 +468,7 @@ a{
   .container .btn {
     position:absolute;
     margin-top: 120px;
-    margin-left: 20px;
+    margin-left: 75px;
   }
 /* 
   .input-icons{
@@ -422,7 +506,7 @@ a{
    
 
 }
-
+/* 
   .search_button{
     width: 60px;
     height: 42px;
@@ -435,7 +519,7 @@ a{
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
-}
+} */
 /* 
 .grid{
     display: grid;
@@ -479,7 +563,7 @@ h2{
     max-width: 250px;
     margin-top: 5%;
     text-align: left;
-    font-family: arial;
+    font-family:"lato";
     margin-left: 10%;
     padding-bottom: 2%;
     text-align: center;
@@ -580,11 +664,12 @@ h2{
     
     margin-top: -45%;
 }
-
+/* 
 td{
-    width: 300px;
+    width: 350px;
     text-align: left;
-}
+    background-color: #33ca93;
+} */
 
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 800px) {

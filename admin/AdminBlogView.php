@@ -1,7 +1,6 @@
 <?php 
 
-include 'connect.php'; 
-     
+require "../database/database.php";     
 
   if(isset($_GET['deleteUID']))
   {
@@ -43,7 +42,7 @@ include 'connect.php';
 
 
 <?php
-include 'connect.php';
+// include 'connect.php';
 
 if(isset($_GET['viewblog']))
 {

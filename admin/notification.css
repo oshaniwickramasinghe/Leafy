@@ -9,10 +9,7 @@
     flex:6;
     height: 100%;
     padding: 10px 20px;
-    
-    
-   
-
+ 
 }
 
 .main_wrapper .content h2{
@@ -48,18 +45,11 @@
     border-radius: 20px;
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 40px;
+    margin-top: 100px;
     margin-bottom: 40px;
     display: block;
     
-    
-
 }
-
-
-
-
-
  
 .main_wrapper .content .box .container_right h3{
     color: #43562B;
@@ -119,6 +109,12 @@
     color:#43562B ;
 }
 
+.main_wrapper .content .box .container_right .details_container table {
+    table-layout: fixed; 
+    /* width: 200; */
+    
+}
+
 .main_wrapper .content .box .container_right .details_container table tr{
     vertical-align: top;
     
@@ -129,8 +125,8 @@
     padding: 10px;
     padding-right: 10px;
     margin-left: 10px;
-    text-align: center;
-    
+    text-align: left;
+    width: 20%;
 
 } 
 
@@ -174,7 +170,15 @@
     color: #43562B;
     background:#fff;
     border-radius:25px;
-    width: 500px; 
+    width: 98%;
+    width: 1200px; 
+}
+
+
+.main_wrapper .content .box .container_left .main_card .card_left table{
+    table-layout: fixed; 
+    width: 1200px;
+    
 }
 
 .main_wrapper .content .box .container_left .main_card .card_left  ul li a:focus {
@@ -201,6 +205,28 @@ a.delete {
     display: inline-block;
     border-radius:25px;
   }
+
+input.delete
+{
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:25px;
+}
+
+input.accept
+{
+    background-color: #809D5B;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:25px;
+}
   
   #tablet {
     width: 300px;

@@ -1,5 +1,6 @@
 <?php
-include "../../Auth.php";
+require "../../public/Auth.php";
+include '../includes/header.php';
 include "../../database.php";
 include '../../includes/header.php';
 

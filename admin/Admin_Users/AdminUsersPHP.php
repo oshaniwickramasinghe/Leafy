@@ -2,12 +2,10 @@
 
 // error_reporting(0);
 
-include '../connect.php';
-
 if(isset($_GET['UID']) )
 {
     $get_user_id = $_GET['UID'];
-    $role=$_GET['ROLE'];
+    // $role=$_GET['ROLE'];
     $sql1 = "SELECT * FROM user WHERE user_id=$get_user_id ";
     $result1=mysqli_query($conn,$sql1);
     
@@ -120,42 +118,3 @@ if(isset($_GET['UID']) )
 
 ?> 
 
-<?php   
-
-  if(isset($_GET['deleteUID']))
-  {
-      
-      $user_id = $_GET['deleteUID'];
-      $sql2 = "UPDATE user SET approved=2 WHERE user_id=$user_id";
-      $result2=mysqli_query($conn,$sql2);
-
-      echo 'deleted';
-
-  }
-
-
-  if(isset($_GET['acceptUID']))
-  {
-
-      $user_id = $_GET['acceptUID'];
-      $sql2 = "UPDATE user SET approved=1 WHERE user_id=$user_id";
-      $result2=mysqli_query($conn,$sql2);
-
-      echo 'updated';
-
-  }
-
-?>
-
-<?php
-    if(isset($_GET['UID']))
-    {?>
-    <div align="right">
-        <a class="delete" href="AdminUserView.php ?deleteUID=<?=$_GET['UID'] ?>" >Deactivate</a>
-        <a class="accept" href="AdminUserView.php ?acceptUID=<?=$_GET['UID'] ?>" >Accept</a>
-
-    </div>
-      
-      <?php 
-    }
-?>

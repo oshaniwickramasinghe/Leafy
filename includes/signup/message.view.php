@@ -22,7 +22,7 @@
       Congratulations, your account has been successfully created.<br>
       <b>Please check you email to validate your email.</b>
     </p>
-    <a href="login.view.php" class="contBtn">Continue</a>
+    <a href="../../authentication/Login.view.php" class="contBtn">Continue</a>
   </div>
 </div>
     

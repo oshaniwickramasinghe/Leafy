@@ -1,7 +1,7 @@
 <?php
     require "../../database/database.php";
-    // require "../../public/Auth.php";
-    include '../../includes/header.view.php';
+    require "../../public/Auth.php";
+    include '../includes/header.php';
     ?>
 
 <!DOCTYPE html>
@@ -29,9 +29,21 @@
                 </p>
 
                 
-                <p>
+                <!-- <p>
                 <label for="category">Item catogary:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
                 <input type="text" name="category" id="category">
+                </p> -->
+
+                <p>
+                <label for="category">Item Category:</label>
+                <select name="category" id="category">
+                    <option value="Vegetable">Vegetable</option>
+                    <option value="Fruit">Fruit</option>
+                    <option value="Seed">Seed</option>
+                    <!-- add more options here as needed -->
+                </select>
+
+
                 </p>
 
                 <p>

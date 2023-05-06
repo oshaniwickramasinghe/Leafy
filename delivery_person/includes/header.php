@@ -1,5 +1,6 @@
 <?php
-// include "../Customer/database.php";
+include "../database/database.php";
+// require "../../database/database.php";
 ?>
 
 <html>

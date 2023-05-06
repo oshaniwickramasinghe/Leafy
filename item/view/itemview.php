@@ -1,9 +1,9 @@
 <!-- PHP code to establish connection with the localserver -->
 <?php
 require "../../database/database.php";
-// require "../public/Auth.php";
-// include "../Customer/includes/header.php";
-include '../../includes/header.view.php';
+require "../../public/Auth.php";
+include '../includes/header.php';
+// include '../../includes/header.view.php';
 
 
 // SQL query to select data from database
@@ -56,7 +56,7 @@ $data = mysqli_query($conn, $sql);
                     <td><?php echo $rows['item_name'];?></td>
                     <td><?php echo $rows['category'];?></td>
                     <!-- <td><?php echo $rows['item_image'];?></td> -->
-                    <td> <img src="../uploads/<?php echo $rows["item_image"];?>"></td>				
+                    <td> <img class="item" src="../uploads/<?php echo $rows["item_image"];?>"></td>				
                     
                 </tr>
                 <?php

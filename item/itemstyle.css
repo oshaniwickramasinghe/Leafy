@@ -72,10 +72,15 @@ td {
     font-weight: lighter;
 }
 
-img {
+/* img {
     width: 20%;
     height: 20%;
-  }
+  } */
+
+.item {
+width: 20%;
+height: 20%;
+}
 
   .button{
     margin-left: 80%;

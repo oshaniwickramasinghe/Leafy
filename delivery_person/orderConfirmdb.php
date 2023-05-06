@@ -1,11 +1,12 @@
 <?php
-include "../Customer/database.php";
+include "../database/database.php";
 
 
 // $uid  = $_SESSION['USER_DATA']['user_id'];
 
-$uid = 3;
-$date = '2023-04-09';
+$uid = $_SESSION['USER_DATA']['user_id'];
+echo $uid;
+// $date = '2023-04-02';
 
 
 $sql  =  "SELECT DISTINCT( checkout.orderId),checkout.delivery_status, checkout.date,checkout.address1,checkout.address2,checkout.district,deals.payment_method,

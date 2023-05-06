@@ -1,8 +1,7 @@
 <?php 
 
-//require "../../public/Auth.php";
-// include "../../public/includes/header.view.php";
-include '../../includes/header.view.php';
+require "../../public/Auth.php";
+include '../includes/header.php';
 
 
 ?>
@@ -21,6 +20,7 @@ include '../../includes/header.view.php';
 </head>
 <body>
     <?php include 'AdminNotificationPHP.php';?>
+    <?php //include '../../instructor/Blog/userblog.php';?>
     <?php include "../menu/admin_menu.view.php"?>
 
 <div class = "loggedhome_body">
@@ -37,22 +37,40 @@ include '../../includes/header.view.php';
                     <p>Users</p>
                     <div class="card_left">
                         <ul>
-
-                        
+  
                             <li><a>
                             <table>
-                                <!-- <td>UserID</td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Role -->
-                                <td>UserID</td><td>First Name</td><td>Role</td>
-                                </a>
+                            <col width="50">
+                            <col width="150">
+                            <col width="150">
+                            <col width="100">
+                                <tr>
+                                    <td>UserID</td>
+                                    <td>First Name</td>
+                                    <td>Role</td>
+                                    <td>Email</td>
+                                </tr>
+                                
                             </table>
-                            </li>
+                            </a></li>
 
-                            <?php while($record1=mysqli_fetch_assoc($resultcustomer)){?>
-                                <li><a onclick="myFunction()" href="../Admin_Users/AdminUserView.php ?UID=<?= $record1['user_id']; ?> ">
-                                <table>
-                                <td><?= $record1['user_id']?></td><td> <?=$record1['fname']?></td> <td><?=$record1['role']?></td></a>
-                            </table>
-                            </li>
+                            <?php while($record1=mysqli_fetch_assoc($resultuser)){?>
+                                <li>
+                                    <a onclick="myFunction()" href="../Admin_Users/AdminUserView.php ?UID=<?= $record1['user_id']; ?> ">
+                                        <table>
+                                            <col width="50">
+                                            <col width="150">
+                                            <col width="150">
+                                            <col width="100">
+                                            <tr>
+                                                <td><?= $record1['user_id']?></td>
+                                                <td> <?=$record1['fname']?><?=$record1['lname']?></td> 
+                                                <td><?=$record1['role']?></td> 
+                                                <td><?=$record1['email']?></td>
+                                            </tr>                                                                       
+                                        </table>
+                                    </a>
+                                </li>
 
                             <?php }?>
                         </ul>
@@ -73,15 +91,34 @@ include '../../includes/header.view.php';
 
                         <li><a>
                         <table>
-                            <td>BlogID</td><td>Blog Title</td>
+                            <col width="50">
+                            <col width="150">
+                            <col width="150">
+                            <col width="100">
+                            <tr>
+                            <td>BlogID</td>
+                            <td>Blog Title</td>
+                            <td>Author</td>
+                            <td>Contact details of the author</td>
+                            </tr>
                         </table>
                         </a></li>
 
                             <?php while($record2=mysqli_fetch_assoc($resultblog)){?>
                                 <li>
-                                    <a href="../AdminBlogView.php ? viewblog=<?= $record2['blog_id']; ?> ">
+                                    <a href="../../instructor/Blog/userblog.php ? view_blog=<?= $record2['blog_id']; ?> ">
                                     <table>
-                                    <td><?= $record2['blog_id']?></td> <td> <?=$record2['title']?></td> </a>
+                                    <col width="50">
+                                    <col width="150">
+                                    <col width="150">
+                                    <col width="100">
+                                    <tr>
+                                    <td><?= $record2['blog_id']?></td> 
+                                    <td> <?=$record2['title']?></td> 
+                                    <td> <?=$record2['fname']?> <?=$record2['lname']?></td> 
+                                    <td> <?=$record2['email']?></td> 
+                                    </tr>
+                                </a>
                                 </table>
                                 </li>
                             <?php }?>
@@ -103,14 +140,36 @@ include '../../includes/header.view.php';
 
                         <li><a>
                         <table>
-                            <td>CourseID</td><td>Course Title</td>
+                            <col width="50">
+                            <col width="150">
+                            <col width="150">
+                            <col width="100">
+                            <col width="100">
+                            <tr>
+                            <td>CourseID</td>
+                            <td>Course Title</td>
+                            <td>Description</td>
+                            <td>Instructor</td>
+                            <td>Instructor contact details</td>
+                            </tr>
                         </table>
                         </a></li>
 
                             <?php while($record3=mysqli_fetch_assoc($resultcourse)){?>
                                 <li><a href="../AdminCourseView.php ? viewcourse=<?= $record3['course_id']; ?> ">
                                 <table>
-                                <td><?= $record3['course_id']?> </td><td><?=$record3['title']?> </td>
+                                <col width="50">
+                                <col width="150">
+                                <col width="150">
+                                <col width="100">
+                                <col width="100">
+                                <tr>
+                                <td><?= $record3['course_id']?> </td>
+                                <td><?=$record3['title']?> </td>
+                                <td><?=$record3['description']?> </td>
+                                <td><?= $record3['fname']?> <?= $record3['lname']?> </td>
+                                <td><?=$record3['email']?> </td>
+                                </tr>
                             </table>
                                 </a></li>
                             <?php }?>

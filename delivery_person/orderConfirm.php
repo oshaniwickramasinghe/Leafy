@@ -27,6 +27,8 @@ if(isset($_POST['complete'])){
 </head>
 <body>
 
+<?php include "../public/includes/deli_menu.view.php"?>
+
 <div class="complete_boby">
  <div class="complete">
  <form method  = "post" action = "">
