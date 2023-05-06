@@ -29,7 +29,7 @@ if(isset($_GET['view_blog']))
             echo 'user id   ';
             echo $user_id;
             $content1=$record2['content1'];
-           $comment=$record2['comment'];
+            $comment=$record2['comment'];
             $time=$record2['time'];
             $image1=$record2['image1'];
             $selected_color=$record2['color'];
