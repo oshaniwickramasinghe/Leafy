@@ -94,11 +94,9 @@
              $title=$record3['title'];
              $date=$record3['date'];
              $image=$record3['image'];
-             $steps=$record3['steps'];
              $status=$record3['status'];
              $duration=$record3['duration'];
              $description=$record3['description'];
-             $steps=$record3['steps'];
          }
         
      }else{
@@ -145,7 +143,6 @@
 
     $title=$_POST['title'];
     $date=$_POST['date'];
-    $steps=$_POST['steps'];
     $image=$_POST['oldimage1'];
     $description=$_POST['description'];
     $duration=$_POST['duration'];
