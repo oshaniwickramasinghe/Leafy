@@ -66,10 +66,10 @@ if($user_role=='admin'){
     }
 
 
-    if(isset($_POST['acceptUID']))
+    if(isset($_GET['acceptUID']))
     {
 
-        $course_id = $_POST['COURSEID'];
+        $course_id = $_GET['acceptUID'];
         echo 'accept';
         echo $course_id;
         $sql2 = "UPDATE course SET verified=1,comment='$comment' WHERE course_id=$course_id";
@@ -198,7 +198,7 @@ if($user_role=='admin'){
             <form action="userCourseContent.php" method="post" id="getblogcomment">
 
                 <input class="delete" type="submit" name="deleteUID" value="Delete" onclick="showModal(); return false;">
-                <input class="accept" type="submit" name="acceptUID" value="Accept">
+                <input class="accept" type="submit" name="acceptUID" value="Accept" onclick="acceptModal(); return false;">
 
                 <input type="hidden" name="COURSEID" value="<?=$_GET['view_course'] ?>">
 
@@ -215,7 +215,7 @@ if($user_role=='admin'){
 
     ?>
 
-    <div id="id01" class="modal_delete" style="display: none;">
+            <div id="id01" class="modal_delete" style="display: none;">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <div class="modal_content_delete" action="">
                         <div class="container_delete">
@@ -240,6 +240,22 @@ if($user_role=='admin'){
 
                         </div>
                     </div>
+            </div>
+
+            <div id="id02" class="modal_delete" style="display: none;">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <div class="modal_content_delete" action="">
+                        <div class="container_delete">
+                            <h1>The course is approved</h1>
+
+                            <div class="clearfix_delete">
+
+                            <a  href="userCourseContent.php ?acceptUID=<?=$_GET['view_course'] ?>">OK</a>
+                            
+                            </div>
+                            
+                            </div>
+                            </div>
             </div>
 
  <footer><?php include "../includes/footer.php"; ?></footer>

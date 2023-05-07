@@ -174,7 +174,23 @@ include "../../public/includes/header.view.php";
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>   
+        
+        <div id="id02" class="modal_delete" style="display: none;">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <div class="modal_content_delete" action="">
+                        <div class="container_delete">
+                            <h1>The user has been approved</h1>
+
+                            <div class="clearfix_delete">
+
+                            <a  href="AdminUserView.php ?acceptUID=<?=$_GET['UID']?>">OK</a>
+                            
+                            </div>
+                            
+                            </div>
+                            </div>
+            </div>
 
         <?php
             if(isset($_GET['UID']))
@@ -182,7 +198,7 @@ include "../../public/includes/header.view.php";
             <div align="center">
                 <!-- <a class="delete" href="AdminUserView.php ?deleteUID=<?=$_GET['UID'] ?>" >Deactivate</a> -->
                 <a class="delete" onclick="showModal(); return false;" >Deactivate</a>
-                <a class="accept" href="AdminUserView.php ?acceptUID=<?=$_GET['UID'] ?>" >Accept</a>
+                <a class="accept" href="AdminUserView.php ?acceptUID=<?=$_GET['UID'] ?>" onclick="acceptModal(); return false;">Accept</a>
 
             </div>
             

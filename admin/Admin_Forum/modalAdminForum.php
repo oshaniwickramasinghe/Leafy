@@ -82,7 +82,7 @@ include '../includes/header.php';
                                 <table>
                                 <td>Question ID <?= $record1['question_id']?></td>
                                 </table>
-                            </a></li><br>
+                            </a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -96,7 +96,7 @@ include '../includes/header.php';
 
                         <div align="right">
                             <a class="delete" href="modalAdminForum.php ?deleteUID=<?=$question_id ?>" onclick="showModal(); return false;">Delete</a>
-                            <a class="accept" href="modalAdminForum.php ?acceptUID=<?=$question_id ?>" >Approve</a>
+                            <a class="accept" href="modalAdminForum.php ?acceptUID=<?=$question_id ?>" onclick="acceptModal(); return false;">Approve</a>
 
                         </div>
 
@@ -147,21 +147,28 @@ include '../includes/header.php';
                             </div>
             </div>
 
+            <div id="id02" class="modal_delete" style="display: none;">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <div class="modal_content_delete" action="">
+                        <div class="container_delete">
+                            <h1>The question is approved</h1>
+
+                            <div class="clearfix_delete">
+
+                            <a  href="modalAdminForum.php ?acceptUID=<?=$question_id ?>">OK</a>
+                            
+                            </div>
+                            
+                            </div>
+                            </div>
+            </div>
+
         <script src="notification.js"></script>
 
         <footer>
         <?php include '../../includes/footer.view.php';?>
         </footer>
 
-        <script>
-          function showModal() {
-            document.getElementById("id01").style.display = "flex";
-        }
-
-        function hideModal() {
-            document.getElementById("id01").style.display = "none";
-        }
-
-        </script>
+        <script src="../modal.js"></script>
 </body>
 </html>

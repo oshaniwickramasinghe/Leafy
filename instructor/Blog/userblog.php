@@ -3,7 +3,7 @@ include '../includes/header.php';
 $user_ID=$_SESSION['USER_DATA']['user_id'];
 $user_role= $_SESSION['USER_DATA']['role'];
 
-error_reporting(0);
+// error_reporting(0);
 
 
 if(!isset($user_ID)){
@@ -117,7 +117,7 @@ if(isset($_GET['view_blog']))
             <form action="userblog.php" method="post" id="getblogcomment">
 
                 <input class="delete" type="submit" name="deleteUID" value="Delete" onclick="showModal(); return false;">
-                <input class="accept" type="submit" name="acceptUID" value="Accept">
+                <input class="accept" type="submit" name="acceptUID" value="Accept" onclick="acceptModal(); return false;">
 
                 <input type="hidden" name="BLOGID" value="<?=$_GET['view_blog'] ?>">
 
@@ -197,6 +197,22 @@ if(isset($_GET['view_blog']))
                     </div>
             </div>
 
+            <div id="id02" class="modal_delete" style="display: none;">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <div class="modal_content_delete" action="">
+                        <div class="container_delete">
+                            <h1>The blog is approved</h1>
+
+                            <div class="clearfix_delete">
+
+                            <a  href="userblog.php ?acceptUID=<?=$_GET['view_blog'] ?>">OK</a>
+                            
+                            </div>
+                            
+                            </div>
+                            </div>
+            </div>
+
 <footer>
     <?php include '../includes/footer.php'; ?>
 </footer>
@@ -264,10 +280,10 @@ if($user_role=='admin'){
     }
 
 
-    if(isset($_POST['acceptUID']))
+    if(isset($_GET['acceptUID']))
     {
 
-        $blog_id = $_POST['BLOGID'];
+        $blog_id = $_GET['acceptUID'];
         $sql2 = "UPDATE blog SET Verified=1,comment='$comment' WHERE blog_id=$blog_id";
         $result2=mysqli_query($conn,$sql2);
 
