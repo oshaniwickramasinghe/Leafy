@@ -470,24 +470,7 @@ a{
     margin-top: 120px;
     margin-left: 75px;
   }
-/* 
-  .input-icons{
-    width: 40%;
-    margin-bottom: 8px;
-    margin-top: 15px;
-  }
-.input-icons .input-field{
- 
-        width: 38%;
-        padding: 8px;
-        text-align: center;
-      
-        color:#000000 ;
-        font-style: lato;
-        padding-left: 5px;
-       
-    
-} */
+
 .search{
     background: white;
     padding-top: 0%;
@@ -506,41 +489,6 @@ a{
    
 
 }
-/* 
-  .search_button{
-    width: 60px;
-    height: 42px;
-    background-color: #d0d0d0;
-    border-radius: 50px;
-    margin: 8px 0;
-    margin-left: -50px;
-    margin-top: 8px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-} */
-/* 
-.grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 460px       ;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 45px;
-   
-    } */
-/* 
-.grid_1{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 460px       ;
-    width: 100%;
-    padding-bottom: 15px;
-  
-
-    } */
-
 
 h3{
     margin-top: 2%;
@@ -664,12 +612,6 @@ h2{
     
     margin-top: -45%;
 }
-/* 
-td{
-    width: 350px;
-    text-align: left;
-    background-color: #33ca93;
-} */
 
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 800px) {

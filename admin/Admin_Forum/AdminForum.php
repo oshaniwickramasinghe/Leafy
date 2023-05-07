@@ -95,7 +95,7 @@ include '../includes/header.php';
                     <div class="container_button">
 
                         <div align="right">
-                            <a class="delete" href="AdminForum.php ?deleteUID=<?=$question_id ?>" onclick="showModal(); return false;">Delete</a>
+                            <a class="delete" href="AdminForum.php ?deleteUID=<?=$question_id ?>" onclick="showModal(); return false;">Remove</a>
                             <a class="accept" href="AdminForum.php ?acceptUID=<?=$question_id ?>" >Approve</a>
 
                         </div>
@@ -138,9 +138,9 @@ include '../includes/header.php';
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <div class="modal_content_delete" action="">
                         <div class="container_delete">
-                            <h1>Are you sure you want to delete this blog</h1>
+                            <h1>Are you sure you want to remove this question</h1>
                             <div class="clearfix_delete">
-                            <a class="delete" href="AdminForum.php ?deleteUID=<?=$question_id ?>">Delete</a>
+                            <a class="delete" href="AdminForum.php ?deleteUID=<?=$question_id ?>">Remove</a>
                                 <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
                             </div>
                             </div>

@@ -1,8 +1,10 @@
 <?php
 include '../includes/header.php';
 $user_ID=$_SESSION['USER_DATA']['user_id'];
-
 $user_role= $_SESSION['USER_DATA']['role'];
+
+error_reporting(0);
+
 
 if(!isset($user_ID)){
     header('location:../login/login.view.php');
@@ -12,8 +14,6 @@ if(isset($_GET['view_blog']))
 {
     
     $blog_ID = $_GET['view_blog'];
-    echo 'view blog is    ';
-    echo $blog_ID;
     $sql3 = "SELECT * FROM blog WHERE blog_id=$blog_ID";
     $result3=mysqli_query($conn,$sql3);
     
@@ -23,11 +23,8 @@ if(isset($_GET['view_blog']))
          {
             $blog_ID=$record2['blog_id'];
             $title=$record2['title'];
-            echo $title;
             $date=$record2['date'];
             $user_id=$record2['user_id'];
-            echo 'user id   ';
-            echo $user_id;
             $content1=$record2['content1'];
            $comment=$record2['comment'];
             $time=$record2['time'];
@@ -40,7 +37,6 @@ if(isset($_GET['view_blog']))
     }
 //}
 
-echo $user_id;
     $sql="SELECT * from user WHERE user_id=$user_id";
     $result=mysqli_query($conn,$sql);
     // var_dump($result);
@@ -178,13 +174,16 @@ echo $user_id;
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <div class="modal_content_delete" action="">
                         <div class="container_delete">
+                            <br>
                             <h1>Are you sure you want to delete this blog?</h1>
 
+                            <br><br>
                             <form action="userblog.php" method="post" id="getblogcomment">
 
-                                <label for="comment">Comment and Feedback </label>
-                                <input type="text" id="comment" name="comment" ><br>
+                                <label for="comment">Please add your comment</label>
+                                <input type="text" id="comment" name="comment" required><br>
 
+                                <br><br>
                                 <input type="hidden" name="BLOGID" value="<?=$_GET['view_blog'] ?>">
                                 
                                 <div class="clearfix_delete">
@@ -245,17 +244,13 @@ echo $user_id;
 if($user_role=='admin'){
 
     require "../../database/database.php"; 
-    echo 'in here';
-    // Get the comment to insert  
-    //$result = processComment($comment);  
+    
     $comment = $_POST['comment'];
     
     if(isset($_POST['deleteUID']))
     {       
         
         $blog_id = $_POST['BLOGID'];
-        echo 'delete';
-        echo $blog_id;
         $sql2 = "UPDATE blog SET Verified=2,comment='$comment' WHERE blog_id=$blog_id";
         $result2=mysqli_query($conn,$sql2);
 
@@ -273,8 +268,6 @@ if($user_role=='admin'){
     {
 
         $blog_id = $_POST['BLOGID'];
-        echo 'accept';
-        echo $blog_id;
         $sql2 = "UPDATE blog SET Verified=1,comment='$comment' WHERE blog_id=$blog_id";
         $result2=mysqli_query($conn,$sql2);
 

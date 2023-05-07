@@ -36,7 +36,7 @@
 
                 <p>
                 <label for="category">Item Category:</label>
-                <select name="category" id="category">
+                <select name="category" id="category" required="required">
                     <option value="Vegetable">Vegetable</option>
                     <option value="Fruit">Fruit</option>
                     <option value="Seed">Seed</option>
@@ -47,7 +47,7 @@
                 </p>
 
                 <p>
-                <label for="item_image">Item Image:&nbsp&nbsp&nbsp</label>
+                <label for="item_image" required="required">Item Image:&nbsp&nbsp&nbsp</label>
                 <input type="file" name="image" id="image" placeholder="Item Image" required="required">
                 </p>
 

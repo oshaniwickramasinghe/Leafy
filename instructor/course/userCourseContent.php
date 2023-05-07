@@ -3,6 +3,8 @@ include "../includes/header.php";
 $user_ID   = $_SESSION['USER_DATA']['user_id'];
 $user_role = $_SESSION['USER_DATA']['role'];
 
+error_reporting(0);
+
 if(isset($_GET['view_course']))
 {
     // adding to course_followers 
@@ -33,12 +35,67 @@ if(isset($_GET['view_course']))
 
 ?>
 
+
+<?php
+
+//changes by oshani
+
+
+if($user_role=='admin'){
+
+    require "../../database/database.php"; 
+    
+    $comment = $_POST['comment'];
+    
+    if(isset($_POST['deleteUID']))
+    {       
+        
+        $course_id = $_POST['COURSEID'];
+        echo 'delete';
+        echo $course_id;
+        $sql2 = "UPDATE course SET verified=2,comment='$comment' WHERE course_id=$course_id";
+        $result2=mysqli_query($conn,$sql2);
+
+        if ($conn->query($sql2) === TRUE) {
+            echo "Delete column updated successfully";
+          } else {
+            echo "Error updating approved column: " . $conn->error . "<br>";
+          }
+
+        echo "<script>window.location.href = '../../admin/Admin_Notifications/AdminNotification.php';</script>";
+    }
+
+
+    if(isset($_POST['acceptUID']))
+    {
+
+        $course_id = $_POST['COURSEID'];
+        echo 'accept';
+        echo $course_id;
+        $sql2 = "UPDATE course SET verified=1,comment='$comment' WHERE course_id=$course_id";
+        $result2=mysqli_query($conn,$sql2);
+
+        if ($conn->query($sql2) === TRUE) {
+            echo "Approve column updated successfully";
+          } else {
+            echo "Error inserting comment: " . $conn->error;
+          }
+
+        echo "<script>window.location.href = '../../admin/Admin_Notifications/AdminNotification.php';</script>";
+    }
+    
+
+}
+//end of changes by oshani
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../admin/notification.css">
     <link rel="stylesheet" href="userCourseContent.css">
     <title>Course Content</title>
 </head>
@@ -89,10 +146,10 @@ if(isset($_GET['view_course']))
             <h1>SESSIONS</h1>
             <div class="session_container">
                 <?php
-                if(mysqli_num_rows($result2)>0)
-                {
-                    while($record2=mysqli_fetch_assoc($result2))
-                    {
+                 if(mysqli_num_rows($result2)>0)
+                 {
+                     while($record2=mysqli_fetch_assoc($result2))
+                     {
                 ?>
                     <div class="session">
                         <div class="session_num">
@@ -129,6 +186,62 @@ if(isset($_GET['view_course']))
         </div>
 
     </div>
+
+    <?php 
+        ////changes by oshani
+
+    if($user_role=='admin'){
+    if(isset($_GET['view_course']))
+        {?>
+        <div align="center">
+           
+            <form action="userCourseContent.php" method="post" id="getblogcomment">
+
+                <input class="delete" type="submit" name="deleteUID" value="Delete" onclick="showModal(); return false;">
+                <input class="accept" type="submit" name="acceptUID" value="Accept">
+
+                <input type="hidden" name="COURSEID" value="<?=$_GET['view_course'] ?>">
+
+            </form>
+
+
+
+        </div>
+            
+        <?php 
+        }
+    }
+            ////end of changes by oshani
+
+    ?>
+
+    <div id="id01" class="modal_delete" style="display: none;">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <div class="modal_content_delete" action="">
+                        <div class="container_delete">
+                            <br>
+                            <h1>Are you sure you want to delete this course?</h1>
+
+                            <br><br>
+                            <form action="userCourseContent.php" method="post" id="getblogcomment">
+
+                                <label for="comment">Please add your comment</label>
+                                <input type="text" id="comment" name="comment" required><br>
+
+                                <br><br>
+                                <input type="hidden" name="COURSEID" value="<?=$_GET['view_course'] ?>">
+                                
+                                <div class="clearfix_delete">
+                                <input class="deletebtn" type="submit" name="deleteUID" value="Delete">  </input>     <br>                         
+                                <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
+                                
+                                </div>
+                                </form>
+
+                        </div>
+                    </div>
+            </div>
+
  <footer><?php include "../includes/footer.php"; ?></footer>
  <script>
     let percentage = document.getElementById("percentage");
@@ -145,6 +258,9 @@ if(isset($_GET['view_course']))
              
     }, 30);
 
- </script>  
+ </script> 
+ 
+ <script src="../../admin/modal.js"> </script>
+
 </body>
 </html>
