@@ -6,10 +6,6 @@ include '../connect.php';
 
 //customer
 $GetQuestions="SELECT * FROM question where approved=0";
-// $GetQuestions = "SELECT * FROM user u JOIN question q 
-//                 ON u.user_id = q.user_id 
-//                 WHERE verified=0;
-//                 ";
 
 // make query & get resultcustomer
 $result= mysqli_query($conn,$GetQuestions);
@@ -17,10 +13,11 @@ $result= mysqli_query($conn,$GetQuestions);
     if(isset($_GET['view']))
     {
         $question_id = $_GET['view'];
+
         $sql1 = "SELECT * FROM user u JOIN question q 
                  ON u.user_id = q.user_id  
                  WHERE question_id=$question_id ";
-        //$sql1 = "SELECT * FROM question WHERE question_id=$question_id ";
+                 
         $result1=mysqli_query($conn,$sql1);
         
         if($result1)

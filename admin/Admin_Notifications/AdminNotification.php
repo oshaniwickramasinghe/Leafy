@@ -156,7 +156,7 @@ include '../includes/header.php';
                         </a></li>
 
                             <?php while($record3=mysqli_fetch_assoc($resultcourse)){?>
-                                <li><a href="../AdminCourseView.php ? viewcourse=<?= $record3['course_id']; ?> ">
+                                <li><a href="../../instructor/course/createCourse.php ? viewcourse=<?= $record3['course_id']; ?> ">
                                 <table>
                                 <col width="50">
                                 <col width="150">

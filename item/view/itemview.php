@@ -28,7 +28,7 @@ $data = mysqli_query($conn, $sql);
 
 <body>
 
-<?php include "../../includes/admin_menu.view.php"?>
+<?php include "../../admin/menu/admin_menu.view.php"?>
 	<section>
 		
     <div class = "loggedhome_body">

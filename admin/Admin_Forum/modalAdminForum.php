@@ -15,10 +15,6 @@ include '../includes/header.php';
       $sql2 = "UPDATE question SET approved=2 WHERE question_id=$Q_id";
       $result2=mysqli_query($conn,$sql2);
 
-      echo 'deleted';
-
-      header('location:../model.html');
-
   }
 
 
@@ -29,24 +25,9 @@ include '../includes/header.php';
       $sql2 = "UPDATE question SET approved=1 WHERE question_id=$Q_id";
       $result2=mysqli_query($conn,$sql2);
 
-      echo 'updated';
-
   }
 
 ?>
-
-<!-- <?php
-    if(isset($_GET['view']))
-    {?>
-    <div align="right">
-        <a class="delete" href="AdminForum.php ?deleteUID=<?=$_GET['view'] ?>" >Deactivate</a>
-        <a class="accept" href="AdminForum.php ?acceptUID=<?=$_GET['view'] ?>" >Accept</a>
-
-    </div>
-      
-      <?php 
-    }
-?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,6 +54,7 @@ include '../includes/header.php';
             width: 100%;
             
         }
+
    </style>
 </head>
 
@@ -113,8 +95,8 @@ include '../includes/header.php';
                     <div class="container_button">
 
                         <div align="right">
-                            <a id="myBtn" class="delete" href="modalAdminForum.php ?deleteUID=<?=$question_id ?>" >Delete</a>
-                            <a id="myBtn" class="accept" href="modalAdminForum.php ?acceptUID=<?=$question_id ?>" >Approve</a>
+                            <a class="delete" href="modalAdminForum.php ?deleteUID=<?=$question_id ?>" onclick="showModal(); return false;">Delete</a>
+                            <a class="accept" href="modalAdminForum.php ?acceptUID=<?=$question_id ?>" >Approve</a>
 
                         </div>
 
@@ -143,18 +125,43 @@ include '../includes/header.php';
                     
                 </div>
 
-           </div>      
-
-
+                
+           </div>  
+           
         </div>
         </div>
 
     </div>
 </div>    
 
+            <div id="id01" class="modal_delete" style="display: none;">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <div class="modal_content_delete" action="">
+                        <div class="container_delete">
+                            <h1>Are you sure you want to delete this blog</h1>
+                            <div class="clearfix_delete">
+                            <a class="delete" href="modalAdminForum.php ?deleteUID=<?=$question_id ?>">Delete</a>
+                                <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
+                            </div>
+                            </div>
+                            </div>
+            </div>
 
         <script src="notification.js"></script>
 
+        <footer>
         <?php include '../../includes/footer.view.php';?>
+        </footer>
+
+        <script>
+          function showModal() {
+            document.getElementById("id01").style.display = "flex";
+        }
+
+        function hideModal() {
+            document.getElementById("id01").style.display = "none";
+        }
+
+        </script>
 </body>
 </html>

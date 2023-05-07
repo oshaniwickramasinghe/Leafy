@@ -1,9 +1,10 @@
 <?php
-include "Auth.php";
+//include "Auth.php";
+require "../public/Auth.php";
 
 
       logout();
-      header("Location:home.view.php");
+      header("Location:Login.view.php");
       unset($_SESSION['USER_DATA']);
         
     

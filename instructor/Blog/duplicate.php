@@ -67,7 +67,7 @@ echo $user_id;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Userblog</title>
+    <title>duplicate</title>
     <!--slick carousel-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../admin/notification.css">
@@ -118,7 +118,7 @@ echo $user_id;
         {?>
         <div align="center">
            
-            <form action="userblog.php" method="post" id="getblogcomment">
+            <form action="duplicate.php" method="post" id="getblogcomment">
 
                 <input class="delete" type="submit" name="deleteUID" value="Delete" onclick="showModal(); return false;">
                 <input class="accept" type="submit" name="acceptUID" value="Accept">
@@ -154,7 +154,7 @@ echo $user_id;
                 <div class="cards-container-one">
                     <div class="img-holder">
                         <img src="../images/<?php if(isset ($record['image1'])){ echo $record['image1'];} ?>" class="slider-image">
-                        <a href="userblog.php?view_blog=<?=$record['blog_id']; ?>" class="show_more">show more</a>
+                        <a href="duplicate.php?view_blog=<?=$record['blog_id']; ?>" class="show_more">show more</a>
                     </div>
                     <div class="card-text">
                         <h4><?php if(isset ($record['title'])){ echo $record['title'];} ?></h4>
@@ -180,7 +180,7 @@ echo $user_id;
                         <div class="container_delete">
                             <h1>Are you sure you want to delete this blog?</h1>
 
-                            <form action="userblog.php" method="post" id="getblogcomment">
+                            <form action="duplicate.php" method="post" id="getblogcomment">
 
                                 <label for="comment">Comment and Feedback </label>
                                 <input type="text" id="comment" name="comment" ><br>

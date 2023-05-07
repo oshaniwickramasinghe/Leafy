@@ -83,7 +83,8 @@ if(mysqli_num_rows($select)>0){
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "../Logout.php" class="sub-menu-link">
+                        <!-- <a href = "../Logout.php" class="sub-menu-link"> -->
+                        <a href = "../../authentication/Logout.php" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:16px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>

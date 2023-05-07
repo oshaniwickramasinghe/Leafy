@@ -430,8 +430,8 @@ input[type=submit] {
 
 h1{
     align-items: center;
-    padding-left: 30%;
-   margin-top: 8%;
+    /* padding-left: 30%; */
+    margin-top: 8%;
 }
 
 

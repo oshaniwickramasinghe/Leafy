@@ -1,6 +1,6 @@
 <?php 
-require "../../public/Auth.php";
-include '../includes/header.php';
+   require "../../public/Auth.php";
+   include '../includes/header.php';
 ?>
 
 <html>
