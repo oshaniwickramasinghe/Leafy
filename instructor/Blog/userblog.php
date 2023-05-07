@@ -12,8 +12,6 @@ if(isset($_GET['view_blog']))
 {
     
     $blog_ID = $_GET['view_blog'];
-    echo 'view blog is    ';
-    echo $blog_ID;
     $sql3 = "SELECT * FROM blog WHERE blog_id=$blog_ID";
     $result3=mysqli_query($conn,$sql3);
     
@@ -23,11 +21,8 @@ if(isset($_GET['view_blog']))
          {
             $blog_ID=$record2['blog_id'];
             $title=$record2['title'];
-            echo $title;
             $date=$record2['date'];
             $user_id=$record2['user_id'];
-            echo 'user id   ';
-            echo $user_id;
             $content1=$record2['content1'];
             $comment=$record2['comment'];
             $time=$record2['time'];
@@ -40,7 +35,6 @@ if(isset($_GET['view_blog']))
     }
 //}
 
-echo $user_id;
     $sql="SELECT * from user WHERE user_id=$user_id";
     $result=mysqli_query($conn,$sql);
     // var_dump($result);
