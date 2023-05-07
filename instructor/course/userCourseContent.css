@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+    box-sizing:inherit;
+    font-family:'Lato', sans-serif;
+}
+
+.begin{
+    width: 75%;
+    margin: 40px 120px;
+    background-color: white;
+    box-shadow: 0 0 5px grey;
+    justify-content: center;
+    padding: 20px 40px;
+    
+}
+
+.begin h1{
+    text-align: center;
+    color: #43562B;
+}
+
+.details_container{
+    border-left: 1px solid rgba(118, 117, 117, 0.251) ;
+    padding-left:30px ;
+}
+
+.begin .course_content{
+    display: flex;
+    margin: 10px 0px;
+    padding: 10px;
+}
+
+.begin .course_content img{
+    height:230px;
+    margin-right: 30px;
+}
+
+.main_container h1{
+    font-size: 50px;
+    text-align: center;
+    color: #43562B;
+}
+
+.details{
+    display: flex;
+    padding: 20px 40px 20px 40px;
+    background-color: rgba(239, 239, 239, 0.509);
+    
+}
+
+.session_count{
+    margin-right: 130px;
+    margin-left: 30px;
+}
+
+.duration{
+    margin-right: 130px;
+}
+
+.progress{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.icon{
+    margin-bottom: 45px;
+    margin-top: 20px;
+}
+
+.text{
+    margin-top: 5px;
+    text-align: center;
+}
+
+.data{
+    color: #43562B;
+    font-size: 19px;
+    margin-bottom: 50px;
+}
+
+.circle{
+    width: 160px;
+    height: 160px;
+    position:relative;
+}
+
+.outer{
+    height:120px;
+    width: 120px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(255,255,255,0.7);
+    background-color: white;
+
+
+}
+
+.inner{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+                -0.5px 0.5px 0px rgba(255,255,255,1),
+                0.5px 0.5px 0px rgba(0,0,0,0.15),
+                0px 12px 10px -10px rgba(0,0,0,0.05);
+    background-color: white;
+
+}
+
+#percentage{
+    font-weight: 600;
+
+}
+
+circle{
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    animation:anim 2s linear forwards;
+}
+
+svg{
+    position: absolute;
+    top: 0;
+    left:0;
+}
+
+@keyframes anim{
+    100%{
+        stroke-dashoffset: 165;
+    }
+}
+
+.main_container{
+    width: 90%;
+    margin: 10px 0px;
+    background-color: rgba(239, 239, 239, 0.509);
+    padding: 5%;
+    
+}
+
+.session_container{
+    padding: 0px 0px;;
+}
+
+.session{
+    
+    margin-top:40px ;
+    margin-bottom: 40px; 
+    display: flex;
+}
+
+.session_details{
+    display: flex;
+    height: 250px;
+    box-shadow: 0 0 5px grey;
+    background-color: white;
+    width:100% ;
+}
+
+.session_details img{
+    width: 400px;
+}
+
+.session_num{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+  
+}
+
+.session_ID{
+
+    width: 50px;
+    height: 50px;
+    background-color: rgb(68, 199, 166);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(255,255,255,0.7);
+    font-weight: 1000;
+
+}
+
+.session_content{
+    padding: 20px;
+}
+
+h2{
+    text-transform: capitalize;
+    color: #43562B;
+}
+
+.session_text{
+    padding: 20px;
+    display: flex;
+    height: 100px;
+}
+
+.preview-text{
+    width: 320px;
+    height: 100px;
+    border-right: 1px solid rgba(118, 117, 117, 0.251) ;
+    color: rgb(97, 95, 95);
+    font-size: 14px;
+}
+
+.session_status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    background-color: rgba(239, 239, 239, 0.509);
+    padding: 0px 20px;
+    border-radius: 10px;
+}
+
+.status{
+    margin-left: 30px;
+    font-weight: 1000;
+    color: rgba(68, 199, 151, 0.771);
+}
+
+.btn{
+    text-decoration: none;
+    background-color:#516835;
+    padding: 10px 84px;
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.btn_container{
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-right:20px ;
+}
+
+.btn:hover{
+    background-color: #323929; 
+}
