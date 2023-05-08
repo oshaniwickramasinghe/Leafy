@@ -53,11 +53,15 @@ $resultnonorder= mysqli_query($conn,$sqlnonorder);
 
 ////select users by role
 if(ISSET($_POST['search'])){
+    
 	$keyword = $_POST['start1'];
-			
-    //require '../connect.php';
-    $queryusers = mysqli_query($conn, "SELECT * FROM `user` WHERE `role` LIKE '%$keyword%' OR `fname` LIKE '%$keyword%'") ;
 
+    $queryusers = mysqli_query($conn, "SELECT * FROM `user` WHERE `role` LIKE '%$keyword%' OR `fname` LIKE '%$keyword%'") ;
+			
+
+}
+else{
+    $queryusers = mysqli_query($conn, "SELECT * FROM `user`") ;
 }
 
 
@@ -69,6 +73,10 @@ if(ISSET($_POST['search'])){
     $query = mysqli_query($conn, "SELECT * FROM `blog` WHERE `date` LIKE '%$keyword%' ORDER BY `date`") ;
 
 }
+else{
+    $query = mysqli_query($conn, "SELECT * FROM `blog`") ;
+
+}
 
 
 ////select course by range
@@ -77,6 +85,10 @@ if(ISSET($_POST['search'])){
 			
     //require '../connect.php';
     $querycourse = mysqli_query($conn, "SELECT * FROM `course` WHERE `user_id` LIKE '%$keyword%' OR `title` LIKE '%$keyword%'") ;
+
+}
+else{
+    $querycourse = mysqli_query($conn, "SELECT * FROM `course` ") ;
 
 }
 

@@ -8,11 +8,13 @@
     .header{
 
         background:url(../images/Header4.svg)no-repeat;
-     
+        width: 100%;
         height: 150px;
         background-size: 100% ;
         background-attachment: fixed;
-        position: relative;
+        /* position: relative; */
+        position: fixed;
+
     
      
        
@@ -539,12 +541,13 @@ h2{
 
 
 .containerr .left_menu_bar{
+    position: fixed;
     flex:1.5;
     background: #8f918b29;
     display: block;
     border-radius:10px;
     height: 350px;
-    width: 10%;
+    width: 15%;
     box-shadow: var(--box-shadow);
     margin-top: 1%;
     margin-left: 1%;
