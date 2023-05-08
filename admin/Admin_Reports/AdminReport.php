@@ -177,7 +177,7 @@ include '../includes/header.php';
                 <div class="container_left">
 
                     <form class="search" method="POST" action="AdminReport.php" >
-                        <input type="text" id="start1" placeholder="search by role..." name="start1" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"/> 
+                        <input type="text" id="start1" placeholder="search by role or name..." name="start1" value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"/> 
                         
                         <span >
                             <button name="search" class="fa-solid fa-magnifying-glass"></button>
@@ -301,7 +301,7 @@ include '../includes/header.php';
                 <div class="container_left"> 
                     
                 <form class="search" method="POST" action="AdminReport.php" >
-                    <input type="text" id="start3" placeholder="instructor id..." name="start3"  value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"/> 
+                    <input type="text" id="start3" placeholder="instructor id or course title..." name="start3"  value="<?php echo isset($_POST['keyword']) ? $_POST['keyword'] : '' ?>"/> 
 
 					<span >
                         <button name="search" class="fa-solid fa-magnifying-glass"></button>

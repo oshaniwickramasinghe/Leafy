@@ -352,7 +352,7 @@ body{
 } */
 
 
-form{
+/* form{
     background: rgba(128, 156, 91, 0.578);
     font-family: 'Lato';
     margin-left: 32%;
@@ -365,13 +365,14 @@ form{
     border-radius: 25px;
     
    
-}
+} */
 
 input[type= text] , input[type= password],input[type= email]{
   width: 90%;
   display:inline-block;
   padding: 12px 20px;
   margin: 8px 0;
+  /* margin-left: 10px; */
   display: inline-block;
   border: 1px solid #ccc;
   opacity: 0.8;
@@ -457,13 +458,13 @@ a{
     margin-bottom: 20px;
    
   }
-  
+/*   
  
   .container{
     margin-top: 18px;
     position: relative;
     width: 20%;
-  }
+  } */
 
   .container .btn {
     position:absolute;
@@ -477,6 +478,9 @@ a{
      padding-left: 0%;
     display: flex;
     width: 60%;
+
+    margin-left: 32%;
+    margin-right: 33%;
 
  }
 
@@ -492,7 +496,7 @@ a{
 
 h3{
     margin-top: 2%;
-     margin-left: 30%;
+     /* margin-left: 30%; */
      margin-bottom:5% ;
 }
 
@@ -610,7 +614,7 @@ h2{
 
 .top{
     
-    margin-top: -45%;
+    margin-top: -42%;
 }
 
 /* Use a media query to add a breakpoint at 800px: */

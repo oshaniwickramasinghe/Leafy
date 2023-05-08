@@ -57,6 +57,8 @@ include '../includes/header.php';
                             <?php while($record1=mysqli_fetch_assoc($resultuser)){?>
                                 <li>
                                     <a onclick="myFunction()" href="../Admin_Users/AdminUserView.php ?UID=<?= $record1['user_id']; ?> ">
+                                    <!-- <a onclick="myFunction()" href="../Admin_Users/newuserview.php ?UID=<?= $record1['user_id']; ?> "> -->
+
                                         <table>
                                             <col width="50">
                                             <col width="150">

@@ -56,7 +56,7 @@ if(ISSET($_POST['search'])){
 	$keyword = $_POST['start1'];
 			
     //require '../connect.php';
-    $queryusers = mysqli_query($conn, "SELECT * FROM `user` WHERE `role` LIKE '%$keyword%' ") ;
+    $queryusers = mysqli_query($conn, "SELECT * FROM `user` WHERE `role` LIKE '%$keyword%' OR `fname` LIKE '%$keyword%'") ;
 
 }
 
@@ -76,7 +76,7 @@ if(ISSET($_POST['search'])){
 	$keyword = $_POST['start3'];
 			
     //require '../connect.php';
-    $querycourse = mysqli_query($conn, "SELECT * FROM `course` WHERE `user_id` LIKE '%$keyword%' ") ;
+    $querycourse = mysqli_query($conn, "SELECT * FROM `course` WHERE `user_id` LIKE '%$keyword%' OR `title` LIKE '%$keyword%'") ;
 
 }
 
