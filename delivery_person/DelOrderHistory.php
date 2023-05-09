@@ -1,8 +1,7 @@
 <?php 
-
+include "../database/database.php";
 require "../public/Auth.php";
-include 'includes/header.php';
-
+include "includes/header.php";
 
 ?>
 

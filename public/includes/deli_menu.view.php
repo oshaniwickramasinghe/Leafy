@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-   
+    <!-- <link rel="stylesheet" href="../Customer/CSS/delivery.css"> -->
     <link rel="stylesheet" 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -19,7 +19,7 @@
                 <h3>Leafy</h3>
             </div>
             <ul>
-                <li><a href="DelOrderStatus.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
+                <li><a href="DeliOrderHistory.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
                 <li><a href="DeliNotification.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Notifications</a></li>
                 <li><a href="DeliDashboard.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Reports</a></li>
                 <li><a href="orderConfirm.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Order status</a></li>

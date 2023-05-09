@@ -1,10 +1,7 @@
 <?php 
-
-//require "connect.php";
+ include "../database/database.php";
  require "../public/Auth.php";
- include "../public/includes/header.view.php";
-// include 'includes/header.php';
-
+ include "includes/header.php";
 
 ?>
 
@@ -16,14 +13,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="notification.css">
     <link rel="stylesheet" href="../public/CSS/style.css">
-    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- <link rel="stylesheet" href="../CSS/style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
           
     <title>Deli Notification page</title>
+
+    <style>
+      
+      .main_wrapper .content .box .container_left .main_card .card_left ul li a {
+            width: 98%;
+            /* width: 200px;  */
+        }
+
+
+        .main_wrapper .content .box .container_left .main_card .card_left table {
+            table-layout: fixed; 
+            width: 100%;
+            
+        }
+
+   </style>
 </head>
 <body>
     <?php include 'DeliNotificationPHP.php';?>
     <?php include "../public/includes/deli_menu.view.php"?>
+
+
+    <?php   
+    // $uid = $_SESSION['USER_DATA']['user_id'];
+    // echo $uid;
+    ?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
@@ -40,14 +59,35 @@
                     <div class="card_left">
                         <ul>
 
+                        <li><a>
+                            <table>
+                            <col width="50">
+                            <col width="150">
+                            <!-- <col width="150"> -->
+                            <!-- <col width="100"> -->
+                                <tr>
+                                    <td>Order ID </td>
+                                    
+                                </tr>
+                                
+                            </table>
+                            </a></li>
+
                             <?php while($record1=mysqli_fetch_assoc($resultorder0)){?>
                                 <li><a onclick="displayRight()" href="DeliNotification.php ?orderid=<?= $record1['order_id']; ?> ">
                                 <table>
+                                    <col width="50">
+                                    <col width="150">
+                                    <!-- <col width="150"> -->
+                                    <!-- <col width="100"> -->
+                                    <tr>
                                     <td>
                                     Order <?= $record1['order_id']?> - 
                                     </td>
+                                    </tr>
                                 </table>  
-                            </a></li>
+                            </a>
+                        </li>
                             <?php }?>
                         </ul>
                     </div>
@@ -58,7 +98,7 @@
                     <div class="container_button">
                         <button onclick="location.href='DeliNotificationPHP.php?deleteID=<?= $orderid ?> & uid=<?= $_SESSION['USER_DATA']['user_id'] ?>'" type="button" id="Delete">Delete</button>
                         <button onclick="location.href='DeliNotificationPHP.php?acceptID=<?= $orderid ?> & uid=<?= $_SESSION['USER_DATA']['user_id'] ?>'" type="button" id="Accept">Accept</button>
-                        <button onclick="location.href='DeliNotificationPHP.php?readID=<?= $orderid ?> & uid=<?= $_SESSION['USER_DATA']['user_id'] ?>''" type="button" id="Read">Mark as read</button>
+                        <button onclick="location.href='DeliNotificationPHP.php?readID=<?= $orderid ?> & uid=<?= $_SESSION['USER_DATA']['user_id'] ?>'" type="button" id="Read">Mark</button>
                     </div>
                     <div class="details_container">
                         <table>
@@ -109,7 +149,7 @@
                                 <li><a onclick="displayRight()" href="DeliNotification.php ?viewedorder=<?= $record1['order_id']; ?> ">
                                 <table>
                                     <td>
-                                Order <?= $record1['order_id']?> -  
+                                    Order <?= $record1['order_id']?> -  
                                     </td>
                                 </table> 
                                 </a></li>

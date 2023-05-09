@@ -56,7 +56,7 @@ $uid = $_SESSION['USER_DATA']['user_id'];
         $orderid = $_GET['readID'];
         $uid=$_GET['uid'];
         $update_query = "UPDATE accepted_orders SET order_viewed = 1 WHERE order_id =$orderid AND sent_deli_id=$uid";
-        mysqli_query($conn, $update_query);
+        mysqli_query($conn,$update_query);
 
         header("Location:/Leafy/delivery_person/DeliNotification.php");
         exit;
@@ -77,7 +77,7 @@ $sqlorder0="SELECT *
             JOIN deals AS d ON co.orderid = d.order_id
             WHERE ao.sent_deli_id = $uid
             AND ao.order_viewed = 0
-            AND co.delivery_status = 0";
+            AND co.delivery_status = 1";
 
 // make query & get resultorder0
 $resultorder0= mysqli_query($conn,$sqlorder0);
@@ -144,3 +144,31 @@ $resultorder1= mysqli_query($conn,$sqlorder1);
     }
 
 ?> 
+
+
+
+
+<?php
+//php related view history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>

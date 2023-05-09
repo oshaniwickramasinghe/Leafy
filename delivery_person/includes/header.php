@@ -1,10 +1,10 @@
 <?php
-include "../database/database.php";
+// include "../../database/database.php";
 // require "../../database/database.php";
 ?>
 
 <html>
-<link rel="stylesheet" href="../Customer/CSS/style.css">
+<!-- <link rel="stylesheet" href="../Customer/CSS/style.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" 
  referrerpolicy="no-referrer" />
@@ -15,13 +15,13 @@ include "../database/database.php";
         <div class="center_wrapper">
             <div class="left_part">
                 <div class="logo_1">
-                        <img src="../Customer/images/logo.svg"  height= "95.42px "  >
+                        <img src="../../Customer/images/logo.svg"  height= "95.42px "  >
 
                 </div>
                 <div class="menu">
                     <ul>
                         <li>
-                            <a href="../customerhome.php" class="">Home</a>
+                            <a href="../../customerhome.php" class="">Home</a>
                         </li>
                         <li>
                             <a href="#blogs" class="">Blogs</a>
@@ -45,6 +45,7 @@ include "../database/database.php";
                         <div class="user_details">
                         <?php if(logged_in()){
 $user_ID = $_SESSION['USER_DATA']['user_id'];
+///////////////////////////////
 // if(!isset($user_ID)){
 //     header('location:login.php');
 // };
@@ -55,14 +56,14 @@ $user_ID = $_SESSION['USER_DATA']['user_id'];
 //      header('location:../Customer/home.view.php');
 // }
 
-
+//////////////////////////////////////
 $select=mysqli_query($conn,"SELECT * FROM user WHERE user_ID='$user_ID'") or die('query failed');
 
 if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
 }
 ?>  
-                            <img src="../Customer/images/profilepic_icon.svg"  >
+                            <img src="../../Customer/images/profilepic_icon.svg"  >
                             <p><?php echo $fetch['fname']; ?></p>
                         </div>
                         <button onclick="toggleMenu()">
@@ -82,7 +83,8 @@ if(mysqli_num_rows($select)>0){
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "../Customer/Logout.php" class="sub-menu-link">
+                        <!-- <a href = "../Logout.php" class="sub-menu-link"> -->
+                        <a href = "../../authentication/Logout.php" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:16px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>
@@ -99,7 +101,7 @@ if(mysqli_num_rows($select)>0){
             <?php }else{ ?>
                 
                 <div class="login">
-                <li><a href="../Customer/Login.view.php">Login</a></li>
+                <li><a href="../../authentication/Login.view.php">Login</a></li>
                 </div>
                 <div class  = "language">
             <a href="" class="">Languages (EN)</a>
