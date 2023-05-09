@@ -117,7 +117,7 @@ if(isset($_GET['view_course']))
                                     </div>
                                 </div>
                                 <div class="btn_container">
-                                    <a href="userSeesion.php?view=<?= $record2['session_id']; ?>" class="btn">Follow</a>
+                                    <a href="userSeesion.php?session=<?=$record2['session_id']?>& course=<?=$course_id?>" class="btn">Follow</a>
                                 </div>
                             </div>
                         </div>
