@@ -17,67 +17,51 @@ $resultnonorder= mysqli_query($conn,$sqlnonorder);
 
 
 //select all
-$sqlall="SELECT * FROM user";
+//$sqlall="SELECT * FROM user";
 
 // make query & get resultcustomer
-$resultall= mysqli_query($conn,$sqlall);
+// $resultall= mysqli_query($conn,$sqlall);
 
-    if(isset($_GET['view']))
-    {
-        $del_user_id = $_GET['view'];
-        $sql4 = "SELECT * FROM user WHERE user_id=$del_user_id and role='delivery_person'";
-        $result4=mysqli_query($conn,$sql4);
+//     if(isset($_GET['view']))
+//     {
+//         $del_user_id = $_GET['view'];
+//         $sql4 = "SELECT * FROM user WHERE user_id=$del_user_id and role='delivery_person'";
+//         $result4=mysqli_query($conn,$sql4);
         
-        if($result4)
-        { 
+//         if($result4)
+//         { 
                        
-            while($recorddelivery = mysqli_fetch_assoc($result4))
-            {
-                $del_user_id=$recorddelivery['user_id'];
-                $del_first_name=$recorddelivery['fname'];
-                $del_email=$recorddelivery['email'];
-                $del_role=$recorddelivery['role'];
+//             while($recorddelivery = mysqli_fetch_assoc($result4))
+//             {
+//                 $del_user_id=$recorddelivery['user_id'];
+//                 $del_first_name=$recorddelivery['fname'];
+//                 $del_email=$recorddelivery['email'];
+//                 $del_role=$recorddelivery['role'];
    
-            }
+//             }
             
-        }
-    }
+//         }
+//     }
 
 
 //select blog
-$sqlblog="SELECT * FROM blog ORDER BY date";
+//$sqlblog="SELECT * FROM blog ORDER BY date";
 
 // make query & get blogs
-$resultblog= mysqli_query($conn,$sqlblog);
+//$resultblog= mysqli_query($conn,$sqlblog);
 
-    if(isset($_GET['view']))
-    {
-        $del_user_id = $_GET['view'];
-        $sql4 = "SELECT * FROM user WHERE user_id=$del_user_id and role='delivery_person'";
-        $result4=mysqli_query($conn,$sql4);
-        
-        if($result4)
-        { 
-                       
-            while($recorddelivery = mysqli_fetch_assoc($result4))
-            {
-                $del_user_id=$recorddelivery['user_id'];
-                $del_first_name=$recorddelivery['fname'];
-                $del_email=$recorddelivery['email'];
-                $del_role=$recorddelivery['role'];
-   
-            }
-            
-        }
-    }
 
 ////select users by role
 if(ISSET($_POST['search'])){
+    
 	$keyword = $_POST['start1'];
-			
-    //require '../connect.php';
-    $queryusers = mysqli_query($conn, "SELECT * FROM `user` WHERE `role` LIKE '%$keyword%' ") ;
 
+    $queryusers = mysqli_query($conn, "SELECT * FROM `user` WHERE `role` LIKE '%$keyword%' OR `fname` LIKE '%$keyword%'") ;
+			
+
+}
+else{
+    $queryusers = mysqli_query($conn, "SELECT * FROM `user`") ;
 }
 
 
@@ -89,6 +73,10 @@ if(ISSET($_POST['search'])){
     $query = mysqli_query($conn, "SELECT * FROM `blog` WHERE `date` LIKE '%$keyword%' ORDER BY `date`") ;
 
 }
+else{
+    $query = mysqli_query($conn, "SELECT * FROM `blog`") ;
+
+}
 
 
 ////select course by range
@@ -96,7 +84,11 @@ if(ISSET($_POST['search'])){
 	$keyword = $_POST['start3'];
 			
     //require '../connect.php';
-    $querycourse = mysqli_query($conn, "SELECT * FROM `course` WHERE `user_id` LIKE '%$keyword%' ") ;
+    $querycourse = mysqli_query($conn, "SELECT * FROM `course` WHERE `user_id` LIKE '%$keyword%' OR `title` LIKE '%$keyword%'") ;
+
+}
+else{
+    $querycourse = mysqli_query($conn, "SELECT * FROM `course` ") ;
 
 }
 
@@ -105,31 +97,11 @@ if(ISSET($_POST['search'])){
 
 
 //select course
-$sqlcourse="SELECT * FROM course ";
+//$sqlcourse="SELECT * FROM course ";
 
 // make query & get blogs
-$resultcourse= mysqli_query($conn,$sqlcourse);
+//$resultcourse= mysqli_query($conn,$sqlcourse);
 
-    if(isset($_GET['view']))
-    {
-        $del_user_id = $_GET['view'];
-        $sql4 = "SELECT * FROM user WHERE user_id=$del_user_id and role='delivery_person'";
-        $result4=mysqli_query($conn,$sql4);
-        
-        if($result4)
-        { 
-                       
-            while($recorddelivery = mysqli_fetch_assoc($result4))
-            {
-                $del_user_id=$recorddelivery['user_id'];
-                $del_first_name=$recorddelivery['fname'];
-                $del_email=$recorddelivery['email'];
-                $del_role=$recorddelivery['role'];
-   
-            }
-            
-        }
-    }
 
 ?> 
 

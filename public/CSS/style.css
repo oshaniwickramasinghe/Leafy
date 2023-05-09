@@ -8,11 +8,13 @@
     .header{
 
         background:url(../images/Header4.svg)no-repeat;
-     
+        width: 100%;
         height: 150px;
         background-size: 100% ;
         background-attachment: fixed;
-        position: relative;
+        /* position: relative; */
+        position: fixed;
+
     
      
        
@@ -352,7 +354,7 @@ body{
 } */
 
 
-form{
+/* form{
     background: rgba(128, 156, 91, 0.578);
     font-family: 'Lato';
     margin-left: 32%;
@@ -365,13 +367,14 @@ form{
     border-radius: 25px;
     
    
-}
+} */
 
 input[type= text] , input[type= password],input[type= email]{
   width: 90%;
   display:inline-block;
   padding: 12px 20px;
   margin: 8px 0;
+  /* margin-left: 10px; */
   display: inline-block;
   border: 1px solid #ccc;
   opacity: 0.8;
@@ -430,8 +433,8 @@ input[type=submit] {
 
 h1{
     align-items: center;
-    padding-left: 30%;
-   margin-top: 8%;
+    /* padding-left: 30%; */
+    margin-top: 8%;
 }
 
 
@@ -457,43 +460,29 @@ a{
     margin-bottom: 20px;
    
   }
-  
+/*   
  
   .container{
     margin-top: 18px;
     position: relative;
     width: 20%;
-  }
+  } */
 
   .container .btn {
     position:absolute;
     margin-top: 120px;
     margin-left: 75px;
   }
-/* 
-  .input-icons{
-    width: 40%;
-    margin-bottom: 8px;
-    margin-top: 15px;
-  }
-.input-icons .input-field{
- 
-        width: 38%;
-        padding: 8px;
-        text-align: center;
-      
-        color:#000000 ;
-        font-style: lato;
-        padding-left: 5px;
-       
-    
-} */
+
 .search{
     background: white;
     padding-top: 0%;
      padding-left: 0%;
     display: flex;
     width: 60%;
+
+    margin-left: 32%;
+    margin-right: 33%;
 
  }
 
@@ -506,45 +495,10 @@ a{
    
 
 }
-/* 
-  .search_button{
-    width: 60px;
-    height: 42px;
-    background-color: #d0d0d0;
-    border-radius: 50px;
-    margin: 8px 0;
-    margin-left: -50px;
-    margin-top: 8px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-} */
-/* 
-.grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 460px       ;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 45px;
-   
-    } */
-/* 
-.grid_1{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 460px       ;
-    width: 100%;
-    padding-bottom: 15px;
-  
-
-    } */
-
 
 h3{
     margin-top: 2%;
-     margin-left: 30%;
+     /* margin-left: 30%; */
      margin-bottom:5% ;
 }
 
@@ -587,12 +541,13 @@ h2{
 
 
 .containerr .left_menu_bar{
+    position: fixed;
     flex:1.5;
     background: #8f918b29;
     display: block;
     border-radius:10px;
     height: 350px;
-    width: 10%;
+    width: 15%;
     box-shadow: var(--box-shadow);
     margin-top: 1%;
     margin-left: 1%;
@@ -662,14 +617,8 @@ h2{
 
 .top{
     
-    margin-top: -45%;
+    margin-top: -42%;
 }
-/* 
-td{
-    width: 350px;
-    text-align: left;
-    background-color: #33ca93;
-} */
 
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 800px) {

@@ -25,6 +25,7 @@
 			$file_tmp1=$_FILES['image']['tmp_name'];
 			$file_name1= "A"."$item_name".rand(1,1000).$_FILES['image']['name'];
 			$target_file1="../uploads/".$file_name1;
+			
 			if($file_tmp1!="")
 			{
 				move_uploaded_file($file_tmp1,$target_file1);

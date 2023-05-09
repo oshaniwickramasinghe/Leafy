@@ -239,3 +239,284 @@ input.accept
     -ms-flex: 1;  /* IE 10 */  
     flex: 1;
   }
+
+  /*modal CSS*/
+  
+  /* Add padding and center-align text to the container */
+  #id01 .container {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  #id01 .container p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+  
+  /* The Modal (background) */
+
+   /* Modal Content/Box */
+   .modal-content {
+    background-color: white;
+    margin: 4% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 65%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+    height: 85%;
+  }
+
+  .modal-content h1{
+    margin: 20px 0px;
+    color: #313d22;
+  }
+
+  .modal-content h4{
+    color: #43562B;
+    margin-bottom: 0px;
+  }
+
+
+.clearfix a
+{
+  padding: 14px 25px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+  margin-right: 8px;
+  margin-top: 10px;
+  text-decoration: none;
+  margin-left: 15px;
+  border-radius: 10px;
+}
+
+
+.clearfix button
+{
+  padding: 14px 25px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+  margin-right: 8px;
+  margin-top: 10px;
+  border-radius: 10px;
+  
+}
+
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+
+  }
+
+  .clearfix{
+    display: flex;
+  }
+  
+  /* Add a color to the cancel button */
+  .clearfix_delete.cancelbtn {
+    background-color: #ccc;
+    color: black;
+   
+
+  }
+
+  #id01 button{
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    
+  }
+
+  /* #id01 submit{
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    
+  } */
+
+  #id01 a{
+    padding: 14px 25px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 30px;
+    text-decoration: none;
+    /* margin-left:50px; */
+  }
+  
+  /* Add a color to the delete button */
+ .deletebtn {
+
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    background-color: #d5544bea;
+    color: black;
+
+  }
+  
+  /* Add padding and center-align text to the container_delete*/
+  #id01 .container_delete {
+    /* padding: 16px; */
+    text-align: center;
+    display: block;
+  }
+
+  #id01 .container_delete p{
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+  }
+  
+  /* The Modal (background) */
+  .modal_delete {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #070708a4;
+    padding-top: 50px;
+  }
+  
+  /* Modal Content/Box */
+  .modal_content_delete {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+  /*form input*/
+  input[type= text]{
+    width: 90%;
+    display:inline-block;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    opacity: 0.8;
+    box-sizing: border-box;
+    border-radius:40px ;
+    -webkit-border-radius:40px ;
+    -moz-border-radius:40px ;
+    -ms-border-radius:40px ;
+    -o-border-radius:40px ;
+  }
+
+
+  /*id02 */
+
+  /* Add padding and center-align text to the container */
+  #id02 .container {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  #id02 .container p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+
+  #id02 button{
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    
+  }
+
+  /* #id01 submit{
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    
+  } */
+
+  #id02 a{
+    padding: 14px 25px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 30px;
+    text-decoration: none;
+    /* margin-left:50px; */
+  }
+
+  /* Add padding and center-align text to the container_delete*/
+  #id02 .container_delete {
+    /* padding: 16px; */
+    text-align: center;
+    display: block;
+  }
+
+  #id02 .container_delete p{
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+  }

@@ -1,10 +1,8 @@
 <?php
 include '../includes/header.php';
 $user_ID=$_SESSION['USER_DATA']['user_id'];
+
 $user_role= $_SESSION['USER_DATA']['role'];
-
-// error_reporting(0);
-
 
 if(!isset($user_ID)){
     header('location:../login/login.view.php');
@@ -14,6 +12,8 @@ if(isset($_GET['view_blog']))
 {
     
     $blog_ID = $_GET['view_blog'];
+    echo 'view blog is    ';
+    echo $blog_ID;
     $sql3 = "SELECT * FROM blog WHERE blog_id=$blog_ID";
     $result3=mysqli_query($conn,$sql3);
     
@@ -23,10 +23,13 @@ if(isset($_GET['view_blog']))
          {
             $blog_ID=$record2['blog_id'];
             $title=$record2['title'];
+            echo $title;
             $date=$record2['date'];
             $user_id=$record2['user_id'];
+            echo 'user id   ';
+            echo $user_id;
             $content1=$record2['content1'];
-            $comment=$record2['comment'];
+           $comment=$record2['comment'];
             $time=$record2['time'];
             $image1=$record2['image1'];
             $selected_color=$record2['color'];
@@ -37,6 +40,7 @@ if(isset($_GET['view_blog']))
     }
 //}
 
+echo $user_id;
     $sql="SELECT * from user WHERE user_id=$user_id";
     $result=mysqli_query($conn,$sql);
     // var_dump($result);
@@ -47,9 +51,9 @@ if(isset($_GET['view_blog']))
 }
    
     $query="SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
-            FROM blog
-            INNER JOIN user ON blog.user_id=user.user_id ";
-            /*  where blog.Verified=1";*/
+    FROM blog
+    INNER JOIN user ON blog.user_id=user.user_id ";
+    /*  where blog.Verified=1";*/
 
     $result2= mysqli_query($conn, $query);
 
@@ -63,13 +67,11 @@ if(isset($_GET['view_blog']))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Userblog</title>
+    <title>duplicate</title>
     <!--slick carousel-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../admin/notification.css">
-    <link rel="stylesheet" href="../../public/CSS/style.css">
     <link rel="stylesheet" href="userblog.css">
-    <!-- <link rel="stylesheet" href="../../admin/notification.css"> -->
     <!--font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -116,10 +118,10 @@ if(isset($_GET['view_blog']))
         {?>
         <div align="center">
            
-            <form action="userblog.php" method="post" id="getblogcomment">
+            <form action="duplicate.php" method="post" id="getblogcomment">
 
                 <input class="delete" type="submit" name="deleteUID" value="Delete" onclick="showModal(); return false;">
-                <input class="accept" type="submit" name="acceptUID" value="Accept" onclick="acceptModal(); return false;">
+                <input class="accept" type="submit" name="acceptUID" value="Accept">
 
                 <input type="hidden" name="BLOGID" value="<?=$_GET['view_blog'] ?>">
 
@@ -152,7 +154,7 @@ if(isset($_GET['view_blog']))
                 <div class="cards-container-one">
                     <div class="img-holder">
                         <img src="../images/<?php if(isset ($record['image1'])){ echo $record['image1'];} ?>" class="slider-image">
-                        <a href="userblog.php?view_blog=<?=$record['blog_id']; ?>" class="show_more">show more</a>
+                        <a href="duplicate.php?view_blog=<?=$record['blog_id']; ?>" class="show_more">show more</a>
                     </div>
                     <div class="card-text">
                         <h4><?php if(isset ($record['title'])){ echo $record['title'];} ?></h4>
@@ -176,16 +178,13 @@ if(isset($_GET['view_blog']))
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <div class="modal_content_delete" action="">
                         <div class="container_delete">
-                            <br>
                             <h1>Are you sure you want to delete this blog?</h1>
 
-                            <br><br>
-                            <form action="userblog.php" method="post" id="getblogcomment">
+                            <form action="duplicate.php" method="post" id="getblogcomment">
 
-                                <label for="comment">Please add your comment</label>
-                                <input type="text" id="comment" name="comment" required><br>
+                                <label for="comment">Comment and Feedback </label>
+                                <input type="text" id="comment" name="comment" ><br>
 
-                                <br><br>
                                 <input type="hidden" name="BLOGID" value="<?=$_GET['view_blog'] ?>">
                                 
                                 <div class="clearfix_delete">
@@ -197,22 +196,6 @@ if(isset($_GET['view_blog']))
 
                         </div>
                     </div>
-            </div>
-
-            <div id="id02" class="modal_delete" style="display: none;">
-                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-                    <div class="modal_content_delete" action="">
-                        <div class="container_delete">
-                            <h1>The blog is approved</h1>
-
-                            <div class="clearfix_delete">
-
-                            <a  href="userblog.php ?acceptUID=<?=$_GET['view_blog'] ?>">OK</a>
-                            
-                            </div>
-                            
-                            </div>
-                            </div>
             </div>
 
 <footer>
@@ -262,13 +245,17 @@ if(isset($_GET['view_blog']))
 if($user_role=='admin'){
 
     require "../../database/database.php"; 
-    
+    echo 'in here';
+    // Get the comment to insert  
+    //$result = processComment($comment);  
     $comment = $_POST['comment'];
     
     if(isset($_POST['deleteUID']))
     {       
         
         $blog_id = $_POST['BLOGID'];
+        echo 'delete';
+        echo $blog_id;
         $sql2 = "UPDATE blog SET Verified=2,comment='$comment' WHERE blog_id=$blog_id";
         $result2=mysqli_query($conn,$sql2);
 
@@ -282,10 +269,12 @@ if($user_role=='admin'){
     }
 
 
-    if(isset($_GET['acceptUID']))
+    if(isset($_POST['acceptUID']))
     {
 
-        $blog_id = $_GET['acceptUID'];
+        $blog_id = $_POST['BLOGID'];
+        echo 'accept';
+        echo $blog_id;
         $sql2 = "UPDATE blog SET Verified=1,comment='$comment' WHERE blog_id=$blog_id";
         $result2=mysqli_query($conn,$sql2);
 

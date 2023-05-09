@@ -1,6 +1,6 @@
 <?php
 
-// error_reporting(0);
+error_reporting(0);
 
 if(isset($_GET['UID']) )
 {
@@ -68,7 +68,6 @@ if(isset($_GET['UID']) )
         }
     }
 
-
     //instructor
     if($role=='Instructor')
     {
@@ -111,10 +110,7 @@ if(isset($_GET['UID']) )
         }
     }
 
-    
-
 }
-
 
 ?> 
 

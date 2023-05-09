@@ -1,8 +1,10 @@
 <?php 
 
 //require "connect.php";
+require "../database/database.php";
 require "../public/Auth.php";
-include "../public/includes/header.view.php";
+include 'includes/header.php';
+
 
 
 ?>

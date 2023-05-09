@@ -57,6 +57,8 @@ include '../includes/header.php';
                             <?php while($record1=mysqli_fetch_assoc($resultuser)){?>
                                 <li>
                                     <a onclick="myFunction()" href="../Admin_Users/AdminUserView.php ?UID=<?= $record1['user_id']; ?> ">
+                                    <!-- <a onclick="myFunction()" href="../Admin_Users/newuserview.php ?UID=<?= $record1['user_id']; ?> "> -->
+
                                         <table>
                                             <col width="50">
                                             <col width="150">
@@ -156,7 +158,7 @@ include '../includes/header.php';
                         </a></li>
 
                             <?php while($record3=mysqli_fetch_assoc($resultcourse)){?>
-                                <li><a href="../AdminCourseView.php ? viewcourse=<?= $record3['course_id']; ?> ">
+                                <li><a href="../../instructor/course/userCourseContent.php?view_course=<?= $record3['course_id']; ?> ">
                                 <table>
                                 <col width="50">
                                 <col width="150">
