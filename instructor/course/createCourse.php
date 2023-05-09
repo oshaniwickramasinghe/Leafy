@@ -34,8 +34,6 @@
 
     $sql1=" INSERT INTO course(title,Topic,image,user_id,description,duration,status) Values ('$title',' $Topic','$image','$user_ID','$description','$duration','$status')";
     
-    
-   
     $result1=mysqli_query($conn,$sql1);
     if($result1){
         move_uploaded_file($image_tmp_name, $image_folder);
