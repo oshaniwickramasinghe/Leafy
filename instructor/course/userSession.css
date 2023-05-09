@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+    box-sizing:inherit;
+    font-family:'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.main_content{
+    width: 96%;
+    max-width:117rem;
+    margin:20px auto;
+  }
+
+.begin{
+    max-width: 114rem;
+    height: 40vh;
+    margin: 2rem auto;
+    
+  }
+
+  .session{
+    width:95%;
+    max-width:80rem;
+    background-color:rgba(63, 175, 151, 0.607);
+    margin: 0 auto;
+    padding:3rem 0rem 0rem 0rem;
+    border-radius: 10px;
+    margin-top:-9rem;
+
+  }
+
+  .session h1{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 50px;
+  }
+
+  .session .description{
+    text-align:justify;
+    margin: 20px 10px 20px 10px;
+  }
+
+  .session .content{
+    background-color:white;
+    box-shadow: 0 0 5px grey;
+    padding: 10px;
+  }
+
+  .content p{
+    text-align:justify;
+    margin: 10px 0px;
+  }
+
+
+  .view-wrap {
+    height: auto;
+    width: 92%;
+    background-color: rgba(239, 239, 239, 0.716);
+    padding: 4%;
+  
+  }
+
+   .view-wrap .view{
+    display:block;
+    height: auto;
+    padding:4%;
+    box-shadow: 0 0 5px grey;
+    background-color: white;
+    
+  }
+  
+  .view h1{
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 40px;
+ }
+
+
+  .quiz-div{
+    display: block;
+  }
+
+  .statement{
+    color: #516835;
+    font-size: 15px;
+  }
+
+  .content .ql-video{
+    text-align: center;
+  }
+
+  .quiz_mark{
+    background-color: aquamarine;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .question{
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    background-color: rgba(202, 205, 205, 0.716) ;
+  }
+
+  .quiz-div .btn{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+  }
+
+
+  .quiz-div button{
+    background-color:#516835;
+    padding: 15px 200px;
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 20px ;
+    box-shadow: 0 0 5px grey;
+  }
+
+  .quiz_content{
+    padding: 10px 30px 30px 30px;
+    background-color: white;
+    margin-top: 20px;
+    border: 1px solid rgb(96, 94, 94);
+  }
+
+  .options{
+    padding: 20px;
+    background-color: rgb(240, 255, 253);
+  }
+
+  .options input,
+  .options label{
+    margin: 5px;
+  }
+

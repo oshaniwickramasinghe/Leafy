@@ -1,7 +1,7 @@
 <?php
 include "../includes/header.php";
-$user_ID   = $_SESSION['USER_DATA']['user_id'];
-$user_role = $_SESSION['USER_DATA']['role'];
+$user_ID   = 1;//$_SESSION['USER_DATA']['user_id'];
+$user_role = "Customer";//$_SESSION['USER_DATA']['role'];
 
 if(isset($_GET['view_course']))
 {
@@ -16,10 +16,10 @@ if(isset($_GET['view_course']))
     if($result1){
         while($record1=mysqli_fetch_assoc($result1))
         {
-            $title=$record1['title'];
-            $description=$record1['description'];
-            $image=$record1['image'];
-            $duration=$record1['duration'];
+            $title       = $record1['title'];
+            $description = $record1['description'];
+            $image       = $record1['image'];
+            $duration    = $record1['duration'];
         }
         
     }
@@ -28,6 +28,50 @@ if(isset($_GET['view_course']))
                        WHERE course_id = $course_id ";
     $result2       = mysqli_query($conn,$sql2);
     $count_session = mysqli_num_rows($result2);
+
+    //update the user entrolling data
+    if($user_role == "Agriculturaist" || $user_role =="Customer"){
+
+        $query    = "SELECT *
+                     FROM course_followers
+                     WHERE user_id ='$user_ID'
+                     AND course_id ='$course_id'";
+
+        $fetch     = mysqli_query($conn,$query);
+
+
+        if (mysqli_num_rows($fetch) > 0) {
+            // Email already exists, do not save the data
+            echo "<script>alert('You are already entrolled to this course.');</script>";
+
+        } else {
+
+            $sql3      = "INSERT INTO course_followers
+                        (user_id,course_id)
+                        values('$user_ID','$course_id')";
+            $result3    = mysqli_query($conn,$sql3);
+
+            if($result3){
+
+            echo"<script>alert('You are successfully enrolled to this course');</script>";
+
+            }else{
+                echo"Error: " . $sql3 . "<br>" . mysqli_error($conn);
+            } 
+        }
+
+    }
+
+      //get the completed session count
+        $sql5                    = "SELECT * FROM session_followers
+                                    WHERE course_id = $course_id
+                                    AND user_id     = $user_ID
+                                    AND is_completed= 1";
+
+        $result5                 = mysqli_query($conn,$sql5);
+        $completed_session_count = mysqli_num_rows($result5);
+
+    
 
 }
 
@@ -75,14 +119,22 @@ if(isset($_GET['view_course']))
                                             <stop offset="100%" stop-color="#673ab7" />
                                             </linearGradient>
                                         </defs>
-                                        <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                                        <circle id="anm_circle" cx="80" cy="80" r="70" stroke-linecap="round" />
                                 </svg>
                                 </div>   
                             </div>
                             <p class="text">completed</p>
                         </div>
                     </div>
+                </div>
             </div>
+            <div class="view-wrap"> 
+                <div class="view">
+                    <div class="btn_section">
+                        <a href="CourseForum.php?course=<?=$course_id?>" class="forum-btn" id="forum-btn">Forum</a>
+                        <a href="Rating.php?course=<?=$course_id?>" class="rating-btn" id="rating-btn">Rating & Review</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="main_container">
@@ -108,7 +160,25 @@ if(isset($_GET['view_course']))
                                     <p class="preview-text"><?php if(isset ($record2['description'])){ echo substr($record2['description'],0,200,).'....';} ?></p><br>
                                     <div class="session_status">
                                         Status
-                                        <?php if($record2['status']==1){
+                                        <?php 
+                                         //check the session complete or not
+                                            $sql4          = " SELECT * FROM session_followers
+                                                                WHERE course_id = $course_id
+                                                                AND session_id  = " . $record2['session_id'] . "
+                                                                AND user_id     = $user_ID";
+
+                                            $result4       = mysqli_query($conn,$sql4);
+                                            $status = 0; // default value
+                                        
+                                            if(mysqli_num_rows($result4)>0){
+                                                while($record4=mysqli_fetch_assoc($result4)){
+
+                                                    $status= $record4['is_completed'];
+                                                }
+
+                                            }
+                                        
+                                        if($status==1){
                                         ?>
                                             <p class="status">Completed</p>
                                         <?php }else{?>
@@ -117,7 +187,7 @@ if(isset($_GET['view_course']))
                                     </div>
                                 </div>
                                 <div class="btn_container">
-                                    <a href="userSeesion.php?session=<?=$record2['session_id']?>& course=<?=$course_id?>" class="btn">Follow</a>
+                                    <a href="userSession.php?session=<?=$record2['session_id']?>& course=<?=$course_id?>" class="btn">Follow</a>
                                 </div>
                             </div>
                         </div>
@@ -131,12 +201,27 @@ if(isset($_GET['view_course']))
     </div>
  <footer><?php include "../includes/footer.php"; ?></footer>
  <script>
-    let percentage = document.getElementById("percentage");
-    let counter    = 0;
-    let real_percentage = 100;
+    let percentage              = document.getElementById("percentage"); //display percentage value
+    let counter                 = 0; //counting from 0
+    let session_count           = <?=$count_session?> ; //number of session include in course
+    let completed_session_count = <?=$completed_session_count?>;
+    var rating_btn              = document.getElementById("rating-btn");
+    var forum_btn               = document.getElementById("forum-btn");
+
+
+    let real_percentage         = (completed_session_count/session_count)*100;
+
+    var offset                  = 472 - 472 *(real_percentage)*0.01; 
+    
+     // Get the path element
+     var anm_circle = document.getElementById("anm_circle");
+
+    // Change the stroke-dashoffset value
+    anm_circle.style.strokeDashoffset = offset;
 
     setInterval(() => {
-        if(counter == 65){
+
+        if(counter == real_percentage){
             clearInterval();
         }else{
             counter += 1;
@@ -145,6 +230,20 @@ if(isset($_GET['view_course']))
              
     }, 30);
 
- </script>  
+
+   
+
+    rating_btn.addEventListener('click', ()=>{
+        rating_btn.classList.add('active');
+        forum_btn.classList.remove('active');
+    });
+
+    forum_btn.addEventListener('click', ()=>{
+        rating_btn.classList.remove('active');
+        forum_btn.classList.add('active');
+        
+    });
+
+</script>  
 </body>
 </html>
