@@ -54,7 +54,7 @@ include 'includes/header.php';
         height: 350px;
         padding: 20px;
         border-radius: 20px;
-        border: solid 3px rgba(54, 162, 235, 1);
+        border: solid 3px rgba(75, 192, 192, 1);
         background: white;
       }
     </style>
@@ -73,45 +73,45 @@ include 'includes/header.php';
             <h2>Reports</h2>
 
            <!-- search Users by role-->
-           <div class="box">
+           <!-- <div class="box"> -->
                 
                 <div class="container_right" id="view_more">
                     <div align="center">
-                    <div class="chartCard">
+                    <!-- <div class="chartCard"> -->
                         <div class="chartBox">
                         <?php include 'charts/multiple_bar_order_report.php';?>
                         
                         </div>
-                    </div>
+                    <!-- </div> -->
                     </div>                    
                 </div>
 
-           </div>
+           <!-- </div> -->
 
            <!-- summary-->
-           <div class="box">
+           <!-- <div class="box">
                 <?php 
-                $sql1 ="SELECT 
-                            DATE_FORMAT(co.date, '%Y-%m') AS month,
-                            COUNT(*) AS num_accepted_orders
-                        FROM 
-                            leafy.accepted_orders ao
-                            JOIN leafy.checkout co ON ao.order_id = co.orderId
-                        WHERE 
-                            ao.sent_deli_id = 3 AND
-                            ao.status = 1 AND 
-                            co.date >= DATE_SUB(NOW(), INTERVAL 12 MONTH)
-                        GROUP BY 
-                            DATE_FORMAT(co.date, '%Y-%m')
-                        ORDER BY 
-                            month DESC";
+                // $sql1 ="SELECT 
+                //             DATE_FORMAT(co.date, '%Y-%m') AS month,
+                //             COUNT(*) AS num_accepted_orders
+                //         FROM 
+                //             leafy.accepted_orders ao
+                //             JOIN leafy.checkout co ON ao.order_id = co.orderId
+                //         WHERE 
+                //             ao.sent_deli_id = 3 AND
+                //             ao.status = 1 AND 
+                //             co.date >= DATE_SUB(NOW(), INTERVAL 12 MONTH)
+                //         GROUP BY 
+                //             DATE_FORMAT(co.date, '%Y-%m')
+                //         ORDER BY 
+                //             month DESC";
     
-                $result1 = $pdo->query($sql1);
+                // $result1 = $pdo->query($sql1);
                 
                 
                 ?>
 
-           </div>
+           </div> -->
 
         </div>
 

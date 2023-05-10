@@ -66,7 +66,9 @@
                             <!-- <col width="150"> -->
                             <!-- <col width="100"> -->
                                 <tr>
+                                    <!-- <td style="position: fixed;">Order ID </td> -->
                                     <td>Order ID </td>
+                                    <td>Date </td>
                                     
                                 </tr>
                                 
@@ -81,9 +83,8 @@
                                     <!-- <col width="150"> -->
                                     <!-- <col width="100"> -->
                                     <tr>
-                                    <td>
-                                    Order <?= $record1['order_id']?> - 
-                                    </td>
+                                        <td>Order <?= $record1['order_id']?></td>
+                                        <td><?= $record1['date']?></td>
                                     </tr>
                                 </table>  
                             </a>
@@ -98,7 +99,7 @@
                     <div class="container_button">
                         <button onclick="location.href='DeliNotificationPHP.php?deleteID=<?= $orderid ?> & uid=<?= $_SESSION['USER_DATA']['user_id'] ?>'" type="button" id="Delete">Delete</button>
                         <button onclick="location.href='DeliNotificationPHP.php?acceptID=<?= $orderid ?> & uid=<?= $_SESSION['USER_DATA']['user_id'] ?>'" type="button" id="Accept">Accept</button>
-                        <button onclick="location.href='DeliNotificationPHP.php?readID=<?= $orderid ?> & uid=<?= $_SESSION['USER_DATA']['user_id'] ?>'" type="button" id="Read">Mark</button>
+                        <button onclick="location.href='DeliNotificationPHP.php?readID=<?= $orderid ?> & uid=<?= $_SESSION['USER_DATA']['user_id'] ?>'" type="button" id="Read">Mark as read</button>
                     </div>
                     <div class="details_container">
                         <table>
@@ -122,7 +123,7 @@
                             </tr>
                             <tr>
                                 <th>Location </th>
-                                <td>:</td>
+                                <td>:<?=$location1?>, <?=$location2?>, <?=$location3 ?></td>
                                 
                             </tr>
                             
@@ -145,12 +146,31 @@
                     <div class="card_left">
                         <ul>
 
+                            <li><a>
+                            <table>
+                            <col width="50">
+                            <col width="150">
+                            <!-- <col width="150"> -->
+                            <!-- <col width="100"> -->
+                                <tr>
+                                    <!-- <td style="position: fixed;">Order ID </td> -->
+                                    <td>Order ID </td>
+                                    <td>Date </td>
+                                    
+                                </tr>
+                                
+                            </table>
+                            </a></li>
+
                             <?php while($record1=mysqli_fetch_assoc($resultorder1)){?>
                                 <li><a onclick="displayRight()" href="DeliNotification.php ?viewedorder=<?= $record1['order_id']; ?> ">
                                 <table>
-                                    <td>
-                                    Order <?= $record1['order_id']?> -  
-                                    </td>
+                                <col width="50">
+                                <col width="150">
+                                    <tr>
+                                        <td>Order <?= $record1['order_id']?>  </td>
+                                        <td><?= $record1['date']?> - </td>
+                                    </tr>
                                 </table> 
                                 </a></li>
                             <?php }?>
@@ -186,7 +206,8 @@
                             </tr>
                             <tr>
                                 <th>Location </th>
-                                <td>:</td>
+                                <td>:<?=$VWlocation1?>, <?=$VWlocation2?>, <?=$VWlocation3 ?></td>
+                                
                             </tr>
                             <tr>
                                 

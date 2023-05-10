@@ -80,12 +80,8 @@ if(isset($_POST['complete'])){
 </form>
 
  </div>
- <div class="Back_del">
-  <a href = "#"><input  type  = "submit" value = "Back"></a>
-  </div>
- <div class  = "footer">
-<img src = "../Customer/images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
-</div>
+ 
+ 
 </div>
 </body>
 </html>

@@ -150,6 +150,9 @@ include "../../public/includes/header.view.php";
                                                         <input type="text" name="Specialization" value="<?=$specialized_area ?>" class="box"  readonly><br>
                                                         <span>Contact Number :</span>
                                                         <input type="text" name="contact_no" value="<?=$contact_number ?>" class="box"  readonly><br>
+
+                                                        <!-- <td> <img class="" src="../uploads/<?php echo $img?>"></td>				 -->
+
                                                         
                                                         <?php   
                                                     }

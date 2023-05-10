@@ -104,11 +104,13 @@
         label: 'Accepted count',
         data: count1,
         backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
+          //'rgba(255, 26, 104, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
           
         ],
         borderColor: [
-          'rgba(255, 26, 104, 1)',
+          //'rgba(255, 26, 104, 1)',
+          'rgba(75, 192, 192, 1)',
           
         ],
         borderWidth: 1

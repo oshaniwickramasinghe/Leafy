@@ -520,3 +520,128 @@ input.accept
     margin-bottom: 5px;
 
   }
+
+
+
+  /*id03 */
+
+  /* Add padding and center-align text to the container */
+  #id03 .container {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  #id03 .container p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+
+  #id03 button{
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    
+  }
+
+  /* #id01 submit{
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    
+  } */
+
+  #id03 a{
+    padding: 14px 25px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 30px;
+    text-decoration: none;
+    /* margin-left:50px; */
+  }
+
+  /* Add padding and center-align text to the container_delete*/
+  #id03 .container_delete {
+    /* padding: 16px; */
+    text-align: center;
+    display: block;
+  }
+
+  #id03 .container_delete p{
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+  }
+
+
+  /*id04 */
+
+  /* Add padding and center-align text to the container */
+  #id04 .container {
+    padding: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  #id04 .container p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+
+  #id04 button{
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    
+  }
+
+  /* #id01 submit{
+    padding: 23px;
+    border: none;
+    cursor: pointer;
+    width: 78%;
+    opacity: 0.9;
+    margin-top: 8px;
+    
+  } */
+
+  #id04 a{
+    padding: 14px 25px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 30px;
+    text-decoration: none;
+    /* margin-left:50px; */
+  }
+
+  /* Add padding and center-align text to the container_delete*/
+  #id04 .container_delete {
+    /* padding: 16px; */
+    text-align: center;
+    display: block;
+  }
+
+  #id04 .container_delete p{
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+  }

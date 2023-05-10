@@ -84,10 +84,13 @@ if(isset($_GET['UID']) )
                 $specialized_area=$recordinsti['specialized_area'];
                 $contact_number=$recordinsti['contact_number'];
 
+                //$img=$recordinsti[''];
+
             }
 
             
         }
+
     }
 
     //Delivery agent
