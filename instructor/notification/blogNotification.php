@@ -7,7 +7,7 @@ if(isset($_GET['open']))
 {
     $blog_ID = $_GET['open'];
 
-    $data2= "SELECT blog_id,title,image1,topic,is_read,date,Verified,description
+    $data2= " SELECT blog_id,title,image1,topic,is_read,date,Verified,description,comment
               FROM blog
               WHERE blog_id=$blog_ID";
 
@@ -21,7 +21,7 @@ if(isset($_GET['open']))
             $title=$record['title'];
             $date=$record['date'];
             $blog_id=$record['blog_id'];
-            $description=$record['description'];
+            $comment=$record['comment'];
             $image=$record['image1'];
             $verified=$record['Verified'];
 
@@ -86,9 +86,9 @@ if(isset($_GET['open']))
                                         <td><?php if(isset ($title)){ echo $title; }?></td>
                                     </tr>
                                     <tr>
-                                        <th>Description</th>
+                                        <th>Reason</th>
                                         <td>:</td>
-                                        <td><?php if(isset ($description)){ echo $description;} ?></td>
+                                        <td><?php if(isset ($comment)){ echo $comment;} ?></td>
                                     </tr>
                                     <tr>
                                         <th>Link to blog </th>

@@ -206,13 +206,5 @@ if(isset($_GET['session']) && isset($_GET['course']))
     }
 
 
-
-
-
-
-
-
-
-
 </script>
 </html>

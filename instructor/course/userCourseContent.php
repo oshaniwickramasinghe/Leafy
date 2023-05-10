@@ -1,7 +1,7 @@
 <?php
 include "../includes/header.php";
-$user_ID   = 1;//$_SESSION['USER_DATA']['user_id'];
-$user_role = 'customer';//$_SESSION['USER_DATA']['role'];
+$user_ID   = $_SESSION['USER_DATA']['user_id'];
+$user_role = $_SESSION['USER_DATA']['role'];
 
 error_reporting(0);
 
@@ -330,6 +330,7 @@ if($user_role=='admin'){
 
  <footer><?php include "../includes/footer.php"; ?></footer>
  <script>
+    
     let percentage              = document.getElementById("percentage"); //display percentage value
     let counter                 = 0; //counting from 0
     let session_count           = <?=$count_session?> ; //number of session include in course
@@ -345,8 +346,9 @@ if($user_role=='admin'){
      // Get the path element
      var anm_circle = document.getElementById("anm_circle");
 
-    // Change the stroke-dashoffset value
-    anm_circle.style.strokeDashoffset = offset;
+    // Set the CSS variable
+    anm_circle.style.setProperty('--stroke-dashoffset', offset);
+
 
     setInterval(() => {
 

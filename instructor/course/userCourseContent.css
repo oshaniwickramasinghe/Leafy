@@ -128,6 +128,7 @@
     stroke-width: 20px;
     stroke-dasharray: 472;
     animation: anim 2s linear forwards;
+    --stroke-dashoffset:472;
 }
 
 svg{
@@ -138,7 +139,7 @@ svg{
 
 @keyframes anim{
     100%{
-        stroke-dashoffset:0;
+        stroke-dashoffset: var(--stroke-dashoffset);
     }
 }
 
@@ -282,7 +283,7 @@ h2{
     height: 40px;
     box-shadow:solid #FCFEF9;
     width: 100%;
-    background-color: rgb(90, 92, 91);
+    background-color: rgba(90, 92, 91, 0.79);
     border-radius: 5px;
     justify-content: center;
     align-items: center;

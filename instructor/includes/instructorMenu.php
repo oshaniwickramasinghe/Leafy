@@ -18,12 +18,14 @@
         <h3>Leafy</h3>
         </div>
         <ul>
-            <li><a href="../home/home.view.php"><i class="fa-solid fa-house" style="font-size:18px;color:#43562B;"></i>Home</a></li>
             <li><a href="../dashboard/Insdashboard.php"><i class="fa-solid fa-gauge-high" style="font-size:18px;color:#43562B;"></i>Dashboard</a></li>
             <li><a href="../notification/notification.php"><i class="fa-solid fa-comments" style="font-size:16px;color:#43562B;"></i>Notifications</a></li>
             <!-- C:\xampp\htdocs\Leafy\instructor\notification\notification.php -->
             <li><a href="../blog/blog.php"><i class="fa-brands fa-blogger" style="font-size:20px;color:#43562B;"></i>Blogs</a></li>
             <li><a href="../course/course.php"><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>Courses</a></li>
+            <li><a href="../course/CourseForum.php"><i class="fa-solid fa-list-ul" style="font-size:18px;color:#43562B;"></i>Course Forum</a></li>
+            <li><a href="#"><i class="fa-solid fa-table-list" style="font-size:18px;color:#43562B;"></i>Forum</a></li>
+            <li><a href="../profile/InstructorProfile.php"><i class="fa-solid fa-circle-user" style="font-size:18px;color:#43562B;"></i>Profile</a></li>
         </ul>
     </div>
 </body>
