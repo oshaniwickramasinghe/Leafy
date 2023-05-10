@@ -188,7 +188,7 @@ if($user_role=='admin'){
             <div class="view-wrap"> 
                 <div class="view">
                     <div class="btn_section">
-                        <a href="CourseForum.php?course=<?=$course_id?>" class="forum-btn" id="forum-btn">Forum</a>
+                        <a href="courseForumContent.php?course=<?=$course_id?>" class="forum-btn" id="forum-btn">Forum</a>
                         <a href="Rating.php?course=<?=$course_id?>" class="rating-btn" id="rating-btn">Rating & Review</a>
                     </div>
                 </div>

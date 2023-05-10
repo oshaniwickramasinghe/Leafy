@@ -115,8 +115,8 @@ body{
   
   .container .create_form_wrapper .view-wrap {
     height: auto;
-    margin-right: 5px;
-    width: 98%;
+    margin:20px;
+    width: 95%;
   
   }
   
@@ -144,9 +144,66 @@ body{
       margin: 20px 0px;
   }
   
-  
-  @media screen and (max-width: 767px) {
-    .create_form_wrapper form .field div {
-      flex-direction: column;
-    }
-  }
+.courses a{
+    text-decoration: none;
+}
+
+
+
+.courses{
+    align-items: center;
+    justify-content: center;
+}
+
+
+.course img{
+    width:300px;
+    height:220px;
+}
+
+
+.course{
+    display: flex;
+    height: 220px;
+    box-shadow: 0 0 5px grey;
+    background-color: white;
+    width:100% ;
+    margin-bottom: 20px;
+
+}
+
+.course_content{
+    padding: 10px 30px 30px 10px;
+    width: 100%;
+}
+
+.course_content h3{
+    text-align: center;
+    color: #43562B;
+    margin-top: 10px;
+} 
+
+.question_status{
+    display: flex;
+    padding: 25px 25px 25px 25px;
+}
+
+#counts{
+    margin:0px 20px 10px 25px;
+    background-color:rgba(167, 171, 172, 0.302) ;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+#counts p{
+    padding: 10px 0px;
+    text-align: center;
+    color: #484847;
+}
+
+#counts .text{
+    font-size: 14px;
+    text-align: center;
+}
