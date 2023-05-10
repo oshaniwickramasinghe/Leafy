@@ -20,9 +20,6 @@ if(mysqli_num_rows($select)>0){
 $result2= mysqli_query($conn,$sql2);
 
 
-
-
-
     if(isset($_GET['view']))
     {
         $blog_ID = $_GET['view'];

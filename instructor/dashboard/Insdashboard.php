@@ -57,7 +57,7 @@ $sql_getdata = "SELECT DATE_FORMAT(ac.date_enrolled, '%Y-%m') AS month,
                 COUNT(*) AS followers, 
                 COUNT(CASE WHEN ac.date_complete IS NOT NULL THEN 1 END) AS completions, 
                 COUNT(CASE WHEN MONTH(ac.date_enrolled) = MONTH(NOW()) AND YEAR(ac.date_enrolled) = YEAR(NOW()) THEN 1 END) AS new_enrollments 
-                FROM agriculturalist_course as ac 
+                FROM course_followers as ac 
                 JOIN course ON course.course_id = ac.course_id
                 WHERE course.user_id=7 
                 AND ac.date_enrolled >= DATE_SUB(NOW(), INTERVAL 12 MONTH) 

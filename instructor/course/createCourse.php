@@ -13,7 +13,6 @@
  $time="";
  $image="";
  $duration="";
- $steps="";
  $status="";
 
 
@@ -26,7 +25,6 @@
     $description=mysqli_real_escape_string($conn,$_POST['description']);
     $duration=mysqli_real_escape_string($conn,$_POST['duration']);
     $status=mysqli_real_escape_string($conn,$_POST['status']);
-    $steps=mysqli_real_escape_string($conn,$_POST['steps']);
     $image=$_FILES['image']['name'];
     $image_size=$_FILES['image']['size'];
     $image_tmp_name=$_FILES['image']['tmp_name'];
@@ -34,10 +32,8 @@
     
 
 
-    $sql1=" INSERT INTO course(title,Topic,image,user_id,description,duration,status,steps) Values ('$title',' $Topic','$image','$user_ID','$description','$duration','$status','$steps')";
+    $sql1=" INSERT INTO course(title,Topic,image,user_id,description,duration,status) Values ('$title',' $Topic','$image','$user_ID','$description','$duration','$status')";
     
-    
-   
     $result1=mysqli_query($conn,$sql1);
     if($result1){
         move_uploaded_file($image_tmp_name, $image_folder);
@@ -96,11 +92,9 @@
              $title=$record3['title'];
              $date=$record3['date'];
              $image=$record3['image'];
-             $steps=$record3['steps'];
              $status=$record3['status'];
              $duration=$record3['duration'];
              $description=$record3['description'];
-             $steps=$record3['steps'];
          }
         
      }else{
@@ -147,7 +141,6 @@
 
     $title=$_POST['title'];
     $date=$_POST['date'];
-    $steps=$_POST['steps'];
     $image=$_POST['oldimage1'];
     $description=$_POST['description'];
     $duration=$_POST['duration'];

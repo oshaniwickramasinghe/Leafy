@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+    box-sizing:inherit;
+    font-family:'Lato', sans-serif;
+}
+
+body{
+  position: relative;
+  margin: 0%;
+  height: 100%;
+  width: 100;
+}
+
+.container{
+  height: 80%;
+  width: 100%;
+  display: flex;
+  padding-top: 5px;
+}
+
+
+.container .left_menu_bar{
+  flex:1.5;
+  background: #8f918b29;
+  display: block;
+  border-radius:10px;
+  height: auto;
+  box-shadow: var(--box-shadow);
+  margin-top: 1%;
+  margin-left: 1%;
+  
+  
+}
+
+.container .left_menu_bar ul li a{
+  text-decoration: none;
+  padding: 11px;
+  margin: 4px;
+  display: block;
+  color: #43562B;
+  background:#fff;
+  border-radius:4px;
+  font-size: 14px;
+
+  
+}
+
+.container .left_menu_bar ul li a:hover{
+  background: rgba(217, 217, 217);
+ 
+}
+
+.container .left_menu_bar h3{
+  color:rgba(67, 86, 43);
+  margin-left: 0px;
+  padding-left:0px;
+ 
+}
+
+
+
+.container .left_menu_bar #menu{
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.left_menu_bar i{
+  display: inline-block;
+  margin-right: 1em;
+  
+}
+
+.left_menu_bar #menu .image{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+
+}
+
+.left_menu_bar #menu i{
+  display: inline-block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+
+.container .left_menu_bar ul{
+  list-style: none;
+  margin: 10px;
+  padding: 0px;
+
+}
+
+
+.container .create_form_wrapper{
+    width: 100%;
+    height: auto;
+    background-color: rgba(239, 239, 239, 0.7);
+    flex: 8.5;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    padding-left: 20px;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 5px;
+    margin-top: 1%;
+    
+  
+  
+  }
+  
+  .container .create_form_wrapper .view-wrap {
+    height: auto;
+    margin:20px;
+    width: 95%;
+  
+  }
+  
+  .container .create_form_wrapper .view-wrap .view{
+    display:block;
+    height: auto;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    background-color: #fff;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .create_form_wrapper {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+      margin: 20px 0;
+    }
+  }
+  
+  h1{
+      color:#5A713D;
+      text-align: center;
+      margin: 20px 0px;
+  }
+  
+.courses a{
+    text-decoration: none;
+}
+
+
+
+.courses{
+    align-items: center;
+    justify-content: center;
+}
+
+
+.course img{
+    width:300px;
+    height:220px;
+}
+
+
+.course{
+    display: flex;
+    height: 220px;
+    box-shadow: 0 0 5px grey;
+    background-color: white;
+    width:100% ;
+    margin-bottom: 20px;
+
+}
+
+.course_content{
+    padding: 10px 30px 30px 10px;
+    width: 100%;
+}
+
+.course_content h3{
+    text-align: center;
+    color: #43562B;
+    margin-top: 10px;
+} 
+
+.question_status{
+    display: flex;
+    padding: 25px 25px 25px 25px;
+}
+
+#counts{
+    margin:0px 20px 10px 25px;
+    background-color:rgba(167, 171, 172, 0.302) ;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+#counts p{
+    padding: 10px 0px;
+    text-align: center;
+    color: #484847;
+}
+
+#counts .text{
+    font-size: 14px;
+    text-align: center;
+}

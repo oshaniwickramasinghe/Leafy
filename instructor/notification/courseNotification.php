@@ -6,7 +6,7 @@ if(isset($_GET['click']))
 {
     $course_ID = $_GET['click'];
 
-    $data2= "SELECT course_id,title,image,topic,is_read ,verified,date,description
+    $data2= "SELECT course_id,title,image,topic,is_read ,verified,date,description,comment
                     FROM course
                     WHERE course_id=$course_ID";
 
@@ -21,7 +21,7 @@ if(isset($_GET['click']))
             $title=$record['title'];
             $date=$record['date'];
             $course_id=$record['course_id'];
-            $description=$record['description'];
+            $comment=$record['comment'];
             $image=$record['image'];
             $verified=$record['verified'];
 
@@ -90,9 +90,9 @@ if(isset($_GET['click']))
                                         <td><?php if(isset ($title)){ echo $title; }?></td>
                                     </tr>
                                     <tr>
-                                        <th>Description</th>
+                                        <th>Reason</th>
                                         <td>:</td>
-                                        <td><?php if(isset ($description)){ echo $description;} ?></td>
+                                        <td><?php if(isset ($comment)){ echo $comment;} ?></td>
                                     </tr>
                                     <tr>
                                         <th>Course link </th>

@@ -49,7 +49,7 @@ if(isset($_GET['view']))
         }
 
 
-        $sql3            = "SELECT * FROM agriculturalist_course where course_id=$course_ID ";
+        $sql3            = "SELECT * FROM course_followers where course_id=$course_ID ";
         $record_3        = mysqli_query($conn,$sql3);
         $count_followers = mysqli_num_rows($record_3);
 
