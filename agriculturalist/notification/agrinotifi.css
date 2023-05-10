@@ -10,7 +10,7 @@
         background-color: #d1d6cf81;
         margin-left: 100px;
         margin-right: 100px;
-        height: 150px;
+        height: 230px;
         width: auto;
         
       }
@@ -40,3 +40,41 @@
       .reject {
         background-color: #e8483c;
       }
+
+      #google_translate_element{
+        width:88%;
+        margin-left: 10%;
+      color: #034F06;
+        height:2%;
+        font-family: Lato;
+        font-size:18px;
+    }
+    
+    .translate{
+        margin-top: -10%;
+        height:5%
+        
+    }
+    
+    body > .skiptranslate {
+        display: none;
+    
+    }
+    
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+    body {
+        top: 0px !important;
+    }
+    #google_translate_element select{
+        background-color:transparent;
+        color:white;
+        border: none;
+        border-radius:3px;
+        padding:6px 8px;
+        font-family: Lato;
+        font-size:18px;
+      }
+    
+    

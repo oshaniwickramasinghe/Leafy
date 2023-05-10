@@ -1,7 +1,7 @@
 <?php 
 
 include '../public/Auth.php';
-include '../public/includes/header.view.php';
+include 'include/header.view.php';
 // include 'database.php';
 ?>
 <!DOCTYPE html>
@@ -45,6 +45,6 @@ include '../public/includes/header.view.php';
       </div>
 </body>
 <footer>
-<img src = "../Customer/images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<img src = "include/footer.php"  >
 </footer>
 </html>

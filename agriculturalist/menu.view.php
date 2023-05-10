@@ -32,9 +32,9 @@
        <input class="input-field" type="button" value= "Notifications"><br>
        <div class = "icon_3">
             <i class="fa fa-line-chart" aria-hidden="true"></i>
-       </div>
+       <!-- </div>
             <input class="input-field" type="button" value= "Reports">
-       <div class = "icon_4">
+       <div class = "icon_4"> -->
         <i class="fa fa-question-circle" ></i>
         </div>
          <input class="input-field" type="button" value= "Forum"><br>

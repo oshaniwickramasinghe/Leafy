@@ -60,6 +60,7 @@ include 'agri_menu.view.php';
                <option value="Big onion">Big onion</option>
                <option value="Bitter gourd">Bitter gourd</option>
                <option value="Bell Peppers">Bell Peppers</option>
+               <option value="Brinjal">Brinjal</option>
                <option value="Cabbage">Cabbage</option>
                <option value="Carrots">Carrots</option>
                <option value="Calabrese">Calabrese</option>
