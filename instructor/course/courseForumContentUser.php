@@ -1,7 +1,7 @@
 <?php
 include "../includes/header.php";
-$user_ID   = $_SESSION['USER_DATA']['user_id'];
-$user_role = $_SESSION['USER_DATA']['role'];
+$user_ID   = 1;
+$user_role = "Customer";
 
 $update="";
 
@@ -67,6 +67,32 @@ if(isset($_GET['view']))
 
 
     }
+
+    
+    if(isset($_POST['save']))
+    {
+     
+        $question      = mysqli_real_escape_string($conn,$_POST['input_question']);
+        
+        $sql2       = "INSERT INTO course_forum
+                         (user_id,course_id,content)
+                         values('$user_ID','$course_id','$question')";
+
+        $result2      = mysqli_query($conn,$sql2);
+
+
+        if($result2){
+            exit('send your question');
+
+        }else{
+            echo"Error: " . $result2 . "<br>" . mysqli_error($conn);
+        }
+
+
+
+    }
+
+
        
     
     
@@ -94,6 +120,12 @@ if(isset($_GET['view']))
             </div> 
             <div class="view-wrap"> 
                 <div class="view">
+                <div class="create-btn">
+                    <a href="#" type="button" id="create" onclick="document.getElementById('id01').style.display='block'" >
+                    <i class="fa-solid fa-square-plus" style="font-size:14px;color:#fff;"></i>&nbsp;
+                        Add question
+                    </a>
+                </div>
                     <div class="questions">
                     <?php
                             if(mysqli_num_rows($result1)>0)
@@ -148,12 +180,13 @@ if(isset($_GET['view']))
                                     ?>
                                 </div>
                             </div>
+                            <!--reply div-->
                             <div class="input_content" id="input_content-<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>">
                                 <span onclick="document.getElementById('input_content-<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>').style.display='none'" class="close" title="Close Modal">&times;</span>
                                 <form action="" method="post" enctype="multipart/form-data" id="">
                                 <div class="answer_div">
-                                        <input type="hidden" name="id" id="id" value="<?=$record1['question_id']?>">
-                                        <textarea for="input_answer" id="input_answer" placeholder="reply..." name="input_answer"  value=""  required><?=  $record1['reply']; ?></textarea><br>   
+                                    <input type="hidden" name="id" id="id" value="<?=$record1['question_id']?>">
+                                    <textarea for="input_answer" id="input_answer" placeholder="reply..." name="input_answer"  value=""  required></textarea><br>   
                                 </div>
                             
                                 <div class="submit-btn">
@@ -167,11 +200,24 @@ if(isset($_GET['view']))
                                 </form>
                             </div>    
 
-                        </div>       
-                    </div>
-
+                        </div>
                         <?php }
                       }?>
+                    </div>
+                    <!--create modal-->
+                    <div id="id01" class="modal" style="display: none;">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <form class="modal-content" action="" method="post" enctype="multipart/form-data">
+                                <h2>Add Question</h2>
+                                <textarea for="input_question" id="input_question" placeholder="Add question..."  name="input_question"></textarea><br> 
+                                <div class="clearfix">
+                                    <button  class="savebtn" name="save">Save</button>
+                                    <button type="button" class="cancelbtn" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
+                                </div>
+                        </form>
+                    </div>
+                        
+                </div>
                     </div>
   
                 </div>
