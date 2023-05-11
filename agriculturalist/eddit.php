@@ -34,7 +34,7 @@ $postid=$_REQUEST["postid"];
 <br><br><br><br><br>
 
 <?php 
-include 'agri_menu.view.php';
+include 'createpost_menu.php';
 
 
 ?>
