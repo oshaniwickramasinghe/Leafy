@@ -359,11 +359,29 @@ include '../includes/header.php';
            <!-- </div> -->
             
         </div>
-        </div>
+
+                <div class="container_right" id="view_more">
+                    <div align="center">
+                        <div class="chartBox">
+                        <?php include '../../admin/charts/item_analysis.php';?>
+                        <h2>Number of items sold in last 12 months</h2>
+                        </div>
+                    </div>                    
+                </div>
+<br><br><br><br><br>
+                <div class="container_right" id="view_more">
+                    <div align="center">
+                        <div class="chartBox">
+                        <?php include '../../admin/charts/order_income_chart.php';?>
+                        <h2>Total income of each month in last 12 months</h2>
+                        </div>
+                    </div>                    
+                </div>
 
     <!-- </div> -->
 </div> 
 </div>
+</div>  
 </div>    
 
         <script src="notification.js"></script>

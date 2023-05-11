@@ -116,7 +116,16 @@
                                 <th>Agriculturalist ID</th>
                                 <td>:<?=$agriculturalist_id ?></td>
                             </tr>
-                        
+
+                            <tr>
+                                <th>Agriculturalist name</th>
+                                <td>:<?=$fname?>  <?=$lname?></td>
+                            </tr>
+                            <tr>
+                                <th>Agriculturalist contact number</th>
+                                <td>:<?=$contact?></td>
+                            </tr>
+
                             <tr>
                                 <th>Payment method </th>
                                 <td>:<?=$payment_method ?></td>
@@ -198,6 +207,14 @@
                             <tr>
                                 <th>Agriculturalist ID</th>
                                 <td>:<?=$VWagriculturalist_id ?></td>
+                            </tr>
+                            <tr>
+                                <th>Agriculturalist name</th>
+                                <td>:<?=$VWfname?>  <?=$VWlname?></td>
+                            </tr>
+                            <tr>
+                                <th>Agriculturalist contact number</th>
+                                <td>:<?=$VWcontact?></td>
                             </tr>
                         
                             <tr>

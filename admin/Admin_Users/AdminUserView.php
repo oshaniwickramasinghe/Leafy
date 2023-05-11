@@ -12,7 +12,7 @@ include "../../public/includes/header.view.php";
     {
 
         $user_id = $_GET['deleteUID'];
-        $sql2 = "UPDATE user SET is_active=2 WHERE user_id=$user_id";
+        $sql2 = "UPDATE user SET approved=2 WHERE user_id=$user_id";
         $result2=mysqli_query($conn,$sql2);
 
         echo "<script>window.location.href = '../../admin/Admin_Notifications/AdminNotification.php';</script>";
@@ -23,7 +23,7 @@ include "../../public/includes/header.view.php";
     {
 
         $user_id = $_GET['acceptUID'];
-        $sql2 = "UPDATE user SET is_active=1 WHERE user_id=$user_id";
+        $sql2 = "UPDATE user SET approved=1 WHERE user_id=$user_id";
         $result2=mysqli_query($conn,$sql2);
 
         echo "<script>window.location.href = '../../admin/Admin_Notifications/AdminNotification.php';</script>";

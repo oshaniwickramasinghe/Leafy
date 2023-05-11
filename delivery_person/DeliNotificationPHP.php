@@ -69,12 +69,9 @@ $uid = $_SESSION['USER_DATA']['user_id'];
 
 
 //not delivered orders
-//$sqlorder0="SELECT * FROM deals,accepted_orders WHERE deals.order_status=0 AND accepted_orders.sent_deli_id=$deli_id";
-//$sqlorder0="SELECT * FROM accepted_orders WHERE status=0 AND sent_deli_id=3 AND order_viewed=0";
 $sqlorder0="SELECT *
             FROM accepted_orders AS ao
-            JOIN checkout AS co ON ao.order_id = co.orderid
-            JOIN deals AS d ON co.orderid = d.order_id
+            INNER JOIN checkout AS co ON ao.order_id = co.orderid
             WHERE ao.sent_deli_id = $uid
             AND ao.order_viewed = 0
             AND co.delivery_status = 1";
@@ -85,8 +82,8 @@ $resultorder0= mysqli_query($conn,$sqlorder0);
     if(isset($_GET['orderid']))
     {
         $orderid = $_GET['orderid'];
-        //$sql1 = "SELECT deals.payment_method, checkout.district  FROM deals JOIN checkout ON deals.order_id=checkout.orderId WHERE deals.order_id=$orderid";
-        $sql1 = "SELECT * FROM deals JOIN checkout ON deals.order_id=checkout.orderId WHERE deals.order_id=$orderid";
+
+        $sql1 = "SELECT * FROM deals JOIN checkout ON deals.order_id=checkout.orderId JOIN user on checkout.agriculturalist_id=user.user_id  WHERE deals.order_id=$orderid";
         $result1=mysqli_query($conn,$sql1);
         
         if($result1)
@@ -98,6 +95,9 @@ $resultorder0= mysqli_query($conn,$sqlorder0);
                 $customer_id=$recordorder0['customer_id'];
                 $payment_method=$recordorder0['payment_method'];
                 $agriculturalist_id=$recordorder0['agriculturalist_id'];
+                $fname=$recordorder0['fname'];
+                $lname=$recordorder0['lname'];
+                // $contact=$recordorder0['contactno'];
                 $location1=$recordorder0['address1'];
                 $location2=$recordorder0['address2'];
                 $location3=$recordorder0['district'];
@@ -112,15 +112,10 @@ $resultorder0= mysqli_query($conn,$sqlorder0);
 
 $sqlorder1="SELECT *
             FROM accepted_orders AS ao
-            JOIN checkout AS co ON ao.order_id = co.orderid";
-
-// $sqlorder1="SELECT *
-// FROM accepted_orders AS ao
-// JOIN checkout AS co ON ao.order_id = co.orderid
-// JOIN deals AS d ON co.orderid = d.order_id
-// WHERE ao.sent_deli_id = $uid
-// AND ao.order_viewed = 1
-// AND co.delivery_status = 1";
+            INNER JOIN checkout AS co ON ao.order_id = co.orderid
+            WHERE ao.sent_deli_id = $uid
+            AND ao.order_viewed = 1
+            AND co.delivery_status = 1";
 
 // make query & get resultcustomer
 $resultorder1= mysqli_query($conn,$sqlorder1);
@@ -128,7 +123,8 @@ $resultorder1= mysqli_query($conn,$sqlorder1);
     if(isset($_GET['viewedorder']))
     {
         $VWorderid = $_GET['viewedorder'];
-        $sql2 = "SELECT * FROM deals JOIN checkout ON deals.order_id=checkout.orderId WHERE deals.order_id=$VWorderid ";
+
+        $sql2 = "SELECT * FROM deals JOIN checkout ON deals.order_id=checkout.orderId JOIN user on checkout.agriculturalist_id=user.user_id  WHERE deals.order_id=$VWorderid";
         $result2=mysqli_query($conn,$sql2);
 
         $sql3 = "SELECT status FROM accepted_orders WHERE order_id=$VWorderid and sent_deli_id=$uid";
@@ -143,6 +139,9 @@ $resultorder1= mysqli_query($conn,$sqlorder1);
                 $VWcustomer_id=$recordorder1['customer_id'];
                 $VWpayment_method=$recordorder1['payment_method'];
                 $VWagriculturalist_id=$recordorder1['agriculturalist_id'];
+                $VWfname=$recordorder1['fname'];
+                $VWlname=$recordorder1['lname'];
+                // $VWcontact=$recordorder0['contactno'];
                 $VWlocation1=$recordorder1['address1'];
                 $VWlocation2=$recordorder1['address2'];
                 $VWlocation3=$recordorder1['district'];
@@ -168,7 +167,6 @@ $resultorder1= mysqli_query($conn,$sqlorder1);
 
 
 <?php
-//php related view history
 
 
 
