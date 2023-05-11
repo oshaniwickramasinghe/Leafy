@@ -61,8 +61,9 @@ include 'include/header.view.php';
 </head>
 
 <body>
-    
-<?php include "createpost_menu.php" ?>
+<div style="padding-top: 60px;">
+    <?php include "createpost_menu.php" ?>
+    </div>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
