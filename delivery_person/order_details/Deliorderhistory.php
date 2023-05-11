@@ -1,8 +1,8 @@
 <?php
 
-include "../Customer/Auth.php";
+include "../../Customer/Auth.php";
 include 'orderConfirmdb.php';
-include 'includes/header.php';
+include '../includes/header.php';
 
 
 
@@ -22,13 +22,13 @@ if(isset($_POST['complete'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Customer/CSS/style.css">
-    <link rel="stylesheet" href="../Customer/CSS/delivery.css">
+    <link rel="stylesheet" href="../../Customer/CSS/style.css">
+    <link rel="stylesheet" href="../../Customer/CSS/delivery.css">
     <title>Order Complete</title>
 </head>
 <body>
 
-<?php include "../public/includes/deli_menu.view.php"?>
+<?php include "../../public/includes/deli_menu.view.php"?>
 
 <div class="complete_boby">
  <div class="complete">
@@ -52,8 +52,8 @@ if(isset($_POST['complete'])){
     <?php  
 
     
-    if(mysqli_num_rows($result_1 )>0){
-        while($row  = mysqli_fetch_assoc($result_1  )){
+    if(mysqli_num_rows($result_3 )>0){
+        while($row  = mysqli_fetch_assoc($result_3  )){
            
             ?>
       

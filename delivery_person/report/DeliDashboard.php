@@ -1,9 +1,9 @@
 <?php 
 
-require "../database/database.php";
-require "../public/Auth.php";
+require "../../database/database.php";
+require "../../public/Auth.php";
 // include 'includes/header.php';
-include 'includes/header.php';
+include '../includes/header.php';
 
 ?>
 
@@ -27,8 +27,8 @@ include 'includes/header.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="notification.css">
-    <link rel="stylesheet" href="../public/CSS/style.css">
+    <link rel="stylesheet" href="../CSS/notification.css">
+    <link rel="stylesheet" href="../../public/CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
           
     <title>Order Report page</title>
@@ -56,7 +56,7 @@ include 'includes/header.php';
 </head>
 
 <body>
-    <?php include "../public/includes/deli_menu.view.php"?>
+    <?php include "../../public/includes/deli_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
@@ -71,7 +71,7 @@ include 'includes/header.php';
                     <div align="center">
                         <h2>Assigned order and accepted order comparison</h2>
                         <div class="chartBox">
-                        <?php include 'charts/multiple_bar_order_report.php';?>
+                        <?php include '../charts/multiple_bar_order_report.php';?>
                         
                         </div>
                     </div>                    
