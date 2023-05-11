@@ -51,7 +51,7 @@
     const itemdata = {
       labels: item_name,
       datasets: [{
-        label: 'blogs by item_name',
+        label: 'no of items sold',
         data: item_count,
         borderWidth: 1
       }]

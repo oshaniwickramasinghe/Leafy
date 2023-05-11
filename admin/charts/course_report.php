@@ -31,36 +31,16 @@
                     array_push($month, $element['month']);
                 }
 
-                // if($result->rowCount()>0){
-                    
-                //      $colour = array();
-                    
-                //     while($row=$result->fetch()){
-                //         $colour[]=$row["count"];
-                        
-                //         echo $row["count"];
-                //     }
-                //     unset($result);
-                // }
-                // else{
-                //     echo "no records found";
-                // }
             }catch(PDOException $e){
                 die ("Error: unable to excecute $sql.".$e->getMessage());
             }
             //unset($pdo);
 
-            
         ?>
 
-
-    
-    <!-- <div class="chartCard">
-      <div class="chartBox"> -->
         <canvas id="coursechart"></canvas>
         <input oninput="updatecourseChart(this)" type="range" id="coursepoints" value="12" min="1" max="12">
-      <!-- </div>
-    </div> -->
+      
     <script>
     // setup 
 
@@ -72,7 +52,7 @@
     const coursedata = {
       labels: month,
       datasets: [{
-        label: 'courses by month',
+        label: 'no of courses created',
         data: count,
         borderWidth: 1
       }]

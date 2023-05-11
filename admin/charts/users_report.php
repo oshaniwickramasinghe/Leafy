@@ -27,20 +27,6 @@
                     array_push($role, $uelement['role']);
                 }
 
-            //     // if($result->rowCount()>0){
-                    
-            //     //      $colour = array();
-                    
-            //     //     while($row=$result->fetch()){
-            //     //         $colour[]=$row["count"];
-                        
-            //     //         echo $row["count"];
-            //     //     }
-            //     //     unset($result);
-            //     // }
-            //     // else{
-            //     //     echo "no records found";
-            //     // }
             }catch(PDOException $e){
                 die ("Error: unable to excecute $sql.".$e->getMessage());
             }
@@ -64,7 +50,7 @@
     const userdata = {
       labels: role,
       datasets: [{
-        label: 'users by category',
+        label: 'no of users registered',
         data: count,
         borderWidth: 1
       }]
