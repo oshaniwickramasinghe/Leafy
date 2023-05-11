@@ -50,7 +50,7 @@
     const orderincomedata = {
       labels: month_number,
       datasets: [{
-        label: 'blogs by month_number',
+        label: 'income of the month',
         data: revenue,
         borderWidth: 1
       }]

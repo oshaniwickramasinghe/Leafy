@@ -31,36 +31,18 @@
                     array_push($month, $element['month']);
                 }
 
-                // if($result->rowCount()>0){
-                    
-                //      $colour = array();
-                    
-                //     while($row=$result->fetch()){
-                //         $colour[]=$row["count"];
-                        
-                //         echo $row["count"];
-                //     }
-                //     unset($result);
-                // }
-                // else{
-                //     echo "no records found";
-                // }
             }catch(PDOException $e){
                 die ("Error: unable to excecute $sql.".$e->getMessage());
             }
-            //unset($pdo);
 
             
         ?>
 
 
     
-    <!-- <div class="chartCard">
-      <div class="chartBox"> -->
         <canvas id="blogchart"></canvas>
         <input oninput="updateblogChart(this)" type="range" id="blogpoints" value="12" min="1" max="12">
-      <!-- </div>
-    </div> -->
+      
     <script>
     // setup 
 
@@ -72,7 +54,7 @@
     const blogdata = {
       labels: month,
       datasets: [{
-        label: 'blogs by month',
+        label: 'no of blogs created',
         data: count,
         borderWidth: 1
       }]

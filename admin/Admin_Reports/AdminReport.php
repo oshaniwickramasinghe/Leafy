@@ -54,7 +54,6 @@ include '../includes/header.php';
             /* width: 200px;  */
         }
 
-
         .main_wrapper .content .box .container_left .main_card .card_left table {
             table-layout: fixed; 
             width: 100%;
@@ -70,7 +69,6 @@ include '../includes/header.php';
 <div class = "loggedhome_body">
 <div class = "home_body">
     <div class="main_wrapper"> 
-    <!-- <div class="report"> -->
 
         <div class="content">
 
@@ -120,12 +118,8 @@ include '../includes/header.php';
                             </div>
                         </div>
                     </div>
-                <!-- </div> -->
-            <!-- </div> -->
 
             <!-- delivered orders-->
-            <!-- <div class="box"> -->
-            <!-- <div class="report"> -->
                 <div class="container_left">
                     <div class="main_card">
                         <p>Delivered orders</p>
@@ -138,7 +132,6 @@ include '../includes/header.php';
                                                 <col width="50px">
                                                 <col width="50px">
                                                 <col width="50px">
-                                                <!-- <col width="50px"> -->
                                                 <tr>
                                                 <td>OrderID</td>
                                                 <td>CustomerID</td>
@@ -155,7 +148,6 @@ include '../includes/header.php';
                                                 <col width="50px">
                                                 <col width="50px">
                                                 <col width="50px">
-                                                <!-- <col width="50px"> -->
                                                 <tr>
                                                 <td><?= $record2['order_id']?> </td>
                                                 <td><?= $record2['customer_id']?></td>
@@ -169,7 +161,6 @@ include '../includes/header.php';
                             </div>
                         </div>
                     </div>
-                <!-- </div> -->
             </div>
 
             <!-- search Users by role-->
@@ -189,7 +180,6 @@ include '../includes/header.php';
                     <div class="main_card">
                         <p>Users</p>
                         <div class="card_left">
-                            <!-- <div class="report"> -->
                                 <ul>
                                     <li>
                                         <a class="report">
@@ -222,11 +212,11 @@ include '../includes/header.php';
                                     </li>
                                 <?php }?>
                                 </ul>
-                            <!-- </div> -->
                         </div>
                     </div>
                 </div> 
                 <div class="center">
+                    <h2>Total number of Users registered</h2>
                     <div class="chartCard">
                         <div class="chartBox">
                         <?php include '../../admin/charts/users_report.php';?>
@@ -249,7 +239,6 @@ include '../includes/header.php';
                     <div class="main_card">
                         <p>Blogs</p>
                         <div class="card_left">
-                            <!-- <div class="report"> -->
                                 <ul>
                                     <li>
                                         <a class="report">
@@ -282,12 +271,12 @@ include '../includes/header.php';
                                     </li>
                                 <?php }?>
                                 </ul>
-                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
 
                 <div class="center">
+                <h2>Blogs created within last 12 months</h2>
                     <div class="chartCard">
                         <div class="chartBox">
                             <?php include '../../admin/charts/blog_report.php';?>
@@ -313,7 +302,6 @@ include '../includes/header.php';
                     <div class="main_card">
                     <p>Courses</p>
                     <div class="card_left">
-                    <!-- <div class="report"> -->
                         <ul>
 
                             <li><a class="report">
@@ -340,40 +328,37 @@ include '../includes/header.php';
                             </a></li>
                             <?php }?>
                         </ul>
-                    <!-- </div> -->
                     </div>
                     </div>
                 </div>
-                <!-- <div class="container_right" id="view_more"> -->
                     <div class="center">
-                    <!-- <div align="center"> -->
+                    <h2>Courses created within last 12 months</h2>
                     <div class="chartCard">
                         <div class="chartBox">
                         <?php include '../../admin/charts/course_report.php';?>
                         </div>
                         </div>
-                    <!-- </div> -->
                     
                 </div>
-
-           <!-- </div> -->
             
         </div>
 
                 <div class="container_right" id="view_more">
                     <div align="center">
+                    <h2>Number of items sold in last 12 months</h2>
                         <div class="chartBox">
                         <?php include '../../admin/charts/item_analysis.php';?>
-                        <h2>Number of items sold in last 12 months</h2>
+                        
                         </div>
                     </div>                    
                 </div>
 <br><br><br><br><br>
                 <div class="container_right" id="view_more">
                     <div align="center">
+                    <h2 style="padding-left: -100px;">Total income of each month in last 12 months</h2>
+
                         <div class="chartBox">
                         <?php include '../../admin/charts/order_income_chart.php';?>
-                        <h2>Total income of each month in last 12 months</h2>
                         </div>
                     </div>                    
                 </div>

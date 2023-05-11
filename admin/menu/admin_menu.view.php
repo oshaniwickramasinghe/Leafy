@@ -1,11 +1,19 @@
 <?php
 
 //$id  = $_SESSION['USER_DATA']['user_id'];
+$sql1="SELECT COUNT(*) AS blogcount FROM blog WHERE Verified = 0";
+$sql2 ="SELECT COUNT(*) AS coursecount FROM course WHERE verified = 0";
+$sql3 ="SELECT COUNT(*) AS usercount FROM user WHERE approved = 0";
 
-$sql  = "SELECT COUNT(*) FROM accepted_orders WHERE order_viewed = 0 ";
-$result = mysqli_query($conn,$sql);
-$row  = mysqli_fetch_array($result);
+$result1 = mysqli_query($conn,$sql1);
+$result2 = mysqli_query($conn,$sql2);
+$result3 = mysqli_query($conn,$sql3);
 
+$row1  = mysqli_fetch_array($result1);
+$row2  = mysqli_fetch_array($result2);
+$row3  = mysqli_fetch_array($result3);
+
+$row= $row1[0]+$row2[0]+$row3[0];
 ?>
 
 
@@ -33,6 +41,7 @@ $row  = mysqli_fetch_array($result);
                 </div>
 
                 <ul>
+                <? echo $row;?>
                     <!-- <li><a href="../home/AdminHome.php">            <i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>     Home</a></li>
                     <li><a href="../Admin_Reports/AdminReport.php"> <i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>       Reports</a></li>
                     <li><a href="../Admin_Notifications/AdminNotification.php"><i class="fa-brands fa-blogger"  style="font-size:16px;color:black;"></i>Notifications</a></li>
@@ -41,11 +50,10 @@ $row  = mysqli_fetch_array($result);
 
                     <li><a href="../../admin/home/AdminHome.php">            <i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>     Home</a></li>
                     <li><a href="../../admin/Admin_Reports/AdminReport.php"> <i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>       Reports</a></li>
-                    <li><a href="../../admin/Admin_Notifications/AdminNotification.php"><i class="fa-brands fa-blogger"  style="font-size:16px;color:black;"></i>Notifications</a></li>
-
-                    <li><a href="../../admin/Admin_Notifications/AdminNotification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>test <div class  = "count"><?php echo $row[0]?></div></a></li>
+                    <!-- <li><a href="../../admin/Admin_Notifications/AdminNotification.php"><i class="fa-brands fa-blogger"  style="font-size:16px;color:black;"></i>Notifications</a></li> -->
 
                     <li><a href="../../admin/Admin_Forum/AdminForum.php">    <i class="fa-brands fa-readme" style="font-size:16px;color:black;"></i>         Forum</a></li>
+                    <li><a href="../../admin/Admin_Notifications/AdminNotification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count"><?php echo $row?></div></a></li>
                     <li><a href="../../item/view/itemview.php">     <i class="fa-brands fa-readme" style="font-size:16px;color:black;"></i>         Item</a></li>
                 </ul>
 
