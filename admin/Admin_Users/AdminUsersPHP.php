@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(0);
+// error_reporting(0);
 
 if(isset($_GET['UID']) )
 {
@@ -82,12 +82,15 @@ if(isset($_GET['UID']) )
                 $occupation=$recordinsti['occupation'];
                 $education_level=$recordinsti['education_level'];
                 $specialized_area=$recordinsti['specialized_area'];
-                $contact_number=$recordinsti['contact_number'];
+                // $contact_number=$recordinsti['contact_number'];
+
+                $img=$recordinsti['image'];
 
             }
 
             
         }
+
     }
 
     //Delivery agent

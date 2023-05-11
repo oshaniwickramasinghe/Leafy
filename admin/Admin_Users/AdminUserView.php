@@ -139,19 +139,21 @@ include "../../public/includes/header.view.php";
                                                 ?>           
 
                                                 <?php 
-                                                    if($role=='instructor')
+                                                    if($role=='Instructor')
                                                     {
                                                         ?>
+                                                        
                                                         <span>Occupation :</span>
                                                         <input type="text" name="occupation" value="<?=$occupation ?>" class="box"  readonly><br>
                                                         <span>Education Level:</span><br>
                                                         <input type="text" name="education" value="<?=$education_level ?>" class="box"  readonly><br>
                                                         <span>Specialized area :</span>
                                                         <input type="text" name="Specialization" value="<?=$specialized_area ?>" class="box"  readonly><br>
-                                                        <span>Contact Number :</span>
-                                                        <input type="text" name="contact_no" value="<?=$contact_number ?>" class="box"  readonly><br>
+                                                        <span>Image :</span>
                                                         
-                                                        <?php   
+                                                        <table><tr><td> <img class="item" src="../../Customer/images/<?=$img?>" alt="Instructor Image" width="500" height="500"></td>	</tr></table>		
+		
+                                                        <?php
                                                     }
                                                 ?>
 
@@ -170,8 +172,8 @@ include "../../public/includes/header.view.php";
                                             </form>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div > 
+                            </div >
                         </div>
                     </div>
                 </div>
