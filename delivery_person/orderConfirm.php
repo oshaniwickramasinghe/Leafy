@@ -8,8 +8,8 @@ include 'includes/header.php';
 
 if(isset($_POST['complete'])){
     $id = $_POST['complete'];
-    $sql  = "UPDATE checkout SET delivery_status = 2 WHERE delivery_status = 1 AND orderId = $id";
-    $r = mysqli_query($conn, $sql);
+    $sql1  = "UPDATE checkout SET delivery_status = 2 WHERE delivery_status = 1 AND orderId = $id";
+    $r = mysqli_query($conn, $sql1);
     $id = 0;
 }
 
@@ -48,8 +48,8 @@ if(isset($_POST['complete'])){
     </tr>
     <?php  
     
-    if(mysqli_num_rows($result)>0){
-        while($row  = mysqli_fetch_assoc($result )){
+    if(mysqli_num_rows($result_2)>0){
+        while($row  = mysqli_fetch_assoc($result_2)){
            
             ?>
       
@@ -72,7 +72,6 @@ if(isset($_POST['complete'])){
 ?>
 </table>
 </form>
-
 
  <form method  = "post" action = "">
 

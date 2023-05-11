@@ -46,7 +46,6 @@ if(isset($_POST['complete'])){
    <th width="12%">Address</th>
    <th width="10%">Total</th>
    <th width="10%">Customer Contact</th>
-   <!-- <th width="5%">action</th> -->
 
     </tr>
 
@@ -67,11 +66,7 @@ if(isset($_POST['complete'])){
       <td><?=$row['address1']?> , <?=$row['address2']?> , <?=$row['district']?></td>
       <td>Rs.<?=$row['total_cost']?></td>
       <td>0<?=$row['contact_no']?></td>
-      <!-- <td>
-        <div class="completed">
-      <button name = "completed"><b>Completed</b></button>
-      </div>
-     </td> -->
+      
     </tr>
  <?php  }
 }
