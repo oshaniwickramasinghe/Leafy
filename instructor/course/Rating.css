@@ -1,0 +1,119 @@
+.rateReview {
+    height: 80%;
+    
+}
+
+.rateReview h1{
+    color: #43562B;
+    text-align: center;
+}
+    
+.rateReview form{
+    background-color:transparent;
+    width: 40%;
+    font-size: 18px;
+    font-family: Lato;
+    background-color: rgba(195, 193, 193, 0.375);
+    box-shadow: 2px 4px 4px 2px rgba(0,0,0,.2);
+    padding: 20px;
+    height: 70%;
+    margin-bottom: 30px;
+    
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerr{
+	width: 100%; 
+	
+}
+.centerr button{
+    font-size: 18px;
+    font-family: Lato;
+    color: white;
+	
+}
+
+.centerr label{
+    float: left;
+}
+
+.centerr  textarea{
+    
+        margin-left:5%;
+        margin-top: -10px;
+        width:90%;
+        height: 80%;
+        resize: none;
+    
+}
+
+#rating-value{	
+	width: 130px;
+	margin: 0 auto 0;
+	padding: 10px 5px;
+	text-align: center;
+	box-shadow: inset 0 0 2px 1px rgba(46,204,113,.2);
+}
+
+/*styling star rating*/
+.rating{
+	border: none;
+    
+	 float: left; 
+     margin: 10px 20px;
+    /* padding-bottom: 10px; */
+
+}
+
+.rating > input{
+	display: none;
+}
+
+.rating > label:before{
+	content: '\f005';
+	font-family: FontAwesome;
+	margin: 5px;
+	font-size: 2rem;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.rating > .half:before{
+	content: '\f089';
+	position: absolute;
+	cursor: pointer;
+}
+
+
+.rating > label{
+	color: #ddd;
+	float: right;
+	cursor: pointer;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover, 
+.rating:not(:checked) > label:hover ~ label{
+	color: #e9dd41;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label{
+	color: #e9dd41;
+}
+
+.rateReview button{
+    margin-left: 35%;
+    margin-top: 10px;
+    background-color:#43562B;
+    border-radius: 10px;
+    padding: 5px 40px;
+    
+}

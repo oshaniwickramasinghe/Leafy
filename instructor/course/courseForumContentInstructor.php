@@ -1,0 +1,189 @@
+<?php
+include "../includes/header.php";
+$user_ID   = $_SESSION['USER_DATA']['user_id'];
+$user_role = $_SESSION['USER_DATA']['role'];
+
+$update="";
+
+if(isset($_GET['view']))
+{
+    $course_id = $_GET['view'];
+
+    $sql1   = "SELECT course_forum.*, user.image, user.fname, user.lname
+                FROM course_forum
+                JOIN user ON course_forum.user_id = user.user_id  
+                WHERE course_forum.course_id = $course_id
+                AND  course_forum.approved = 1
+                ORDER BY question_id DESC";
+
+    $result1 = mysqli_query($conn,$sql1);
+
+    if(isset($_POST['submit']) && isset($_POST['id']))
+    {
+     
+        $question_id = $_POST['id'];
+
+        $answer      = mysqli_real_escape_string($conn,$_POST['input_answer']);
+        
+        $query       = "UPDATE  course_forum
+                        SET reply='$answer', answered=1
+                        WHERE question_id = $question_id ";
+
+        $stmt      = mysqli_query($conn,$query);
+
+
+         if($stmt){
+            $update = true;
+            exit('Your answer has been submitted! <br><b>Thank You</b>');
+
+        }else{
+            echo"Error: " . $stmt . "<br>" . mysqli_error($conn);
+        }
+
+
+    }
+
+    if(isset($_POST['update']) && isset($_POST['id']))
+    {
+     
+        $question_id = $_POST['id'];
+
+        $answer      = mysqli_real_escape_string($conn,$_POST['input_answer']);
+        
+        $query2       = "UPDATE  course_forum
+                        SET reply='$answer', answered=1
+                        WHERE question_id = $question_id ";
+
+        $stmt2      = mysqli_query($conn,$query2);
+
+
+         if($stmt2){
+            $update = true;
+            echo"<script>alert('Saved reply');</script>";
+
+        }else{
+            echo"Error: " . $stmt2 . "<br>" . mysqli_error($conn);
+        }
+
+
+    }
+       
+    
+    
+    
+}
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="courseForumContent.css">
+    <title>course Forum Content</title>
+</head>
+<body>
+    <div class="container">
+        <?php include "../includes/instructorMenu.php"; ?>
+        <div class="create_form_wrapper">
+            <div class="title">
+                <h1>Course Forum</h1>
+            </div> 
+            <div class="view-wrap"> 
+                <div class="view">
+                    <div class="questions">
+                    <?php
+                            if(mysqli_num_rows($result1)>0)
+                            {
+                                while($record1=mysqli_fetch_assoc($result1))
+                                {
+                    ?>
+                        <div class="question" id="question_<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>">
+                            <div class="fetching_content">
+                                <div class="user_image">
+                                    <?php
+                                        if($record1['image'] == ''){
+                                            echo '<img src="../images/profilepic_icon.svg"  height= "30px" border-radius:50%>';
+                                        }else{
+                                            echo '<img src="../images/'.$record1['image'].'"  height= "30px" border-radius:50%;>';
+                                        }
+                                        ?>
+                                </div>
+                                <div class="question_content">
+                                    <div class="question_details">
+                                        <h4><?php if(isset ($record1['content'])){ echo $record1['content'];} ?> ? </h4>
+                                        <p>Post By : <?php if(isset ($record1['fname'])){ echo $record1['fname'];} ?> <?php if(isset ($record1['lname'])){ echo $record1['lname'];} ?> on <?php if(isset ($record1['date'])){ echo $record1['date'];} ?>
+                                         at <?php if(isset ($record1['time'])){ echo $record1['time'];} ?></p>
+                                    </div>
+
+                                    <div class="answer">
+                                        <label for="answer">Answer:</label><br>
+                                        <input type="text" name="reply" id="reply" value="<?=$record1['reply']?>" placeholder="Not answered yet">
+                                    </div>
+                                </div>
+                                <div class="status_div">
+                                    <div class="status">
+                                        <?php
+                                            if( $record1['answered']==1){
+                                                ?>
+                                                    <p class="status_text">Answered <i class="fa-regular fa-thumbs-up" style="font-size:17px;color:#4589D8;"></i></p>
+                                                <?php }else{?>
+                                                    <p class="status_text">Not answered<i class="fa-regular fa-thumbs-down"  style="font-size:17px;color:#ee6c41;"></i></P>
+                                        <?php } ?>
+                                    </div>
+                                    <?php
+                                        if( $user_role =="Instructor"){
+                                            ?>
+                                                 <div class="reply-btn">
+                                                    <a href="#" type="button" id="reply_<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>" 
+                                                    onclick="document.getElementById('input_content-<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>').style.display='block'" >
+                                                    Reply
+                                                    <i class="fa-solid fa-share" style="font-size:15px;color:#000000;"></i></a>
+                                                </div>
+                                                
+                                            <?php }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="input_content" id="input_content-<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>">
+                                <span onclick="document.getElementById('input_content-<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <form action="" method="post" enctype="multipart/form-data" id="">
+                                <div class="answer_div">
+                                        <input type="hidden" name="id" id="id" value="<?=$record1['question_id']?>">
+                                        <textarea for="input_answer" id="input_answer" placeholder="reply..." name="input_answer"  value=""  required><?=  $record1['reply']; ?></textarea><br>   
+                                </div>
+                            
+                                <div class="submit-btn">
+                                    <?php if($update == true) {?>
+                                            <button type="submit" value="update" name="update">Update</button>
+                                        <?php } else {?>     
+                                            <button  type="submit"  value="submit" name="submit" >Submit</button>
+                                    <?php } ?> 
+                                </div>
+
+                                </form>
+                            </div>    
+
+                        </div>       
+                    </div>
+
+                        <?php }
+                      }?>
+                    </div>
+  
+                </div>
+           </div>
+        </div>
+    </div>
+<footer><?php include "../includes/footer.php"; ?></footer> 
+<script>
+
+
+
+
+</script>
+</body>
+</html>

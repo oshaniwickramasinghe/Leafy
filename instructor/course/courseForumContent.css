@@ -125,6 +125,7 @@ body{
     margin-right: 1%;
     margin-bottom: 1%;
     background-color: #fff;
+    padding: 3%;
   }
   
   @media screen and (max-width: 767px) {
@@ -149,13 +150,13 @@ body{
     padding: 10px;
     box-shadow: 0 0 5px grey;
     margin-bottom: 10px;
+    width: 97%;
    
 
   }
 
   .fetching_content{
     display: flex;
-    flex-wrap: wrap;
   }
 
   .question .status_div{
@@ -164,7 +165,7 @@ body{
   }
 
   .question_details{
-    width: 650px;
+    width: 580px;
     padding: 20px;
   }
 
@@ -217,6 +218,7 @@ body{
     font-size: 14px;
     color: rgb(83, 82, 82);
     border-radius: 5px;
+    width: 90%;
   }
 
   .answer input{
@@ -271,6 +273,181 @@ body{
     margin-right: 20px;
     margin-bottom: 10px;
   }
+
+  .create-btn{
+    display:flex;
+    align-items: right;
+    justify-content: right;
+  }
+
+  .create-btn a{
+    background-color: #43562B;
+    text-decoration: none;
+    color: white;
+    margin: 0px 0px 30px 30px;
+    padding: 10px 50px;
+    border-radius: 5px;
+    font-size: 14px;
+
+  }
+
+   /* Float cancel and delete buttons and add an equal width */
+   .cancelbtn, .deletebtn {
+    float: left;
+    
+  }
+  
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #938f8f;
+    color: black;
+  }
+
+  #id01 button{
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    
+    
+  }
+
+  #id01 .savebtn{
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+    margin-right: 8px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  /* Add a color to the delete button */
+  .savebtn {
+    background-color:#43562B;
+    color: black;
+  }
+  
+
+  #id01  p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #070708a4;
+    padding-top: 40px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: white;
+    margin: 5% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+    width: 70%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    text-align: center;
+    height: 60%;
+    border: 2px solid #43562B;
+    
+  }
+
+  .question_modal{
+    margin: 20px;
+    height: 70%;
+    width: 100%;
+    padding-bottom: 30px;
+  }
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+
+
+  .clearfix{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  #answer-div{
+    width: 95%;
+    background-color: #70787042;
+    border-radius: 30px;
+    padding-left:10px ;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: none;
+
+  }
+  
+  /* Change styles for cancel button and delete button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .deletebtn {
+      width: 100%;
+    }
+  }
+
+  #id01 textarea{
+     width: 90%;
+     min-height: 30%;
+     margin-top: 20px;
+     padding: 20px;
+     border: none;
+     background-color:#e3e9dc88;
+  }
+
+  #id01 h2{
+    color: #43562B;
+    margin-top: 30px;
+  }
+
+
 
 
 

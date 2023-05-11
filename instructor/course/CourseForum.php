@@ -38,7 +38,7 @@ $result1 = mysqli_query($conn,$sql1);
                                 while($record1=mysqli_fetch_assoc($result1))
                                 {
                             ?>
-                            <a href="courseForumContent.php?view=<?=$record1['course_id']?>">
+                            <a href="courseForumContentInstructor.php?view=<?=$record1['course_id']?>">
                                 <div class="course" id="course">
                                     <div class="course_image">
                                         <img src="../images/<?php if(isset ($record1['image'])){ echo $record1['image'];} ?>" class="post-image">
