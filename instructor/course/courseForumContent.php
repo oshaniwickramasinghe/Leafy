@@ -42,6 +42,31 @@ if(isset($_GET['view']))
 
 
     }
+
+    if(isset($_POST['update']) && isset($_POST['id']))
+    {
+     
+        $question_id = $_POST['id'];
+
+        $answer      = mysqli_real_escape_string($conn,$_POST['input_answer']);
+        
+        $query2       = "UPDATE  course_forum
+                        SET reply='$answer', answered=1
+                        WHERE question_id = $question_id ";
+
+        $stmt2      = mysqli_query($conn,$query2);
+
+
+         if($stmt2){
+            $update = true;
+            echo"<script>alert('Saved reply');</script>";
+
+        }else{
+            echo"Error: " . $stmt2 . "<br>" . mysqli_error($conn);
+        }
+
+
+    }
        
     
     
@@ -76,7 +101,7 @@ if(isset($_GET['view']))
                                 while($record1=mysqli_fetch_assoc($result1))
                                 {
                     ?>
-                        <div class="question" id="question">
+                        <div class="question" id="question_<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>">
                             <div class="fetching_content">
                                 <div class="user_image">
                                     <?php
@@ -89,13 +114,14 @@ if(isset($_GET['view']))
                                 </div>
                                 <div class="question_content">
                                     <div class="question_details">
-                                        <h4><?php if(isset ($record1['content'])){ echo $record1['content'];} ?></h4>
+                                        <h4><?php if(isset ($record1['content'])){ echo $record1['content'];} ?> ? </h4>
                                         <p>Post By : <?php if(isset ($record1['fname'])){ echo $record1['fname'];} ?> <?php if(isset ($record1['lname'])){ echo $record1['lname'];} ?> on <?php if(isset ($record1['date'])){ echo $record1['date'];} ?>
                                          at <?php if(isset ($record1['time'])){ echo $record1['time'];} ?></p>
                                     </div>
 
                                     <div class="answer">
-                                        <p><?php if(isset ($record1['reply'])){ echo $record1['reply'];} ?></p>
+                                        <label for="answer">Answer:</label><br>
+                                        <input type="text" name="reply" id="reply" value="<?=$record1['reply']?>" placeholder="Not answered yet">
                                     </div>
                                 </div>
                                 <div class="status_div">
@@ -112,15 +138,18 @@ if(isset($_GET['view']))
                                         if( $user_role =="Instructor"){
                                             ?>
                                                  <div class="reply-btn">
-                                                    <a href="#" type="button" id="reoly" onclick="showModal(); return false;" >Reply<i class="fa-solid fa-share" style="font-size:15px;color:#000000;"></i></a>
+                                                    <a href="#" type="button" id="reply_<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>" 
+                                                    onclick="document.getElementById('input_content-<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>').style.display='block'" >
+                                                    Reply
+                                                    <i class="fa-solid fa-share" style="font-size:15px;color:#000000;"></i></a>
                                                 </div>
                                                 
                                             <?php }
                                     ?>
                                 </div>
                             </div>
-                            <div class="input_content" id="input_content">
-                                <span onclick="document.getElementById('input_content').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <div class="input_content" id="input_content-<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>">
+                                <span onclick="document.getElementById('input_content-<?php if(isset ($record1['question_id'])){ echo $record1['question_id'];} ?>').style.display='none'" class="close" title="Close Modal">&times;</span>
                                 <form action="" method="post" enctype="multipart/form-data" id="">
                                 <div class="answer_div">
                                         <input type="hidden" name="id" id="id" value="<?=$record1['question_id']?>">
@@ -152,9 +181,7 @@ if(isset($_GET['view']))
 <footer><?php include "../includes/footer.php"; ?></footer> 
 <script>
 
-    function showModal() {
-            document.getElementById("input_content").style.display = "block";
-        }
+
 
 
 </script>

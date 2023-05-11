@@ -20,6 +20,7 @@ body{
   width: 100%;
   display: flex;
   padding-top: 5px;
+ 
 }
 
 
@@ -148,11 +149,13 @@ body{
     padding: 10px;
     box-shadow: 0 0 5px grey;
     margin-bottom: 10px;
+   
 
   }
 
   .fetching_content{
     display: flex;
+    flex-wrap: wrap;
   }
 
   .question .status_div{
@@ -214,6 +217,13 @@ body{
     font-size: 14px;
     color: rgb(83, 82, 82);
     border-radius: 5px;
+  }
+
+  .answer input{
+    background-color: aliceblue;
+    border: none;
+    color: rgb(83, 82, 82) ;
+    padding-left: 50px;
   }
 
   .answer_div textarea{
