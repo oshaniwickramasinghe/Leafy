@@ -7,8 +7,8 @@ if(isset($_GET['click']))
     $course_ID = $_GET['click'];
 
     $data2= "SELECT course_id,title,image,topic,is_read ,verified,date,description,comment
-                    FROM course
-                    WHERE course_id=$course_ID";
+             FROM course
+             WHERE course_id=$course_ID";
 
 
     $connection2=mysqli_query($conn,$data2);
