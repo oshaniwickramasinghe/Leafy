@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
+*{
+    margin: 0;/*gost margine*/
+    padding:0;
+    box-sizing:inherit;
+    font-family:'Lato', sans-serif;
+}
+
+body{
+  position: relative;
+  margin: 0%;
+  height: 100%;
+  width: 100;
+}
+
+.container{
+  height: 80%;
+  width: 100%;
+  display: flex;
+  padding-top: 5px;
+}
+
+
+.container .left_menu_bar{
+  flex:1.5;
+  background: #8f918b29;
+  display: block;
+  border-radius:10px;
+  height: auto;
+  box-shadow: var(--box-shadow);
+  margin-top: 1%;
+  margin-left: 1%;
+  
+  
+}
+
+.container .left_menu_bar ul li a{
+  text-decoration: none;
+  padding: 11px;
+  margin: 4px;
+  display: block;
+  color: #43562B;
+  background:#fff;
+  border-radius:4px;
+  font-size: 14px;
+
+  
+}
+
+.container .left_menu_bar ul li a:hover{
+  background: rgba(217, 217, 217);
+ 
+}
+
+.container .left_menu_bar h3{
+  color:rgba(67, 86, 43);
+  margin-left: 0px;
+  padding-left:0px;
+ 
+}
+
+
+
+.container .left_menu_bar #menu{
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.left_menu_bar i{
+  display: inline-block;
+  margin-right: 1em;
+  
+}
+
+.left_menu_bar #menu .image{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+
+}
+
+.left_menu_bar #menu i{
+  display: inline-block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+
+.container .left_menu_bar ul{
+  list-style: none;
+  margin: 10px;
+  padding: 0px;
+
+}
+
+.container .create_form_wrapper{
+    height: auto;
+    background-color: rgba(239, 239, 239, 0.7);
+    flex: 8.5;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    padding: 20px ;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 5px;
+    margin-top: 1%;
+    min-height: 350px;
+  
+  }
+  
+  .container .create_form_wrapper .view-wrap {
+    height: auto;
+    margin:20px;
+    width: 95%;
+  
+  }
+  
+  .container .create_form_wrapper .view-wrap .view{
+    display:block;
+    height: auto;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    background-color: #fff;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .create_form_wrapper {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+      margin: 20px 0;
+    }
+  }
+
+  h1{
+    color: #43562B;
+  }
+
+  .title{
+    margin-left: 20px;
+  }
+  
+
+  .question{
+    padding: 10px;
+    box-shadow: 0 0 5px grey;
+    margin-bottom: 10px;
+
+  }
+
+  .fetching_content{
+    display: flex;
+  }
+
+  .question .status_div{
+    align-items: center;
+    padding: 30px 0px;
+  }
+
+  .question_details{
+    width: 650px;
+    padding: 20px;
+  }
+
+  .question_details p{
+    color: rgba(60, 60, 60, 0.745);
+    font-size: 10px;
+  }
+
+  .question .user_image{
+    padding: 20px 0px 0px 20px;
+  }
+
+  .status_div a{
+    text-decoration: none;
+    color: black;
+    background-color: rgba(83, 81, 81, 0.48);
+    padding: 10px 50px;
+    margin-top: 20px;
+    align-items: end;
+    border-radius: 15px;
+  }
+
+  .status_div .status{
+    margin-bottom: 20px;
+  }
+
+  .status_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+  }
+
+  .status_text i{
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  .reply-btn i{
+    margin-left: 10px;
+  }
+
+  .answer{
+    background-color: aliceblue;
+    min-height: 10px;
+    margin-right: 20px;
+    margin-left: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: rgb(83, 82, 82);
+    border-radius: 5px;
+  }
+
+  .answer_div textarea{
+    width: 90%;
+    min-height: 100px;
+    padding: 10px;
+    border: none;
+  }
+
+  .input_content{
+    background-color: rgba(190, 197, 195, 0.419);
+    padding: 15px 0px;
+    display: none;
+    
+  }
+
+  .answer_div{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .submit-btn{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .submit-btn button{
+    padding: 10px 50px;
+    background-color:#43562B;
+    margin: 20px 20px 0px 0px;
+    box-shadow: 0 0 5px grey;
+    border-radius: 10px;
+    color: #fff;
+  }
+
+  .close {
+    align-items: right;
+    display: flex;
+    justify-content: right;
+    font-size: 22px;
+    font-weight: bold;
+    color:rgb(3, 3, 3);
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+
+
+

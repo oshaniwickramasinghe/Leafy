@@ -26,7 +26,7 @@ $result1 = mysqli_query($conn,$sql1);
         <?php include "../includes/instructorMenu.php"; ?>
         <div class="create_form_wrapper">
             <div class="title">
-                <h1>Course Forum</h1>
+                <h1>Course List in Course Forum</h1>
             </div> 
             <div class="view-wrap"> 
                 <div class="view">
@@ -105,9 +105,7 @@ $result1 = mysqli_query($conn,$sql1);
             </div>
            </div>
         </div>
-            </div>
-        </div>
-</div>
+    </div>
 <footer><?php include "../includes/footer.php" ?></footer>
 </body>
 </html>
