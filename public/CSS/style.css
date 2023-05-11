@@ -626,3 +626,17 @@ h2{
       width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
     }
   }
+
+  .count{
+    background-color: #d34545;
+    color: white;
+    position: absolute;
+    top: 48%;
+    left: 50px;
+    padding: 0 5px;
+    font-size: 16px;
+    line-height: 22px;
+    height: 22px;
+    border-radius: 11px;
+    white-space: nowrap;
+}
