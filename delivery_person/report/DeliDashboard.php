@@ -1,9 +1,9 @@
 <?php 
 
-require "../database/database.php";
-require "../public/Auth.php";
+require "../../database/database.php";
+require "../../public/Auth.php";
 // include 'includes/header.php';
-include 'includes/header.php';
+include '../includes/header.php';
 
 ?>
 
@@ -27,18 +27,13 @@ include 'includes/header.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="notification.css">
-    <link rel="stylesheet" href="../public/CSS/style.css">
+    <link rel="stylesheet" href="../CSS/notification.css">
+    <link rel="stylesheet" href="../../public/CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
           
     <title>Order Report page</title>
 
     <style>
-      /* * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      } */
       
       .chartCard {
         /* width: 100vw; */
@@ -61,8 +56,7 @@ include 'includes/header.php';
 </head>
 
 <body>
-    <?php //include 'AdminReportPHP.php';?>
-    <?php include "../public/includes/deli_menu.view.php"?>
+    <?php include "../../public/includes/deli_menu.view.php"?>
 
 <div class = "loggedhome_body">
 <div class = "home_body">
@@ -72,46 +66,18 @@ include 'includes/header.php';
         <div class="content">
             <h2>Reports</h2>
 
-           <!-- search Users by role-->
-           <!-- <div class="box"> -->
                 
                 <div class="container_right" id="view_more">
                     <div align="center">
-                    <!-- <div class="chartCard"> -->
+                        <h2>Assigned order and accepted order comparison</h2>
                         <div class="chartBox">
-                        <?php include 'charts/multiple_bar_order_report.php';?>
+                        <?php include '../charts/multiple_bar_order_report.php';?>
                         
                         </div>
-                    <!-- </div> -->
                     </div>                    
                 </div>
 
-           <!-- </div> -->
-
-           <!-- summary-->
-           <!-- <div class="box">
-                <?php 
-                // $sql1 ="SELECT 
-                //             DATE_FORMAT(co.date, '%Y-%m') AS month,
-                //             COUNT(*) AS num_accepted_orders
-                //         FROM 
-                //             leafy.accepted_orders ao
-                //             JOIN leafy.checkout co ON ao.order_id = co.orderId
-                //         WHERE 
-                //             ao.sent_deli_id = 3 AND
-                //             ao.status = 1 AND 
-                //             co.date >= DATE_SUB(NOW(), INTERVAL 12 MONTH)
-                //         GROUP BY 
-                //             DATE_FORMAT(co.date, '%Y-%m')
-                //         ORDER BY 
-                //             month DESC";
-    
-                // $result1 = $pdo->query($sql1);
-                
-                
-                ?>
-
-           </div> -->
+           
 
         </div>
 

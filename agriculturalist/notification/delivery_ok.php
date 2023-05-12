@@ -24,31 +24,28 @@ include '../include/header.php';
 
 <body>
 
-
-<h2>Pending Delivery Request</h2>
+<div class="deli_box">
+<h2 >Pending Delivery Request</h2>
 
 <?php
 
 $user_id = $_SESSION["USER_DATA"]["user_id"];
-
-
-
-
 
 $sql= "SELECT * FROM checkout JOIN deals ON checkout.orderId = deals.order_id JOIN customer ON deals.customer_id = customer.user_id 
 WHERE customer.user_id = deals.customer_id  AND checkout.accepted_by = 0 AND checkout.status =3  AND deals.agriculturalist_id = '$user_id' " ;
 
 $result = mysqli_query($conn, $sql);
 
-
-
   while ($res = mysqli_fetch_assoc($result)) {
 
     $accept = $res['orderId'];
 
-  
-
 ?>
+
+
+
+
+
 
         <div class="notification-row">
           <div class="notification-text">
@@ -69,6 +66,8 @@ $result = mysqli_query($conn, $sql);
           </div>
         </div>
 
+        </div>
+
 
         <div id="state">
 
@@ -84,8 +83,9 @@ $result = mysqli_query($conn, $sql);
 ?>
 
 
+<div class="deli_box">
+<h2>Delivery Accepted</h2>
 
-<h2>Delivery Arranged</h2>
 
 
 <?php
@@ -97,7 +97,7 @@ $user_id = $_SESSION["USER_DATA"]["user_id"];
 
 
 $sql= "SELECT * FROM checkout JOIN deals ON checkout.orderId = deals.order_id JOIN customer ON deals.customer_id = customer.user_id 
-WHERE customer.user_id = deals.customer_id  AND checkout.accepted_by != 0 AND checkout.status =0  AND deals.agriculturalist_id = '$user_id' " ;
+WHERE customer.user_id = deals.customer_id  AND checkout.accepted_by != 0 AND checkout.status =3  AND deals.agriculturalist_id = '$user_id' " ;
 
 $result = mysqli_query($conn, $sql);
 
@@ -126,10 +126,11 @@ $result = mysqli_query($conn, $sql);
           <div class="notification-buttons">
 
             <button onclick="window.location.href='accept_add.php?orderId=<?php echo $accept; ?>'" type="submit" name="statu" value="1" class="notification-button accept">Accept</button>
-            <button onclick="window.location.href='reject_add.php?orderId=<?php echo $accept; ?>'" type="submit" value="0" name="status" class="notification-button reject">Reject</button>
+            <button onclick="window.location.href='reject_delivery_accept.php?orderId=<?php echo $accept; ?>'" type="submit" value="0" name="status" class="notification-button reject">Reject</button>
           </div>
         </div>
 
+</div>
 
         <div id="state">
 
@@ -144,17 +145,20 @@ $result = mysqli_query($conn, $sql);
     
 ?>
 
+<div style="margin-top:25%; class="footer">
+<footer ">
 
-
-
-
-
-<footer>
-
-<img src="../photos/Footer.svg" height="121.3px" style=" margin-top:15%">
+<?php include '../include/footer.php' ?>
 </footer>
 
+</div>
+
 </body>
+
+
+
+
+
 
 
 </html>

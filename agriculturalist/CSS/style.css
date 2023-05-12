@@ -320,8 +320,8 @@ nav .user-pic{
 }
  .home_body{
    
-    margin-left: 20%;
-    margin-top: 2%;
+    /* margin-left: 20%; */
+    margin-top: 6%;
     /* background: #8f918b29; */
  
  }
@@ -1019,7 +1019,11 @@ margin-top: -10px;
     font-size: 18px;
 }
 h2{
-    margin-left : 10%; 
+    background: #5A713D;
+    width: auto;
+    margin: auto;
+    padding-left: 20%;
+    margin-top:50px
 }
 
 .topic{
@@ -1059,7 +1063,7 @@ h2{
      padding-bottom: 20%;
   }
   
-  .row {margin: 0 -5px;}
+ 
   
   .column {
       float: left;
@@ -1295,8 +1299,9 @@ background-color:rgb(159, 159, 159);
     /* flex-direction: row; */
     background-color:transparent;
     width: 80%;
-    margin-left: 5%;
-    margin-top: 10%;
+    margin-left: auto;
+    margin-right: 100px;
+    margin-top: -250px;
 
    flex-wrap: wrap;
    height: 60%;
@@ -1558,6 +1563,7 @@ a.next{
   }
   .vegetable_body{
     min-height: 80vh;
+    /* margin-left: 50px; */
     display: flex;
     flex-direction: column;
 
@@ -1568,12 +1574,10 @@ a.next{
     flex-direction: column;
   }
 
-  /* .notification_body{
-     min-height: 85vh;
-    display: flex;
+  .deli_box{
+    min-height: 50vh;
+    /* display: flex; */
     flex-direction: column;
-    overflow-y:scroll; */
-
   }
 
 .forum_body{

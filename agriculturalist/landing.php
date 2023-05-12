@@ -13,6 +13,7 @@ include 'include/header.view.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="agristyle.css">
     <link rel="stylesheet" href="CSS/delivery.css">
+    <link rel="stylesheet" href="CSS/style.css">
 
     <title>Agriculturalist Home</title>
 </head>
@@ -22,10 +23,10 @@ include 'include/header.view.php';
 
 
 
-<div style="padding-top:50px" class = "loggedhome_body">
+<div style="margin-left:" class = "loggedhome_body">
 
 
-<div class = "home_body">
+<div style="margin-left:" class = "landing_home_body">
    <ul>
       <li><img src = "photos/post.jpg" style="border-radius: 50px;" width = "200px" height = "200px" class = "responsive"></li>
       <li><img src = "photos/courses.jpg" width = "200px" height = "200px" class  = "responsive"></li>
@@ -35,11 +36,11 @@ include 'include/header.view.php';
    </ul>
 </div>
 
-<div style="margin-left:15px" class = "home_text">
+<div style="margin-left:15px" class = "landing_home_text">
    <ul>
-      <li><a href="postview.php" ><Button style="background-color:#33ca93">My Posts </Button></a></li>
+      <li><a href="createpost/postview.php" ><Button style="background-color:#33ca93">My Posts </Button></a></li>
       <li><a href="posts" ><Button style="background-color:#33ca93">Courses </Button></a></li>
-      <li><a href="agriD.php" ><Button style="background-color:#33ca93">Repots</Button></a></li>
+      <li><a href="reports/agriD.php" ><Button style="background-color:#33ca93">Repots</Button></a></li>
       <li><a href="blogs" ><Button style="background-color:#33ca93">Blogs </Button></a></li>
    </ul>
 </div>
@@ -48,6 +49,6 @@ include 'include/header.view.php';
       </div>
 </body>
 <footer>
-<img src = "include/footer.php"  >
+<?php include 'include/footer.php' ?>
 </footer>
 </html>

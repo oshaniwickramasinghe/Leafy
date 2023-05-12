@@ -23,7 +23,7 @@ include "../database.php";
                 <div class="menu">
                     <ul>
                         <li>
-                            <a href="../customerhome.php" class="">Home</a>
+                            <a href="../landing.php" class="">Home</a>
                         </li>
                         <li>
                             <a href="#blogs" class="">Blogs</a>

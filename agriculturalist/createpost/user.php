@@ -1,6 +1,6 @@
 <?php
-include "../public/Auth.php";
-include "database.php";
+include "../Auth.php";
+include "../database.php";
 
 
 
@@ -19,7 +19,7 @@ $user_id =$_SESSION['USER_DATA']['user_id'];
 
 $file_tmp1 = $_FILES['images']['tmp_name']; 
 $file_name = "A"."$user_id".rand(1,1000).$_FILES['images']['name'];
-$target_file1 = "./images/".$file_name1;
+$target_file1 = "../images".$file_name1;
 if($file_tmp1!="")
 { move_uploaded_file($file_tmp1,$target_file1); }
 else { $file_name1=""; }
