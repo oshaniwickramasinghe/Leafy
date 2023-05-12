@@ -167,11 +167,14 @@ if(isset($_GET['view']))
                                 </form>
                             </div>    
 
-                        </div>       
+                        </div>
+                        <?php }
+                        }else{?>
+                            <p> There are no any questions in forum.</p>
+                        <?php  }?>       
                     </div>
 
-                        <?php }
-                      }?>
+                       
                     </div>
   
                 </div>

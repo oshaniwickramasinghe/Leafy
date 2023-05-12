@@ -202,7 +202,9 @@ if(isset($_GET['view']))
 
                         </div>
                         <?php }
-                      }?>
+                      }else{?>
+                        <p> There is not any questions in forum.</p>
+                    <?php  }?>
                     </div>
                     <!--create modal-->
                     <div id="id01" class="modal" style="display: none;">

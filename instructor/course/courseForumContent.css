@@ -263,7 +263,7 @@ body{
     color: #fff;
   }
 
-  .close {
+  .input_content .close {
     align-items: right;
     display: flex;
     justify-content: right;
@@ -272,6 +272,7 @@ body{
     color:rgb(3, 3, 3);
     margin-right: 20px;
     margin-bottom: 10px;
+    cursor: pointer;
   }
 
   .create-btn{
@@ -384,7 +385,7 @@ body{
   }
   
   /* The Modal Close Button (x) */
-  .close {
+  #id01 .close {
     position: absolute;
     right: 35px;
     top: 15px;
@@ -393,8 +394,8 @@ body{
     color: #f1f1f1;
   }
   
-  .close:hover,
-  .close:focus {
+  #id01 .close:hover,
+ #id01 .close:focus {
     color: #f44336;
     cursor: pointer;
   }
