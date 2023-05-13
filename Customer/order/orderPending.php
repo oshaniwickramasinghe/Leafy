@@ -91,6 +91,7 @@ if($res['status'] == 1 &&  $row['payment_method'] === "cash"){
 ?>
 
 
+
 <div class  =  "msg_body">
  <div class ='card'>
  <div class ='upper-side'>
@@ -100,6 +101,26 @@ if($res['status'] == 1 &&  $row['payment_method'] === "cash"){
 <div class='lower-side'>
 <p>Your order has been accept by the agriculturalist<br>
   <b>Please do the necessary payment to complete the order </b> </p>
+ <a href="../customerhome.php" class="contBtn">Continue</a>
+ </div>
+ </div>
+ </div>
+
+
+<?php
+}if($res['status'] == 2 ){
+  unset($_SESSION['cart']);
+?>
+
+<div class  =  "msg_body">
+ <div class ='card'>
+ <div class ='upper-side'>
+ <h2>Order Rejected </h2>
+ </div>
+
+<div class='lower-side'>
+<p>Your order has been Rejected by the agriculturalist<br>
+  <b>Please  request again </b> </p>
  <a href="../customerhome.php" class="contBtn">Continue</a>
  </div>
  </div>

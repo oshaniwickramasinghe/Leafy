@@ -5,8 +5,8 @@
 require "login/Auth.php";
 include 'includes/header.view.php';
 
+$uid  = $_SESSION['USER_DATA']['user_id'];
 
-$id  = $_SESSION['USER_DATA']['user_id'];
 $count = 0;
 if(isset($_SESSION['cart'])){
 foreach($_SESSION['cart'] as $keys => $values){
@@ -14,7 +14,7 @@ $count +=1;
 }
 }
 // var_dump($count);
-$sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $id ";
+$sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $uid ";
 $result = mysqli_query($conn,$sql);
 $row  = mysqli_fetch_array($result);
 
@@ -65,7 +65,7 @@ $row  = mysqli_fetch_array($result);
                 <li><a href="../Customer/customerhome.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="../Customer/wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
                 <li ><a href="../Customer/notification/notification.php" style  =  "height:10%"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;">
-               </i>Notifications<div class  = "count" style = "margin-top: -7.5%"><?php echo $row[0]?></div> </a></li>
+               </i>Notifications<div class  = "count"><?php echo $row[0]?></div> </a></li>
                 <li><a href="../Customer/forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
                 <li><a href="../Customer/history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
                 <li><a href="../Customer/location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>

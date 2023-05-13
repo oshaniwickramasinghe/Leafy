@@ -5,7 +5,9 @@
 <link rel="stylesheet" href="../Customer/CSS/style.css">
 
 <link rel="stylesheet" href="../Customer/CSS/delivery.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+ integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" 
+ referrerpolicy="no-referrer" />
 <?php 
 require "login/Auth.php";
 include 'includes/header.view.php';
@@ -46,7 +48,38 @@ sell and by products.</p>
 </div> -->
 
 <div class  = "footer">
-<img src = "images/Footer.svg"  height= "121.42px"  style = "margin-top:auto">
+<div class="cont">
+               <div class="Roww">
+                   <div class="footer-col">
+                       <h4>Leafy</h4>
+                       
+                         <p>  Leafy is an Agricultural E-commerce<br>  website that
+                            can make your day-to-day <br>life easier
+                         </p>
+                       
+                   </div>
+                   
+                   <div class="footer-col">
+                       <h4>Contact US</h4>
+                       <ul>
+                        <i class='fas fa-phone-alt fa-lg'></i> &emsp; 0372234210<br>
+                       <i class='fas fa-mail-bulk fa-lg'></i> &emsp;leafy2022.2023@gmail.com
+                           <!-- <li><i class='fas fa-phone-alt fa-lg'></i>   0372234210</li> -->
+                           <!-- <li><i class='fas fa-mail-bulk fa-lg'></i> leafy2022.2023@gmail.com </li> -->
+                          
+                       </ul>
+                   </div>
+                   <div class="footer-col">
+                       <h4>follow us</h4>
+                       <div class="social-links">
+                           <a href="#"><i class="fab fa-facebook-f fa-1x"></i></a>
+                           <a href="#"><i class="fab fa-twitter fa-1x"></i></a>
+                           <a href="#"><i class="fab fa-instagram fa-1x"></i></a>
+                           <a href="#"><i class="fab fa-linkedin-in fa-1x"></i></a>
+                       </div>
+                   </div>
+               </div>
+           </div>
 </div>
 
 </body>

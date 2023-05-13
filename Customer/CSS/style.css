@@ -9,8 +9,9 @@ body{
     background-size: 100% ;
     background-attachment: fixed;
     position: relative;
-    margin-top: -8px;
+
     margin-left: -7px;
+    /* position: fixed; */
 
 }
 
@@ -302,6 +303,9 @@ nav .user-pic{
     color: #323929;
 } 
 
+.body form{
+    margin-top: -6%;
+}
 
 
 .para{
@@ -321,7 +325,7 @@ nav .user-pic{
  .home_body{
    
     margin-left: 20%;
-    margin-top: 2%;
+    margin-top:2%;
     /* background: #8f918b29; */
  
  }
@@ -497,7 +501,7 @@ form{
 
  }
 
-input[type= text] , input[type= password],input[type= email]{
+input[type= text] , input[type= password],input[type= email],input[type= file]{
   width: 80%;
   display:inline-block;
   padding: 12px 20px;
@@ -513,6 +517,18 @@ input[type= text] , input[type= password],input[type= email]{
   -o-border-radius:40px ;
 }
 
+
+select{
+    width: 80%;
+    display:inline-block;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    opacity: 0.8;
+    box-sizing: border-box;
+    border-radius:40px ;
+}
 
 .cvv  input[type= text]{
     width: 30%;
@@ -865,7 +881,7 @@ tr:nth-child(odd){
     grid-template-columns: 1fr 1fr;
     height: 460px;
     width: 100%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 45px;
 
  }
@@ -1009,6 +1025,11 @@ h3{
      margin-bottom:5% ;
 }
 
+.body h3{
+    margin-top: 2%;
+    margin-left: 0%;
+    margin-bottom:5% ; 
+}
 .fa-cart-plus{
     padding-right: 10px;
 }
@@ -1218,7 +1239,7 @@ background-color:rgb(159, 159, 159);
     float: left;
     margin-left: 1%;
     
-    
+
 }
 
 .left_menu_bar ul li a{
@@ -1251,6 +1272,7 @@ background-color:rgb(159, 159, 159);
     display: flex;
     align-items: center;
     padding-top: 5px;
+   
 }
 
 .left_menu_bar i{
@@ -1866,9 +1888,11 @@ font-family: lato;
 .right_part .language{
 margin-top: -15%;
 margin-left:-10%;
+width:100%;
 }
 .lan{
     margin-left: 5%;
+    width:100%;
 }
 
 
@@ -1940,9 +1964,11 @@ margin-left:-10%;
   
   /* Add padding and center-align text to the container */
   #id01 .model_body {
+    margin-top: -4%;
     padding: 16px;
     text-align: center;
     display: block;
+    margin-left: 2%;
   }
   #id01 .container {
     padding: 16px;
@@ -2057,8 +2083,8 @@ margin-left:-10%;
 
    .notification_body .left_row .modal form{
     background-color: #ffffffe0;
-    height: 60%;
-    width:40%;
+    height: 68%;
+    width: 50%;
     margin-left:25%;
     margin-top: 4%;
    }
@@ -2106,12 +2132,16 @@ margin-left:-10%;
 }
 
 .history_body table{
-    margin-left: -6%;
+    margin-left: 4%;
     box-shadow: 5px 8px 10px #e1e5ee;
+    width:90%;
     
 }
+.history_body{
+    padding-top:2% ;
+}
 .history_body form h2{
-    margin-left: 30%;
+    margin-left: 50%;
     margin-top: -1%;
     padding-bottom: 2%;
    
@@ -2121,7 +2151,7 @@ margin-left:-10%;
 
     width: 70%;
     background-color: transparent;
-    margin-left: 15%;
+    margin-left: -1%;
 
 }
 
@@ -2163,7 +2193,8 @@ td{
 
 .backk {
     width: 30%;
-   margin-left: -4.5%;
+    margin-top: 2%;
+   margin-left: -16%;
     
 }
 
@@ -2261,15 +2292,18 @@ td{
     .count{
         background-color: #d34545;
         color: white;
-        position: absolute;
         top: 48%;
-        left: 50px;
-        padding: 0 5px;
+        left: 10px;
+        padding: 0 5px 0 8px;
         font-size: 16px;
         line-height: 22px;
         height: 22px;
         border-radius: 11px;
         white-space: nowrap;
+        position: relative;
+        width: 14%;
+        margin-top: -14%;
+        margin-left: 80%;
 }
 
 .count_2{
@@ -2282,6 +2316,7 @@ td{
     border-radius: 10px;
     margin-top: -20%;
     margin-left: 75%;
+    
 }
 
 
@@ -2329,7 +2364,7 @@ td{
     width:100%;
     height: 50%;
     padding-bottom:1% ;
-    margin-top: 2%;
+    margin-top: 4%;
    
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -2567,7 +2602,9 @@ textarea{
 
 .translate{
     margin-top: -10%;
-    height:5%
+    height:5%;
+    width: 100%;
+  
     
 }
 
@@ -2591,7 +2628,12 @@ body {
     font-family: Lato;
     font-size:18px;
   }
-
+  #google_translate_element {
+    color: transparent;
+  }
+  #google_translate_element a {
+    display: none;
+  }
 
   .not_found{
     width:60%;
@@ -2604,6 +2646,7 @@ body {
 .cont{
 	max-width: 1170px;
 	margin:auto;
+    margin-left: 18%;
 }
 .Roww{
 	display: flex;
@@ -2715,6 +2758,63 @@ font-family: "Lato";
     margin-top: 26%;
   }
   }
-  
+  .next_button{
+    width: 100%;
+ }
+ 
+ .next_button  input[type=submit]{
+     display: inline;
+     margin: 5%;
+ }
 
+ .form-container form{
+margin-top: 2%;
+ }
+
+ .wishlist_back{
+    padding-top:2% ;
+    padding-bottom:5% ;
+ }
+ .wishlist_back button{
+    margin-left:20%;
+    border: none;
+    
+ }
+
+ .history_body .filter form{
+    background-color: transparent;
+    width:75%
+ }
+
+ .history_body .history_filter input[type=date]{
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius:40px ;
+ }
+ .filter .form-inline {  
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 2%;
+  }
+ .history_filter {  
   
+    margin-left: 2%;
+  }
+
+  .history_body .form-inline {
+    display: inline-block;
+  }
+
+  .history_body .form-inline label {
+    margin-right: 10px;
+  }
+
+  .history_body .form-inline input[type="date"],
+  .form-inline button {
+    margin-right: 5px;
+  }

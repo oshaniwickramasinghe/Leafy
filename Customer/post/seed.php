@@ -11,6 +11,7 @@ include "search.php";
 
 if(logged_in()){
   $uid  = $_SESSION['USER_DATA']['user_id'];
+  $role  = $_SESSION['USER_DATA']['role'];
   }else{
     $uid =0;
   }
@@ -27,9 +28,17 @@ if(logged_in()){
     <title>Seeds</title>
   
 <body>
+
+<?php if($role  == "customer"){?> 
 <div class  = "menu">
-<?php include '../includes/menu.view.php'?>
+  <?php include '../includes/menu.view.php';?>
 </div>
+<?php }else if($role  == "admin"){?> 
+  <div class  = "menu">
+  <?php include '../../admin/menu/admin_menu.view.php';?>
+</div>
+<?php } ?>
+
   <div class = "vegetable_body">
 <div class = "row">
 <?php
@@ -83,7 +92,7 @@ if(mysqli_num_rows($result)>0){
                 <div class = "cards" >
                     <div class = "card_body">
 
-                    <img src="../images/<?php echo $row["image"];?>" width = "180" height="150">
+                    <img src="../../agriculturalist/images/<?php echo $row["image"];?>" width = "180" height="150">
                     <div class="detail"> 
                     <h5 class= "text_info">Name:<?php echo $row['item_name'];?></h5>
                     <h5>Location:<?=$row['district'];?></h5>

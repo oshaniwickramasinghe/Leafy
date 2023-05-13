@@ -61,7 +61,7 @@ include "signup.php";
                         <option value="customer">Customer</option>
                         <option value="Agriculturalist">Agriculturalist</option>
                         <option value="Instructor">Instructor</option>
-                        <option value="Delivery Agent">Delivery Agent</option>
+                        <option value="DeliveryAgent">Delivery Agent</option>
            </select>
  
 

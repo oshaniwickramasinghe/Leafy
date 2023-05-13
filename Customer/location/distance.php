@@ -29,9 +29,29 @@ $rows = mysqli_fetch_assoc($result);
 $agriculturalist =  $rows['user_id'];
 
 }
+$query = "SELECT address1,address2,district FROM agriculturalist WHERE user_id  = $agriculturalist";
+$result = mysqli_query($conn,$query);
+$r = mysqli_fetch_array($result);
 
+$ad1 =  $r['address1'];
+$ad2 =  $r['address2'];
+$dis  = $r['district'];
 
-$query = "SELECT lat ,lng FROM agriculturalist WHERE user_id  =$agriculturalist ";
+$address = "$ad1,$ad2,$dis";
+$api_key = "AIzaSyADhAqLTBZnH5b4b8FFWd7o_1lq6sDrGZY";
+$url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . urlencode($address) . "&key=" . $api_key;
+$response = file_get_contents($url);
+$result = json_decode($response, true);
+
+//Extract the latitude and longitude values
+$lat = $result['results'][0]['geometry']['location']['lat'];
+$lng = $result['results'][0]['geometry']['location']['lng'];
+
+// save the latitude and longitude of the location of customer
+$sql  = "UPDATE `agriculturalist` SET `lat`='$lat',`lon`=' $lng ' WHERE user_id  = $agriculturalist ";
+$result_1 = mysqli_query($conn,$sql);
+
+$query = "SELECT lat ,lon FROM agriculturalist WHERE user_id  =$agriculturalist ";
 $result_2 =  mysqli_query($conn , $query );
 $getResult_1  = mysqli_fetch_array($result_2);
 

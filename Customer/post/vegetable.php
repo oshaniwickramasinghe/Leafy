@@ -9,8 +9,10 @@ include '../includes/header.php';
 include "pagination.php";
 include "search.php";
 
+
 if(logged_in()){
 $uid  = $_SESSION['USER_DATA']['user_id'];
+$role  = $_SESSION['USER_DATA']['role'];
 }else{
   $uid =0;
 }
@@ -36,25 +38,16 @@ $row  = mysqli_fetch_array($result);
 <body>
  <!-- menu bar -->
 <div class="menu_margin">
-<div class="left_menu_bar">
-            <div id="menu">
-                <a><i class="fa-solid fa-bars"></i></a>
-                <div class="image"><img src="images/badge.svg" alt=""></div>
-                <h3>Leafy</h3>
-            </div>
-            <ul>
-                <li><?php if($uid!=0){?><a href="../customerhome.php"><?php }else{?> <a href="../home.view.php"><?php }?><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
-                <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
-                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <?php if($search){?><div class  = "count" style = "margin-top:-8%"><?php echo $row[0]?></div> <?php }else{?> <div class  = "count" style = "margin-top:-8%"><?php echo $row[0]?></div><?php } ?></a></li>
-                <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
-                <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
-                <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
-               
-            </ul>
-
-        </div>
-
+<?php if($role  == "customer"){?> 
+<div class  = "menu">
+  <?php include '../includes/menu.view.php';?>
 </div>
+<?php }else if($role  == "admin"){?> 
+  <div class  = "menu">
+  <?php include '../../admin/menu/admin_menu.view.php';?>
+</div>
+
+<?php } ?>
 <div class = "vegetable_body">
 
 <div class = "row">
@@ -106,7 +99,7 @@ if(mysqli_num_rows($result)>0){
                 <div class = "cards" >
                     <div class = "card_body">
 
-                    <img src="../images/<?php echo $row["image"];?>" width = "180" height="150">
+                    <img src="../../agriculturalist/images/<?php echo $row["image"];?>" width = "180" height="150">
                     <div class="detail">
                     <h5 class= "text_info">Name:<?php echo $row['item_name'];?></h5>
                     <h5>Location:<?=$row['district'];?></h5>
@@ -170,7 +163,7 @@ if(mysqli_num_rows($result)>0){
   </div>
 
 
-<div class  = "pagination">
+  <div class  = "pagination">
   <?php
 
 
@@ -179,6 +172,7 @@ if($page>= 2 ){
 }else{
   echo "<a class  =  'prev' href='vegetable.php?page=".($page)."'> Previous page </a>";
 }
+
 
 for($i = 1; $i<= $number_of_page; $i++){
   if($i== $page){
@@ -191,6 +185,8 @@ for($i = 1; $i<= $number_of_page; $i++){
 
 };
 
+
+
 if($page < $number_of_page){
    echo "<a class  =  'next' href ='vegetable.php?page=".($page+1)."'> Next page </a>";   
 
@@ -198,6 +194,7 @@ if($page < $number_of_page){
 echo "<a class  =  'next' href ='vegetable.php?page=".($page)."'> Next page </a>"; 
 }?>
 </div>
+
 
 </head>
 <div class  = "footer">

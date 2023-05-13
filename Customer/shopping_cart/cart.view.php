@@ -47,7 +47,7 @@ if(isset($_GET["delete"]))
                if($values["post_id"] == $_GET["delete"])
                {
                     unset($_SESSION["cart"][$keys]);?>
-                    <META http-equiv="Refresh" content="1; URL=http://localhost/leafy_final/Customer/shopping_cart/cart.view.php">
+                    <META http-equiv="Refresh" content="1; URL=http://localhost/leafy-main/Customer/shopping_cart/cart.view.php">
                     <?php
                     $id = $values["post_id"] ;
                     $sql = "DELETE FROM `shopping_cart` WHERE customer_id  = $uid && post_id = $id";
@@ -71,6 +71,7 @@ if(isset($_GET["delete"]))
     
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          
     <title>Shopping cart</title>
     
 </head>
@@ -95,7 +96,7 @@ if(isset($_GET["delete"]))
 
    <!-- display more information of the  selected post -->
       <div class  = "left_1">
-         <img src="../images/<?php echo $res["image"];?>" width = "280" height="280">
+      <img src="../../agriculturalist/images/<?php echo $res["image"];?>" width = "280" height="280">
       </div>
       <div class  = "right_1">
       <form method="post" action="cart.view.php"> 
@@ -154,10 +155,10 @@ if(isset($_GET["delete"]))
   <h3><i class="fa fa-cart-plus" aria-hidden="true"></i>  Your Cart </h3>
     <tr>
    <th width="20%">Item Name</th>
-   <th width="25%">Update Quantity</th>
-   <th width="20%">Quantity</th>
+   <th width="30%">Update Quantity</th>
+   <th width="16%">Quantity</th>
    <th width="20%">Price</th>
-   <th width="20%">Total</th>
+   <th width="26%">Total</th>
    <th width="15%">Action</th>
     </tr>
 
@@ -203,7 +204,7 @@ if(isset($_GET["delete"]))
     <!-- confirmation modal box display -->
   <div id="id01" class="modal" style="display: none;">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                    <form class="modal-content" method = "post"  action="/action_page.php">
+                    <form class="modal-content" method = "post"  action="">
                         <div class="container">
                             <h1>Delete this item from the cart</h1>
                             <p>Are you sure you want to delete the item?</p>
@@ -246,7 +247,7 @@ if(mysqli_num_rows($result)>0){
 <form method  = "Post " action  =  "cart.view.php">  
                 <div class = "cards_1">
                     <div class = "card_body">
-                    <img src="../images/<?php echo $row["image"];?>" width = "180" height="150">
+                    <img src="../../agriculturalist/images/<?php echo $row["image"];?>" width = "180" height="150">
                     <div class="detail"> 
                     <h5 class= "text_info">Name:<?php echo $row['item_name'];?></h5>
                     <h5>Location:<?=$row['district'];?></h5>

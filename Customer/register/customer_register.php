@@ -31,7 +31,8 @@ include "email_verification.php";
     <label for="">District</label><br>
     <input type="text" placeholder="Address Line 1" name="district"  required><br
     <label for="">Contact Number</label><br>
-    <input type="text" placeholder="Enter your Contact Number" name="contact_no" required><br>
+   <!-- oninput JavaScript function that replaces any non-numeric characters with an empty string, only number -->
+   <input type="text" placeholder="Enter your Contact Number" name="contact" maxlength="10" pattern="[0-9]{10}" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required><br>
 
     <input type="submit" class="btn btn-primary w-100 " value="Save" name=""></input>
 

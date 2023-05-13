@@ -1,5 +1,6 @@
 <?php
-// include "../Customer/database.php";
+
+$role = $_SESSION['USER_DATA']['role'];
 ?>
 
 <html>
@@ -18,20 +19,37 @@
 
                 </div>
                 <div class="menu">
+                    <?php if($role == "customer"){?>
                     <ul>
                         <li>
                             <a href="../customerhome.php" class="">Home</a>
                         </li>
                         <li>
-                            <a href="#blogs" class="">Blogs</a>
+                            <a href="/leafy-main/instructor/Blog/theBlog.php" class="">Blogs</a>
                         </li>
                         <li>
-                            <a href="#courses" class="">Courses</a>
+                            <a href="/leafy-main/instructor/course/theCourse.php" class="">Courses</a>
                         </li>
-                        <li>
-                            <a href="../contact.php" class="">Contact</a>
-                        </li>
+                        
                     </ul> 
+                    <?php }else if($role == "Agriculturalist"){ ?>
+                        <ul>
+                        <li>
+                            <a href="/leafy-main/agriculturalist/landing.php" class="">Home</a>
+                        </li>
+                        <li>
+                            <a href="/leafy-main/instructor/Blog/theBlog.php" class="">Blogs</a>
+                        </li>
+                        <li>
+                            <a href="/leafy-main/instructor/course/theCourse.php" class="">Courses</a>
+                        </li>
+                        
+                    </ul> 
+
+
+
+
+                   <?php } ?>
                 </div>
             </div>
             
@@ -77,7 +95,7 @@ if(mysqli_num_rows($select)>0){
                             <p><?php echo $fetch['fname']; ?></p>
                         </div>
                         <hr>
-                        <a href = "../../instructor/InstructorHome.php" class="sub-menu-link">
+                        <a href = "../../instructor/profile/InstructorProfile.php" class="sub-menu-link">
                             <i class="fa-solid fa-circle-user" style="font-size:16px;color:#43562B;"></i>
                             <p>My Profile</p>
                             <span>></span>

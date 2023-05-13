@@ -17,7 +17,7 @@ if(empty($errors)){
 				$password= password_hash($_POST['password'],PASSWORD_DEFAULT);
 				$role = $_POST['role'];
 				$code= $verification_code;
-				var_dump($code);
+	
 				
 			 
     $sql  = "INSERT INTO user(fname, lname, email, password, role, code) VALUES ('$fname','$lname','$email','$password','$role','$code')";
@@ -45,8 +45,18 @@ if(empty($errors)){
     //     header("Location:message.view.php");
     // }
 
+
+
 if($role == "customer"){
 		header("Location:customer_register.php");
-}		
+}else if($role == "Instructor"){
+		header("Location:instructorregi.php");
+}else if($role == "DeliveryAgent"){
+	header("Location:deliveryregi.php");
+}else if($role == "Agriculturalist"){
+	header("Location:agriculturalregi.php");
 }
+
+}
+
 }

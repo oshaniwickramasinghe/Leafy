@@ -1,5 +1,5 @@
 <?php
-include "../Customer/database.php";
+include "../Customer/database/database.php";
 
 
 // $uid  = $_SESSION['USER_DATA']['user_id'];

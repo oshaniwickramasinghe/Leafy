@@ -17,10 +17,9 @@ $order_id = $r['order_id'];
 $id  = $r['agriculturalist_id'];
 
 // Insert the review into the database
-// $sql = "INSERT INTO  order_rate (rate, comment, user_id ,order_id, agri_id) VALUES ( $rating ,'$review', $userId,$order_id,$id )";
-// if ($conn->query($sql) === TRUE) {
-//   ?>
-
+$sql = "INSERT INTO  order_rate (rate, comment, user_id ,order_id, agri_id) VALUES ( $rating ,'$review', $userId,$order_id,$id )";
+$result  = mysqli_query($conn, $sql);
+?>
 <!-- edit of rate and review -->
 <html>
 <link rel="stylesheet" href="../CSS/style.css">

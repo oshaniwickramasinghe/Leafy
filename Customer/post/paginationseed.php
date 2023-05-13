@@ -5,16 +5,17 @@ if(logged_in()){
     $sql  = "SELECT district FROM customer WHERE  user_id = $uid";
 $result = mysqli_query($conn,$sql);
 $re = mysqli_fetch_array($result);
-$district = $re ['district'];
+// $district = $re ['district'];
 
     }else{
       $uid =0;
     }
-$result_per_page  = 6;
+$result_per_page  = 6
+;
 
 
 //AND district = '$district'
-$query  = "SELECT * FROM post WHERE category = 'Vegetable'  ORDER BY post_id ASC";
+$query  = "SELECT * FROM post WHERE category = 'seed'  ORDER BY post_id ASC";
 
 $result = mysqli_query($conn,$query);
 

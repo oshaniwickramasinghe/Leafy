@@ -33,13 +33,14 @@ $email= validate($_POST['email']);
        if(is_customer()){
          header("Location:../customerhome.php");
        }else if(is_agriculturalist()){
-        header("Location:../agriculturalist/landing.php");
+        header("Location:../../agriculturalist/landing.php");
        }else if(is_instructor()){
-        header("Location:../instructor/Insdashboard.php");
+        header("Location:../../instructor/dashboard/Insdashboard.php");
        }else if(is_deliveryAgent()){
-        header("Location:../delivery_person/DeliDashboard.php");
-       
-       }else{
+        header("Location:../delivery_person/notification/DeliNotification.php");
+       }else if(is_admin()){
+          header("Location:../../admin/home/AdminHome.php");
+       }else {
         header("Location:home.php");
           
         } // exit();

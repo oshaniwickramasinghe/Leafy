@@ -6,11 +6,13 @@ include "../database/database.php";
 include '../includes/header.php';
 
 
-$id  = $_SESSION['USER_DATA']['user_id'];
+$uid  = $_SESSION['USER_DATA']['user_id'];
+$role  = $_SESSION['USER_DATA']['role'];
 
-$sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $id  ";
+$sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $uid  ";
 $result = mysqli_query($conn,$sql);
 $row  = mysqli_fetch_array($result);
+
 
 ?>
 
@@ -30,29 +32,19 @@ $row  = mysqli_fetch_array($result);
 <script src="main.js"></script>
 </head>
 
-<!-- Modal for the reply -->
+ <!-- load menu for each row -->
+ <?php if($role  == "customer"){ ?>
+<div class  = "menu">
+<?php include '../includes/menu.view.php'?>
+</div>
+<?php  }else if($role  == "Agriculturalist"){?>
+  <?php   include '../../agriculturalist/include/agri_menu.view.php'?>
+<?php }else if($role  == "Instructor"){
 
-<div class="left_menu_bar">
-            <div id="menu">
-                <a><i class="fa-solid fa-bars"></i></a>
-                <div class="image"><img src="images/badge.svg" alt=""></div>
-                <h3>Leafy</h3>
-            </div>
-            <ul>
-                <li><a href="../customerhome.php"><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
-                <li><a href="../wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
-                <li><a href="../notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count" style = "margin-top:-13%"><?php echo $row[0]?></div></a></li>
-                <li><a href="../forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>
-                <li><a href="../history/history.php"><i class="fa-solid fa-gauge-high"  style="font-size:16px;color:black;"></i>History</a></li>
-                <li><a href="../location/location.php"><i class="fa-solid fa-location-arrow"  style="font-size:16px;color:black;"></i>Location</a></li>
-               
-            </ul>
+}  ?>
 
-        </div>
 
 <div  class  =  "forum_body">
-
-
 <div  class  = "R">
 <div id="id01" class="modal" style="display: none;">
 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -113,7 +105,7 @@ $row  = mysqli_fetch_array($result);
 </div>
 
 <div class="footer">
-<img src = "../images/Footer.svg"  height= "121.3px" style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 </body>
 </html>

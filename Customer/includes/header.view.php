@@ -3,7 +3,7 @@ include "database/database.php";
 ?>
 
 <html>
-<link rel="stylesheet" href="../CSS/style.css">
+
 
 <header>
 <div class="header">
@@ -26,9 +26,7 @@ include "database/database.php";
                         <li>
                             <a href="#courses" class="">Courses</a>
                         </li>
-                        <li>
-                            <a href="contact.php" class="">Contact</a>
-                        </li>
+                        
                     </ul> 
                 </div>
             </div>
@@ -74,7 +72,7 @@ if(mysqli_num_rows($select)>0){
                             <p><?php echo $fetch['fname']." ".$fetch['lname']; ?></p>
                         </div>
                         <hr>
-                        <a href = "../instructor/InstructorHome.php" class="sub-menu-link">
+                        <a href = "../instructor/profile/InstructorProfile.php" class="sub-menu-link">
                             <i class="fa-solid fa-circle-user" style="font-size:18px;color:#43562B;"></i>
                             <p>My Profile</p>
                             <span>></span>
@@ -105,17 +103,10 @@ function googleTranslateElementInit() {
                 <div class="login">
                 <li><a href="login/Login.view.php">Login</a></li>
                 </div>
-                <div class  = "language">
-            <a href="" class="">Languages
-
-            </a>
-            
-
- 
+                <div class  = "language" style = "margin-left:2% ; margin-top:-2%">
             </div>
             <?php } ?>
-          
-            
+
             <!-- <li><a href="../Customer/Login.view.php" class="">Login</a></li> -->      
            </ul> 
           

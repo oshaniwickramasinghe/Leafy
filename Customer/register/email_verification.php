@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 				$district = $_POST['district'];
 				$contact  = $_POST['contact_no'];
 
-    $sql  = "INSERT INTO customer(address1, address2,district, contact_no, user_id)VALUES('$address1','$address2', '$district' , $contact, $user)";
+    $sql  = "INSERT INTO customer( contact_no,address1,address2,district,, user_id)VALUES( $contact,'$address1','$address2', '$district' , $user)";
     $result = mysqli_query($conn,$sql);
     if( !empty($r)){
 
@@ -38,12 +38,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	   $mail->Password = 'ddycipvosmnrufhs'; // Your gmail app password
 	   $mail->SMTPSecure ='ssl';
 	   $mail->Port = 465;
-	   $mail->setFrom('Leafycompany2022@gmail.com');
+	   $mail->setFrom('leafy2022.2023@gmail.com');
 	   $mail->addAddress($email);
 	   $mail->isHTML(true);
 	   $mail->Subject = "Email verification";
 	   $mail->Body    = 'Please click the below link to verify you email<b><br>
-	   <a href = "http://localhost/Leafy_final/Customer/register/verify.php?code='.urldecode($code) .'">http://localhost/Leafy_final/Customer/register/verify.php?code = '.$code .'</a></b>';
+	   <a href = "http://localhost/Leafy-main/Customer/register/verify.php?code='.urldecode($code) .'">http://localhost/Leafy-main/Customer/register/verify.php?code = '.$code .'</a></b>';
 
 		$mail->send();
         header("Location:../register/message.view.php");

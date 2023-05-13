@@ -33,7 +33,7 @@ $id  = $_SESSION['wishlist_id'];
 
 <div class  = "grid_3">
 <div class  = "left_3">
-<img src="../images/<?php echo $res["image"];?>" width = "380" height="380">
+<img src="../../agriculturalist/images/<?php echo $res["image"];?>" width = "360" height="360">
 </div>
 <div class  = "right_3">
 <form method="post" action="../shopping_cart/cart.view.php"> 

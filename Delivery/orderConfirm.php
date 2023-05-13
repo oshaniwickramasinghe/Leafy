@@ -1,6 +1,6 @@
 <?php
 
-include "../Customer/Auth.php";
+include "../Customer/login/Auth.php";
 include 'orderConfirmdb.php';
 include 'includes/header.php';
 
