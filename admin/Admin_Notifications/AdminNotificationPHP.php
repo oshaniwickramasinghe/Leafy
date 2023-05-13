@@ -14,7 +14,7 @@ $resultuser= mysqli_query($conn,$sqluser);
 //blog
 $sqlblog = "SELECT * FROM user u JOIN blog b 
             ON u.user_id = b.user_id 
-            WHERE verified=0;
+            WHERE verified=0
             ";
 
 // make query & get blogs
@@ -23,7 +23,7 @@ $resultblog= mysqli_query($conn,$sqlblog);
 //course
 $sqlcourse =    "SELECT * FROM user u JOIN course c 
                 ON u.user_id = c.user_id 
-                WHERE verified=0;
+                WHERE verified=0 AND submit=0
                 ";
 
 // make query & get resultcustomer

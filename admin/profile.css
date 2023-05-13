@@ -245,7 +245,7 @@ input{
    
 
 }
-
+/* 
 .btn{
     background-color:#43562B;
     width: 50%;
@@ -256,7 +256,7 @@ input{
     align-content:center;
     text-align: center;
     cursor: pointer;
-}
+} */
 
 @media (max-width:100%){
     .block form .flex{
