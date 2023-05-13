@@ -67,6 +67,36 @@ $result2= mysqli_query($conn,$sql2);
         }
     }
 
+    if(isset($_GET['send']))
+    {
+        $course_ID = $_GET['send'];
+
+        /*$query1 = "SELECT image FROM instructor WHERE blog_ID=$blog_ID";
+        $stmt1 = mysqli_query($conn,$query1);
+        $result4 = mysqli_fetch_assoc($stmt1);
+        $imagepath = $result4['image'];
+
+        unlink($imagepath);*/
+
+        $query3 = "UPDATE course 
+                   SET submit=1 
+                   WHERE course_id=$course_ID
+                   AND status='Complete'";
+                   
+        $stmt3 = mysqli_query($conn,$query3);
+        
+
+        
+        if($stmt3){
+            echo"<script>alert('Course submit to admin')</script>";
+            ?>
+            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
+        <?php
+        }else{
+            echo "<script>alert('Failed to send course to admin')</script>";
+        }
+    }
+
    
 
 
@@ -125,8 +155,10 @@ $result2= mysqli_query($conn,$sql2);
                                 <div class="container_button">
                                     <a href="userCourse.php?view_blog=<?=$fetch['course_id']; ?>" id="view"><i class="fa-solid fa-desktop" style="font-size:15px;color:#000000;"></i></a>
                                     <a href="createCourse.php?edit=<?=$fetch['course_id']; ?>" type="button" id="edit" ><i class="fa-solid fa-pen-to-square" style="font-size:15px;color:#000000;"></i></a>
-                                    <a href="#" type="button" id="delete" onclick="showModal(); return false;" ><i class="fa-solid fa-trash" style="font-size:15px;color:#ee6c41;"></i></a>
+                                    <a href="#" type="button" id="delete" onclick="showModal_id01(); return false;" ><i class="fa-solid fa-trash" style="font-size:15px;color:#ee6c41;"></i></a>
+                                    <a href="#" type="button" id="send" onclick="showModal_id02(); return false;" ><i class="fa-solid fa-paper-plane" style="font-size:15px; color:#000000;"></i></a>
                                 </div>
+                                <!--delete mdal-->
                                 <div id="id01" class="modal" style="display: none;">
                                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                                     <form class="modal-content" action="/action_page.php">
@@ -134,8 +166,22 @@ $result2= mysqli_query($conn,$sql2);
                                         <h1>Delete this course</h1>
                                         <p>Are you sure you want to delete the course?</p>
                                         <div class="clearfix">
-                                            <a href="course.php?delete=<?=$fetch['course_id']; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
-                                            <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
+                                            <a href="course.php?delete=<?=$fetch['course_id']; ?>" type="button" class="deletebtn">Delete</a>
+                                            <button type="button" class="cancelbtn" onclick="hideModal_id01();">Cancel</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                                <!--send-->
+                                <div id="id02" class="modal" style="display: none;">
+                                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                    <form class="modal-content" action="/action_page.php">
+                                    <div class="container">
+                                        <h1>Send this course to admin</h1>
+                                        <p>Are you sure you want to send the course to admin?</p>
+                                        <div class="clearfix">
+                                            <a href="course.php?send=<?=$fetch['course_id']; ?>" type="button" class="deletebtn">Send</a>
+                                            <button type="button" class="cancelbtn" onclick="hideModal_id02();">Cancel</button>
                                         </div>
                                     </div>
                                     </form>
@@ -169,19 +215,24 @@ $result2= mysqli_query($conn,$sql2);
     </footer>
 
     <script>
-        function showModal() {
+        function showModal_id01() {
             
             document.getElementById("id01").style.display = "flex";
         }
 
-        function hideModal() {
+        function hideModal_id01() {
             document.getElementById("id01").style.display = "none";
         }
 
-        function deleteDetails() {
-
-        hideModal();
+        function showModal_id02() {
+            
+            document.getElementById("id02").style.display = "flex";
         }
+
+        function hideModal_id02() {
+            document.getElementById("id02").style.display = "none";
+        }
+
     </script>
 </body>
 </html>

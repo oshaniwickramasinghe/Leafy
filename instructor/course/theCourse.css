@@ -159,9 +159,9 @@ a{
  }
   
 .card {
-  box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 4px 0 whitesmoke;
   height: 410px; /* newly change*/
-  background-color: white;
+  background-color:rgba(200, 203, 206, 0.447);
   margin: 20px 0px;
   border-radius: 10px;
 }
@@ -199,6 +199,7 @@ a{
   padding: 20px;
   display: block;
   margin-bottom: 10px;
+
 }
 
 .card .card-text p
@@ -220,7 +221,7 @@ a{
 }
 /* newly add */
   .description{
-    background-color: rgba(200, 203, 206, 0.447);
+   
     padding: 5px;
     border-radius: 5px;
   }

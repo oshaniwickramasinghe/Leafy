@@ -24,13 +24,14 @@ $result2= mysqli_query($conn, $query);
 
 }*/
 
-function getPublishedPosts()
+function getPublishedPosts($page_first_result, $blog_per_page)
 {
 	global $conn;
 
 	$sql1= "SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
            FROM blog
-           INNER JOIN user ON blog.user_id=user.user_id";
+           INNER JOIN user ON blog.user_id=user.user_id
+           LIMIT ".$page_first_result.", ".$blog_per_page;
 		   /*  where blog.Verified=1"; */
 
     $stmt = $conn -> prepare($sql1);
@@ -40,7 +41,26 @@ function getPublishedPosts()
 
 }
 
-function search($term)
+//pagination
+$blog_per_page = 5;
+$sql5            = "SELECT * FROM blog";
+$result5         = mysqli_query($conn,$sql5);
+$blog_count    = mysqli_num_rows($result5);
+
+
+//rounds a number UP to the nearest integer
+$number_of_page  = ceil($blog_count/ $blog_per_page);
+
+
+if(!(isset($_GET['page']))){
+    $page  = 1;
+}else{
+    $page = $_GET['page'];
+}
+
+$page_first_result= ($page-1)*  $blog_per_page;
+
+function search($term,$page_first_result, $blog_per_page)
 {
     global $conn;
 
@@ -49,7 +69,8 @@ function search($term)
     $sql2="SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
            FROM blog
            INNER JOIN user ON blog.user_id=user.user_id /* where blog.Verified=1*/
-           AND (blog.title LIKE ? OR blog.content1 LIKE ? OR blog.description LIKE ? OR blog.topic LIKE ?)";
+           AND (blog.title LIKE ? OR blog.content1 LIKE ? OR blog.description LIKE ? OR blog.topic LIKE ?)
+           LIMIT ".$page_first_result.", ".$blog_per_page;
 
     $stmt = $conn -> prepare($sql2);
     $stmt->bind_param('ssss', $match, $match, $match, $match);
@@ -58,14 +79,15 @@ function search($term)
 	return $records;
 }
 
-function getPostByTopic($topic)
+function getPostByTopic($topic,$page_first_result, $blog_per_page)
 {
     global $conn;
 
     $sql3="SELECT blog.blog_id, CONCAT(user.fname,' ' , user.lname) AS author , blog.date, blog.title, blog.content1, blog.topic, blog.image1, blog.description
     FROM blog
     INNER JOIN user ON blog.user_id=user.user_id /* where blog.Verified=1 AND*/
-    WHERE blog.topic=?";
+    WHERE blog.topic=?
+    LIMIT ".$page_first_result.", ".$blog_per_page;
 
     $stmt = $conn -> prepare($sql3);
     $stmt->bind_param('s', $topic);
@@ -85,15 +107,15 @@ function getPostByTopic($topic)
  if(isset($_POST['search-term']))
  {
     $postsTitle = "You searched for '" . $_POST['search-term'] ."'";
-    $posts = search($_POST['search-term']);
+    $posts = search($_POST['search-term'],$page_first_result, $blog_per_page);
 
  }else if(isset($_GET['view'])){
 
     $postsTitle = "You searched for '" . $_GET['view'] ."'";
-    $posts = getPostByTopic($_GET['view']);
+    $posts = getPostByTopic($_GET['view'],$page_first_result, $blog_per_page);
 
 }else{
- $posts = getPublishedPosts();
+ $posts = getPublishedPosts($page_first_result, $blog_per_page);
 }
 
 ?>
@@ -153,7 +175,40 @@ function getPostByTopic($topic)
                         </div>
                     </div>
                 <?php endforeach; ?>
+            <!--pagination-->
+                <div class  = "pagination">
+                    <?php
+                    $records1 = getPublishedPosts($page_first_result, $blog_per_page);
+                    $records2 = getPostByTopic($topic,$page_first_result, $blog_per_page);
+                    $records3 = search($term,$page_first_result, $blog_per_page);
+                    
+
+                        if($page>= 2 ){
+                        echo "<a class  =  'prev' href='theBlog.php?page=".($page-1)."'> Previous page  </a>";
+                        }else{
+                        echo "<a class  =  'prev' href='theBlog.php?page=".($page)."'> Previous page </a>";
+                        }
+
+                        for($i = 1; $i<= $number_of_page; $i++){
+                        if($i== $page){
+                        $pagLink= "<a class ='active' href='theBlog.php?page=".$i."'>$i</a>";
+                        echo $pagLink;
+                        }else{
+                        $pagLink= "<a class = 'normal' href='theBlog.php?page=".$i."'>$i</a>";
+                        echo $pagLink;
+                        }
+
+                        };
+
+                        if($page < $number_of_page){
+                        echo "<a class  =  'next' href ='theBlog.php?page=".($page+1)."'> Next page  </a>";   
+
+                        }else{
+                        echo "<a class  =  'next' href ='theBlog.php?page=".($page)."'> Next page </a>"; 
+                    }?>
+                    </div>
             </div>
+         
             <div class="slidbar">
                 <div class="section-search">
                     <h2 class="section-title">search</h2>
@@ -179,9 +234,6 @@ function getPostByTopic($topic)
         </div>
     
     </div>
-    <div align="right">
-        <a href="home.php" class="goback-btn">go back >></a> 
-    </div> 
 
     <!--jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

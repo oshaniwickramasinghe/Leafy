@@ -266,7 +266,7 @@
     color: black;
   }
 
-  #id01 button{
+  .modal button{
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -278,7 +278,7 @@
     
   }
 
-  #id01 a{
+  .modal a{
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -295,17 +295,22 @@
     background-color: #f44336;
     color: black;
   }
+
   
   /* Add padding and center-align text to the container */
-  #id01 .container {
-    padding: 16px;
+  .modal .container {
+    padding: 20px;
     text-align: center;
     display: block;
   }
 
-  #id01 .container p{
-    margin-top: 10px;
-    margin-bottom: 10px;
+  .modal .container h1{
+    margin-top: 30px;
+  }
+
+  .modal .container p{
+    margin-top: 30px;
+    margin-bottom: 30px;
 
   }
 
@@ -360,4 +365,8 @@
         content: "";
         clear: both;
         display: table;
+      }
+
+      .clearfix{
+        margin-top: 20px ;
       }
