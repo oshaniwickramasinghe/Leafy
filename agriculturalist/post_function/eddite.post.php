@@ -46,7 +46,7 @@ $sql = "UPDATE post   set  item_name='$fname', location='$flocation', quantity='
 
 if ($conn->query($sql) === TRUE) {
     // echo "<script> window.location.href = '../account.php' </script>";
-    header("Location: ../postview.php");
+    header("Location: ../createpost/postview.php");
   } else {
     echo "Error updating record: " . $conn->error;
   }

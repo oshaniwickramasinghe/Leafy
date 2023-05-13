@@ -85,7 +85,7 @@ a{
 
   .main .content .card_section{
     flex: 7.5;
-    background-color: rgba(239, 239, 239);
+    background-color: rgba(255, 255, 255, 0.601);
     margin: 10px;
     padding: 10px;
     
@@ -159,9 +159,9 @@ a{
  }
   
 .card {
-  box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.2);
-  height: 400px;
-  background-color: white;
+  box-shadow: 0 4px 4px 0 whitesmoke;
+  height: 410px; /* newly change*/
+  background-color:rgba(200, 203, 206, 0.447);
   margin: 20px 0px;
   border-radius: 10px;
 }
@@ -198,6 +198,8 @@ a{
   position: relative;
   padding: 20px;
   display: block;
+  margin-bottom: 10px;
+
 }
 
 .card .card-text p
@@ -217,8 +219,74 @@ a{
     margin-bottom: 20px;
   }
 }
+/* newly add */
+  .description{
+   
+    padding: 5px;
+    border-radius: 5px;
+  }
 
-  
+  .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin: 50px 70px 20px 70px;
+    border-radius: 100px;
+     box-shadow:solid #FCFEF9;
+  }
+
+@media screen and (max-width:600px){ 
+    .row{
+        margin-top: 400px;
+        margin-left: -450px;
+        
+    }
+
+    .pagination{
+        margin-left: 42%;
+    }
+}
+
+.pagination .prev{
+  background-color:rgba(121, 118, 118, 0.544);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: black;
+  margin:5px 20px;
+  width: 150px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.pagination .next{
+  background-color:rgba(121, 118, 118, 0.544);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: black;
+  margin:5px 20px;
+  width: 150px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.active{
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  margin-left:20px ;
+  border-radius: 50%;
+}
+
+.normal
+{
+  padding: 10px;
+  background-color: rgba(139, 136, 136, 0.318);
+  color: black;
+  margin-left:20px ;
+  padding: 10px 15px;
+  border-radius: 50%;
+}
  
 
 

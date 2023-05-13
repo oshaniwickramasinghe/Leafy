@@ -88,7 +88,7 @@ GROUP BY order_id";
   }
 
   ?>
-<div style="background: #5A713D; "> <h2>Delivery Required</h2></div>
+<div style="background: #5A713D; "> <h2>Delivery Required Orders</h2></div>
  
 
   <?php
@@ -158,23 +158,13 @@ GROUP BY order_id";
 
   ?>
 
-  <!-- <script>
-    function changeText() {
-      document.getElementById("find").innerHTML = "Pending";
-      document.getElementById("find").disabled = true;
-
-      window.location.href='find_delivery.php?orderId=<?php echo $accept; ?>';
+  
 
 
 
-    }
-  </script> -->
+  <footer style="margin-top:25%;">
 
-
-
-  <footer>
-
-    <img src="../photos/Footer.svg" height="121.3px" style=" margin-top:15%">
+  <?php include '../include/footer.php' ?>
   </footer>
 
 </body>

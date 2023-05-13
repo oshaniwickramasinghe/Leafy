@@ -96,7 +96,7 @@ if(isset($_POST['change_password'])){
             $message[]="confirm password is not matched!";
             echo"<script>alert('confirm password is not matched!')</script>";
         }else{
-            mysqli_query($conn, "UPDATE `instructor` SET password='$confirm_pass' WHERE user_id='$user_ID'") or die ('query failed');
+            mysqli_query($conn, "UPDATE `user` SET password='$confirm_pass' WHERE user_id='$user_ID'") or die ('query failed');
             $message[]="password updated successfully!";
             echo"<script>alert('password updated successfully!');</script>";
         }

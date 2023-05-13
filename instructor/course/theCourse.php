@@ -4,22 +4,42 @@ include "../includes/header.php";
 $posts = array();
 $postsTitle ="Recent Posts";
 
-
-function getPublishedPosts()
+function getPublishedPosts($page_first_result, $course_per_page)
 {
 	global $conn;
-
-	$sql1= "SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author , course.date, course.title, course.Topic, course.image, course.description
-           FROM course
-           INNER JOIN user ON course.user_id=user.user_id";
-		   /*  where course.verified=1"; */
+    $sql1 = "SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author, course.date, course.title, course.Topic, course.image, course.description, MAX(course_followers.rate) AS rate
+            FROM course
+            INNER JOIN user ON course.user_id=user.user_id
+            LEFT JOIN course_followers ON course.course_id = course_followers.course_id
+            GROUP BY course.course_id, user.fname, user.lname, course.date, course.title, course.Topic, course.image, course.description
+            LIMIT ".$page_first_result.", ".$course_per_page;
 
     $stmt = $conn -> prepare($sql1);
     $stmt -> execute();
     $records = $stmt -> get_result()->fetch_all(MYSQLI_ASSOC);
     return $records;
-
 }
+
+//pagination
+$course_per_page = 6;
+$sql5            = "SELECT * FROM course";
+$result5         = mysqli_query($conn,$sql5);
+$course_count    = mysqli_num_rows($result5);
+
+
+//rounds a number UP to the nearest integer
+$number_of_page  = ceil($course_count/ $course_per_page);
+
+
+if(!(isset($_GET['page']))){
+    $page  = 1;
+}else{
+    $page = $_GET['page'];
+}
+
+$page_first_result= ($page-1)*  $course_per_page;
+
+
 
 function search($term)
 {
@@ -29,7 +49,7 @@ function search($term)
 
     $sql2="SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author , course.date, course.title, course.Topic, course.image, course.description
            FROM course
-           INNER JOIN user ON course.user_id=user.user_id /* where blog.Verified=1*/
+           INNER JOIN user ON course.user_id=user.user_id /* where course.verified=1*/
            AND (course.title LIKE ? OR course.description LIKE ? OR course.Topic LIKE ?)";
 
     $stmt = $conn -> prepare($sql2);
@@ -45,7 +65,7 @@ function getPostByTopic($topic)
 
     $sql3="SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author , course.date, course.title, course.Topic, course.image, course.description
             FROM course
-            INNER JOIN user ON course.user_id=user.user_id /* where blog.Verified=1*/
+            INNER JOIN user ON course.user_id=user.user_id /* where course.verified=1*/
             WHERE course.topic=?";
 
     $stmt = $conn -> prepare($sql3);
@@ -69,8 +89,10 @@ function getPostByTopic($topic)
     $posts = getPostByTopic($_GET['view']);
 
 }else{
- $posts = getPublishedPosts();
+ $posts = getPublishedPosts($page_first_result, $course_per_page);
 }
+
+
 
 
 ?>
@@ -110,18 +132,65 @@ function getPostByTopic($topic)
                           </div>
                           <div class="card-text">
                             <h4><?php if(isset ($post['title'])){ echo $post['title'];} ?></h4>
-                            <p><?php if(isset ($post['description'])){ echo substr($post['description'],0,150,).'....';} ?></p>
+                            <p class="description"><?php if(isset ($post['description'])){ echo substr($post['description'],0,150,).'....';} ?></p>
                             <div class="instructor_details">
-                              <i class="fa-solid fa-user"></i>&nbsp;<b><?php if(isset ($post['author'])){ echo $post['author'];} ?></b></i> &nbsp; &nbsp;
+                               <i class="fa-solid fa-user"></i> &nbsp; 
+                               <b>Author : <?php if(isset ($post['author'])){ echo $post['author'];} ?></b></i> &nbsp; &nbsp;
                             </div>
-                            <div class="rating">rating</div>
-                            <div class="course_session">number of sessions</div>
+                            <div class="rating">
+                               
+                                <b><p><i class="fa-solid fa-star"></i>&nbsp;
+                                      Rating : <i class="fa-solid fa-star" style="color:#EFE483;"></i>&nbsp; <b><?php if(isset($post['rate'])){ echo $post['rate']; } else { echo 'empty rate'; } ?></b>
+                                </p></b>
+                            </div>
+                            <!--sessions count-->
+                            <?php
+                                $sql4    =" SELECT * FROM course_session
+                                            WHERE course_id =".$post['course_id']."";
+
+                                $result4 = mysqli_query($conn,$sql4);
+
+                                $session_count = mysqli_num_rows($result4);
+                             ?>
+                            <div class="course_session">
+                                <b><p><i class="fa-solid fa-book-open-reader"></i> &nbsp;
+                                       number of sessions : <?php if(isset ($session_count)){ echo $session_count;} ?>
+                                </p></b>
+                            </div>
                          </div> 
                         </div>
                     </a>
                     </div>
                     <?php endforeach; ?>
                   </div>
+                    <div class  = "pagination">
+                    <?php
+                    $records = getPublishedPosts($page_first_result, $course_per_page);
+
+                        if($page>= 2 ){
+                        echo "<a class  =  'prev' href='theCourse.php?page=".($page-1)."'> Previous page << </a>";
+                        }else{
+                        echo "<a class  =  'prev' href='theCourse.php?page=".($page)."'> Previous page << </a>";
+                        }
+
+                        for($i = 1; $i<= $number_of_page; $i++){
+                        if($i== $page){
+                        $pagLink= "<a class ='active' href='theCourse.php?page=".$i."'>$i</a>";
+                        echo $pagLink;
+                        }else{
+                        $pagLink= "<a class = 'normal' href='theCourse.php?page=".$i."'>$i</a>";
+                        echo $pagLink;
+                        }
+
+                        };
+
+                        if($page < $number_of_page){
+                        echo "<a class  =  'next' href ='theCourse.php?page=".($page+1)."'> Next page >> </a>";   
+
+                        }else{
+                        echo "<a class  =  'next' href ='theCourse.php?page=".($page)."'> Next page >> </a>"; 
+                    }?>
+                    </div>
               </div> 
               <div class="slidbar">
                 <div class="section-search">

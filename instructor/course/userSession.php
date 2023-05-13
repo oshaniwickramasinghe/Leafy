@@ -178,8 +178,8 @@ if(isset($_GET['session']) && isset($_GET['course']))
 <footer><?php include "../includes/footer.php"; ?></footer>
 <script>
 
-    var answer = <?=$answer?>
-
+    var answer = '<?=$answer?>';
+    
     function getSelectedAnswer() {
         // get all the radio buttons in the group
         var radioButtons = document.getElementsByName('answer');

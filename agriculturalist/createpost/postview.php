@@ -1,6 +1,6 @@
 <?php 
-include '../public/Auth.php';
-include 'include/header.view.php';
+include '../Auth.php';
+include '../include/header.php';
 // include '../database.php';
 ?>
 
@@ -13,7 +13,10 @@ include 'include/header.view.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>postview</title>
-  <link rel="stylesheet" href="agristyle.css">
+  <!-- <link rel="stylesheet" href="../agristyle.css"> -->
+  <link rel="stylesheet" href="../CSS/delivery.css">
+  <link rel="stylesheet" href="../agristyle.css">
+  <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />                                                   
 
 </head>
@@ -21,7 +24,7 @@ include 'include/header.view.php';
 <body>
 
 <?php 
-include 'agri_menu.view.php';
+include "../include/createpost_menu.php";
 
 
 ?>
@@ -54,7 +57,7 @@ include 'agri_menu.view.php';
                 <div class = "cards" >
                     <div class = "card_body">
 
-                    <img src="./images/<?php echo $res['image'];?>" width="180" height="180" > 
+                    <img src="../images/<?php echo $res['image'];?>" width="180" height="180" > 
                     <h5 style="font-size:large;"><?php echo $res['item_name']?></h5>
 
                     <h5 class = "text_danger">Location:   <?php echo $res['location'];?></h5>       
@@ -68,7 +71,7 @@ include 'agri_menu.view.php';
                     &ex=<?php echo $res['expire_date'] ?>&price=<?php echo $res['unit_price'] ?>&loc=<?php echo $res['location'] ?>
                     &img=<?php echo $res['image'] ?>&vegi=<?php echo $res['item_name'] ?>&postid=<?php echo $res['post_id'] ?>">Edit</a>
 
-                      <a  href="post_function/delete.post.php?postid=<?php echo $res['post_id'] ?>">Delete</a>
+                      <a  href="../post_function/delete.post.php?postid=<?php echo $res['post_id'] ?>">Delete</a>
                       </div>
                      <!-- <input type= "submit" name= "Delete" class= "btn" value= "Delete" data-inline = "true"/> 
                      
@@ -87,7 +90,7 @@ include 'agri_menu.view.php';
   ?>
 </div> 
 <footer>
-<img src = "../Customer/images/Footer.svg"  height= "121.3px"  style = "margin-top:100%">
+<?php include '../include/footer.php' ?>
 </footer>
 
 </body>

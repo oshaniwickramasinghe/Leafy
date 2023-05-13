@@ -1,6 +1,7 @@
 <?php 
-include '../public/Auth.php';
-include '../public/includes/header.view.php';
+include '../Auth.php';
+include '../include/header.php';
+
 $user_id =$_SESSION['USER_DATA']['user_id'];
 $Qtt = $_REQUEST["Qtt"];
 $mQtt = $_REQUEST["mQtt"];
@@ -20,7 +21,10 @@ $postid=$_REQUEST["postid"];
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Edite post</title>
-     <link rel="stylesheet" href="agristyle.css">
+     <link rel="stylesheet" href="../agristyle.css">
+     <link rel="stylesheet" href="delivery.css">
+     <link rel="stylesheet" href="../agristyle.css">
+     <link rel="stylesheet" href="../CSS/style.css">
      
 </head>
 
@@ -31,17 +35,16 @@ $postid=$_REQUEST["postid"];
 
 <div style="position: relative; height: 10vh;">
 <div style="position: relative; height: 10vh;">
-<br><br><br><br><br>
 
 <?php 
-include 'createpost_menu.php';
+include '../createpost_menu.php';
 
 
 ?>
 </div>
 
 <br><br><br>
-     <form action="post_function/eddite.post.php" method="post" enctype="multipart/form-data">
+     <form action="../post_function/eddite.post.php" method="post" enctype="multipart/form-data">
 
 
           <h1>Edite Post</h1>
@@ -55,20 +58,8 @@ include 'createpost_menu.php';
 
 
           <label for="uname">Name</label><br>
-          <select class="select" value="<?php echo $vegi ?>"  class="select" name="fname">
-               <option value="Beetroot">Beetroot</option>
-               <option value="Big onion">Big onion</option>
-               <option value="Bitter gourd">Bitter gourd</option>
-               <option value="Bell Peppers">Bell Peppers</option>
-               <option value="Brinjal">Brinjal</option>
-               <option value="Cabbage">Cabbage</option>
-               <option value="Carrots">Carrots</option>
-               <option value="Calabrese">Calabrese</option>
-               <option value="potatoes">potatoes</option>
-               <option value="pumpkin">pumpkin</option>
-               <option value="snake gourd">snake gourd</option>
-          </select><br>
-          <!-- <input type="text" placeholder="Enter item name" id="fname" name="fname" ><br> -->
+
+          <input type="text" placeholder="" value="<?php echo $vegi ?> " id="fname" name="fname" ><br>
 
           <!-- <label for="uname">post_id</label><br> -->
           <input type="hidden" placeholder="" value="<?php echo $postid?>" id="postid" name="postid" required><br>
@@ -91,14 +82,14 @@ include 'createpost_menu.php';
           <input type="text" placeholder="price" value="<?php echo $price ?>" id="price" name="price" required><br>
 
           <label for="uname">Images</label><br>
-          <input type="file" placeholder="upload images" src="images/" value="<?php echo $img ?>" id="images" name="images" accept="images/jpg,images.jpeg,images/png" ><br> 
+          <input type="file" placeholder="upload images" src="../images/" value="<?php echo $img ?>" id="images" name="images" accept="images/jpg,images.jpeg,images/png" ><br> 
 
        
 
           <input type="submit" class="btn btn-primary w-100 " value="Submit" name=""></input>
 
      </form>
-     <?php include '../includes/footer.view.php'?>
+     <?php include '../include/footer.php' ?>
 </div>
 
 

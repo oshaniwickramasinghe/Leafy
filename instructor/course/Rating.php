@@ -1,7 +1,30 @@
 <?php
 include "../includes/header.php";
+$user_ID = 3;//$_SESSION['USER_DATA']['user_id'];
 
-$course_id=$_GET['course'];
+if(isset($_GET['course']))
+{
+    $course_id=$_GET['course'];
+
+
+    if(isset($_POST['submit'])){
+        $rating = $_POST['rating'];
+        $review = $_POST['comment'];
+
+        $query = "UPDATE course_followers SET rate=$rating, review='$review' WHERE user_id=$user_ID";
+
+        $result=mysqli_query($conn,$query);
+        
+        if($result)
+        {
+            exit('saved your rating and reviews');
+        }else{
+            exit('error');
+        }
+
+    }
+}
+
 
 ?>
 
@@ -19,11 +42,12 @@ $course_id=$_GET['course'];
 <body>
   <!-- for the rating and review of the customer -->
     <div class="rateReview">
-        <h1>Rate The Course</h1><br>
+        <h1>Rate & Review The Course</h1><br>
         <div class="form">
-            <form action="Ratedb.php" method="POST">  
+            <form action=" " method="POST">  
                 <div class="centerr">
-                    <label for="rating">Rating:</label><br>
+                    <div class="rating_div">
+                        <label for="rating">Rating:</label><br>
                         <fieldset class="rating">
                             <input type="radio"  class  ="star"id="star5" name="rating" value="5"/><label for="star5" class="full" title="Awesome"></label>
                             <input type="radio" class  ="star"id="star4.5" name="rating" value="4.5"/><label for="star4.5" class="half"></label>
@@ -35,11 +59,13 @@ $course_id=$_GET['course'];
                             <input type="radio" class  ="star"id="star1.5" name="rating" value="1.5"/><label for="star1.5" class="half"></label>
                             <input type="radio" class  ="star"id="star1" name="rating" value="1"/><label for="star1" class="full"></label>
                             <input type="radio" class  ="star"id="star0.5" name="rating" value="0.5"/><label for="star0.5" class="half"></label>
-                        </fieldset><br><br>
-
-                    <label for="comment">Your Review:</label><br><br>
-                    <textarea id="comment" name="comment" rows="5" required></textarea><br>
-                    <button type="submit">Submit</button>
+                        </fieldset><br>
+                    </div>
+                    <div class="comment_div">
+                        <label for="comment" class="comment">Your Review:</label><br><br>
+                        <textarea id="comment" name="comment" rows="5" required></textarea><br>
+                    </div>
+                    <button type="submit" name="submit">Submit</button>
                 </div>
             </form>
         </div>
