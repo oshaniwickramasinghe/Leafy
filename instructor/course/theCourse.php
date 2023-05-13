@@ -7,12 +7,15 @@ $postsTitle ="Recent Posts";
 function getPublishedPosts($page_first_result, $course_per_page)
 {
 	global $conn;
-
-	$sql1= "SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author , course.date, course.title, course.Topic, course.image, course.description
-           FROM course
-           INNER JOIN user ON course.user_id=user.user_id
-           LIMIT  ".$page_first_result. ','. $course_per_page;
+    $sql1 = "SELECT course.course_id, CONCAT(user.fname,' ' , user.lname) AS author, course.date, course.title, course.Topic, course.image, course.description, MAX(course_followers.rate)
+            FROM course
+            INNER JOIN user ON course.user_id=user.user_id
+            LEFT JOIN course_followers ON course.course_id = course_followers.course_id
+            GROUP BY course.course_id, user.fname, user.lname, course.date, course.title, course.Topic, course.image, course.description
+            LIMIT ".$page_first_result.", ".$course_per_page;
 		   /*  where course.verified=1"; */
+
+           
 
     $stmt = $conn -> prepare($sql1);
     $stmt -> execute();
@@ -139,7 +142,7 @@ function getPostByTopic($topic)
                             </div>
                             <div class="rating">
                                 <b><p><i class="fa-solid fa-star"></i>&nbsp;
-                                      Rating : 
+                                      Rating : <i class="fa-solid fa-star" style="color:#EFE483;"></i>&nbsp; <b><?php if(isset ($post[' MAX(course_followers.rate)'])){ echo $post[' MAX(course_followers.rate)'];}else{echo'empty rate';} ?></b>
                                 </p></b>
                             </div>
                             <!--sessions count-->

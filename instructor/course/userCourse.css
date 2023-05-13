@@ -10,16 +10,22 @@
   }
 
   .container{
-    padding:70px 0px 0px 60px;
+    padding:40px 0px 0px 60px;
     
     
-    
+  }
+
+  .details-container{
+    background-color: rgba(140, 138, 138, 0.498);
+    width: 60%;
+    padding: 35px;
+    border-radius: 10px;
   }
 
 
   .profile
   {
-    margin-top: 50px;
+    margin-top: 20px;
     display:flex;
     text-align: center;
     align-items: center;
@@ -27,13 +33,25 @@
 
   .profile .text{
     margin-left: 10px;
-    text-align: center;
+    text-align: left;
+    width: 50%;
     
   }
 
+  .rate{
+    margin-left: 10px;
+    text-align: left;
+    margin: 20px 0px 0px 0px ;
+    background-color: rgba(255, 255, 255, 0.494);
+    padding: 25px;
+    width: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
   .begin_button{
-    margin-top: 100px;
-    margin-bottom: 30px;
+    margin-top: 40px;
+    margin-bottom: 50px;
   }
 
   .btn{
@@ -57,6 +75,8 @@
     height: auto;
     background-color: white;
     padding: 2% 5% 5% 5%;
+    box-shadow: 0 0 5px grey;
+
   }
   
   .view h1{
@@ -100,10 +120,22 @@
   box-shadow: 0 0 5px white;
 }
 
+.about-div p{
+  text-align: justify;
+}
+
+.about-div h1{
+  color: #43562B;
+}
+
 .instructor-div{
   display: none;
   background-color: rgba(239, 239, 239, 0.509);
   padding: 30px;
+}
+
+.instructor-div p{
+  color: #43562B;
 }
 
 .syllabus-div{
@@ -112,8 +144,123 @@
   padding: 30px;
 }
 
+.syllabus-div h1{
+  color: #43562B;
+}
+
+.syllabus-div .duration{
+  background-color:#43562b4d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.syllabus-div h2{
+  color: #43562B;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.syllabus-div .sessions_div{
+  background-color: white;
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
 .review-div{
   display: none;
   background-color: rgba(239, 239, 239,0.509);
   padding: 30px;
+}
+
+
+.img_container{
+  width: 30%;
+  background-color: white;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.instructor_text{
+  width: 50%;
+  text-align: left;
+  background-color: white;
+  height: 200px;
+  margin-left: 10px;
+  padding: 40px;
+}
+
+.instructor_text .icon{
+  font-size: 14px;
+  color: black;
+}
+
+.session_details{
+   margin-bottom: 20px;
+   margin-left: 50px;
+}
+
+.session_topic{
+  display: flex;
+}
+
+.session_ID{
+  margin: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.session_title h3{
+  margin-bottom: 10px;
+}
+
+.session_title{
+  margin-left: 30px;
+  background-color: #eef9e060;
+  width: 700px;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.quiz{
+  margin-top: 10px;
+}
+
+.session_description{
+  font-size: 13px;
+  color: rgb(46, 45, 45);
+}
+
+.review{
+  background-color: white;
+}
+
+.review_content{
+  display: flex;
+ 
+  padding: 20px;
+}
+
+.review_details{
+  margin-left: 20px;
+
+}
+
+.user_name{
+  font-size: 11px;
+  color: #43562B;
+  text-align: right;
+  margin-top: 10px;
 }

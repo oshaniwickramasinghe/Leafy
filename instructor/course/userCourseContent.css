@@ -306,3 +306,7 @@ h2{
     color: white;
     background-color: rgb(55, 53, 53);
   }
+
+  .text{
+    text-align: justify;
+  }

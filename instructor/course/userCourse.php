@@ -9,7 +9,11 @@ if(!isset($user_ID)){
 if(isset($_GET['view']))
     {
         $course_ID = $_GET['view'];
-        $sql1      = "SELECT * FROM course WHERE course_id=$course_ID";
+        $sql1      = "SELECT course.*,MAX(course_followers.rate),COUNT(course_followers.rate)
+                      FROM course
+                      LEFT JOIN course_followers ON course.course_id = course_followers.course_id
+                      WHERE course.course_id=$course_ID";
+
         $result1    = mysqli_query($conn,$sql1);
         
         if($result1)
@@ -23,6 +27,9 @@ if(isset($_GET['view']))
                 $image      = $record1['image'];
                 $date       = $record1['date'];
                 $duration   = $record1['duration'];
+                $rate       = $record1['MAX(course_followers.rate)'];
+                $rating     = $record1['COUNT(course_followers.rate)'];
+
     
             }
             
@@ -73,10 +80,12 @@ if(isset($_GET['view']))
             $record_5        = mysqli_query($conn,$sql5);
             $count_course    = mysqli_num_rows($record_5);
 
-            $sql6            = "SELECT * FROM agriculturalist_course
-                                JOIN course ON course.course_id = agriculturalist_course.course_id
+            $sql6            = "SELECT course_followers.* 
+                                FROM course_followers
+                                JOIN course ON course.course_id       = course_followers.course_id
                                 WHERE course.user_id=$user_ID ";
             $record_6        = mysqli_query($conn,$sql6);
+
             $total_followers = mysqli_num_rows($record_6);
       
         }
@@ -86,6 +95,19 @@ if(isset($_GET['view']))
                            ORDER BY session_id ASC";
         
         $result7        = mysqli_query($conn,$sql7);
+
+//get reviews
+    
+        $sql8            = "SELECT course_followers.* , CONCAT(user.fname,' ' , user.lname) AS user_name, user.image
+                            FROM course_followers
+                            JOIN course ON course.course_id       = course_followers.course_id
+                            JOIN user ON course_followers.user_id = user.user_id
+                            WHERE course.course_id=$course_ID
+                            AND review IS NOT NULL";
+
+        $result8        = mysqli_query($conn,$sql8);
+
+        
 
 
     }
@@ -106,8 +128,8 @@ if(isset($_GET['view']))
         <div class="begin" style="background:url(../images/flowerbascket.jpg) no-repeat center center / cover;">
             <div class="container">
                 <div class="main_detail_container">
-                    <h1><?php if(isset ($title)){ echo $title;} ?></h1>
-                    <div class="profile-container">
+                    <div class="details-container">
+                        <h1><?php if(isset ($title)){ echo $title;} ?></h1>
                         <div class="profile">
                             <div class="img-container">
                                 <?php if($user_image == ''){
@@ -119,13 +141,17 @@ if(isset($_GET['view']))
                             </div>
                             <div class="text">
                                 <h4><?php if(isset ($first_name)){ echo $first_name." ".$last_name;} ?> | <?php if(isset ($occupation)){ echo $occupation;} ?></h4>
-                            </div>    
+                            </div>      
                         </div>
+                        <div class="rate">
+                        <h4><i class="fa-solid fa-star" style="color:#EFE483;"></i>&nbsp; <b><?php if($rate){ echo $rate;}else{echo'empty rate';} ?></b> &nbsp; &nbsp; &nbsp; Ratings : <?php if($rating){ echo $rating;}else{echo'0';} ?></h4>
+                    </div> 
+                    <p><b><?=$count_followers?> Already Entrolled</b></p>
                     </div>
                     <div class="begin_button">
                         <a href="userCourseContent.php?view_course=<?= $course_ID; ?>" class="btn">Entroll to the Course</a>
                     </div>
-                    <p><b><?=$count_followers?> Already Entrolled</b></p>
+                   
                 </div>
             </div>
         </div>
@@ -146,40 +172,79 @@ if(isset($_GET['view']))
                             <h1>Instructor</h1>
                             <div class="Instructor_details">
                                 <div class="profile">
-                                    <div class="img-container">
+                                    <div class="img_container">
                                         <?php if($user_image == ''){
                                                     echo '<img src="../images/profilepic_icon.svg" width="50px" >';
                                                 }else{
-                                                    echo '<img src="../images/'.$user_image.'" align="middle" width="150px" style="border-radius:100%;">';
+                                                    echo '<img src="../images/'.$user_image.'" align="middle" width="200px" style="border-radius:100%;">';
                                                 }
                                         ?>
                                     </div>
-                                    <div class="text">
-                                        <?php if(isset ($first_name)){ echo $first_name." ".$last_name;} ?><br>
-                                        <?php if(isset ($occupation)){ echo $occupation;} ?><br>
-                                        <?php if(isset ($education_level)){ echo $education_level;} ?> in <?php if(isset ($specialized_are)){ echo $specialized_are;} ?><br>
-                                        <i class="fa-solid fa-user-group"></i> <?php if(isset ($total_followers)){ echo $total_followers;} ?> learners <br>
-                                        <i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i><?php if(isset ($count_course)){ echo $count_course;} ?> courses
+                                    <div class="instructor_text">
+                                        <h3><?php if(isset ($first_name)){ echo $first_name." ".$last_name;} ?></h3><br>
+                                        <p><?php if(isset ($occupation)){ echo $occupation;} ?></p><br>
+                                        <p><?php if(isset ($education_level)){ echo $education_level;} ?> in <?php if(isset ($specialized_are)){ echo $specialized_are;} ?><p></p><br>
+                                        <p class="icon"><i class="fa-solid fa-user-group" style="font-size:18px;color:#43562B;"></i>&nbsp;&nbsp;<b><?php if(isset ($total_followers)){ echo $total_followers;} ?></b> &nbsp;learners</p><br> 
+                                        <p class="icon"><i class="fa-brands fa-readme" style="font-size:18px;color:#43562B;"></i>&nbsp; &nbsp;<b><?php if(isset ($count_course)){ echo $count_course;} ?></b>&nbsp; courses</p>
                                     </div>    
                                 </div>
                             </div>
                         </div>
                         <div class="syllabus-div" id="syllabus-div">
                             <h1>Syllabus</h1>
-                            <b>Course duration -<?=$duration?></b>
-                            <h2>sessions</h2>
-                            <?php
-                                if(mysqli_num_rows($result7)>0)
-                                    while($record7=mysqli_fetch_assoc($result7))
-                            {?>
-                            <h3><?php if(isset ($record7['session_id'])){ echo $record7['session_id'];} ?>-<?php if(isset ($record7['title'])){ echo $record7['title'];} ?></h3>
-                            <?php if(isset ($record7['description'])){ echo $record7['description'];} ?><br>
-                            <p>Quiz</p>
-                            <?php 
+                            <p class="duration"><b>Course duration -<?=$duration?></b></p>
+                            <div class="sessions_div">
+                                <h2>Sessions</h2>
+                                <?php
+                                    if(mysqli_num_rows($result7)>0)
+                                        while($record7=mysqli_fetch_assoc($result7))
+                                {?>
+                                <div class="session_details">
+                                    <div class="session_topic">
+                                        <div class="session_ID">
+                                            <?php if(isset ($record7['session_id'])){ echo $record7['session_id'];} ?>
+                                        </div>
+                                        <div class="session_title">
+                                            <h3><?php if(isset ($record7['title'])){ echo $record7['title'];} ?></h3>
+                                            <p class="session_description"><?php if(isset ($record7['description'])){ echo $record7['description'];} ?></p><br>
+                                            <p class="quiz">Quiz</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <?php 
                             }?>
+                            </div>
                         </div>
                         <div class="review-div" id="review-div">
                             <h1>Review</h1>
+                            <div class="reviews">
+                            <?php
+                            if(mysqli_num_rows($result8 )>0)
+                                {
+                                while($stmt=mysqli_fetch_assoc($result8 ))
+                                    {?>
+                                <div class="review">
+                                    <div class="review_content">
+                                            <?php
+                                            if($stmt['image'] == ''){
+                                                echo '<img src="../images/profilepic_icon.svg" width="30px" >';
+                                            }else{
+                                                echo '<img src="../images/'.$user_image.'" align="middle" width="40px" style="border-radius:100%;">';
+                                            }
+                                            ?>
+                                             <div class="review_details">
+                                                <b><p class="review_text"><?=$stmt['review']?></p></b>
+                                                <p class="user_name"><?=$stmt['user_name']?></p>
+                                             </div>
+                                    </div>
+                                   
+                                </div>
+                            <?php   }
+                                } else {?>
+                                "No any reviews"
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
                         </div>

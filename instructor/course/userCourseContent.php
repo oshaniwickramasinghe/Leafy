@@ -1,7 +1,7 @@
 <?php
 include "../includes/header.php";
-$user_ID   = $_SESSION['USER_DATA']['user_id'];
-$user_role = $_SESSION['USER_DATA']['role'];
+$user_ID   = 1;//$_SESSION['USER_DATA']['user_id'];
+$user_role = "Customer";//$_SESSION['USER_DATA']['role'];
 
 error_reporting(0);
 
