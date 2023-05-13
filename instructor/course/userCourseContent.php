@@ -339,7 +339,7 @@ if($user_role=='admin'){
     var forum_btn               = document.getElementById("forum-btn");
 
 
-    let real_percentage         = (completed_session_count/session_count)*100;
+    let real_percentage         = Math.ceil((completed_session_count/session_count)*100);
 
     var offset                  = 472 - 472 *(real_percentage)*0.01; 
     

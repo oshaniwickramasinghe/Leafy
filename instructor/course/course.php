@@ -79,10 +79,9 @@ $result2= mysqli_query($conn,$sql2);
         unlink($imagepath);*/
 
         $query3 = "UPDATE course 
-                   SET submit=1 
-                   WHERE course_id=$course_ID
-                   AND status='Complete'";
-                   
+                   SET submit=1
+                   WHERE course_id=$course_ID";
+
         $stmt3 = mysqli_query($conn,$query3);
         
 
@@ -150,15 +149,26 @@ $result2= mysqli_query($conn,$sql2);
                             <td><?php if(isset ($fetch['title'])){ echo $fetch['title'];} ?></td>
                             <td><?php if(isset ($fetch['Topic'])){ echo $fetch['Topic'];} ?></td>
                             <td><?php if(isset ($fetch['date'])){ echo $fetch['date'];} ?></td>
-                            <td><?php if(isset ($fetch['status'])){ echo $fetch['status'];} ?></td>
+                            <td><?php if(isset ($fetch['submit']))
+                                             {if( $fetch['submit']==0 && $fetch['verified']==0 )
+                                                {    
+                                                    echo 'Not send';
+                                                }else if($fetch['submit']==1 && $fetch['verified']==1){ 
+                                                    echo 'Verified';
+                                                }else if($fetch['submit']==1 && $fetch['verified']==2){
+                                                    echo 'Reject';
+
+                                                }else if($fetch['submit']==1 && $fetch['verified']==0){
+                                                    echo 'Send';
+                                                }
+                                                    } ?></td>
                             <td>
                                 <div class="container_button">
-                                    <a href="userCourse.php?view_blog=<?=$fetch['course_id']; ?>" id="view"><i class="fa-solid fa-desktop" style="font-size:15px;color:#000000;"></i></a>
                                     <a href="createCourse.php?edit=<?=$fetch['course_id']; ?>" type="button" id="edit" ><i class="fa-solid fa-pen-to-square" style="font-size:15px;color:#000000;"></i></a>
                                     <a href="#" type="button" id="delete" onclick="showModal_id01(); return false;" ><i class="fa-solid fa-trash" style="font-size:15px;color:#ee6c41;"></i></a>
                                     <a href="#" type="button" id="send" onclick="showModal_id02(); return false;" ><i class="fa-solid fa-paper-plane" style="font-size:15px; color:#000000;"></i></a>
                                 </div>
-                                <!--delete mdal-->
+                                <!--delete modal-->
                                 <div id="id01" class="modal" style="display: none;">
                                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                                     <form class="modal-content" action="/action_page.php">
@@ -172,7 +182,7 @@ $result2= mysqli_query($conn,$sql2);
                                     </div>
                                     </form>
                                 </div>
-                                <!--send-->
+                                <!--send modal-->
                                 <div id="id02" class="modal" style="display: none;">
                                     <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
                                     <form class="modal-content" action="/action_page.php">

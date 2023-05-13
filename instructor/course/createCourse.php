@@ -3,6 +3,7 @@
  $user_ID = $_SESSION['USER_DATA']['user_id'];
  
  $update = false;
+ $save   =false;
 
  $course_ID="";
  $title="";
@@ -13,7 +14,7 @@
  $time="";
  $image="";
  $duration="";
- $status="";
+ 
 
 
  
@@ -24,7 +25,6 @@
     $Topic=mysqli_real_escape_string($conn,$_POST['Topic']);
     $description=mysqli_real_escape_string($conn,$_POST['description']);
     $duration=mysqli_real_escape_string($conn,$_POST['duration']);
-    $status=mysqli_real_escape_string($conn,$_POST['status']);
     $image=$_FILES['image']['name'];
     $image_size=$_FILES['image']['size'];
     $image_tmp_name=$_FILES['image']['tmp_name'];
@@ -32,13 +32,14 @@
     
 
 
-    $sql1=" INSERT INTO course(title,Topic,image,user_id,description,duration,status) Values ('$title',' $Topic','$image','$user_ID','$description','$duration','$status')";
+    $sql1=" INSERT INTO course(title,Topic,image,user_id,description,duration) Values ('$title',' $Topic','$image','$user_ID','$description','$duration')";
     
     $result1=mysqli_query($conn,$sql1);
     if($result1){
         move_uploaded_file($image_tmp_name, $image_folder);
         $course_id = mysqli_insert_id($conn); 
         $_SESSION['course_id'] =  $course_id;
+        $save = true;
        echo"<script>alert('Details added');</script>";
     }else{
         echo"Error: " . $sql1 . "<br>" . mysqli_error($conn);
@@ -48,29 +49,40 @@
 
 
  if (isset($_POST['pass'])) {
-    $session_ids = $_POST['sessions'];
-    $id= $_SESSION['course_id'];
-
-    // Retrieve the existing session IDs from the database
-    $sql_select = "SELECT session_id FROM course_session WHERE course_id='$id'";
-    $result_select = mysqli_query($conn, $sql_select);
-    $existing_session_ids = array();
-    while ($row = mysqli_fetch_assoc($result_select)) {
-        $existing_session_ids[] = $row['session_id'];
-    }
-
-    // Loop through the new session IDs and insert only the ones that haven't been saved yet
-    for ($i = 0; $i < count($session_ids); $i++) {
-        $session_id = mysqli_real_escape_string($conn, $session_ids[$i]);
-
-        if (!in_array($session_id, $existing_session_ids)) {
-            // The session ID doesn't exist in the database, so insert it
-            $sql_insert = "INSERT INTO course_session (course_id, session_id) VALUES ('$id','$session_id')";
-            if (!mysqli_query($conn, $sql_insert)) {
-                echo "Error: " . $sql_insert . "<br>" . mysqli_error($conn);
+    if(isset($_SESSION['course_id']))
+    {
+        $session_ids = $_POST['sessions'];
+        $id= $_SESSION['course_id'];
+    
+        // Retrieve the existing session IDs from the database
+        $sql_select = "SELECT session_id FROM course_session WHERE course_id='$id'";
+        $result_select = mysqli_query($conn, $sql_select);
+        $existing_session_ids = array();
+        while ($row = mysqli_fetch_assoc($result_select)) {
+            $existing_session_ids[] = $row['session_id'];
+        }
+    
+        // Loop through the new session IDs and insert only the ones that haven't been saved yet
+        for ($i = 0; $i < count($session_ids); $i++) {
+            $session_id = mysqli_real_escape_string($conn, $session_ids[$i]);
+    
+            if (!in_array($session_id, $existing_session_ids)) {
+                // The session ID doesn't exist in the database, so insert it
+                $sql_insert = "INSERT INTO course_session (course_id, session_id) VALUES ('$id','$session_id')";
+                if (!mysqli_query($conn, $sql_insert)) {
+                    echo "Error: " . $sql_insert . "<br>" . mysqli_error($conn);
+                }else{
+                    echo"<script>alert('succefully saved created sessions.')</script>";
+                    ?>
+                        <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/createCourse.php">
+                    <?php
+                }
             }
         }
+    }else{
+        echo"this is the code";
     }
+  
 }
 
 
@@ -92,7 +104,6 @@
              $title=$record3['title'];
              $date=$record3['date'];
              $image=$record3['image'];
-             $status=$record3['status'];
              $duration=$record3['duration'];
              $description=$record3['description'];
          }
@@ -207,7 +218,7 @@
                 <div class="view">
                    <div class="btn-section">
                         <button class="view-btn" id="view-btn">Basic Details</button>
-                        <button class="update-btn" id="update-btn">Sessions</button>
+                        <button class="update-btn" id="update-btn" >Sessions</button>
                    </div>
                     <div class="block">
                             <?php
@@ -259,13 +270,6 @@
                                         <label for="duration">Course Duration</label>
                                         <input type="text" id="duration" name="duration" placeholder="Duration of the course..." class="text_input" value="<?= $duration; ?>" required><br>
                                     </div>
-                                    <div>
-                                        <label for="status">Status</label><br>
-                                        <select id="status" name="status">
-                                            <option value="Complete">Complete</option>
-                                            <option value="Not Complete">Not Complete</option>
-                                        </select><br>
-                                    </div>
                                     <div class="images">
                                         <label for="image" >Image for the cover page of course</label><br><br>
                                         <div class="image">
@@ -296,7 +300,7 @@
                                         <?php if($update == true) {?>
                                             <button type="submit" value="update" name="update" class="btn">Update</button>
                                         <?php } else {?>     
-                                            <button type="submit" value="Save" name="save" class="btn" id="save-btn">Save</button>
+                                            <button type="submit" value="Save" name="save" class="btn" id="save-btn-basicData">Save</button>
                                         <?php } ?>   
                                     </div> 
                                 </form>
@@ -314,7 +318,6 @@
                                                     <input type="hidden" name="sessions[]" value="<?=$record4['session_id']?>">
                                                     <div class="icon">
                                                         <i class="fa-solid fa-trash" style="font-size:18px;color:#ee6c41;"></i>&nbsp; &nbsp;
-                                                        <a href="session.php?id=<?=$record4['session_id']?>& course=<?=$record4['course_id']?>"><i class="fa-solid fa-square-plus" style="font-size:18px;color:#000000;"></i></a>&nbsp; &nbsp;
                                                         <a href="session.php?edit_id=<?=$record4['session_id']?>& edit_course=<?=$record4['course_id']?>"><i class="fa-solid fa-pen-to-square" style="font-size:18px;color:#000000;"></i></a> 
                                                     </div>
                                                 </div>
@@ -358,15 +361,22 @@
         var save_btn = document.getElementById("save-btn");
         var steps = document.getElementById("steps");
         var sessions_div = document.querySelector(".sessions");
+        var save_btn_basic= document.getElementById("save-btn-basicData");
         var sessions = [];
+
+        // Function to enable the update button
+        function enableUpdateBtn() {
+            update_btn.disabled = false;
+        }
 
         view_btn.addEventListener('click', ()=>{
             view_div.style.display ='block';
             update_div.style.display ='none';
-            view_btn.background
+            
         });
 
         update_btn.addEventListener('click', ()=>{
+            
             update_div.style.display ='block';
             view_div.style.display ='none';
             
