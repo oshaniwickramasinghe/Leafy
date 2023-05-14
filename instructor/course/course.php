@@ -45,25 +45,23 @@ $result2= mysqli_query($conn,$sql2);
     {
         $course_ID = $_GET['delete'];
 
-        /*$query1 = "SELECT image FROM instructor WHERE blog_ID=$blog_ID";
-        $stmt1 = mysqli_query($conn,$query1);
-        $result4 = mysqli_fetch_assoc($stmt1);
-        $imagepath = $result4['image'];
-
-        unlink($imagepath);*/
 
         $query2 = "DELETE FROM course WHERE course_id=$course_ID";
         $stmt2 = mysqli_query($conn,$query2);
         
 
-        
-        if($stmt2){
-            echo"<script>alert('Record Deleted from database')</script>";
+       
+        if(mysqli_affected_rows($conn) > 0) {
+            echo "<script>alert('Record Deleted from database')</script>";
             ?>
             <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
-        <?php
-        }else{
+            <?php
+        } else {
             echo "<script>alert('Failed to delete from database')</script>";
+            ?>
+            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
+            <?php
+            
         }
     }
 
@@ -86,17 +84,24 @@ $result2= mysqli_query($conn,$sql2);
 
             $stmt3 = mysqli_query($conn,$query3);
 
-            if($stmt3){
-                echo"<script>alert('Course submit to admin')</script>";
+
+            if(mysqli_affected_rows($conn) > 0) {
+                echo "<script>alert('Sending successful')</script>";
                 ?>
                 <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
-            <?php
-            }else{
-                echo "<script>alert('Failed to send course to admin')</script>";
+                <?php
+            } else {
+                echo "<script>alert('Sending fail!')</script>";
+                ?>
+                <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
+                <?php
             }
-        }else{
 
-            echo"<script>alert('This course not complete')</script>";
+        }else{
+            echo "<script>alert('This course is not completed,therefore you cannot send this!')</script>";
+            ?>
+            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
+            <?php
         }
     
        
@@ -175,7 +180,7 @@ $result2= mysqli_query($conn,$sql2);
                                     <a href="#" type="button" id="send" onclick="showModal_id02(); return false;" ><i class="fa-solid fa-paper-plane" style="font-size:15px; color:#000000;"></i></a>
                                 </div>
                                 <!--delete modal-->
-                                <div id="id01" class="modal" style="display: none;">
+                                <div id="id01_<?=$fetch['course_id']; ?>" class="modal" style="display: none;">
                                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                                     <form class="modal-content" action="/action_page.php">
                                     <div class="container">
@@ -189,7 +194,7 @@ $result2= mysqli_query($conn,$sql2);
                                     </form>
                                 </div>
                                 <!--send modal-->
-                                <div id="id02" class="modal" style="display: none;">
+                                <div id="id02_<?=$fetch['course_id']; ?>" class="modal" style="display: none;">
                                     <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
                                     <form class="modal-content" action="/action_page.php">
                                     <div class="container">
@@ -204,6 +209,26 @@ $result2= mysqli_query($conn,$sql2);
                                 </div>
                             </td>
                         </tr>
+                    <script>
+                        function showModal_id01() {
+                            
+                            document.getElementById("id01_<?=$fetch['course_id']; ?>").style.display = "flex";
+                        }
+
+                        function hideModal_id01() {
+                            document.getElementById("id01_<?=$fetch['course_id']; ?>").style.display = "none";
+                        }
+
+                        function showModal_id02() {
+                            
+                            document.getElementById("id02_<?=$fetch['course_id']; ?>").style.display = "flex";
+                        }
+
+                        function hideModal_id02() {
+                            document.getElementById("id02_<?=$fetch['course_id']; ?>").style.display = "none";
+                        }
+
+                    </script>
                         <?php }
                         } else{
                         ?>
@@ -229,26 +254,5 @@ $result2= mysqli_query($conn,$sql2);
     <footer>
         <?php    include "../includes/footer.php"; ?>
     </footer>
-
-    <script>
-        function showModal_id01() {
-            
-            document.getElementById("id01").style.display = "flex";
-        }
-
-        function hideModal_id01() {
-            document.getElementById("id01").style.display = "none";
-        }
-
-        function showModal_id02() {
-            
-            document.getElementById("id02").style.display = "flex";
-        }
-
-        function hideModal_id02() {
-            document.getElementById("id02").style.display = "none";
-        }
-
-    </script>
 </body>
 </html>
