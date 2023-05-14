@@ -197,7 +197,7 @@ include '../includes/header.php';
                                     </li>
                                     <?php while($record3=mysqli_fetch_assoc($queryusers)){?>
                                     <li>
-                                        <a class="report">
+                                        <a class="report" href="../Admin_Users/AdminUserView.php ?UID=<?= $record3['user_id'] ;?> ">
                                             <table class="report">
                                                 <col width="50px">
                                                 <col width="50px">
@@ -241,7 +241,7 @@ include '../includes/header.php';
                         <div class="card_left">
                                 <ul>
                                     <li>
-                                        <a class="report">
+                                        <a class="report" href="../../instructor/Blog/userblog.php ? view_blog=<?= $record4['blog_id']; ?> ">
                                             <table class="report">
                                                 <col width="50px">
                                                 <col width="50px">
@@ -316,7 +316,7 @@ include '../includes/header.php';
                             </a></li>                      
 
                             <?php while($record4=mysqli_fetch_assoc($querycourse)){?>
-                                <li><a class="report">
+                                <li><a class="report" href="../../instructor/course/userCourseContent.php?view_course=<?= $record4['course_id']; ?> ">
                                     <table class="report">
                                             <col width="50px">
                                             <col width="50px">

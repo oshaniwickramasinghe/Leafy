@@ -1,17 +1,17 @@
 <?php
 
-error_reporting(0);
+// error_reporting(0);
 
 include '../../database/database.php';
 
 //not delivered orders
-$sqlorder="SELECT * FROM `order` WHERE delivery=0";
+$sqlorder="SELECT * FROM `checkout` WHERE delivery_status=0";
 // make query & get resultcustomer
 $resultorder= mysqli_query($conn,$sqlorder);
 
 
 //delivered orders
-$sqlnonorder="SELECT * FROM `order` WHERE delivery=1";
+$sqlnonorder="SELECT * FROM `checkout` WHERE delivery_status=1";
 // make query & get resultcustomer
 $resultnonorder= mysqli_query($conn,$sqlnonorder);
 
