@@ -7,6 +7,9 @@ require "../database/database.php";
 require "../login/Auth.php";
 include '../includes/header.php';
 
+if(!isset($user_ID)){
+  header('location:/leafy-main/customer/login/login.view.php');
+};
 
 //save location of the customer
 $uid  = $_SESSION['USER_DATA']['user_id'];

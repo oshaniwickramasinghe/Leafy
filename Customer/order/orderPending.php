@@ -4,6 +4,7 @@ include "../database/database.php";
 
 $customerId  = $_SESSION['USER_DATA']['user_id'];
 
+
 // getting current date
 $date = date("Y-m-d");
 
@@ -12,6 +13,7 @@ $result  = mysqli_query($conn,$sql);
 $row  = mysqli_fetch_array($result);
 $orderId = $row['order_id'];
 
+var_dump($sql );
 $query ="SELECT status FROM checkout WHERE orderId = $orderId ORDER BY orderId  DESC";
 
 $Rlt  = mysqli_query($conn,$query);
@@ -39,7 +41,7 @@ $res = mysqli_fetch_array($Rlt);
 //check the status of the order is it accepted(1) or not (0)
 // and send the message accordingly
 
-if($res['status'] == 0){?>
+if($res['status'] == 0 || $res['status'] == 3){?>
 
 <div class  =  "msg_body">
     <div class ='card'>

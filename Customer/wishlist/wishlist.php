@@ -4,17 +4,21 @@
 <?php
 require "../../Customer/database/database.php";
 require "../login/Auth.php";
+
+//  if not login redirect to login page
+if(!isset($user_ID)){
+      header('location:/leafy-main/customer/login/login.view.php');
+    };
+//viewing the post information
+if(isset($_POST['view'])){
+     $_SESSION['wishlist_id'] = $_POST['post_id'];
+      header("location:/leafy-main/Customer/post/view.php");
+}
+
+//including header to the page
 include '../includes/header.php';
 
 
-// unset($_SESSION['wishlist']);
-
-//viewing the post information
-
-if(isset($_POST['view'])){
-     $_SESSION['wishlist_id'] = $_POST['post_id'];
-      header("location:../post/view.php");
-}
 
 //deleting the post from wishlist
 

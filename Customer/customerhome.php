@@ -2,10 +2,14 @@
 
 <link rel="stylesheet" href="../Customer/CSS/delivery.css">
 <?php 
+include"database/database.php";
 require "login/Auth.php";
-include 'includes/header.view.php';
+include 'includes/header.php';
 
 $uid  = $_SESSION['USER_DATA']['user_id'];
+if(!isset($user_ID)){
+    header('location:/leafy-main/customer/login/login.view.php');
+  };
 
 $count = 0;
 if(isset($_SESSION['cart'])){
@@ -82,8 +86,8 @@ $row  = mysqli_fetch_array($result);
 <ul>
 <li><div class  = "container "><a href="post/Vegetable.php?page=1" ><Button class = "btn">Vegetables & Fruits </Button></a><img src = "images/v.png" width = "200px" height = "300px" ></div></li>
 <li><div class  = "container "><a href="post/seed.php?page=1" ><Button class = "btn">Seeds </Button></a><img src = "images/s.png" width = "200px" height = "300px"></div></li>
-<li><div class  = "container "><a href="blog" ><Button class = "btn">Blog </Button></a><img src = "images/b.png" width = "200px" height = "300px"></div></li>
-<li><div class  = "container "><a href="courses" ><Button class = "btn">Courses </Button></a><img src = "images/c.png" width = "200px" height = "300px"></div></li>
+<li><div class  = "container "><a href="/leafy-main/instructor/Blog/theBlog.php" ><Button class = "btn">Blog </Button></a><img src = "images/b.png" width = "200px" height = "300px"></div></li>
+<li><div class  = "container "><a href="/leafy-main/instructor/course/theCourse.php" ><Button class = "btn">Courses </Button></a><img src = "images/c.png" width = "200px" height = "300px"></div></li>
 </ul>
 </div>
 

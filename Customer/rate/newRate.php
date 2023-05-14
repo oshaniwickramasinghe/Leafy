@@ -1,4 +1,11 @@
+<?php
+include "../login/Auth.php";
+$user_ID = $_SESSION['USER_DATA']['user_id'];
 
+if(!isset($user_ID)){
+  header('location:/leafy-main/customer/login/login.view.php');
+};
+?>
 <!DOCTYPE html>
 
 <head>

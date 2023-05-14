@@ -9,6 +9,9 @@ include '../includes/header.php';
 include "pagination.php";
 include "search.php";
 
+if(!isset($user_ID)){
+  header('location:/leafy-main/customer/login/login.view.php');
+};
 
 if(logged_in()){
 $uid  = $_SESSION['USER_DATA']['user_id'];

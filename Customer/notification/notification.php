@@ -5,6 +5,11 @@
 include "../login/Auth.php";
 include "../database/database.php";
 include '../includes/header.php';
+
+if(!isset($user_ID)){
+  header('location:/leafy-main/customer/login/login.view.php');
+};
+
 ?>
 
 

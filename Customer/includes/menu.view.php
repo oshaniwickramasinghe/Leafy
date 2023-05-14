@@ -35,7 +35,7 @@ $row  = mysqli_fetch_array($result);
                 <h3>Leafy</h3>
             </div>
             <ul>
-                <li><?php if($uid!=0){?><a href="/leafy-main/customercustomerhome.php"><?php }else{?> <a href="../home.view.php"><?php }?><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
+                <li><?php if($uid!=0){?><a href="/leafy-main/customer/customerhome.php"><?php }else{?> <a href="../home.view.php"><?php }?><i class="fa-solid fa-house"  style="font-size:16px;color:black;"></i>Home</a></li>
                 <li><a href="/leafy-main/customer/wishlist/wishlist.php"><i class="fa fa-list" aria-hidden="true" style="font-size:16px;color:black;"></i>Wishlist</a></li>
                 <li><a href="/leafy-main/customer/notification/notification.php"><i  class="fa fa-bell" aria-hidden="true"style="font-size:16px;color:black;"></i>Notifications <div class  = "count"><?php echo $row[0]?></div></a></li>
                 <li><a href="/leafy-main/customer/forum/forum.php"><i class="fa-solid fa-comments"  style="font-size:16px;color:black;"></i>Forum</a></li>

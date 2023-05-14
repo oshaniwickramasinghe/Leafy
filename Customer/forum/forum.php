@@ -9,6 +9,10 @@ include '../includes/header.php';
 $uid  = $_SESSION['USER_DATA']['user_id'];
 $role  = $_SESSION['USER_DATA']['role'];
 
+if(!isset($user_ID)){
+  header('location:/leafy-main/customer/login/login.view.php');
+};
+
 $sql  = "SELECT COUNT(*) FROM notification WHERE status = 0 && customer_id = $uid  ";
 $result = mysqli_query($conn,$sql);
 $row  = mysqli_fetch_array($result);
@@ -38,10 +42,15 @@ $row  = mysqli_fetch_array($result);
 <?php include '../includes/menu.view.php'?>
 </div>
 <?php  }else if($role  == "Agriculturalist"){?>
-  <?php   include '../../agriculturalist/include/agri_menu.view.php'?>
-<?php }else if($role  == "Instructor"){
+  <?php 
+    
+    include '../../agriculturalist/createpost_menu.php'?>
+<?php }else if($role  == "Instructor"){ ?>
+   <?php   include '../../instructor/includes/instructorMenu.php'?>
+<?php }else {?>
 
-}  ?>
+
+  <?php } ?>
 
 
 <div  class  =  "forum_body">

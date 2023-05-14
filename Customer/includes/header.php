@@ -1,6 +1,7 @@
 <?php
 
 $role = $_SESSION['USER_DATA']['role'];
+
 ?>
 
 <html>
@@ -15,14 +16,14 @@ $role = $_SESSION['USER_DATA']['role'];
         <div class="center_wrapper">
             <div class="left_part">
                 <div class="logo_1">
-                        <img src="../images/logo.svg"  height= "95.42px "  >
+                        <img src="/leafy-main/customer/images/logo.svg"  height= "95.42px "  >
 
                 </div>
                 <div class="menu">
                     <?php if($role == "customer"){?>
                     <ul>
                         <li>
-                            <a href="../customerhome.php" class="">Home</a>
+                            <a href="/leafy-main/customer/customerhome.php" class="">Home</a>
                         </li>
                         <li>
                             <a href="/leafy-main/instructor/Blog/theBlog.php" class="">Blogs</a>
@@ -45,11 +46,22 @@ $role = $_SESSION['USER_DATA']['role'];
                         </li>
                         
                     </ul> 
+                   <?php }else if($role == "Instructor"){?>
+                    <ul>
+                        <li>
+                            <a href="/leafy-main/instructor/dashboard/InsDashboard.php" class="">Home</a>
+                        </li>
+                        <li>
+                            <a href="/leafy-main/instructor/Blog/theBlog.php" class="">Blogs</a>
+                        </li>
+                        <li>
+                            <a href="/leafy-main/instructor/course/theCourse.php" class="">Courses</a>
+                        </li>
+                        
+                    </ul> 
 
+                    <?php } ?>
 
-
-
-                   <?php } ?>
                 </div>
             </div>
             
@@ -80,7 +92,14 @@ if(mysqli_num_rows($select)>0){
     $fetch= mysqli_fetch_assoc($select);
 }
 ?>  
-                            <img src="../images/profilepic_icon.svg"  >
+   <!-- fetch the profile image -->
+                            <?php
+                                if($fetch['image'] == ''){
+                                    echo '<img src="/leafy-main/customer/images/profilepic_icon.svg"  height= "21.42px">';
+                                }else{
+                                    echo '<img src="/leafy-main/instructor/images/'.$fetch['image'].'"   width= "60px" >';
+                                }
+                            ?>
                             <p><?php echo $fetch['fname']; ?></p>
                         </div>
                         <button onclick="toggleMenu()">
@@ -91,16 +110,16 @@ if(mysqli_num_rows($select)>0){
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                         <div class="user-info">
-                            <img src="../images/profilepic_icon.svg" alt=""  height= "100.42px">
+                            <img src="/leafy-main/customer/images/profilepic_icon.svg" alt=""  height= "100.42px">
                             <p><?php echo $fetch['fname']; ?></p>
                         </div>
                         <hr>
-                        <a href = "../../instructor/profile/InstructorProfile.php" class="sub-menu-link">
+                        <a href = "/leafy-main/instructor/profile/InstructorProfile.php" class="sub-menu-link">
                             <i class="fa-solid fa-circle-user" style="font-size:16px;color:#43562B;"></i>
                             <p>My Profile</p>
                             <span>></span>
                         </a>
-                        <a href = "../login/Logout.php" class="sub-menu-link">
+                        <a href = "/leafy-main/customer/login/Logout.php" class="sub-menu-link">
                             <i class="fa-solid fa-right-from-bracket" style="font-size:16px;color:#43562B;"></i>
                             <p>Logout</p>
                             <span>></span>
@@ -120,16 +139,14 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
             </div>
-
             <?php }else{ ?>
 
                 <div class="login">
-                <li><a href="../login/Login.view.php">Login</a></li>
+                <li><a href="/leafy-main/customer/login/Login.view.php">Login</a></li>
                 </div>
                 <div class  = "language">
             <a href="" class="">Languages (EN)</a>
             </div>
-
             <?php } ?>
 
            </ul>

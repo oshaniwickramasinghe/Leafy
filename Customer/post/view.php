@@ -8,6 +8,10 @@ require "../login/Auth.php";
 include "../database/database.php";
 include '../includes/header.php';
 
+if(!isset($user_ID)){
+    header('location:/leafy-main/customer/login/login.view.php');
+  };
+  
 //view items  selected item in the wishlist using this page
 $id  = $_SESSION['wishlist_id'];
 ?>

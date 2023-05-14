@@ -7,10 +7,11 @@ require "../login/Auth.php";
 require "cart.php";
 include '../includes/header.php';
 
-// unset($_SESSION['wishlist']);
-// unset($_SESSION['cart']);
+
 $uid = $_SESSION['USER_DATA']['user_id'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+   //update values in shopping cart
 if(isset($_POST['update'])){
  foreach($_SESSION['cart'] as $keys => $values)
           {
@@ -26,7 +27,7 @@ if(isset($_POST['update'])){
 }
 }
 
-
+  //  add item to shopping cart table
 foreach($_SESSION["cart"] as $keys => $values)
 {
 
@@ -39,6 +40,7 @@ foreach($_SESSION["cart"] as $keys => $values)
 
 }
 
+  //  delete the item from the shopping cart
 if(isset($_GET["delete"]))
 {
   $uid = $_SESSION['USER_DATA']['user_id'];
@@ -52,13 +54,9 @@ if(isset($_GET["delete"]))
                     $id = $values["post_id"] ;
                     $sql = "DELETE FROM `shopping_cart` WHERE customer_id  = $uid && post_id = $id";
                     $result  =  mysqli_query($sql , $conn);
-                  
-
-                   
                }
           }
      }
-  
 ?>
 
 
@@ -68,12 +66,10 @@ if(isset($_GET["delete"]))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          
+
     <title>Shopping cart</title>
-    
 </head>
 
 <body>
@@ -181,7 +177,7 @@ if(isset($_GET["delete"]))
       <input type = "number"  name = "quantity" style  = "width:50px" min = "<?= $res['minimum_quantity']?>"  max  = "<?= $res['quantity']?>" step=".1">
       <button class = "update" name = "update" style  = "width:50px">Add</button>
       </td>
-      
+
       <!-- getting the quantity input by the customer -->
       <td> <?php  echo $values['quantity'] ?>Kg</td>
       <td> Rs <input type = "text" value = "<?php  echo $values["price"] ?>"  name  ="price"  style = "width :65px; background-color:transparent; border-color:transparent;" readonly></td>
@@ -254,8 +250,7 @@ if(mysqli_num_rows($result)>0){
                     <h5>Quantity : <?php echo $row['quantity']?>kg </h5>
                     <h5 class = "text_danger">Price: Rs <?php echo $row['unit_price'];?> /kg</h5> 
                    </div>
-                <?php $id =$row["post_id"]
-                ;?>
+                <?php $id =$row["post_id"];?>
                   <input type = "hidden" name= "post_id" value = "<?php echo $id; ?>">
                   <input type= "submit" name= "add" class= "btn_1" value= "Add to cart" data-inline = "true"/>
                   <input type= "submit" name= "wishlist" class= "btn_1" value= "Add to wishlist" data-inline = "true"/>

@@ -54,26 +54,26 @@ $role  = $res['role'];
 						}
 
 
-    // if( !empty($r)){
+    if( !empty($r)){
 
-	//    $mail = new PHPMailer(true);
-	//    $mail->isSMTP();
-	//    $mail->Host = 'smtp.gmail.com';
-	//    $mail->SMTPAuth = true;
-	//    $mail->Username = 'leafy2022.2023@gmail.com'; // Your gmail
-	//    $mail->Password = 'ddycipvosmnrufhs'; // Your gmail app password
-	//    $mail->SMTPSecure ='ssl';
-	//    $mail->Port = 465;
-	//    $mail->setFrom('leafy2022.2023@gmail.com');
-	//    $mail->addAddress($email);
-	//    $mail->isHTML(true);
-	//    $mail->Subject = "Email verification";
-	//    $mail->Body    = 'Please click the below link to verify you email<b><br>
-	//    <a href = "http://localhost/Leafy-main/Customer/register/verify.php?code='.urldecode($code) .'">http://localhost/Leafy-mainl/Customer/register/verify.php?code = '.$code .'</a></b>';
+	   $mail = new PHPMailer(true);
+	   $mail->isSMTP();
+	   $mail->Host = 'smtp.gmail.com';
+	   $mail->SMTPAuth = true;
+	   $mail->Username = 'leafy2022.2023@gmail.com'; // Your gmail
+	   $mail->Password = 'ddycipvosmnrufhs'; // Your gmail app password
+	   $mail->SMTPSecure ='ssl';
+	   $mail->Port = 465;
+	   $mail->setFrom('leafy2022.2023@gmail.com');
+	   $mail->addAddress($email);
+	   $mail->isHTML(true);
+	   $mail->Subject = "Email verification";
+	   $mail->Body    = 'Please click the below link to verify you email<b><br>
+	   <a href = "http://localhost/Leafy-main/Customer/register/verify.php?code='.urldecode($code) .'">http://localhost/Leafy-mainl/Customer/register/verify.php?code = '.$code .'</a></b>';
 
-	// 	$mail->send();
-    //     header("Location:../register/message.view.php");
-    // }
+		$mail->send();
+        header("Location:../register/message.view.php");
+    }
 }
 
 

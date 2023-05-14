@@ -16,7 +16,9 @@ include '../includes/header.php';
         }
     
  $uid  =  $_SESSION['USER_DATA']['user_id'];
-   
+ if(!isset($user_ID)){
+  header('location:/leafy-main/customer/login/login.view.php');
+}; 
 
     
     // Perform filtering based on the dates
