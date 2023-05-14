@@ -50,26 +50,43 @@ $result2= mysqli_query($conn,$sql2);
     if(isset($_GET['delete']))
     {
         $blog_ID = $_GET['delete'];
-
-        /*$query1 = "SELECT image FROM instructor WHERE blog_ID=$blog_ID";
-        $stmt1 = mysqli_query($conn,$query1);
-        $result4 = mysqli_fetch_assoc($stmt1);
-        $imagepath = $result4['image'];
-
-        unlink($imagepath);*/
-
-        $query2 = "DELETE FROM blog WHERE blog_ID=$blog_ID";
+        $query2 = "DELETE FROM blog WHERE blog_id=$blog_ID";
         $stmt2 = mysqli_query($conn,$query2);
-        
 
-        
-        if($stmt2){
-            echo"<script>alert('Record Deleted from database')</script>";
+
+        if(mysqli_affected_rows($conn) > 0) {
+            echo "<script>alert('Record Deleted from database')</script>";
             ?>
             <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/blog/blog.php">
-        <?php
-        }else{
+            <?php
+        } else {
             echo "<script>alert('Failed to delete from database')</script>";
+            ?>
+            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/blog/blog.php">
+            <?php
+            
+        }
+        
+    }
+
+    if(isset($_GET['send']))
+    {
+        $blog_ID = $_GET['send'];
+      
+    
+        $query = "UPDATE blog SET submit = 1 WHERE blog_id=$blog_ID AND status='Complete'";
+        $result = mysqli_query($conn, $query);
+    
+        if(mysqli_affected_rows($conn) > 0) {
+            echo "<script>alert('Sending successful')</script>";
+            ?>
+            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/blog/blog.php">
+            <?php
+        } else {
+            echo "<script>alert('Sending fail!')</script>";
+            ?>
+            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/blog/blog.php">
+            <?php
         }
     }
 
@@ -113,6 +130,7 @@ $result2= mysqli_query($conn,$sql2);
                             <th>Topic</th>
                             <th>Created Date</th>
                             <th>Status</th>
+                            <th>Stage</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -127,32 +145,86 @@ $result2= mysqli_query($conn,$sql2);
                             <td><?php if(isset ($record1['topic'])){ echo $record1['topic'];} ?></td>
                             <td><?php if(isset ($record1['date'])){ echo $record1['date'];} ?></td>
                             <td><?php if(isset ($record1['status'])){ echo $record1['status'];} ?></td>
+                            <td><?php if(isset ($record1['submit']))
+                                             {if( $record1['submit']==0 && $record1['Verified']==0 )
+                                                {    
+                                                    echo 'Not send';
+                                                }else if($record1['submit']==1 && $record1['Verified']==1){ 
+                                                    echo 'Accept';
+                                                }else if($record1['submit']==1 && $record1['Verified']==2){
+                                                    echo 'Reject';
+
+                                                }else if($record1['submit']==1 && $record1['Verified']==0){
+                                                    echo 'Send';
+                                                }
+                                                    } ?>
+                            </td>
                             <td>
                             <div class="container_button">
                                 <a href="userblog.php?view_blog=<?= $record1['blog_id']; ?>" id="view"><i class="fa-solid fa-desktop" style="font-size:15px;color:#000000;"></i></a>
                                 <a href="create_blog.php?edit=<?= $record1['blog_id']; ?>"  id="edit" ><i class="fa-solid fa-pen-to-square" style="font-size:15px;color:#000000;"></i></a>
-                                <a href="#" id="delete" onclick="showModal(); return false;" ><i class="fa-solid fa-trash" style="font-size:15px;color:#ee6c41;"></i></a>
+                                <a href="#" id="delete" onclick="showModal_id01(); return false;" ><i class="fa-solid fa-trash" style="font-size:15px;color:#ee6c41;"></i></a>
+                                <a href="#" type="button" id="send" onclick="showModal_id02(); return false;" ><i class="fa-solid fa-paper-plane" style="font-size:15px; color:#000000;"></i></a>
                             </div>
-                                <div id="id01" class="modal" style="display: none;">
+                            <!--delete modal-->
+                                <div id="id01_<?= $record1['blog_id']; ?>" class="modal" style="display: none;">
                                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                                     <form class="modal-content" action="/action_page.php">
                                     <div class="container">
-                                        <h1>Delete this course</h1>
-                                        <p>Are you sure you want to delete the course?</p>
+                                        <h1>Delete this blog</h1>
+                                        <p>Are you sure you want to delete the blog?</p>
                                         <div class="clearfix">
-                                            <a href="course.php?delete=<?=$fetch['course_id']; ?>" type="button" class="deletebtn" onclick="deleteDetails();">Delete</a>
-                                            <button type="button" class="cancelbtn" onclick="hideModal();">Cancel</button>
+                                            <a href="blog.php?delete=<?=$record1['blog_id']; ?>" type="button" class="deletebtn">Delete</a>
+                                            <button type="button" class="cancelbtn" onclick="hideModal_id01();">Cancel</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                                  <!--send modal-->
+                                  <div id="id02_<?= $record1['blog_id']; ?>" class="modal" style="display: none;">
+                                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                    <form class="modal-content" action="/action_page.php">
+                                    <div class="container">
+                                        <h1>Send this blog to admin</h1>
+                                        <p>Are you sure you want to send the blog to admin?</p>
+                                        <div class="clearfix">
+                                            <a href="blog.php?send=<?=$record1['blog_id']; ?>" type="button" class="deletebtn">Send</a>
+                                            <button type="button" class="cancelbtn" onclick="hideModal_id02();">Cancel</button>
                                         </div>
                                     </div>
                                     </form>
                                 </div>
                             </td>
                         </tr>
+
+                        <script>
+                            function showModal_id01() {
+                                
+                                document.getElementById("id01_<?= $record1['blog_id']; ?>").style.display = "flex";
+                            }
+
+                            function hideModal_id01() {
+                                document.getElementById("id01_<?= $record1['blog_id']; ?>").style.display = "none";
+                            }
+
+                            function showModal_id02() {
+                                
+                                document.getElementById("id02_<?= $record1['blog_id']; ?>").style.display = "flex";
+                            }
+
+                            function hideModal_id02() {
+                                document.getElementById("id02_<?= $record1['blog_id']; ?>").style.display = "none";
+                            }
+
+                        </script>
+
+
+
                         <?php 
                         } else{
                         ?>
                         <tr>
-                            <td colspan="6">Your course list is empty</td>
+                            <td colspan="6">Your blog list is empty</td>
                         </tr>
                         <?php
                         }
@@ -175,19 +247,6 @@ $result2= mysqli_query($conn,$sql2);
            <?php include "../includes/footer.php";?>
     </footer>
 
-    <script>
-        function showModal() {
-            document.getElementById("id01").style.display = "flex";
-        }
-
-        function hideModal() {
-            document.getElementById("id01").style.display = "none";
-        }
-
-        function deleteDetails() {
-
-        hideModal();
-        }
-    </script>
+    
 </body>
 </html>

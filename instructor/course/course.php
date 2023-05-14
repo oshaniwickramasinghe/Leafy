@@ -71,29 +71,35 @@ $result2= mysqli_query($conn,$sql2);
     {
         $course_ID = $_GET['send'];
 
-        /*$query1 = "SELECT image FROM instructor WHERE blog_ID=$blog_ID";
-        $stmt1 = mysqli_query($conn,$query1);
-        $result4 = mysqli_fetch_assoc($stmt1);
-        $imagepath = $result4['image'];
+        $sql4   = "SELECT * FROM course_session WHERE course_id='$course_ID'";
 
-        unlink($imagepath);*/
+        $record = mysqli_query($conn,$sql4);
 
-        $query3 = "UPDATE course 
-                   SET submit=1
-                   WHERE course_id=$course_ID";
+        $num_rows=mysqli_num_rows($record);
 
-        $stmt3 = mysqli_query($conn,$query3);
-        
 
-        
-        if($stmt3){
-            echo"<script>alert('Course submit to admin')</script>";
-            ?>
-            <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
-        <?php
+        if($num_rows >= 4)
+        {
+            $query3 = "UPDATE course 
+                        SET submit=1
+                        WHERE course_id=$course_ID";
+
+            $stmt3 = mysqli_query($conn,$query3);
+
+            if($stmt3){
+                echo"<script>alert('Course submit to admin')</script>";
+                ?>
+                <META http-equiv="Refresh" content="5; URL=http://localhost/leafy/instructor/course/course.php">
+            <?php
+            }else{
+                echo "<script>alert('Failed to send course to admin')</script>";
+            }
         }else{
-            echo "<script>alert('Failed to send course to admin')</script>";
+
+            echo"<script>alert('This course not complete')</script>";
         }
+    
+       
     }
 
    
