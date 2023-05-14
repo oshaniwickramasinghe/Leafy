@@ -187,10 +187,12 @@ include '../includes/header.php';
                                                 <col width="50px">
                                                 <col width="50px">
                                                 <col width="50px">
+                                                <col width="50px">
                                                 <tr>
                                                 <td>UserID</td>
                                                 <td>First name</td>
                                                 <td>Role</td>
+                                                <td>Status</td>
                                                 </tr>
                                             </table>
                                         </a>
@@ -202,10 +204,22 @@ include '../includes/header.php';
                                                 <col width="50px">
                                                 <col width="50px">
                                                 <col width="50px">
+                                                <col width="50px">
                                                 <tr>
                                                 <td><?= $record3['user_id']?></td>
                                                 <td><?=$record3['fname']?></td>
                                                 <td><?=$record3['role']?></td>
+
+                                                    <?php if ($record3['approved']==2) {?>
+                                                        <td>Rejected</td>
+                                                    <?php } ?>
+                                                    <?php if ($record3['approved']==1) {?>
+                                                        <td>Accepted</td>
+                                                    <?php } ?>
+                                                    <?php if ($record3['approved']==0) {?>
+                                                        <td>Pending</td>
+                                                    <?php } ?>
+                                                    
                                                 </tr>
                                             </table>
                                         </a>
@@ -246,10 +260,12 @@ include '../includes/header.php';
                                                 <col width="50px">
                                                 <col width="50px">
                                                 <col width="50px">
+                                                <col width="50px">
                                                 <tr>
                                                 <td>BlogID</td>
                                                 <td>Blog Title</td>
                                                 <td>Date created</td>
+                                                <td>Status</td>
                                                 </tr>
                                             </table>
                                         </a>
@@ -261,10 +277,22 @@ include '../includes/header.php';
                                                 <col width="50px">
                                                 <col width="50px">
                                                 <col width="50px">
+                                                <col width="50px">
                                                 <tr>
                                                 <td><?= $record4['blog_id']?></td>
                                                 <td><?=$record4['title']?></td>
                                                 <td><?=$record4['date']?></td>
+
+                                                    <?php if ($record4['Verified']==2) {?>
+                                                        <td>Rejected</td>
+                                                    <?php } ?>
+                                                    <?php if ($record4['Verified']==1) {?>
+                                                        <td>Accepted</td>
+                                                    <?php } ?>
+                                                    <?php if ($record4['Verified']==0) {?>
+                                                        <td>Pending</td>
+                                                    <?php } ?>
+
                                                 </tr>
                                             </table>
                                         </a>
@@ -297,51 +325,65 @@ include '../includes/header.php';
                 	</span>
 
                 </form>
-			<br />
+			<br/>
 
                     <div class="main_card">
-                    <p>Courses</p>
-                    <div class="card_left">
-                        <ul>
-
-                            <li><a class="report">
-                            <table class="report">
+                        <p>Courses</p>
+                        <div class="card_left">
+                            <ul>
+                                <li>
+                                    <a class="report">
+                                        <table class="report">
                                             <col width="50px">
                                             <col width="50px">
                                             <col width="50px">
-                                <tr>
-                            <td>CoursesID </td><td> Courses Title</td>
-                                    </tr>
-                            </table>
-                            </a></li>                      
+                                            <tr>
+                                            <td>CoursesID </td>
+                                            <td> Courses Title</td>
+                                            <td>Status</td>
+                                            </tr>
+                                        </table>
+                                    </a>
+                                </li>                      
 
                             <?php while($record4=mysqli_fetch_assoc($querycourse)){?>
-                                <li><a class="report" href="../../instructor/course/userCourseContent.php?view_course=<?= $record4['course_id']; ?> ">
+                            <li>
+                                <a class="report" href="../../instructor/course/userCourseContent.php?view_course=<?= $record4['course_id']; ?> ">
                                     <table class="report">
-                                            <col width="50px">
-                                            <col width="50px">
-                                            <col width="50px">
+                                        <col width="50px">
+                                        <col width="50px">
+                                        <col width="50px">
                                         <tr>
-                                    <td><?= $record4['course_id']?> </td><td><?=$record4['title']?></td>
-                                    </tr>    
-                                </table>
-                            </a></li>
+                                        <td><?= $record4['course_id']?> </td>
+                                        <td><?=$record4['title']?></td>
+
+                                            <?php if ($record4['verified']==2) {?>
+                                                <td>Rejected</td>
+                                            <?php } ?>
+                                            <?php if ($record4['verified']==1) {?>
+                                                <td>Accepted</td>
+                                            <?php } ?>
+                                            <?php if ($record4['verified']==0) {?>
+                                                <td>Pending</td>
+                                            <?php } ?>
+                                        </tr>    
+                                    </table>
+                                </a>
+                            </li>
                             <?php }?>
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                     <div class="center">
-                    <h2>Courses created within last 12 months</h2>
-                    <div class="chartCard">
-                        <div class="chartBox">
-                        <?php include '../../admin/charts/course_report.php';?>
+                        <h2>Courses created within last 12 months</h2>
+                        <div class="chartCard">
+                            <div class="chartBox">
+                            <?php include '../../admin/charts/course_report.php';?>
+                            </div>
                         </div>
-                        </div>
-                    
+                    </div>
                 </div>
-            
-        </div>
 
                 <div class="container_right" id="view_more">
                     <div align="center">
