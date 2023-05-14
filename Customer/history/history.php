@@ -2,28 +2,56 @@
 <link rel="stylesheet" href="../CSS/delivery.css">
 
 <?php
-include "../Auth.php";
-include "../database.php";
+include "../database/database.php";
+include "../login/Auth.php";
 include '../includes/header.php';
 
-$uid  = $_SESSION['USER_DATA']['user_id'];
+    // Retrieve the start and end dates from the query parameters
+    if(isset($_GET['filter'])){
+      $start_date = $_GET['start_date'];
+      $end_date = $_GET['end_date'];
+        }else{
+          $start_date = date("Y-m-d");
+          $end_date= date("Y-m-d");
+        }
+    
+ $uid  =  $_SESSION['USER_DATA']['user_id'];
+ if(!isset($user_ID)){
+  header('location:/leafy-main/customer/login/login.view.php');
+}; 
 
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
+    
+    // Perform filtering based on the dates
+    // Assuming we have a table called 'items' with a 'date' column
+    ?>
+    
+    <!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>History</title>
+  <title>History</title>
 </head>
 <body>
-<div class="history_body">
+  
+ 
+
+    <div class="history_body">
  <form class  =  "history">
     <h2><i class="fa fa-cart-plus" aria-hidden="true"></i> Order History </h2> 
-<table>
+    <div class="filter">
+<form action="history.php" method="GET" class="form-inline">
+  <div class="history_filter">
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" id="start_date">
+
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" id="end_date">
+        <button type  = "submit"  name  = "filter">Filter</button>
+        
+      </div>
+    </form>
+  </div>
+
+    <table>
   
     <tr>
   
@@ -40,16 +68,16 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
     <?php
 
   // get order history of the customer from the database
-    $sql   = "SELECT * FROM deals WHERE customer_id  =$uid";
+  $sql = "SELECT * FROM deals WHERE (Date >= '$start_date' AND Date <= '$end_date')AND customer_id =  $uid";
     $result = mysqli_query($conn , $sql);
-
+   
     while($res = mysqli_fetch_array($result )){
         if($res['delivery'] ==1){
             $del  = "Delivery";
         }else{
             $del  = "Pick Up";
         }
-
+        
         $agriculturalist = $res['agriculturalist_id'];
         $query  = "SELECT fname ,lname FROM user WHERE user_id=$agriculturalist";
         $r = mysqli_query($conn ,   $query);
@@ -75,7 +103,7 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
     }
 ?>
 
-</table>
+</table><br>
  </form>
  <div class  = "backk">
 <a href  = "../customerhome.php" ><input type  = "submit" name  =  "back" value  =  "Back" ></a>
@@ -85,12 +113,12 @@ $uid  = $_SESSION['USER_DATA']['user_id'];
 </div>
    <!-- footer -->
 <div class="footer">
-<img src = "../images/Footer.svg"  height= "121.3px"  style = "margin-top:auto">
+<?php include "../includes/footer.php"; ?>
 </div>
 
+
+
+    
+    
 </body>
 </html>
-
-
-
-
